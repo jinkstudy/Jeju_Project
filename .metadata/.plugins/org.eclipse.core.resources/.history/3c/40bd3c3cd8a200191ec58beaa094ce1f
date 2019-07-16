@@ -1,0 +1,7 @@
+package com.jeju.dao;
+
+public class CommunityBoardVO {
+
+	String Comm_Mnum;
+	
+}

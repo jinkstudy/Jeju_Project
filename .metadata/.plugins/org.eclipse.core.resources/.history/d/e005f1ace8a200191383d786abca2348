@@ -1,0 +1,7 @@
+package com.jeju.service;
+
+import com.jeju.vo.MemberVO;
+
+public interface CommunityService_Interface {
+	
+}

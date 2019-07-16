@@ -1,0 +1,20 @@
+package com.jeju.domain;
+
+public class QnaCategoryVO {
+
+	private int QnA_Cate_Num;
+	private String QnA_Cate_Name;
+	
+	public QnaCategoryVO() {
+		
+	}
+	
+	public QnaCategoryVO(int qnA_Cate_Num, String qnA_Cate_Name) {
+		super();
+		QnA_Cate_Num = qnA_Cate_Num;
+		QnA_Cate_Name = qnA_Cate_Name;
+	}
+	
+	
+	
+}

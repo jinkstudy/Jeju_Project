@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta http-equiv='refresh' content='0; url=../../main.jsp'>
+
+</head>
+<body>
+<p><iframe name="logout_frm"
+           src="http://developers.kakao.com/logout" 
+           frameborder="0" 
+           width="1" 
+           height="1"></iframe></p>
+</body>
+</html>

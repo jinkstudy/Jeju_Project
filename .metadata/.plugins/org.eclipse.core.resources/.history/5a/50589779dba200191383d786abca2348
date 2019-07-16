@@ -1,0 +1,9 @@
+package com.jeju.domain;
+
+public class PickVO {
+	
+	private String ;
+	private String ;
+	private int ;	
+	
+}

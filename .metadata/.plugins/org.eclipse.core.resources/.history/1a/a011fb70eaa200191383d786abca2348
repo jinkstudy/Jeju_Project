@@ -1,0 +1,10 @@
+package com.jeju.service;
+
+import com.jeju.dao.SearchDaoImpl;
+import com.jeju.vo.MemberVO;
+
+public class SearchServiceImpl implements SearchService{
+
+	private SearchDaoImpl SearchDao;
+	
+}

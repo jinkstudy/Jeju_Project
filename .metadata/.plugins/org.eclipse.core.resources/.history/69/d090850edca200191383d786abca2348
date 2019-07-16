@@ -1,0 +1,24 @@
+package com.jeju.domain;
+
+public class PlaceVO {
+
+	private int Place_Num;
+	private String Place_Name;
+	private String Place_Det;
+	private int Middle_Num;
+	private String Image_Path;
+	private double Longi_Coord;
+	private double Lati_Coord;
+	private String Open_Time;
+	private String Close_Time;
+	private String Break_S_Time;
+	private String Break_F_Time;
+	private String Place_Tel;
+	private int Place_Price;
+	private String Close_day;
+	private int Tour_Hour;
+	private int Place_Opt_Num;
+	
+	
+	
+}

@@ -1,0 +1,13 @@
+package com.jeju.service;
+
+
+import org.springframework.stereotype.Service;
+
+import com.jeju.dao.CommunityDaoImpl;
+
+@Service("communityService")
+public class CommunityServiceImpl implements CommunityService{
+	
+	private CommunityDaoImpl CommunityDao;
+	
+}

@@ -1,0 +1,12 @@
+127.0.0.1 - - [10/Jul/2019:15:49:55 +0900] "GET / HTTP/1.1" 404 1115
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:49:56 +0900] "GET /basic/main.jsp HTTP/1.1" 200 1503
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:49:56 +0900] "GET /basic/resources/style/bootstrap-4.3.1.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:49:56 +0900] "GET /basic/resources/js/jeju_gyubeom.js HTTP/1.1" 200 990
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:49:56 +0900] "GET /basic/resources/style/jeju_gyubeom.css HTTP/1.1" 200 616
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:49:56 +0900] "GET /basic/resources/js/jquery-3.4.1.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:50:36 +0900] "GET /basic/resources/style/bootstrap.css.map HTTP/1.1" 404 1086
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:51:35 +0900] "GET /basic/main.jsp HTTP/1.1" 200 1593
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:15:51:38 +0900] "GET /basic/resources/style/bootstrap.css.map HTTP/1.1" 404 1086
+127.0.0.1 - - [10/Jul/2019:18:17:55 +0900] "GET / HTTP/1.1" 404 1115
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:18:17:56 +0900] "GET /basic/main.jsp HTTP/1.1" 200 1593
+0:0:0:0:0:0:0:1 - - [10/Jul/2019:18:17:56 +0900] "GET /basic/resources/style/jeju_gyubeom.css HTTP/1.1" 200 616

@@ -1,0 +1,7 @@
+package com.jeju.domain;
+
+public class CommunityBoardVO {
+	
+	private String Comm_Mnum;
+	
+}

@@ -1,0 +1,13 @@
+package com.jeju.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository("searchDao")
+public class SearchDaoImpl implements SearchDao{
+	
+	@Autowired
+	private SqlSessionTemplate mybatis;
+	
+}

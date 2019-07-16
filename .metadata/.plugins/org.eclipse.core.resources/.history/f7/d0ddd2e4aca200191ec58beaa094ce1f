@@ -1,0 +1,11 @@
+package com.jeju.service;
+
+import com.jeju.domain.MemberVO;
+
+public interface MemberService {
+	
+	//진경이꺼
+	public MemberVO idCheck_Login( MemberVO vo);
+	public int userInsert(MemberVO vo );
+
+}

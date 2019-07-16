@@ -1,0 +1,13 @@
+package com.jeju.service;
+
+
+import com.jeju.dao.MemberDaoImpl;
+import com.jeju.vo.MemberVO;
+
+
+public class QAServiceImpl implements QAService{
+
+
+	private QAServiceImpl QAService;
+	
+}

@@ -1,0 +1,11 @@
+package com.jeju.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository("CommunityDao")
+public class CommunityDaoImpl implements CommunityDao{
+	
+	private SqlSessionTemplate mybatis;
+	
+}

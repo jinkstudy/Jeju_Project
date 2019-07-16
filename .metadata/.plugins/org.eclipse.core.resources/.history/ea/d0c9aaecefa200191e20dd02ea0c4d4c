@@ -1,0 +1,11 @@
+package com.jeju.service;
+
+
+import com.jeju.dao.CommunityDaoImpl;
+
+
+public class CommunityServiceImpl implements CommunityService{
+	
+	private CommunityDaoImpl CommunityDao;
+	
+}

@@ -1,0 +1,10 @@
+package com.jeju.domain;
+
+public class QnaCategoryVO {
+
+	private int QnA_Cate_Num;
+	private String QnA_Cate_Name;
+	
+	
+	
+}

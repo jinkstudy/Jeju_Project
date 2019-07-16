@@ -1,0 +1,9 @@
+package com.jeju.service;
+
+import com.jeju.dao.QADaoImpl;
+
+public class QAServiceImpl implements QAService{
+
+	private QADaoImpl QADao;
+	
+}

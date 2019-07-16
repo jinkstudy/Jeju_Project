@@ -1,0 +1,10 @@
+package com.jeju.service;
+
+
+import com.jeju.dao.MemberDAOImpl;
+import com.jeju.vo.MemberVO;
+
+
+public class CommunityService implements CommunityService_Interface{
+	
+}

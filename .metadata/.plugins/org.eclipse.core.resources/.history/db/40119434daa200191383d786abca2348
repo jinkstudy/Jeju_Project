@@ -1,0 +1,27 @@
+package com.jeju.domain;
+
+public class CommunityBoardVO {
+	
+	private String Comm_Mnum;
+	private String Member_Id;
+	private String Comm_Title;
+	private String Comm_Content;
+	private String Comm_Date;
+	private int Comm_Cnt;
+	
+	
+	
+	public CommunityBoardVO(String comm_Mnum, String member_Id, String comm_Title, String comm_Content,
+			String comm_Date, int comm_Cnt) {
+		super();
+		Comm_Mnum = comm_Mnum;
+		Member_Id = member_Id;
+		Comm_Title = comm_Title;
+		Comm_Content = comm_Content;
+		Comm_Date = comm_Date;
+		Comm_Cnt = comm_Cnt;
+	}
+	
+	
+	
+}

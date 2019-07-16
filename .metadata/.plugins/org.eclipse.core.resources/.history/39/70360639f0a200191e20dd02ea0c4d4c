@@ -1,0 +1,9 @@
+package com.jeju.service;
+
+import com.jeju.dao.SharePrintDaoImpl;
+
+public class SharePrintServiceImpl implements SharePrintService{
+
+	private SharePrintDaoImpl SharePrintDAO;
+	
+}

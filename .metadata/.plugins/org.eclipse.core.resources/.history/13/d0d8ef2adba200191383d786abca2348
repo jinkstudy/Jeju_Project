@@ -1,0 +1,11 @@
+package com.jeju.domain;
+
+public class MiddleClassVO {
+
+	private int Middle_Num;
+	private String Middle_Name;
+	private int Major_Num;
+	
+	
+	
+}

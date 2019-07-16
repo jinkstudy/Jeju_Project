@@ -1,0 +1,35 @@
+package com.jeju.domain;
+
+public class ScheduleInputVO {
+
+	private String Sch_Input_Mnum;
+	private String Start_Date;
+	private String Finish_Date;
+	private String Member_Id;
+	private int Place_Opt_Num;
+	private int Speed_Opt_Num;
+	private String Middle_Class_List;
+	private String Confirm_Check;
+	private String Access_Date;
+	
+	public ScheduleInputVO() {
+		
+	}
+	
+	public ScheduleInputVO(String sch_Input_Mnum, String start_Date, String finish_Date, String member_Id,
+			int place_Opt_Num, int speed_Opt_Num, String middle_Class_List, String confirm_Check, String access_Date) {
+		super();
+		Sch_Input_Mnum = sch_Input_Mnum;
+		Start_Date = start_Date;
+		Finish_Date = finish_Date;
+		Member_Id = member_Id;
+		Place_Opt_Num = place_Opt_Num;
+		Speed_Opt_Num = speed_Opt_Num;
+		Middle_Class_List = middle_Class_List;
+		Confirm_Check = confirm_Check;
+		Access_Date = access_Date;
+	}
+	
+	
+	
+}

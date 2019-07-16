@@ -1,0 +1,9 @@
+package com.jeju.service;
+
+import com.jeju.dao.TourDaoImpl;
+
+public class TourServiceImpl implements TourService{
+
+	private TourDaoImpl TourDAO;
+	
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value=""/>
+		<list key="findhistory">
+			<item value="로그인"/>
+			<item value="brand"/>
+			<item value="nav-link"/>
+			<item value="nav"/>
+			<item value="nav-bar"/>
+			<item value="nav-bar brand"/>
+			<item value="rem"/>
+			<item value="나의 여행 페이지"/>
+			<item value="&lt;a class=&quot;nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger&quot; href=&quot;&quot;&gt;나의 여행 페이지&lt;/a&gt;"/>
+			<item value="btn-"/>
+			<item value="btn-xl"/>
+			<item value="./resources/imgs/food_category.png"/>
+			<item value="send"/>
+			<item value="footer_of_main"/>
+			<item value="avataaars.svg"/>
+		</list>
+		<list key="replacehistory">
+			<item value="/team4_jeju/resources/imgs/food_category.png"/>
+			<item value="#E9F1FF"/>
+			<item value="rgba(81, 141, 255,"/>
+			<item value="rgba(233, 241, 255,"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1588"/>
+		<item key="DIALOG_Y_ORIGIN" value="497"/>
+		<item key="DIALOG_WIDTH" value="340"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="965"/>
+		<item key="DIALOG_Y_ORIGIN" value="443"/>
+	</section>
+</section>

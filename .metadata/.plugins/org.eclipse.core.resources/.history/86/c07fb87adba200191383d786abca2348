@@ -1,0 +1,9 @@
+package com.jeju.domain;
+
+public class PickVO {
+	
+	private String Pick_Mnum;
+	private String Member_Id;
+	private int Place_Num;	
+	
+}

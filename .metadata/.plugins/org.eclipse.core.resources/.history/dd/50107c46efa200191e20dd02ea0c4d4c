@@ -1,0 +1,9 @@
+package com.jeju.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+
+public class SharePrintDaoImpl implements SharePrintDao{
+	
+	private SqlSessionTemplate mybatis;
+
+}

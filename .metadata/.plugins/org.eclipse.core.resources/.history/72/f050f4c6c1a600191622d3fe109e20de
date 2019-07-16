@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Encore Tours</title>
+
+<!-- 링크 순서 중요합니다. <<< 4조, 순서 지켜주세용 -->
+
+<link
+	href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700&display=swap&subset=korean"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean"
+	rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="./resources/style/jeju_gyubeom.css"
+	type="text/css">
+<link rel="stylesheet" href="./resources/style/main_gyubeom.css"
+	type="text/css">
+<link rel="stylesheet" href="./resources/style/fontawesome-all.css"
+	type="text/css">
+
+<script src="./resources/js/jquery-3.4.1.js"></script>
+<script src="./resources/js/bootstrap-4.3.1.js"></script>
+
+</head>
+<body>
+
+</body>
+</html>

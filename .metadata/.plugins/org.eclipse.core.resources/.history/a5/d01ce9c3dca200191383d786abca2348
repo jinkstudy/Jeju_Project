@@ -1,0 +1,17 @@
+package com.jeju.domain;
+
+public class ScheduleInputVO {
+
+	private String Sch_Input_Mnum;
+	private String Start_Date;
+	private String Finish_Date;
+	private String Member_Id;
+	private int Place_Opt_Num;
+	private int Speed_Opt_Num;
+	private String Middle_Class_List;
+	private String Confirm_Check;
+	private String Access_Date;
+	
+	
+	
+}

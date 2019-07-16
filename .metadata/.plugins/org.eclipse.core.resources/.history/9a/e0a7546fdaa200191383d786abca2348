@@ -1,0 +1,5 @@
+package com.jeju.domain;
+
+public class PlaceVO {
+
+}

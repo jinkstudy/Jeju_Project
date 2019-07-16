@@ -1,0 +1,15 @@
+package com.jeju.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jeju.dao.CommunityDaoImpl;
+
+@Service("communityService")
+public class CommunityServiceImpl implements CommunityService{
+	
+	@Autowired
+	private CommunityDaoImpl communityDao;
+	
+}

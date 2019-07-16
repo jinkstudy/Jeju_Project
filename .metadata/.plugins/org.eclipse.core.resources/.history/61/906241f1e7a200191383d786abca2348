@@ -1,0 +1,9 @@
+package com.jeju.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+
+public class QADaoImpl {
+	
+	private SqlSessionTemplate mybatis;
+	
+}

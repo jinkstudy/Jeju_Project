@@ -1,0 +1,10 @@
+package com.jeju.domain;
+
+public class MajorClassVO {
+
+	private int Major_Num;
+	private String Major_Name;
+	
+	
+	
+}

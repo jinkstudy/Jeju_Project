@@ -1,0 +1,5 @@
+package com.jeju.dao;
+
+public class SearchDao {
+
+}
