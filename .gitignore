@@ -25,3 +25,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+Servers/Pivotal tc Server Developer Edition v4.0-config/web.xml
+Servers/Pivotal tc Server Developer Edition v4.0-config/tomcat-users.xml
+Servers/Pivotal tc Server Developer Edition v4.0-config/server.xml
+Servers/Pivotal tc Server Developer Edition v4.0-config/jmxremote.password
+Servers/Pivotal tc Server Developer Edition v4.0-config/jmxremote.access
+Servers/Pivotal tc Server Developer Edition v4.0-config/context.xml
+Servers/Pivotal tc Server Developer Edition v4.0-config/catalina.properties
+Servers/Pivotal tc Server Developer Edition v4.0-config/catalina.policy
+Servers/.settings/org.eclipse.wst.server.core.prefs
