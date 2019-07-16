@@ -27,7 +27,9 @@
 		<div class="container d-flex align-items-center flex-column">
 
 			<!-- Masthead Avatar Image -->
-			<img class="masthead-avatar mb-5" src="" alt="">
+			<img class="masthead-avatar mb-5" 
+			     src="" 
+			     alt="">
 
 			<!-- Masthead Heading -->
 			<h1 class="masthead-heading text-uppercase mb-0">메인 문구 / 스케쥴러</h1>
