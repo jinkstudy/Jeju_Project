@@ -1,5 +1,0 @@
-package com.jeju.dao;
-
-public interface TourDao_Interface {
-
-}

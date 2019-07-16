@@ -1,7 +1,0 @@
-package com.jeju.service;
-
-import com.jeju.vo.MemberVO;
-
-public interface QAService {
-	
-}

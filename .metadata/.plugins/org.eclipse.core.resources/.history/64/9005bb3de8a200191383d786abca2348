@@ -1,7 +1,0 @@
-package com.jeju.dao;
-
-public class TourDaoImpl implements TourDao{
-
-	private SqlSessionTemplate mybatis;	
-	
-}

@@ -1,9 +1,0 @@
-package com.jeju.service;
-
-import com.jeju.dao.SearchDaoImpl;
-
-public class SearchServiceImpl implements SearchService{
-
-	private SearchDaoImpl SearchDao;
-	
-}

@@ -1,9 +1,0 @@
-package com.jeju.dao;
-
-import org.mybatis.spring.SqlSessionTemplate;
-
-public class PickDaoImpl implements PickDao{
-
-	private SqlSessionTemplate mybatis;
-	
-}

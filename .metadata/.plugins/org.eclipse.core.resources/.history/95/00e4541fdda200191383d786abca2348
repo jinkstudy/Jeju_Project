@@ -1,8 +1,0 @@
-package com.jeju.service;
-
-import com.jeju.domain.MemberVO;
-
-public interface PickService_Interface {
-	public MemberVO idCheck_Login( MemberVO vo);
-	public int userInsert(MemberVO vo);
-}

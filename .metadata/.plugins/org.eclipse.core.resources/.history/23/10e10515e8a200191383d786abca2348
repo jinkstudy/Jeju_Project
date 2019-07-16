@@ -1,7 +1,0 @@
-package com.jeju.dao;
-
-public class SearchDaoImpl implements SearchDao{
-
-	private SqlSessionTemplate mybatis;
-	
-}
