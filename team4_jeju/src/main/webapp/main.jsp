@@ -11,7 +11,6 @@
 
 <title>Encore Tours</title>
 
-
 </head>
 
 <body></body>
