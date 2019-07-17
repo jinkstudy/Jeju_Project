@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminSelMap">
+
+	<insert id="insertVisitJeju" parameterType="visitJeju">
+		INSERT INTO ADMIN_SEL(
+		ADMIN_SEL_ID
+		, ADMIN_SEL_TITLE
+		, ADMIN_SEL_LIKE
+		, ADMIN_SEL_TAGS
+		)
+		VALUES(
+		SEQ_ADMIN_SEL_ID
+		, #{ADMIN_SEL_TITLE}
+		, #{ADMIN_SEL_LIKE}
+		, #{ADMIN_SEL_TAGS}
+		)
+	</insert>
+
+</mapper>

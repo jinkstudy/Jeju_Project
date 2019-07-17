@@ -3,7 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+	
+	<!-- AdminSelVO Alias 설정 -->
+	<typeAliases>
+		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
+	</typeAliases>
 
 </configuration>
 
