@@ -13,10 +13,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class VisitJeju_GyuBeom {
 
-	public static void main(String[] args) {
-		VisitJeju_GyuBeom selTest = new VisitJeju_GyuBeom();
-		selTest.crawl();
-	}
+//	public static void main(String[] args) {
+//		//테스트
+//		VisitJeju_GyuBeom selTest = new VisitJeju_GyuBeom();
+//		selTest.crawl();
+//	}
 
 
 	//WebDriver
@@ -83,13 +84,13 @@ public class VisitJeju_GyuBeom {
 
 					//1. 타이틀 스트링
 					String s_title = list.get(i).getText();
-
+					
 					tag = driver.findElements(By.cssSelector("li:nth-child("+(i+1)+") p.item_tag.prev > a") );
 					like = driver.findElement(By.cssSelector("#content > div > div.cont_wrap > div.recommend_area > ul > li:nth-child("+(i+1)+") > dl > dd > a:nth-child(2) > p > span.count"));   
 
 					//2. 좋아요 숫자
 					int like_number = Integer.parseInt(like.getText().toString().replace(",", ""));
-
+					
 					for (int k = 0; k < tag.size(); k++) {
 						//3. 태그 스트링
 						s_tags += tag.get(k).getText();

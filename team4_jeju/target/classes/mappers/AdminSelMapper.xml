@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="adminSelMap">
 
-	<insert id="insertVisitJeju" parameterType="visitJeju">
+	<insert id="insertVisitJeju" parameterType="java.util.List">
 		INSERT INTO ADMIN_SEL(
 		ADMIN_SEL_ID
 		, ADMIN_SEL_TITLE
@@ -19,5 +19,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, #{ADMIN_SEL_TAGS}
 		)
 	</insert>
-
+	
+	<delete id="deleteVisitJeju">
+		DELETE FROM ADMIN_SEL;
+	</delete>
+	
 </mapper>

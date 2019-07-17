@@ -1,9 +1,10 @@
 package com.jeju.dao;
 
+import java.util.ArrayList;
 import com.jeju.vo.AdminSelVO;
 
 public interface AdminDao {
 	
-	void insertVisitJeju(AdminSelVO vo);
+	void insertVisitJeju(ArrayList<AdminSelVO> visitJejuArray);
 	
 }
