@@ -1,23 +1,26 @@
 package com.jeju.tour_method;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
 
-import com.jeju.vo.AdminSelVO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import com.jeju.vo.AdminSelVO;
+
 
 public class VisitJeju_GyuBeom {
 
-//	public static void main(String[] args) {
-//		//테스트
-//		VisitJeju_GyuBeom selTest = new VisitJeju_GyuBeom();
-//		selTest.crawl();
-//	}
+	public static void main(String[] args) {
+		//테스트
+		VisitJeju_GyuBeom selTest = new VisitJeju_GyuBeom();
+		selTest.crawl();
+	}
 
 
 	//WebDriver
@@ -51,12 +54,15 @@ public class VisitJeju_GyuBeom {
 
 	}
 
-	public ArrayList<AdminSelVO> crawl() {
+	public List<AdminSelVO> crawl() {
 		
 		AdminSelVO vo = null;
 		
-		//값을 전달할 ArrayList
-		ArrayList<AdminSelVO> visitJejuArray = new ArrayList<AdminSelVO>();
+		//ArrayList
+		List<AdminSelVO> visitJejuArray = new ArrayList<AdminSelVO>();
+		
+		//Map
+		Map<String, Object> map = new HashMap<String, Object>();
 		
 		try {
 
@@ -71,6 +77,7 @@ public class VisitJeju_GyuBeom {
 
 
 			for (int j = 0, h=0; j<=last_page_count; j++) {
+			//for (int j = 0, h=0; j<=0; j++) {
 
 				list = driver.findElements(By.className("s_tit"));
 
@@ -102,14 +109,14 @@ public class VisitJeju_GyuBeom {
 					vo.setAdmin_SEL_TAGS(s_tags);
 					
 					visitJejuArray.add(vo);
-					
-					System.out.print(visitJejuArray.size());
-					System.out.print(" | " + visitJejuArray.get(h-1).getAdmin_SEL_TITLE());
-					System.out.print(" | ");
-					System.out.print(visitJejuArray.get(h-1).getAdmin_SEL_LIKE());
-					System.out.print(" | ");
-					System.out.print(visitJejuArray.get(h-1).getAdmin_SEL_TAGS());
-					System.out.println(" /   ");
+										
+//					System.out.print(visitJejuArray.size());
+//					System.out.print(" | " + visitJejuArray.get(h-1).getAdmin_SEL_TITLE());
+//					System.out.print(" | ");
+//					System.out.print(visitJejuArray.get(h-1).getAdmin_SEL_LIKE());
+//					System.out.print(" | ");
+//					System.out.print(visitJejuArray.get(h-1).getAdmin_SEL_TAGS());
+//					System.out.println(" /   ");
 					
 				}
 				

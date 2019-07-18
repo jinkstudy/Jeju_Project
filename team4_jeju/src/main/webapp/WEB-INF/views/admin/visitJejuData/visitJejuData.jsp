@@ -34,16 +34,33 @@
 
 	<!-- Breadcrumbs-->
 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a
-			href="/team4_jeju/admin/admin.do">Admin</a></li>
+		<li class="breadcrumb-item active">
+			<a href="/team4_jeju/admin/admin.do">Admin</a></li>
 		<li class="breadcrumb-item active">Visit Jeju - 크롤링 작업 실행</li>
 	</ol>
 
 	<div>
-		<td colspan='2'><br />
-			<button type="submit" class="btn btn-encore_tours btn-lg"
-				id="sendMessageButton" onclick="location.href=''">Visit
-				Jeju - 크롤링 작업 실행 버튼</button></td>
+		<table style="text-align : center">
+			<tr>
+				<td><br />
+					<button type="submit" 
+					        class="btn btn-encore_tours btn-lg"
+						    id="sendMessageButton" 
+						    onclick="location.href='/team4_jeju/admin/visitJejuData/insertVisitJeju.do'">
+						    Visit Jeju - 크롤링 작업 실행 버튼</button>
+				</td>
+				<td>
+				&nbsp;&nbsp;
+				</td>
+				<td><br />
+					<button type="submit" 
+					        class="btn btn-encore_tours btn-lg"
+						    id="sendMessageButton" 
+						    onclick="location.href='/team4_jeju/admin/visitJejuData/selectVisitJeju.do'">
+						    DATA 리스트 SELECT 갱신</button>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<br />

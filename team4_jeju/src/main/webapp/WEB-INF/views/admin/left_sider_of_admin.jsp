@@ -37,7 +37,7 @@
 		</li>		
 		<li class="nav-item active">
 			<a class="nav-link" 
-			   href="/team4_jeju/admin/visitJejuData/visitJejuData.do"> 
+			   href="/team4_jeju/admin/visitJejuData/selectVisitJeju.do"> 
 				<i class="fas fa-database"></i> 
 				<span>Visit Jeju <br/>- 크롤링 작업 실행</span>
 			</a>
