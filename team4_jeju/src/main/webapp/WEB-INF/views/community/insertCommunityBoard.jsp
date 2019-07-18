@@ -52,25 +52,25 @@
 		
 		<div class="d-flex align-items-center justify-content-center">
 			<!-- 1. 폼태그에 속성 추가  -->
-		<form action="saveCommunityBoard.do" method="post" enctype="multipart/form-data"> <!-- 파일이 하나라도 포함된 상태로 넘기려면 이 형식을 반드시 지켜줘야한다. --> 
+		<form action="saveCommunityBoard.do" method="post">
 			<table class="no-style">
 				<!-- 2. 각 항목에  name 맞추기 -->
 				<tr>
 					<td width="70">제목</td>
-					<td align="left"><input type="text" name="Comm_Title"/></td>
+					<td align="left"><input type="text" name="comm_Title"/></td>
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td align="left"><input type="text" name="Member_Email"/></td>
+					<td align="left"><input type="text" name="member_Email"/></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td align="left"><textarea cols="40" rows="10" name="Comm_Content"></textarea></td>
+					<td align="left"><textarea cols="40" rows="10" name="comm_Content"></textarea></td>
 				</tr>
 				<!-- 추가항목 시작 -->
 				<tr>
 					<td>비밀번호</td>
-					<td align="left"><input type="text" name="Comm_Pass" />
+					<td align="left"><input type="text" name="comm_Pass" />
 					</td>
 				</tr>
 				<!-- 추가항목 끝 -->

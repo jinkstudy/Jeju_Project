@@ -12,6 +12,9 @@ public interface CommunityService {
 	//글 등록
 	void insertCommunityBoard(CommunityBoardVO vo);
 	//글 수정
+	void updateCommunityBoard(CommunityBoardVO vo);
 	//글 삭제
+	void deleteCommunityBoard(CommunityBoardVO vo);
 	//글 상세 조회
+	CommunityBoardVO getCommunityBoard(CommunityBoardVO vo);
 }

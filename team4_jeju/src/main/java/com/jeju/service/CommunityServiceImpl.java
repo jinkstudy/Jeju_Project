@@ -26,5 +26,16 @@ public class CommunityServiceImpl implements CommunityService{
 	public void insertCommunityBoard(CommunityBoardVO vo) {
 		communityDao.insertCommunityBoard(vo);
 	}
-	
+	//글 수정
+	public void updateCommunityBoard(CommunityBoardVO vo) {
+		communityDao.updateCommunityBoard(vo);
+	}
+	//글 삭제
+	public void deleteCommunityBoard(CommunityBoardVO vo) {
+		communityDao.deleteCommunityBoard(vo);
+	}
+	//글 상세조회
+	public CommunityBoardVO getCommunityBoard(CommunityBoardVO vo) {
+		return communityDao.getCommunityBoard(vo);
+	}
 }

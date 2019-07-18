@@ -140,7 +140,7 @@
 					   data-toggle="dropdown"
 					   aria-haspopup="true"
 					   aria-expanded="false"
-					   href="#">로그인
+					   href="/team4_jeju/member/login/login.do">로그인
 					<!-- <i class="fas fa-bell fa-fw jeju-user"></i> 
 					<span class="badge badge-danger">9+</span> -->
 					</a>
@@ -159,7 +159,7 @@
 					   data-toggle="dropdown"
 					   aria-haspopup="true"
 					   aria-expanded="false"
-					   href="#">회원 가입 
+					   href="/team4_jeju/member/userJoin/userJoin.do">회원 가입 
 					</a>					
 				</li>
 				<li class="nav-item dropdown no-arrow"><a

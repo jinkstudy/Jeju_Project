@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>글 상세 페이지</title>
 
 </head>
 <body>
@@ -48,41 +47,53 @@
 			<table class="table table-bordered table-hover"
 				   style="width: 350px; text-align: center;">
 				<tr>
-					<th colspan='2'>Community Board List</th>
+					<th colspan='2'>글 상세 페이지</th>
 				</tr>
 			</table>
 		</div>
 		
-		<div class="d-flex align-items-center justify-content-center">
-			<table class="no-style">
+		<div class="d-flex align-items-center justify-content-center">	
+		<hr>
+		<form action="updateCommunityBoard.do" method="post">
+		<input name="member_Email" type="hidden" value="${community.member_Email }"/>
+		<input name="comm_Mnum" type="hidden" value="${community.comm_Mnum }"/>
+			<table class="no-style" >
 				<tr>
-				<th width="100">번호</th>
-				<th width="200">제목</th>
-				<th width="150">작성자</th>
-				<th width="150">등록일</th>
-				<th width="100">조회수</th>
+					<td width="70">제목</td>
+					<td align="left"><input name="comm_Title" type="text"
+						value="${community.comm_Title }" /></td>
 				</tr>
-				<c:forEach items="${community}" var="community">
 				<tr>
-				<td>'${community.comm_Mnum }'</td>
-				<td align="left"><a href="getCommunityBoard.do?comm_Mnum=${community.comm_Mnum }">
-							${community.comm_Title }</a></td>
-				<td>${community.member_Email }</td>
-				<td>${community.comm_Date }</td>
-				<td>${community.comm_Cnt }</td>	
+					<td >작성자</td>
+					<td align="left">${community.member_Email }</td>
 				</tr>
-				</c:forEach>
-				
-			
-				
-				
+				<tr>
+					<td>내용</td>
+					<td align="left"><textarea name="comm_Content" cols="40" rows="10">${community.comm_Content }</textarea></td>
+				</tr>
+				<tr>
+					<td>등록일</td>
+					<td align="left">${community.comm_Date }</td>
+				</tr>
+				<tr>
+					<td>조회수</td>
+					<td align="left">${community.comm_Cnt }</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+					<input type="submit" value="글 수정" /></td>
+				</tr>
 			</table>
-
+		</form>
+		<hr>
+		<a href="insertCommunityBoard.do">글등록</a>&nbsp;&nbsp;&nbsp; 
+		<a href="deleteCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">글삭제</a>&nbsp;&nbsp;&nbsp;
+		<a href="getCommunityBoardList.do">글목록</a>
 		</div>
 	</div>
-		<br> <td align="center"><a href="insertCommunityBoard.do">새글 등록</a></td>
+			
 	</section>
-
+	
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
 
