@@ -44,7 +44,7 @@
 		</li>
 		<li class="nav-item active">
 			<a class="nav-link" 
-			   href="/team4_jeju/admin/apiData/apiData.do">
+			   href="/team4_jeju/admin/apiData/selectApiData.do">
 				<i class="fas fa-database"></i> 
 				<span>공공 API <br/>- 파싱 작업 실행</span>
 			</a>

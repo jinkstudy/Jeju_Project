@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.jeju.vo.AdminSelVO;
+import com.jeju.vo.PlaceNewVO;
 
 public interface AdminDao {
 	
@@ -11,4 +12,5 @@ public interface AdminDao {
 	
 	List<AdminSelVO> getVisitJejuArray();
 	
+	List<PlaceNewVO> getApiArray();
 }

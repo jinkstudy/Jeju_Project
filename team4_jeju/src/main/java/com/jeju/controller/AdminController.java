@@ -48,9 +48,19 @@ public class AdminController {
 		return mv;
 	}
 	
-	@RequestMapping(value="apiData/apiData.do")
-	public void apiData() {
-		
+	
+	
+	@RequestMapping(value="apiData/selectApiData.do")
+	public ModelAndView selectApiData() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("apiList"
+			         , adminService.getApiList());
+		//setViewName을 해주지 않으면 저하될 가능성 ↑
+		// 따라서 setViewName 지정해 줄 것
+		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
+		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
+		mv.setViewName("/admin/apiData/apiData");
+		return mv;
 	}
 	
 	@RequestMapping(value="placeJoin/placeJoin.do")

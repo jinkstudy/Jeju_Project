@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.jeju.dao.AdminDaoImpl;
 import com.jeju.tour_method.VisitJeju_GyuBeom;
 import com.jeju.vo.AdminSelVO;
+import com.jeju.vo.PlaceNewVO;
 
 //객체 변수명 첫 글자 소문자 주의
 @Service("adminService")
@@ -25,6 +26,10 @@ public class AdminServiceImpl implements AdminService{
 	public List<AdminSelVO> getVisitJejuArray() {
 		return adminDao.getVisitJejuArray();
 	};
+	
+	public List<PlaceNewVO> getApiList(){
+		return adminDao.getApiArray();
+	}
 }
 
 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="getAPI">
+	
+	<resultMap id="ApiMap" type="getApiVO">
+		<id property="place_Num" column="PLACE_NUM" />
+		<result property="place_Id" column="PLACE_ID" />
+		<result property="place_Name" column="PLACE_NAME" />
+		<result property="middle_Num" column="MIDDLE_NUM" />
+		<result property="image_Path" column="IMAGE_PATH" />
+		<result property="longi_Coord" column="LONGI_COORD" />
+		<result property="lati_Coord" column="LATI_COORD" />
+		<result property="place_Tel" column="PLACE_TEL" />
+		<result property="place_Addr" column="PLACE_ADDR" />
+		<result property="close_Day" column="CLOSE_DAY" />
+		<result property="open_Time" column="OPEN_TIME" />
+		<result property="close_Time" column="CLOSE_TIME" />
+		<result property="use_Time" column="USE_TIME" />
+		<result property="tour_Hour" column="TOUR_HOUR" />
+		<result property="place_Det" column="PLACE_DET" />
+		<result property="place_Price" column="PLACE_PRICE" />
+		<result property="info_Center" column="INFO_CENTER" />
+		<result property="open_Date" column="OPEN_DATE" />
+		<result property="use_Season" column="USE_SEASON" />
+		<result property="event_S_Date" column="EVENT_S_DATE" />
+		<result property="event_E_Date" column="EVENT_E_DATE" />
+		<result property="event_Homepage" column="EVENT_HOMEPAGE" />
+		<result property="event_Place" column="EVENT_PLACE" />
+		<result property="play_Time" column="PLAY_TIME" />
+		<result property="place_Opt_Num" column="PLACE_OPT_NUM" />
+	</resultMap>
+	
+	<select id="selectApiListAll" resultMap="ApiMap">
+		<![CDATA[
+		SELECT * FROM PLACE ORDER BY PLACE_NUM DESC
+		]]>
+	</select>
+	
+	<insert id="insertApiList" parameterType="getApiVO">
+		insert into PLACE
+		(
+		PLACE_NUM
+		,PLACE_ID
+		,PLACE_NAME
+		,MIDDLE_NUM
+		,IMAGE_PATH
+		,LONGI_COORD
+		,LATI_COORD
+		,PLACE_TEL
+		,PLACE_ADDR
+		,CLOSE_DAY
+		,OPEN_TIME
+		,CLOSE_TIME
+		,USE_TIME
+		,TOUR_HOUR
+		,PLACE_DET
+		,PLACE_PRICE
+		,INFO_CENTER
+		,OPEN_DATE
+		,USE_SEASON
+		,EVENT_S_DATE
+		,EVENT_E_DATE
+		,EVENT_HOMEPAGE
+		,EVENT_PLACE
+		,PLAY_TIME
+		,PLACE_OPT_NUM
+		)
+		values
+		(
+		PLACE_NUM_SEQ.nextval
+		, #{place_Id}
+		, #{place_Name}
+		, #{middle_Num}
+		, #{image_Path}
+		, #{longi_Coord}
+		, #{lati_Coord}
+		, #{place_Tel}
+		, #{place_Addr}
+		, #{close_Day}
+		, #{open_Time}
+		, #{close_Time}
+		, #{use_Time}
+		, #{tour_Hour}
+		, #{place_Det}
+		, #{place_Price}
+		, #{info_Center}
+		, #{open_Date}
+		, #{use_Season}
+		, #{event_S_Date}
+		, #{event_E_Date}
+		, #{event_Homepage}
+		, #{event_Place}
+		, #{play_Time}
+		, #{place_Opt_Num}
+		)
+	</insert>
+	
+	<delete id="deleteApiListAll">
+		<![CDATA[
+		DELETE FROM PLACE
+		]]>
+	</delete>
+	
+</mapper>

@@ -7,6 +7,7 @@
 	<!-- AdminSelVO Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
+		<typeAlias alias="getApiVO" type="com.jeju.vo.PlaceNewVO" />
 	</typeAliases>
 
 </configuration>

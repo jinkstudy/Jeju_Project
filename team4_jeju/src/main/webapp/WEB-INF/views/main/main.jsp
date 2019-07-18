@@ -70,17 +70,22 @@
 			
 			<!-- Test : Portfolio row Grid Items -->
 			<div class="d-flex align-items-center justify-content-center">
-				<div class="col-md-auto">
+				
+				<!-- 핫플레이스 TOP 50 -->
+				<div class="col-md-auto"
+				     onclick="location.href=''">
 					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
 						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white"></div>
+							<div class="portfolio-item-caption-content text-center text-white">
+							</div>
 						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png"
-							 width="400"
-							 height="200"
-							 alt="" />
+							<img src="/team4_jeju/resources/imgs/food_category.png"
+								 width="400"
+								 height="200"
+								 alt="" />
 					</div>
 				</div>
+				
 				<div class="col-md-auto">
 					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
 						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -101,7 +106,8 @@
 				<div class="col-md-auto">
 					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
 						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white"></div>
+							<div class="portfolio-item-caption-content text-center text-white">
+							</div>
 						</div>
 						<img src="/team4_jeju/resources/imgs/food_category.png" 
 							 width="400"

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -39,13 +41,27 @@
         
         
         <div>
-        	<td colspan='2'>
-						<br/>
-						<button type="submit" class="btn btn-encore_tours btn-lg"
-						id="sendMessageButton"
-						onclick="location.href=''">
-						Visit Jeju - 크롤링 작업 실행 버튼</button>
-					</td>
+        	<table style="text-align : center">
+			<tr>
+				<td><br />
+					<button type="submit" 
+					        class="btn btn-encore_tours btn-lg"
+						    id="sendMessageButton" 
+						    onclick="location.href=''">
+						       공공 API - 파싱 작업 실행</button>
+				</td>
+				<td>
+				&nbsp;&nbsp;
+				</td>
+				<td><br />
+					<button type="submit" 
+					        class="btn btn-encore_tours btn-lg"
+						    id="sendMessageButton" 
+						    onclick="location.href='/team4_jeju/admin/apiData/apiData.do'">
+						       공공 API DATA 리스트 - SELECT 갱신</button>
+				</td>
+			</tr>
+		</table>
         </div>
         
         
@@ -58,21 +74,65 @@
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                  </tr>
-                </tbody>
+					<tr>						
+						<th>place_Num</th>
+						<th>place_Id</th>
+						<th>place_Name</th>
+						<th>middle_Num</th>
+						<th>image_Path</th>
+						<th>longi_Coord</th>
+						<th>lati_Coord</th>
+						<th>place_Tel</th>
+						<th>place_Addr</th>
+						<th>close_Day</th>
+						<th>open_Time</th>
+						<th>close_Time</th>
+						<th>use_Time</th>
+						<th>tour_Hour</th>
+						<th>place_Det</th>
+						<th>place_Price</th>
+						<th>info_Center</th>
+						<th>open_Date</th>
+						<th>use_Season</th>
+						<th>event_S_Date</th>
+						<th>event_E_Date</th>
+						<th>event_Homepage</th>
+						<th>event_Place</th>
+						<th>play_Time</th>
+						<th>place_Opt_Num</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${apiList}" var="api">
+						<tr>
+							<td>${api.place_Num}</td>
+							<td>${api.place_Id}</td>
+							<td>${api.place_Name}</td>
+							<td>${api.middle_Num}</td>
+							<td>${api.image_Path}</td>
+							<td>${api.longi_Coord}</td>
+							<td>${api.lati_Coord}</td>
+							<td>${api.place_Tel}</td>
+							<td>${api.place_Addr}</td>
+							<td>${api.close_Day}</td>
+							<td>${api.open_Time}</td>
+							<td>${api.close_Time}</td>
+							<td>${api.use_Time}</td>
+							<td>${api.tour_Hour}</td>
+							<td>${api.place_Det}</td>
+							<td>${api.place_Price}</td>
+							<td>${api.info_Center}</td>
+							<td>${api.open_Date}</td>
+							<td>${api.use_Season}</td>
+							<td>${api.event_S_Date}</td>
+							<td>${api.event_E_Date}</td>
+							<td>${api.event_Homepage}</td>
+							<td>${api.event_Place}</td>
+							<td>${api.play_Time}</td>
+							<td>${api.place_Opt_Num}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
                 
                 <!-- <tfoot>
                   <tr>

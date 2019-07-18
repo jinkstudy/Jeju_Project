@@ -95,7 +95,7 @@
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">
 							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-							   href="">엔코아 커뮤니티
+							   href="/team4_jeju/community/getCommunityBoardList.do">엔코아 커뮤니티
 							</a>
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">

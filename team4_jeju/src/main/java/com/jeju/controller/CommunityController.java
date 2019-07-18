@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/community")
 public class CommunityController {
 	
-	@RequestMapping(value=""
-	                , produces="application/text; charset=UTF-8")
+	/*
+	 * @RequestMapping(value="" , produces="application/text; charset=UTF-8")
+	 */
+	
+	@RequestMapping(value="getCommunityBoardList.do")
 	public void blablabla() {
 		
 	}
