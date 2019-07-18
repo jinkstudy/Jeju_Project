@@ -7,6 +7,8 @@
 	<!-- AdminSelVO Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
+		<!-- pick alias 설정(별칭) -->
+		<typeAlias type="com.jeju.vo.PickVO" alias='pick'/>
 	</typeAliases>
 
 </configuration>
