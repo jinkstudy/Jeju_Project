@@ -5,7 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="communityMap">
 
+<select id="getCommunityBoardList" resultType="community">
+		<![CDATA[
+		SELECT * FROM COMMUNITY_BOARD ORDER BY MEMBER_EMAIL DESC
+		]]>
+</select>
 
-
+<insert id="insertCommunityBoard" parameterType="community">
+ INSERT INTO COMMUNITY_BOARD
+ (Comm_Mnum,Member_Email,Comm_Title,Comm_Content,Comm_Date,Comm_Cnt,Comm_Pass)
+ VALUES
+ (COMM_MNUM_SEQ.NEXTVAL,#{Member_Email},#{Comm_Title},#{Comm_Content},
+ SYSDATE,0,#{Comm_Pass})
+</insert>
 
 </mapper>
