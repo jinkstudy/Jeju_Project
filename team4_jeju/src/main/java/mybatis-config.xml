@@ -8,7 +8,9 @@
 	<typeAliases>
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
 		<!-- pick alias 설정(별칭) -->
-		<typeAlias type="com.jeju.vo.PickVO" alias='pick'/>
+		<typeAlias alias='pick' type="com.jeju.vo.PickVO" />
+		<!-- communityBoard alias 설정 -->
+	<typeAlias  alias="community" type="com.jeju.vo.CommunityBoardVO"/>
 	</typeAliases>
 
 </configuration>
