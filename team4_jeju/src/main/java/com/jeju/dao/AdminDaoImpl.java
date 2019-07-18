@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import com.jeju.vo.AdminSelVO;
+import java.util.List;
 
 //객체 변수명 첫 글자 소문자 주의
 @Repository("adminDao")
@@ -18,6 +19,10 @@ public class AdminDaoImpl implements TourSchDao{
 		mybatis.delete("adminSelMap.deleteVisitJeju");
 		System.out.println("insertVisitJeju 메소드 호출");
 		mybatis.insert("adminSelMap.insertVisitJeju", visitJejuArray);
+	}
+	
+	public List<AdminSelVO> getVisitJejuArray(){
+		return mybatis.selectList("adminSelMap.selectVisitJeju");
 	}
 	
 }

@@ -27,8 +27,8 @@
 		<div class="container d-flex align-items-center flex-column">
 
 			<!-- Masthead Avatar Image -->
-			<img class="masthead-avatar mb-5" 
-			     src="" 
+			<img class="masthead-avatar mb-5"
+			     src="/team4_jeju/resources/imgs/Seong_San.png"
 			     alt="">
 
 			<!-- Masthead Heading -->
@@ -323,6 +323,12 @@
 			</div>
 
 		</div>
+		
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top">
+		  <i class="fas fa-angle-up"></i>
+		</a>
+		
 	</section>
 	
 	<jsp:include page="./footer_of_main.jsp"></jsp:include>

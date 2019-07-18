@@ -5,23 +5,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="adminSelMap">
 
+	<resultMap id="getVisitJejuResult" type="visitJeju">
+		<id property="admin_SEL_ID" column="ADMIN_SEL_ID" />
+		<result property="admin_SEL_TITLE" column="ADMIN_SEL_TITLE" />
+		<result property="admin_SEL_LIKE" column="ADMIN_SEL_LIKE" />
+		<result property="admin_SEL_TAGS" column="ADMIN_SEL_TAGS" />
+	</resultMap>
+
 	<insert id="insertVisitJeju" parameterType="java.util.List">
-		INSERT INTO ADMIN_SEL(
-		ADMIN_SEL_ID
-		, ADMIN_SEL_TITLE
-		, ADMIN_SEL_LIKE
-		, ADMIN_SEL_TAGS
-		)
-		VALUES(
-		SEQ_ADMIN_SEL_ID
-		, #{ADMIN_SEL_TITLE}
-		, #{ADMIN_SEL_LIKE}
-		, #{ADMIN_SEL_TAGS}
-		)
+			INSERT INTO ADMIN_SEL(
+			ADMIN_SEL_ID
+			, ADMIN_SEL_TITLE
+			, ADMIN_SEL_LIKE
+			, ADMIN_SEL_TAGS
+			)
+			VALUES
+		<foreach item="item" index="index" collection="list">
+			<if test="index > 0" > , </if>
+			(SEQ_ADMIN_SEL_ID
+			, #{ADMIN_SEL_TITLE}
+			, #{ADMIN_SEL_LIKE}
+			, #{ADMIN_SEL_TAGS}
+			)
+		</foreach>
 	</insert>
 	
 	<delete id="deleteVisitJeju">
 		DELETE FROM ADMIN_SEL;
 	</delete>
+	
+	<select id="selectVisitJeju" resultMap="getVisitJejuResult">
+		<![CDATA[
+		SELECT * FROM ADMIN_SEL ORDER BY ADMIN_SEL_ID DESC
+		]]>
+	</select>
 	
 </mapper>

@@ -44,7 +44,7 @@
 	  	<url-pattern>/*</url-pattern>
 	  </filter-mapping>
 	  
-	  <!-- include 디렉티브 -->
+	  <!-- include 디렉티브 당분간 사용 금지 -->
 	  <!-- <jsp-config>
 	  	<jsp-property-group>
 	  		<url-pattern>*.jsp</url-pattern>

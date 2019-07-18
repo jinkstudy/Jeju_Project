@@ -2,54 +2,56 @@ package com.jeju.vo;
 
 public class AdminSelVO {
 	
-	private int ADMIN_SEL_ID;
-	private String ADMIN_SEL_TITLE;
-	private int ADMIN_SEL_LIKE;
-	private String ADMIN_SEL_TAGS;
+	private int admin_SEL_ID;
+	private String admin_SEL_TITLE;
+	private int admin_SEL_LIKE;
+	private String admin_SEL_TAGS;
 	
 	public AdminSelVO() {
 		
 	}
-	
-	public AdminSelVO(int aDMIN_SEL_ID, String aDMIN_SEL_TITLE, int aDMIN_SEL_LIKE, String aDMIN_SEL_TAGS) {
+
+	public AdminSelVO(int admin_SEL_ID, String admin_SEL_TITLE, int admin_SEL_LIKE, String admin_SEL_TAGS) {
 		super();
-		ADMIN_SEL_ID = aDMIN_SEL_ID;
-		ADMIN_SEL_TITLE = aDMIN_SEL_TITLE;
-		ADMIN_SEL_LIKE = aDMIN_SEL_LIKE;
-		ADMIN_SEL_TAGS = aDMIN_SEL_TAGS;
+		this.admin_SEL_ID = admin_SEL_ID;
+		this.admin_SEL_TITLE = admin_SEL_TITLE;
+		this.admin_SEL_LIKE = admin_SEL_LIKE;
+		this.admin_SEL_TAGS = admin_SEL_TAGS;
 	}
 
-	public int getADMIN_SEL_ID() {
-		return ADMIN_SEL_ID;
+	public int getAdmin_SEL_ID() {
+		return admin_SEL_ID;
 	}
 
-	public void setADMIN_SEL_ID(int aDMIN_SEL_ID) {
-		ADMIN_SEL_ID = aDMIN_SEL_ID;
+	public void setAdmin_SEL_ID(int admin_SEL_ID) {
+		this.admin_SEL_ID = admin_SEL_ID;
 	}
 
-	public String getADMIN_SEL_TITLE() {
-		return ADMIN_SEL_TITLE;
+	public String getAdmin_SEL_TITLE() {
+		return admin_SEL_TITLE;
 	}
 
-	public void setADMIN_SEL_TITLE(String aDMIN_SEL_TITLE) {
-		ADMIN_SEL_TITLE = aDMIN_SEL_TITLE;
+	public void setAdmin_SEL_TITLE(String admin_SEL_TITLE) {
+		this.admin_SEL_TITLE = admin_SEL_TITLE;
 	}
 
-	public int getADMIN_SEL_LIKE() {
-		return ADMIN_SEL_LIKE;
+	public int getAdmin_SEL_LIKE() {
+		return admin_SEL_LIKE;
 	}
 
-	public void setADMIN_SEL_LIKE(int aDMIN_SEL_LIKE) {
-		ADMIN_SEL_LIKE = aDMIN_SEL_LIKE;
+	public void setAdmin_SEL_LIKE(int admin_SEL_LIKE) {
+		this.admin_SEL_LIKE = admin_SEL_LIKE;
 	}
 
-	public String getADMIN_SEL_TAGS() {
-		return ADMIN_SEL_TAGS;
+	public String getAdmin_SEL_TAGS() {
+		return admin_SEL_TAGS;
 	}
 
-	public void setADMIN_SEL_TAGS(String aDMIN_SEL_TAGS) {
-		ADMIN_SEL_TAGS = aDMIN_SEL_TAGS;
+	public void setAdmin_SEL_TAGS(String admin_SEL_TAGS) {
+		this.admin_SEL_TAGS = admin_SEL_TAGS;
 	}
+	
+	
 	
 	
 }

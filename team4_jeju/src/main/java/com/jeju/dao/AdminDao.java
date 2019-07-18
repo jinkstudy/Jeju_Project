@@ -7,4 +7,6 @@ public interface AdminDao {
 	
 	void insertVisitJeju(ArrayList<AdminSelVO> visitJejuArray);
 	
+	ArrayList<AdminSelVO> getVisitJejuArray();
+	
 }

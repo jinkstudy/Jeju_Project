@@ -97,18 +97,18 @@ public class VisitJeju_GyuBeom {
 
 					}	
 					
-					vo.setADMIN_SEL_TITLE(s_title);
-					vo.setADMIN_SEL_LIKE(like_number);
-					vo.setADMIN_SEL_TAGS(s_tags);
+					vo.setAdmin_SEL_TITLE(s_title);
+					vo.setAdmin_SEL_LIKE(like_number);
+					vo.setAdmin_SEL_TAGS(s_tags);
 					
 					visitJejuArray.add(vo);
 					
 					System.out.print(visitJejuArray.size());
-					System.out.print(" | " + visitJejuArray.get(h-1).getADMIN_SEL_TITLE());
+					System.out.print(" | " + visitJejuArray.get(h-1).getAdmin_SEL_TITLE());
 					System.out.print(" | ");
-					System.out.print(visitJejuArray.get(h-1).getADMIN_SEL_LIKE());
+					System.out.print(visitJejuArray.get(h-1).getAdmin_SEL_LIKE());
 					System.out.print(" | ");
-					System.out.print(visitJejuArray.get(h-1).getADMIN_SEL_TAGS());
+					System.out.print(visitJejuArray.get(h-1).getAdmin_SEL_TAGS());
 					System.out.println(" /   ");
 					
 				}
