@@ -9,5 +9,10 @@
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
 	</typeAliases>
 
+<!-- pick alias 설정(별칭) -->
+<typeAliases>
+	<typeAlias type="com.jeju.vo.PickVO" alias='pick'/>
+</typeAliases>
+
 </configuration>
 
