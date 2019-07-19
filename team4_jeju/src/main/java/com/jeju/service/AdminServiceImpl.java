@@ -1,11 +1,12 @@
 package com.jeju.service;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeju.dao.AdminDaoImpl;
+import com.jeju.tour_method.GetAPI;
 import com.jeju.tour_method.VisitJeju_GyuBeom;
 import com.jeju.vo.AdminSelVO;
 import com.jeju.vo.PlaceNewVO;
@@ -25,6 +26,11 @@ public class AdminServiceImpl implements AdminService{
 	
 	public List<AdminSelVO> getVisitJejuArray() {
 		return adminDao.getVisitJejuArray();
+	};
+	
+	public void insertApiList() {
+		GetAPI vj = new GetAPI();
+		adminDao.insertApiList(vj.parce());
 	};
 	
 	public List<PlaceNewVO> getApiList(){

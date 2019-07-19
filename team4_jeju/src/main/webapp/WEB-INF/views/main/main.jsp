@@ -77,6 +77,7 @@
 					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
 						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
 							<div class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
 							</div>
 						</div>
 							<img src="/team4_jeju/resources/imgs/food_category.png"

@@ -29,8 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="event_E_Date" column="EVENT_E_DATE" />
 		<result property="event_Homepage" column="EVENT_HOMEPAGE" />
 		<result property="event_Place" column="EVENT_PLACE" />
-		<result property="play_Time" column="PLAY_TIME" />
-		<result property="place_Opt_Num" column="PLACE_OPT_NUM" />
+		<result property="play_Time" column="PLAY_TIME" />		
 	</resultMap>
 	
 	<select id="selectApiListAll" resultMap="ApiMap">
@@ -66,7 +65,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		,EVENT_HOMEPAGE
 		,EVENT_PLACE
 		,PLAY_TIME
-		,PLACE_OPT_NUM
 		)
 		values
 		(
@@ -80,22 +78,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, #{place_Tel}
 		, #{place_Addr}
 		, #{close_Day}
-		, #{open_Time}
-		, #{close_Time}
+		, '08:00'
+		, '18:00'
 		, #{use_Time}
 		, #{tour_Hour}
 		, #{place_Det}
-		, #{place_Price}
+		, '0'
 		, #{info_Center}
-		, #{open_Date}
-		, #{use_Season}
-		, #{event_S_Date}
-		, #{event_E_Date}
-		, #{event_Homepage}
-		, #{event_Place}
-		, #{play_Time}
-		, #{place_Opt_Num}
-		)
+		, '0'
+		, '0'
+		, SYSDATE
+		, SYSDATE
+		, '0'
+		, '0'
+		, '0'
+		) 
 	</insert>
 	
 	<delete id="deleteApiListAll">

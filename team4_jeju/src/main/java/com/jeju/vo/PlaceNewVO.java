@@ -11,22 +11,21 @@ public class PlaceNewVO {
 	private double lati_Coord; //위도
 	private String place_Tel; //연락처
 	private String place_Addr; //장소주소
-	private String close_Day; //휴일
+	private String close_Day = null; //휴일
 	private String open_Time; //오픈시간
 	private String close_Time; //종료시간
-	private String use_Time; //이용시간
-	private String tour_Hour; //관광소요시간
-	private String place_Det; //장소간략 설명
-	private String place_Price; //입장료
-	private String info_Center; //문의처
-	private String open_Date; //개장일
-	private String use_Season; //이용시기
-	private String event_S_Date; //행사시작일
-	private String event_E_Date; //행사종료일
-	private String event_Homepage; //행사홈페이지
-	private String event_Place; //행사장소
-	private String play_Time; //공연시간
-	private int place_Opt_Num; //장소옵션
+	private String use_Time = null; //이용시간 //13
+	private int tour_Hour = 2; //관광소요시간 //14
+	private String place_Det; //장소간략 설명 //15
+	private String place_Price = null; //입장료 //16
+	private String info_Center = null; //문의처
+	private String open_Date = null; //개장일
+	private String use_Season = null; //이용시기
+	private String event_S_Date = null; //행사시작일
+	private String event_E_Date = null; //행사종료일
+	private String event_Homepage = null; //행사홈페이지
+	private String event_Place = null; //행사장소
+	private String play_Time = null; //공연시간
 	
 	public PlaceNewVO() {
 		
@@ -34,9 +33,9 @@ public class PlaceNewVO {
 
 	public PlaceNewVO(int place_Num, String place_Id, String place_Name, int middle_Num, String image_Path,
 			double longi_Coord, double lati_Coord, String place_Tel, String place_Addr, String close_Day,
-			String open_Time, String close_Time, String use_Time, String tour_Hour, String place_Det,
+			String open_Time, String close_Time, String use_Time, int tour_Hour, String place_Det,
 			String place_Price, String info_Center, String open_Date, String use_Season, String event_S_Date,
-			String event_E_Date, String event_Homepage, String event_Place, String play_Time, int place_Opt_Num) {
+			String event_E_Date, String event_Homepage, String event_Place, String play_Time) {
 		super();
 		this.place_Num = place_Num;
 		this.place_Id = place_Id;
@@ -62,7 +61,6 @@ public class PlaceNewVO {
 		this.event_Homepage = event_Homepage;
 		this.event_Place = event_Place;
 		this.play_Time = play_Time;
-		this.place_Opt_Num = place_Opt_Num;
 	}
 
 	public int getPlace_Num() {
@@ -169,11 +167,11 @@ public class PlaceNewVO {
 		this.use_Time = use_Time;
 	}
 
-	public String getTour_Hour() {
+	public int getTour_Hour() {
 		return tour_Hour;
 	}
 
-	public void setTour_Hour(String tour_Hour) {
+	public void setTour_Hour(int tour_Hour) {
 		this.tour_Hour = tour_Hour;
 	}
 
@@ -256,15 +254,6 @@ public class PlaceNewVO {
 	public void setPlay_Time(String play_Time) {
 		this.play_Time = play_Time;
 	}
-
-	public int getPlace_Opt_Num() {
-		return place_Opt_Num;
-	}
-
-	public void setPlace_Opt_Num(int place_Opt_Num) {
-		this.place_Opt_Num = place_Opt_Num;
-	}
-	
 	
 	
 //	@Override

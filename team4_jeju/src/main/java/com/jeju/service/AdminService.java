@@ -15,4 +15,6 @@ public interface AdminService {
 	
 	//api data get
 	List<PlaceNewVO> getApiList();
+	
+	void insertApiList() ;
 }

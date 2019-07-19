@@ -5,25 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="pickMap">
 
-<insert id="insertPick" parameterType="pick">
 
- 	<![CDATA[
-	INSERT INTO PICK(PICK_MNUM,member_Email,PLACE_NUM)
-	VALUES(PICK_MNUM_SEQ.NEXTVAL,#{member_Email},#{place_Num})
-	 ]]>
-</insert>
 
-<delete id="deletePick" parameterType="pick">
-	<![CDATA[
-	DELETE PICK
-	WHERE member_Email=#{member_Email} and place_Num=#{place_Num}
-	]]>
-</delete>
 
-<select id="getPickList" parameterType="pick" resultType="place">
-		<![CDATA[
-		SELECT * FROM PLACE A, PICK B WHERE a.place_num = b.place_num and
-		b.member_Email =#{member_Email}
-		]]>
-</select>
 </mapper>

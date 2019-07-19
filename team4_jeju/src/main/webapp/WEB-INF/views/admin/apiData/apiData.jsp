@@ -47,7 +47,7 @@
 					<button type="submit" 
 					        class="btn btn-encore_tours btn-lg"
 						    id="sendMessageButton" 
-						    onclick="location.href=''">
+						    onclick="location.href='/team4_jeju/admin/apiData/insertApiData.do'">
 						       공공 API - 파싱 작업 실행</button>
 				</td>
 				<td>
@@ -57,13 +57,14 @@
 					<button type="submit" 
 					        class="btn btn-encore_tours btn-lg"
 						    id="sendMessageButton" 
-						    onclick="location.href='/team4_jeju/admin/apiData/apiData.do'">
+						    onclick="location.href='/team4_jeju/admin/apiData/selectApiData.do'">
 						       공공 API DATA 리스트 - SELECT 갱신</button>
 				</td>
 			</tr>
 		</table>
         </div>
         
+        <br/>
         
         <!-- DataTables -->
         <div class="card mb-3">
@@ -99,7 +100,6 @@
 						<th>event_Homepage</th>
 						<th>event_Place</th>
 						<th>play_Time</th>
-						<th>place_Opt_Num</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -129,7 +129,6 @@
 							<td>${api.event_Homepage}</td>
 							<td>${api.event_Place}</td>
 							<td>${api.play_Time}</td>
-							<td>${api.place_Opt_Num}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

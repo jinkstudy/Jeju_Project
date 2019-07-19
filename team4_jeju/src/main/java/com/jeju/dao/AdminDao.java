@@ -8,9 +8,11 @@ import com.jeju.vo.PlaceNewVO;
 
 public interface AdminDao {
 	
-	void insertVisitJeju(ArrayList<AdminSelVO> visitJejuArray);
+	void insertVisitJeju(List<AdminSelVO> visitJejuArray);
 	
 	List<AdminSelVO> getVisitJejuArray();
 	
 	List<PlaceNewVO> getApiArray();
+	
+	void insertApiList(List<PlaceNewVO> placeListArray);
 }

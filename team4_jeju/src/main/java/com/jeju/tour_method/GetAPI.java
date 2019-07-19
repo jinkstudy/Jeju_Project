@@ -25,13 +25,11 @@ public class GetAPI {
 	StringBuilder urlBuilder = null;  /*URL*/
 	String serviceKey="IV2iM5P1kI0MHEiFd4nBauHiRAOzgoa9ZRUrhvxanXwo9mmLOMYbfRYDn5QBAQEZE7Npqnax%2BEFr3iNsTs9jUQ%3D%3D";
 
-	
+
 
 	//////////////////////////////////////////////////////////////////////////////////////////
 
-	//List<String> list=new ArrayList<String>( Arrays.asList("contenttypeid","cat1","cat2","cat3","title","contentid","firstimage","mapx","mapy","tel","addr1"));
-	//String[] list= {"contenttypeid","cat1","cat2","cat3","title","contentid","firstimage","mapx","mapy","tel","addr1"};
-
+	
 	public GetAPI(){
 
 		System.out.println("시작");
@@ -40,144 +38,294 @@ public class GetAPI {
 
 
 	//API 전체 data parcing 해서 ArrayList에 담기 
-	public List<PlaceNewVO> parce() throws Exception {
+	public List<PlaceNewVO> parce()  {
 		PlaceNewVO vo=null;
 		List<PlaceNewVO> PlaceListArray = new ArrayList<PlaceNewVO>();
+		try {
+			String json = getApi_areaBasedList();
+			JSONObject items=jsonparce(json);
+			JSONArray item = (JSONArray)items.get("item");
 
-		String json = getApi_areaBasedList();
-		JSONObject items=jsonparce(json);
-		JSONArray item = (JSONArray)items.get("item");
-		
-		System.out.println("==========================");
+			System.out.println("==========================");
 
-		for(int i = 0,k=0 ; i <item.size(); i++){
+			for(int i = 0,k=0 ; i <item.size(); i++){
+			//for(int i = 126 ,k=0 ; i < 156; i++){
+				JSONObject entity = (JSONObject)item.get(i);
 
-			JSONObject entity = (JSONObject)item.get(i);
-
-			String contenttypeid=(String.valueOf(entity.get("contenttypeid")));
-			String contentid = (String.valueOf(entity.get("contentid")));
-		
+				String contenttypeid=(String.valueOf(entity.get("contenttypeid")));
+				
+				if(!(contenttypeid.equals("25")) && !(contenttypeid.equals("32"))) {
+					k++;
+					vo=new PlaceNewVO();
 					
-			if(!(contenttypeid.equals("25")) && !(contenttypeid.equals("32"))) {
-				k++;
-				vo=new PlaceNewVO();
-				
-				// vo - db table col
-				//setPlace_Id - PLACE_ID
-				vo.setPlace_Id(String.valueOf(entity.get("contentid")));
-				
-				//place_Name
-				vo.setPlace_Name(String.valueOf(entity.get("title")));
-				
-				
-				vo.setImage_Path(String.valueOf(entity.get("firstimage")));
-				
-				//Double.parseDouble(String.valueOf(entity.get("mapx")));
-				if(entity.get("mapx") !=null) {
-					vo.setLongi_Coord(Double.parseDouble(String.valueOf(entity.get("mapx"))));
-					vo.setLati_Coord(Double.parseDouble(String.valueOf(entity.get("mapy"))));
-				}
-		
-				vo.setPlace_Tel(String.valueOf(entity.get("tel")));
-				vo.setPlace_Addr(String.valueOf(entity.get("addr1")));
-				
-				
-				String cat1 =(String.valueOf(entity.get("cat1")));
-				String cat2 =(String.valueOf(entity.get("cat2")));
-				String cat3 =(String.valueOf(entity.get("cat3")));
-				
-				vo.setMiddle_Num(getMiddle_Num(cat1,cat2,cat3));
-				//System.out.println(vo.getPlace_Name());
-				//System.out.println(cat1+"/"+cat2+"/"+cat3);
-				//System.out.println(vo.getMiddle_Num());
-				
-				//System.out.println("vo.담기 1단계 성공");
-				System.out.println("==========================");
-				System.out.println(k);
+					String contentid = (String.valueOf(entity.get("contentid")));
 
-				//System.out.println(k);
+					// vo - db table col
+					//setPlace_Id - PLACE_ID
+					vo.setPlace_Id(String.valueOf(entity.get("contentid")));
+
+					//place_Name
+					vo.setPlace_Name(String.valueOf(entity.get("title")));
 
 
-				//				for (int j = 0; j < list.size(); j++) {
-				//					place_list.put(list.get(j),(String.valueOf(entity.get(list.get(j)))));
-				//				}
+					vo.setImage_Path(String.valueOf(entity.get("firstimage")));
 
-				//contentid,contenttypeid로 세부정보 가져오기.
-				String json1 = getApi_detailIntro(contentid,contenttypeid);
-//				System.out.println("vo.담기 2단계 시작");
-//				System.out.println("==========================");
-				JSONObject items1=jsonparce(json1);
-				JSONObject item1 = (JSONObject)items1.get("item");
-				
+					//Double.parseDouble(String.valueOf(entity.get("mapx")));
+					if(entity.get("mapx") !=null) {
+						vo.setLongi_Coord(Double.parseDouble(String.valueOf(entity.get("mapx"))));
+						vo.setLati_Coord(Double.parseDouble(String.valueOf(entity.get("mapy"))));
+					}
 
-				switch (String.valueOf(item1.get("contenttypeid"))) {
+					vo.setPlace_Tel(String.valueOf(entity.get("tel")));
+					vo.setPlace_Addr(String.valueOf(entity.get("addr1")));
 
-				case "14": 
-					vo.setClose_Day(String.valueOf(item1.get("restdateculture")));
-					vo.setUse_Time(String.valueOf(item1.get("usetimeculture")));
-					vo.setTour_Hour(String.valueOf(item1.get("spendtime")));
-					vo.setPlace_Price(String.valueOf(item1.get("usefee")));
-					vo.setInfo_Center(String.valueOf(item1.get("infocenterculture")));
-					//list1 = new ArrayList<String>( Arrays.asList("restdateculture","usetimeculture","spendtime","usefee","infocenterculture"));break;
-				case "15":
-					vo.setTour_Hour(String.valueOf(item1.get("spendtimefestival")));
-					vo.setPlace_Price(String.valueOf(item1.get("usefeefestival")));
-					vo.setEvent_S_Date(String.valueOf(item1.get("eventstartdate")));
-					vo.setEvent_E_Date(String.valueOf(item1.get("eventenddate")));
-					vo.setEvent_Homepage(String.valueOf(item1.get("eventhomepage")));
-					vo.setEvent_Place(String.valueOf(item1.get("eventplad")));
-					vo.setPlay_Time(String.valueOf(item1.get("playtime")));
 
-					//list1 =  new ArrayList<String>(Arrays.asList("spendtimefestival","usefeefestival","eventstartdate","eventenddate","eventhomepage","eventplad","playtime"));break;
-				case "28": 
-					vo.setClose_Day(String.valueOf(item1.get("restdateleports")));
-					vo.setPlace_Price(String.valueOf(item1.get("usefeeleports")));
-					vo.setInfo_Center(String.valueOf(item1.get("infocenterleports")));
-					vo.setUse_Season(String.valueOf(item1.get("openperiod")));
+					String cat1 =(String.valueOf(entity.get("cat1")));
+					String cat2 =(String.valueOf(entity.get("cat2")));
+					String cat3 =(String.valueOf(entity.get("cat3")));
 
-					//list1 = new ArrayList<String>(Arrays.asList("restdateleports","usefeeleports","infocenterleports","openperiod"));break;
-				case "38": 
+					vo.setMiddle_Num(getMiddle_Num(cat1,cat2,cat3));
 
-					vo.setClose_Day(String.valueOf(item1.get("restdateshopping")));
-					vo.setUse_Time(String.valueOf(item1.get("opentime")));
-					vo.setInfo_Center(String.valueOf(item1.get("infocentershopping")));
-					vo.setOpen_Date(String.valueOf(item1.get("opendateshopping")));
+					System.out.println("==========================");
+					System.out.println(k);
 
-					//list1 =  new ArrayList<String>(Arrays.asList("restdateshopping","opentime","infocentershopping","opendateshopping"));break;
-				case "39": 
-					vo.setClose_Day(String.valueOf(item1.get("restdatefood")));
-					vo.setUse_Time(String.valueOf(item1.get("opentimefood")));
-					vo.setPlace_Det(String.valueOf(item1.get("firstmenu"))+"<br/>"+String.valueOf(entity.get("treatmenu")));
-					vo.setInfo_Center(String.valueOf(item1.get("infocenterfood")));
 
-					//list1 = new ArrayList<String>(Arrays.asList("restdatefood","opentimefood","firstmenu","treatmenu","infocenterfood"));break;	
+					//contentid,contenttypeid로 세부정보 가져오기.
+					String json1 = getApi_detailIntro(contentid,contenttypeid);
+					JSONObject items1=jsonparce(json1);
+					JSONObject item1 = (JSONObject)items1.get("item");
+					
+					String json2=get_Infotext(contentid,contenttypeid);
+					JSONObject items2=jsonparce(json2);
+					JSONObject item2 = (JSONObject)items2.get("item");
+					
+					//15번 데이터 : overview
+					String overView;
+					String shortOverView = null;
+					
+					if((String.valueOf(item2.get("overview"))) instanceof String) {
+						overView = String.valueOf(item2.get("overview"));
+						if(overView != null && overView.contains(".")) {
+							int idx = overView.indexOf(".") + 1;
+							shortOverView = overView.substring(0, idx); 
+						}
+					}else {
+						overView = null;
+					}					
+					
+					
+					vo.setPlace_Det(shortOverView);
+					//System.out.println(vo.getPlace_Det());
+					
+					
+					//14번 데이터 : usetimeculture
+					String useTimeCulture;
+					if((String.valueOf(item1.get("usetimeculture"))) instanceof String) {
+						useTimeCulture = String.valueOf(item1.get("usetimeculture"));
+					}else {
+						useTimeCulture = null;
+					}
+					
+					//14번 데이터 : infoCenterCul			
+					String infoCenterCul;
+					if((String.valueOf(item1.get("infocenterculture"))) instanceof String) {
+						infoCenterCul = String.valueOf(item1.get("infocenterculture"));
+					}else {
+						infoCenterCul = null;
+					}
+					
+					//14번 데이터 : restDateCul				
+					String restDateCul;
+					if((String.valueOf(item1.get("restdateculture"))) instanceof String) {
+						restDateCul = String.valueOf(item1.get("restdateculture"));
+					}else {
+						restDateCul = null;
+					}
+					
+					
+					//28번 데이터 : infoCenterLepo					
+					String infoCenterLepo;
+					if((String.valueOf(item1.get("infocenterleports"))) instanceof String) {
+						infoCenterLepo = String.valueOf(item1.get("infocenterleports"));
+					}else {
+						infoCenterLepo = null;
+					}
+					
+					//28번 데이터 : restDateLepo						
+					String restDateLepo;
+					if((String.valueOf(item1.get("restdateleports"))) instanceof String) {
+						restDateLepo = String.valueOf(item1.get("restdateleports"));
+					}else {
+						restDateLepo = null;
+					}
+					
+					
+					//38번 데이터 : opentime
+					String openTime;
+					if((String.valueOf(item1.get("opentime"))) instanceof String) {
+						openTime = String.valueOf(item1.get("opentime"));
+					}else {
+						openTime = null;
+					}
+					
+					//38번 데이터 : infoCenterShopping
+					String infoCenterShopping;
+					if((String.valueOf(item1.get("infocentershopping"))) instanceof String) {
+						infoCenterShopping = String.valueOf(item1.get("infocentershopping"));
+					}else {
+						infoCenterShopping = null;
+					}
+					
+					//38번 데이터 : restDateShopping					
+					String restDateShopping;
+					if((String.valueOf(item1.get("restdateshopping"))) instanceof String) {
+						restDateShopping = String.valueOf(item1.get("restdateshopping"));
+					}else {
+						restDateShopping = null;
+					}
+					
+					//39번 데이터 : openTimeFood
+					String openTimeFood;
+					if((String.valueOf(item1.get("opentimefood"))) instanceof String) {
+						openTimeFood = String.valueOf(item1.get("opentimefood"));
+					}else {
+						openTimeFood = null;
+					}
+					
+					//39번 데이터 : firstMenu
+					String firstMenu;
+					if((String.valueOf(item1.get("firstmenu"))) instanceof String) {
+						firstMenu = String.valueOf(item1.get("firstmenu"));
+					}else {
+						firstMenu = null;
+					}
+					
+					//39번 데이터 : infoCenterFood					
+					String infoCenterFood;
+					if((String.valueOf(item1.get("infocenterfood"))) instanceof String) {
+						infoCenterFood = String.valueOf(item1.get("infocenterfood"));
+					}else {
+						infoCenterFood = null;
+					}
+					
+					//39번 데이터 : restDateFood
+					String restDateFood;
+					if((String.valueOf(item1.get("restdatefood"))) instanceof String) {
+						restDateFood = String.valueOf(item1.get("restdatefood"));
+					}else {
+						restDateFood = null;
+					}
+					
+					//default 데이터 : useTim
+					String useTim;
+					if((String.valueOf(item1.get("usetime"))) instanceof String) {
+						useTim = String.valueOf(item1.get("usetime"));
+					}else {
+						useTim = null;
+					}
+					
+					
+					//default 데이터 : infoCenter					
+					String infoCenter;
+					if((String.valueOf(item1.get("infocenter"))) instanceof String) {
+						infoCenter = String.valueOf(item1.get("infocenter"));
+					}else {
+						infoCenter = null;
+					}
+					
+					//default 데이터 : restDate					
+					String restDate;
+					if((String.valueOf(item1.get("restdate"))) instanceof String) {
+						restDate = String.valueOf(item1.get("restdate"));
+					}else {
+						restDate = null;
+					}
+					
+//					vo.setClose_Day(null);
+//					vo.setUse_Time(null);
+//					vo.setInfo_Center(null);
+//					vo.setOpen_Date(null);
+//					vo.setUse_Season(null);
+//					vo.setTour_Hour("1");
+//					vo.setPlace_Price("");
+//					vo.setEvent_S_Date(null);
+//					vo.setEvent_E_Date(null);
+//					vo.setEvent_Homepage(null);
+//					vo.setEvent_Place(null);
+//					vo.setPlay_Time(null);
 
-				default: 
-					vo.setClose_Day(String.valueOf(item1.get("restdate")));
-					vo.setUse_Time(String.valueOf(item1.get("usetime")));
-					vo.setPlace_Det(String.valueOf(item1.get("overview")));
-					vo.setInfo_Center(String.valueOf(item1.get("infocenter")));
-					vo.setOpen_Date(String.valueOf(item1.get("opendate")));
-					vo.setUse_Season(String.valueOf(item1.get("useseason")));
+					switch (String.valueOf(item1.get("contenttypeid"))) {
 
-					//list1 =new ArrayList<String>( Arrays.asList("restdate","usetime","overview","infocenter","opendate","useseason"));
-					break;
-				}
-				//System.out.println("vo.담기 2단계 성공");
-				
+					case "14": 
+						vo.setClose_Day(restDateCul);
+						vo.setUse_Time(useTimeCulture);
+						//주석 처리 한 것들 풀지 마세요.
+						//vo.setTour_Hour(String.valueOf(item1.get("spendtime")));
+						//vo.setPlace_Price(String.valueOf(item1.get("usefee")));
+						vo.setInfo_Center(infoCenterCul);
+						//list1 = new ArrayList<String>( Arrays.asList("restdateculture","usetimeculture","spendtime","usefee","infocenterculture"));break;
+					case "15":
+						//vo.setTour_Hour(String.valueOf(item1.get("spendtimefestival")));
+						//vo.setPlace_Price(String.valueOf(item1.get("usefeefestival")));
+						vo.setEvent_S_Date(String.valueOf(item1.get("eventstartdate")));
+						vo.setEvent_E_Date(String.valueOf(item1.get("eventenddate")));
+						vo.setEvent_Homepage(String.valueOf(item1.get("eventhomepage")));
+						vo.setEvent_Place(String.valueOf(item1.get("eventplad")));
+						vo.setPlay_Time(String.valueOf(item1.get("playtime")));
+
+						//list1 =  new ArrayList<String>(Arrays.asList("spendtimefestival","usefeefestival","eventstartdate","eventenddate","eventhomepage","eventplad","playtime"));break;
+					case "28": 
+						vo.setClose_Day(restDateLepo);
+						vo.setPlace_Price(String.valueOf(item1.get("usefeeleports")));
+						vo.setInfo_Center(infoCenterLepo);
+						vo.setUse_Season(String.valueOf(item1.get("openperiod")));
+
+						//list1 = new ArrayList<String>(Arrays.asList("restdateleports","usefeeleports","infocenterleports","openperiod"));break;
+					case "38": 
+						vo.setClose_Day(restDateShopping);
+						vo.setUse_Time(openTime);
+						vo.setInfo_Center(infoCenterShopping);
+						vo.setOpen_Date(String.valueOf(item1.get("opendateshopping")));
+
+						//list1 =  new ArrayList<String>(Arrays.asList("restdateshopping","opentime","infocentershopping","opendateshopping"));break;
+					case "39": 
+						vo.setClose_Day(restDateFood);
+						vo.setUse_Time(openTimeFood);
+						vo.setPlace_Det(firstMenu);
+						vo.setInfo_Center(infoCenterFood);
+
+						//list1 = new ArrayList<String>(Arrays.asList("restdatefood","opentimefood","firstmenu","treatmenu","infocenterfood"));break;	
+
+					default: 
+						vo.setClose_Day(restDate);
+						vo.setUse_Time(useTim);
+						vo.setInfo_Center(infoCenter);
+						vo.setOpen_Date(String.valueOf(item1.get("opendate")));
+						vo.setUse_Season(String.valueOf(item1.get("useseason")));
+
+
+						//list1 =new ArrayList<String>( Arrays.asList("restdate","usetime","overview","infocenter","opendate","useseason"));
+						break;
+					}
+					//System.out.println("vo.담기 2단계 성공");
+
 					System.out.println(vo.toString());
-				
-				
-				System.out.println("==========================");
-				PlaceListArray.add(vo);
+
+
+					System.out.println("==========================");
+					PlaceListArray.add(vo);
+				}
+				//System.out.println(PlaceListArray.get(i).toString());
 			}
-			//System.out.println(PlaceListArray.get(i).toString());
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
+
 
 		return PlaceListArray;
 	}
 
-	
+
 	//DB중분류코드와 API중분류 코드 MAPPING
 	public int getMiddle_Num(String cat1,String cat2,String cat3) {
 		int middle_num=13;
@@ -254,7 +402,7 @@ public class GetAPI {
 			urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1032", "UTF-8")); /*한 페이지 결과 수*/
 			urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 			urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS (아이폰), AND (안드로이드),WIN (원도우폰), ETC*/
-			urlBuilder.append("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("A", "UTF-8")); /*(A=제목순, B=조회순, C=수정일순, D=생성일순) , 대표이미지가 반드시 있는 정렬 (O=제목순, P=조회순, Q=수정일순, R=생성일순)*/
+			urlBuilder.append("&" + URLEncoder.encode("arrange","UTF-8") + "=" + URLEncoder.encode("O", "UTF-8")); /*(A=제목순, B=조회순, C=수정일순, D=생성일순) , 대표이미지가 반드시 있는 정렬 (O=제목순, P=조회순, Q=수정일순, R=생성일순)*/
 			urlBuilder.append("&" + URLEncoder.encode("areaCode","UTF-8") + "=" + URLEncoder.encode("39", "UTF-8")); /*지역코드*/
 			urlBuilder.append("&" + URLEncoder.encode("listYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*목록 구분 (Y=목록, N=개수)*/
 			urlBuilder.append("&_type=json");
@@ -330,19 +478,63 @@ public class GetAPI {
 		}
 		return sb.toString();
 	}
+	
+	public String get_Infotext(String contentId,String contenttypeid) throws Exception {
 
+		urlBuilder = new StringBuilder(baseUrl);
+		urlBuilder.append("detailCommon"); /*URL*/
+		urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+serviceKey); 
+	    urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS(아이폰),AND(안드로이드),WIN(원도우폰),ETC*/
+	    urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
+	   urlBuilder.append("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode(contentId, "UTF-8")); /*콘텐츠 ID*/
+	    urlBuilder.append("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode(contenttypeid, "UTF-8")); /*관광타입(관광지, 숙박 등)ID*/
+	    urlBuilder.append("&" + URLEncoder.encode("defaultYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*기본정보 조회여부*/
+        urlBuilder.append("&" + URLEncoder.encode("firstImageYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*원본, 썸네일 대표이미지 조회여부*/
+        urlBuilder.append("&" + URLEncoder.encode("areacodeYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*지역코드, 시군구코드 조회여부*/
+        urlBuilder.append("&" + URLEncoder.encode("catcodeYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*대,중,소분류코드 조회여부*/
+        urlBuilder.append("&" + URLEncoder.encode("addrinfoYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*주소, 상세주소 조회여부*/
+        urlBuilder.append("&" + URLEncoder.encode("mapinfoYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*좌표 X,Y 조회여부*/
+        urlBuilder.append("&" + URLEncoder.encode("overviewYN","UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8")); /*콘텐츠 개요 조회여부*/
+        urlBuilder.append("&_type=json");
 
+	        URL url = new URL(urlBuilder.toString());
+	        System.out.println(url);
+	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	        conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Content-type", "application/json");
+	        System.out.println("Response code: " + conn.getResponseCode());
+	        BufferedReader rd;
+	        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+	            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	        } else {
+	            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	        }
+	        StringBuilder sb = new StringBuilder();
+	        String line;
+	        while ((line = rd.readLine()) != null) {
+	            sb.append(line);
+	        }
+	        rd.close();
+	        conn.disconnect();
 
-	public static void main(String[] args) {
-		try {
-			GetAPI cis = new GetAPI();
-			cis.parce();
-			System.out.println("끝");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	       // System.out.println(sb.toString());
+
+	    return sb.toString();
+
 	}
+
+
+
+//		public static void main(String[] args) {
+//			try {
+//				GetAPI cis = new GetAPI();
+//				cis.parce();
+//				System.out.println("끝");
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 
 
 

@@ -30,7 +30,7 @@
 			<img class="masthead-avatar mb-5" src="" alt="">
 
 			<!-- Masthead Heading -->
-			<h1 class="masthead-heading text-uppercase mb-0">Pick 페이지입니다.</h1>
+			<h1 class="masthead-heading text-uppercase mb-0">Community 페이지입니다.</h1>
 
 			<!-- Icon Divider -->
 			<div class="divider-custom divider-light">
@@ -57,7 +57,7 @@
 			<table class="table table-bordered table-hover"
 				   style="width: 350px; text-align: center;">
 				<tr>
-					<th colspan='2'>Pick</th>
+					<th colspan='2'>Community</th>
 				</tr>
 			</table>
 		</div>
@@ -65,7 +65,7 @@
 		<div class="d-flex align-items-center justify-content-center">
 			<table class="no-style">
 				<tr>
-					<td>Pick</td>
+					<td>Community</td>
 				</tr>
 			</table>
 		</div>
