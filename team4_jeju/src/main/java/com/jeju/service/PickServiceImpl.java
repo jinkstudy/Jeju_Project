@@ -11,6 +11,6 @@ public class PickServiceImpl implements PickService{
 	
 	//객체 변수명 첫 글자 소문자 주의
 	@Autowired
-	private PickDaoImpl qickDao;
+	private PickDaoImpl pickDao;
 	
 }

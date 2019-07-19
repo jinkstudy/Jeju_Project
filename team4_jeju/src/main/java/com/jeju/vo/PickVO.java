@@ -2,44 +2,45 @@ package com.jeju.vo;
 
 public class PickVO {
 	
-	private String Pick_Mnum;
-	private String Member_Id;
-	private int Place_Num;
+	private String pick_Mnum;
+	private String member_Email;
+	private int place_Num;
 	
 	public PickVO() {
 		
 	}
-	
-	public PickVO(String pick_Mnum, String member_Id, int place_Num) {
+
+	public PickVO(String pick_Mnum, String member_Email, int place_Num) {
 		super();
-		Pick_Mnum = pick_Mnum;
-		Member_Id = member_Id;
-		Place_Num = place_Num;
+		this.pick_Mnum = pick_Mnum;
+		this.member_Email = member_Email;
+		this.place_Num = place_Num;
 	}
 
 	public String getPick_Mnum() {
-		return Pick_Mnum;
+		return pick_Mnum;
 	}
 
 	public void setPick_Mnum(String pick_Mnum) {
-		Pick_Mnum = pick_Mnum;
+		this.pick_Mnum = pick_Mnum;
 	}
 
-	public String getMember_Id() {
-		return Member_Id;
+	public String getMember_Email() {
+		return member_Email;
 	}
 
-	public void setMember_Id(String member_Id) {
-		Member_Id = member_Id;
+	public void setMember_Email(String member_Email) {
+		this.member_Email = member_Email;
 	}
 
 	public int getPlace_Num() {
-		return Place_Num;
+		return place_Num;
 	}
 
 	public void setPlace_Num(int place_Num) {
-		Place_Num = place_Num;
+		this.place_Num = place_Num;
 	}
+	
 	
 	
 	
