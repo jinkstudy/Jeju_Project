@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 			<img class="masthead-avatar mb-5" src="" alt="">
 
 			<!-- Masthead Heading -->
-			<h1 class="masthead-heading text-uppercase mb-0">Community 페이지입니다.</h1>
+			<h1 class="masthead-heading text-uppercase mb-0">찜 목록 페이지 입니다.</h1>
 
 			<!-- Icon Divider -->
 			<div class="divider-custom divider-light">
@@ -45,16 +46,29 @@
 			<table class="table table-bordered table-hover"
 				   style="width: 350px; text-align: center;">
 				<tr>
-					<th colspan='2'>Community Board List</th>
+					<th colspan='2'>Pick List</th>
 				</tr>
 			</table>
 		</div>
 		
 		<div class="d-flex align-items-center justify-content-center">
 <!-- 		********************<<여기에 테이블 넣기>> -->
+		<table class="no-style">
+			<tr>
+			<th>장소 이름</th>
+			<th>오픈 시간</th>
+			<th>마감 시간</th>
+			</tr>
+			<c:forEach items="${pickList}" var="pickList">
+			<tr>
+			<td>${pickList.place_Name}</td>
+			<td>${pickList.open_Time}</td>
+			<td>${pickList.close_Time}</td>		
+			</tr>
+			</c:forEach>
+		</table>
 		</div>
 	</div>
-		<br> <td align="center"><a href="insertCommunityBoard.do">새글 등록</a></td>
 	</section>
 
 	<!-- footer -->
