@@ -31,6 +31,9 @@
 	rel="stylesheet" type="text/css">
 
 <link rel="stylesheet"
+	  href="/team4_jeju/resources/style/login_gyubeom.css" type="text/css">
+
+<link rel="stylesheet"
 	href="/team4_jeju/resources/style/main_gyubeom.css" type="text/css">
 <link rel="stylesheet"
 	href="/team4_jeju/resources/style/fontawesome-all.css" type="text/css">
@@ -63,14 +66,13 @@
 
 
 		<!-- 실제 헤더 네비게이션 시작 -->
-		<nav
-			class="navbar navbar-expand-lg bg-encore_tours_title fixed-top"
-			id="mainNav">
+		<nav class="navbar navbar-expand-lg bg-encore_tours_title fixed-top"
+			 id="mainNav">
 
 			<div class="container">
+			
 				<!-- 스프링 뷰 내부 연동 중 오류 대비하여 main.do 절대 경로로 기술. -->
-				<a
-					class="navbar-brand js-scroll-trigger encore-home-title py-3 px-0 px-lg-3"
+				<a class="navbar-brand js-scroll-trigger encore-home-title py-3 px-0 px-lg-3"
 					href="/team4_jeju/main/main.do" /> Encore Tours</a>
 				<button
 					class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-encore_tours text-white rounded"
@@ -108,7 +110,7 @@
 				</div>
 			</div>
 		</nav>
-		
+				
 		
 		<!-- 검색창 내비게이션 navigation 시작 -->
 		<nav class="navbar navbar-expand-sm navbar-dark bg-white jeju-top-search">
@@ -127,7 +129,7 @@
 					</div>
 				</div>
 			</form>
-
+						
 			<!-- Navbar -->
 			<!-- 하기 주석까지도 수정 금지! -->
 			<ul class="navbar-nav ml-auto ml-md-0">
@@ -136,11 +138,12 @@
 					<!-- class="dropdown-toggle" -->
 					<a id="alertsDropdown"
 					   class="jeju-user py-3 px-0 px-lg-3 rounded"
-					   role="button" 
-					   data-toggle="dropdown"
+					   role="button"
+					   data-toggle="modal" 
+					   data-target="#popUpWindow"
 					   aria-haspopup="true"
 					   aria-expanded="false"
-					   href="#">로그인
+					   href="">로그인
 					<!-- <i class="fas fa-bell fa-fw jeju-user"></i> 
 					<span class="badge badge-danger">9+</span> -->
 					</a>
@@ -182,6 +185,62 @@
 		<!-- //end of search -->
 
 	</header>
-
+	
+	<!-- modal start -->
+	<div class="modal fade" id="popUpWindow">
+	  <div class="modal-dialog">
+	    <div class="modal-content jeju-modal-padding">
+	      <!-- header -->
+	      <div class="modal-header jeju-modal">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h3 class="modal-title">Login Form</h3>
+	      </div>
+	      <!-- body -->
+	      <div class="modal-body jeju-modal">
+	      	<div class="jeju-flex-wrap">
+		        <form action novalidate
+		              class="jeju-login-form">
+		            <input type="radio"
+		                   class="jeju-f-input jeju-radio-input" 
+		                   name="rg"
+		                   id="jeju-sign-in" checked/>
+		            <input type="radio"
+		                   class="jeju-f-input jeju-radio-input" 
+		                   name="rg" 
+		                   id="jeju-sign-up" />
+		            <input type="radio" 
+		                   class="jeju-f-input jeju-radio-input" 
+		                   name="rg" 
+		                   id="jeju-reset" />        
+		
+		            <label for="jeju-sign-in"
+		                   class="jeju-f-label"
+		                   >로그인</label>
+		            <label for="jeju-sign-up"
+		                   class="jeju-f-label"
+		                   >회원가입</label>
+		            <!-- <label for="jeju-reset"
+		            	   class="jeju-f-label"
+		            	   >Reset</label> -->
+		
+		            <input class="jeju-sign-up jeju-sign-in jeju-reset jeju-f-input" 
+		                   type="email" placeholder="Email" />
+		            <input class="jeju-sign-up jeju-sign-in jeju-f-input" 
+		                   type="password" placeholder ="Password" />
+		            <input class="jeju-sign-up jeju-f-input" 
+		                   type="password" placeholder ="Repeat Password" />
+		            <button class="btn-encore_tours jeju-f-button">Submit</button>
+		        </form>
+			</div>
+	      </div>	      
+	      <!-- footer -->
+	      <div class="modal-footer jeju-modal">
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+	<!-- // The end of modal start -->
+	
 </body>
 </html>

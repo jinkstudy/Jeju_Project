@@ -6141,15 +6141,23 @@ a.close.disabled {
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  display: none;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  outline: 0;
+	position : fixed;
+	top: 9.5rem;
+	left: 0;
+	z-index: 1043;
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	outline: 0;
+}
+
+.jeju-modal{
+	background-color : #E9F1FF;	
+}
+
+.jeju-modal-padding{
+	padding : 1rem;	
 }
 
 .modal-dialog {
@@ -6238,7 +6246,6 @@ a.close.disabled {
 }
 
 .modal-content {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6256,7 +6263,6 @@ a.close.disabled {
 }
 
 .modal-backdrop {
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 1040;
@@ -6297,6 +6303,7 @@ a.close.disabled {
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+  color : #518DFF;
 }
 
 .modal-body {
@@ -8351,7 +8358,6 @@ button.bg-dark:focus {
 }
 
 .fixed-top-admin{
-  position: fixed;
   top: 0;
   right: 0;
   z-index: 1033;
@@ -8363,7 +8369,6 @@ button.bg-dark:focus {
 }
 
 .fixed-top {
-	position : fixed;
 	height : 8rem;
 	right: 0;
 	left: 0;

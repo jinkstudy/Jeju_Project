@@ -6,17 +6,8 @@
 	
 	<!-- AdminSelVO Alias 설정 -->
 	<typeAliases>
-	
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
-	
 		<typeAlias alias="getApiVO" type="com.jeju.vo.PlaceNewVO" />
-
-		<!-- pick alias 설정(별칭) -->
-		<typeAlias alias='pick' type="com.jeju.vo.PickVO" />
-	
-		<!-- communityBoard alias 설정 -->
-		<typeAlias  alias="community" type="com.jeju.vo.CommunityBoardVO"/>
-
 	</typeAliases>
 
 </configuration>
