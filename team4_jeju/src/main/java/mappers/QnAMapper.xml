@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnADao">
+
+	<resultMap id="result" type="qnA">
+			<id property="qnA_Mnum" column="QNA_MNUM" />
+			<result property="member_Email" column="MEMBER_EMAIL" />
+			<result property="writer_Name" column="WRITER_NAME" />
+			<result property="qnA_Content" column="QNA_CONTENT" />
+			<result property="qnA_Date" column="QNA_DATE" />
+			<result property="qnA_Cnt" column="QNA_CNT" />
+			<result property="writer_Pw" column="WRITER_PW" />
+			<result property="qnA_Title" column="QNA_TITLE" />
+	</resultMap>
+
+	<insert id="insertQnA" parameterType="qnA">
+	<![CDATA[
+		INSERT INTO QNA_BOARD
+		( QNA_MNUM , MEMBER_EMAIL,  WRITER_NAME,  QNA_CONTENT, QNA_DATE, QNA_CNT, WRITER_PW, QNA_TITLE	
+		)VALUES(
+		QNA_MNUM_SEQ.nextval, #{member_Email, jdbcType=VARCHAR},  #{writer_Name, jdbcType=VARCHAR } ,  #{qnA_Content, jdbcType=VARCHAR} , sysdate, 0 , 
+		  #{writer_Pw, jdbcType=VARCHAR} ,   #{qnA_Title, jdbcType=VARCHAR}  
+		)
+		]]>
+	</insert>
+	
+	<select id="getQnAList" resultMap="result">
+		<![CDATA[
+		SELECT * FROM QNA_BOARD ORDER BY QnA_Mnum DESC
+		]]>
+	</select>
+	
+		<update id="updateQnA" >
+		<![CDATA[
+		UPDATE QNA_BOARD SET
+		QnA_Content = #{qnA_Content}
+		WHERE qnA_Mnum = #{qnA_Mnum}
+		]]>
+	</update>
+	
+	<delete id="deleteQnA" >
+		<![CDATA[
+		DELETE QNA_BOARD
+		WHERE qnA_Mnum = #{qnA_Mnum}
+		]]>
+	</delete>
+	
+	<select id="getQnA" resultType="qnA">
+		<![CDATA[
+		SELECT *
+		FROM QNA_BOARD
+		WHERE qnA_Mnum = #{qnA_Mnum}
+		]]>
+	</select>
+	
+	
+
+</mapper>

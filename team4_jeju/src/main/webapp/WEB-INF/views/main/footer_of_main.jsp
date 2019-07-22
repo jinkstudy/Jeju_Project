@@ -70,7 +70,7 @@
 
 	<!-- Contact Form JavaScript -->
 	<script src="/team4_jeju/resources/js/jqBootstrapValidation_gyubeom.js"></script>
-	<script src="/team4_jeju/resources/js/contact_me_gyubeom.js"></script>
+	
 
 	<!-- Custom scripts for this template -->
 	<script src="/team4_jeju/resources/js/main_nav_gyubeom.js"></script>

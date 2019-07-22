@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+ 
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>InsertQnA</title>
 
 	<!-- 카카오톡 로그인 관련 스트립트 링크 -->
 	<script src="
@@ -18,7 +25,8 @@
 
 </head>
 <body>
-	
+
+
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
 	
@@ -41,40 +49,46 @@
 				<div class="divider-custom-line"></div>
 			</div>
 
-			<!-- Masthead Subheading -->
-			<p class="masthead-subheading font-weight-light mb-0">
-			Enjoy Smarter Travel "Only for You"</p>
+<!-- 			<!-- Masthead Subheading --> 
+<!-- 			<p class="masthead-subheading font-weight-light mb-0"> -->
+<!-- 			Enjoy Smarter Travel "Only for You"</p> -->
 
 		</div>
 	</header>
 	<!-- //end of header -->		
-	
-	<section class="page-section portfolio" id="portfolio">
+
+	<!-- Contact Section -->
+	<section class="page-section" id="contact">
 		<div class="container">
-		
-			<div class="d-flex align-items-center justify-content-center">
-			
-			<table class="table table-bordered table-hover"
-				   style="width: 350px; text-align: center;">
+	<table border="1">
+			<tr>
+				<th bgcolor="skyblue" width="100">번호</th>
+				<th bgcolor="skyblue" width="200">제목</th>
+				<th bgcolor="skyblue" width="150">작성자</th>
+				<th bgcolor="skyblue" width="150">등록일</th>
+				<th bgcolor="skyblue" width="100">조회수</th>
+			</tr>
+			<c:forEach items="${qnAList }" var="qnA">
 				<tr>
-					<th colspan='2'>QA</th>
+					<td>${qnA.qnA_Mnum }</td>
+					<td align="left"><a href="getQnA.do?qnA_Mnum=${qnA.qnA_Mnum }">
+							${qnA.qnA_Title }</a></td>
+					<td>${qnA.writer_Name }</td>
+					<td>${qnA.qnA_Date }</td>
+					<td>${board.qnA_Cnt }</td>
 				</tr>
-			</table>
+			</c:forEach>
+		</table>
+		<br> <a href="../qnA/insertQnA.do" >새글 등록</a>
+
+
 		</div>
-		
-		<div class="d-flex align-items-center justify-content-center">
-			<table class="no-style">
-				<tr>
-					<td>QA</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-			
 	</section>
 	
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
+	
 
 </body>
+
 </html>
