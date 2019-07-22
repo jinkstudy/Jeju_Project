@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jeju.dao.PickDaoImpl;
 import com.jeju.vo.PickVO;
-import com.jeju.vo.PlaceVO;
+import com.jeju.vo.PlaceNewVO;
 
 //객체 변수명 첫 글자 소문자 주의
 @Service("pickService")
@@ -26,7 +26,7 @@ public class PickServiceImpl implements PickService{
 		pickDao.deletePick(vo);
 	}
 	//찜 목록 조회
-	public List<PlaceVO> getPickList(PickVO vo){
+	public List<PlaceNewVO> getPickList(PickVO vo){
 		return pickDao.getPickList(vo);
 	}
 }

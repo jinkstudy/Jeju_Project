@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jeju.service.PickService;
 import com.jeju.vo.PickVO;
-import com.jeju.vo.PlaceVO;
 
 @Controller
 @RequestMapping("/pick")

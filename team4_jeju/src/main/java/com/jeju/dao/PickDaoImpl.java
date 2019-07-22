@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jeju.vo.PickVO;
-import com.jeju.vo.PlaceVO;
+import com.jeju.vo.PlaceNewVO;
+
 
 //객체 변수명 첫 글자 소문자 주의
 @Repository("pickDao")
@@ -29,7 +30,7 @@ public class PickDaoImpl implements PickDao{
 		mybatis.delete("pickMap.deletePick",vo);
 	}
 	//찜 목록 조회
-	public List<PlaceVO> getPickList(PickVO vo){
+	public List<PlaceNewVO> getPickList(PickVO vo){
 		System.out.println("===>PickMapper getPickList 호출");
 		return mybatis.selectList("pickMap.getPickList",vo);
 	}
