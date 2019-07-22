@@ -43,6 +43,9 @@
 <link rel="stylesheet"
 	  href="/team4_jeju/resources/style/style_main_test_jink.css" type="text/css">
 
+<!-- 카카오톡 로그인 관련 스트립트 링크 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 <script src="/team4_jeju/resources/js/jquery-3.4.1.js"></script>
 <script src="/team4_jeju/resources/js/bootstrap-4.3.1.js"></script>
 

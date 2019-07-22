@@ -2633,20 +2633,36 @@ fieldset:disabled a.btn {
 }
 
 .long-height-jeju {
-	padding-top : 11rem;
-	height : 43rem;
+	padding-top : 20rem;
+	height : 50rem;
 }
 
 #jeju-main-head { 
 	width : 100% !important;
-	height : 51rem !important;
-	background: url(/team4_jeju/resources/imgs/Seong_San.png) no-repeat center; 
+	height : 45rem !important;
+	background: url(/team4_jeju/resources/imgs/main_image.png) no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	padding-top : 20rem;
+	padding-top : 9rem;
+	z-index : 1;
 }
+
+#jeju-main-head img {
+	position:absolute;
+	top:0;
+    left:0;
+	width : 100% !important;
+	height : 100% !important;
+	background-size: 100% !important;
+    /* background-image:url(이미지 경로); */
+    opacity:0.5!important;
+    filter:alpha(opacity=50);
+    z-index:-1;
+    content:"";
+}
+
 .jeju-map-title1{
 	margin : 0.1rem;
 	color: #518DFF;
@@ -10857,6 +10873,14 @@ a.text-dark:hover, a.text-dark:focus {
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.5em;
   }
+}
+
+.encore-masthead{
+	position : relative;
+	width : 100%;
+	height : 15rem;
+	font-size: 5rem;
+  	line-height: 5rem;
 }
 
 .masthead {

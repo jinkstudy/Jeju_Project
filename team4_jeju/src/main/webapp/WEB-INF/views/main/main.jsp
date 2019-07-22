@@ -24,16 +24,29 @@
 	<!-- main title header -->
 	<div class="masthead bg-encore_tours_background text-white text-center"
 	     id="jeju-main-head">
+	     <img src="/team4_jeju/resources/imgs/main_image-cover.png"
+	     	  alt="" />
 		<div class="d-flex align-items-center flex-column">
-
-			<div class="container">
+			
+			<!-- start of booking container -->
+			<div class="container"
+			     id="jeju-booking-container">
 				<div class="row">
+					
+					<!-- Home title -->
+					<div id="jeju-home-title">
+							Encore Tours<br>
+							<h1>Journey for not others</h1>
+							<h1>but Only for 'You'</h1>
+					</div>
+				
 					<div class="booking-form">
-						<div class="booking-bg"></div>
+										
+ 						<!-- <div class="booking-bg"></div> -->
 
 						<form>
 							<div class="form-header">
-								<h3>당신만을 위한 SmartPlanner</h3>
+								<h3></h3>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
@@ -52,7 +65,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">성인</span> <select
+										<span class="form-label">성인수</span> <select
 											class="form-control">
 											<option>1</option>
 											<option>2</option>
@@ -62,7 +75,7 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">아동</span> <select
+										<span class="form-label">아동수</span> <select
 											class="form-control">
 											<option>0</option>
 											<option>1</option>
@@ -72,7 +85,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<span class="form-label">Options</span>
+								<span class="form-label">- Options -</span>
 								<div class="row place-opt">
 									<a class="select-button col-md-4 btn-outline-light" 
 						     		   style="cursor: pointer">핫플레이스</a>
@@ -95,24 +108,30 @@
 							<div class="form-group">
 								<div class="row sch-opt">
 									<div class="col-md-4">
-										<input type="checkbox" name="romantic" value="romantic">로맨틱
+										<input type="checkbox" name="romantic" value="romantic">
+										&nbsp;로맨틱
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="photo" value="photo">포토스팟
+										<input type="checkbox" name="photo" value="photo">
+										&nbsp;포토스팟
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="healing" value="healing">힐링
+										<input type="checkbox" name="healing" value="healing">
+										&nbsp;힐링
 									</div>
 								</div>
 								<div class="row sch-opt">
 									<div class="col-md-4">
-										<input type="checkbox" name="culture" value="culture">문화/체험
+										<input type="checkbox" name="culture" value="culture">
+										&nbsp;문화/체험
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="indoor" value="indoor">실내
+										<input type="checkbox" name="indoor" value="indoor">
+										&nbsp;실내
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="shopping" value="shopping">쇼핑
+										<input type="checkbox" name="shopping" value="shopping">
+										&nbsp;쇼핑
 									</div>
 								</div>
 
@@ -121,7 +140,7 @@
 
 							<div class="form-btn">
 								<a class="submit-btn btn btn-outline-light" 
-								   href="location.href='/team4_jeju/tour/tourTest.do">
+								   href="/team4_jeju/tour/tourTest.do">
 								      나만의 여행 만들기
 								</a>
 							</div>
@@ -129,8 +148,9 @@
 					</div>
 				</div>
 			</div>
-
-		</div>
+			<!-- start of booking container -->
+			
+		</div>		
 	</div>
 	<!-- //end of header -->	
 	
@@ -271,15 +291,15 @@
 				<div class="divider-custom-line"></div>
 			</div>
 
-									<!-- Contact Section Form -->
+			<!-- Contact Section Form -->
 			<div class="row">
 				<div class="col-lg-8 mx-auto">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<form action="../qnA/saveQnA.do" method="post" id="contactForm" novalidate="novalidate">
+					<form name="sentMessage" id="contactForm" novalidate="novalidate">
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Name</label> <input value="" required class="form-control" name="writer_Name"
+								<label>Name</label> <input class="form-control" id="name"
 									type="text" placeholder="Name" required="required"
 									data-validation-required-message="Please enter your name.">
 								<p class="help-block text-danger"></p>
@@ -288,17 +308,20 @@
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Email Address</label> <input value="" required class="form-control"
-									name="member_Email" type="email" placeholder="Email Address">
+								<label>Email Address</label> <input class="form-control"
+									id="email" type="email" placeholder="Email Address"
+									required="required"
+									data-validation-required-message="Please enter your email address.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Title</label> <input value="" required class="form-control" name="qnA_Title"
-									type="text" placeholder="Title" required="required"
-									data-validation-required-message="Please enter your title.">
+								<label>Phone Number</label> <input class="form-control"
+									id="phone" type="tel" placeholder="Phone Number"
+									required="required"
+									data-validation-required-message="Please enter your phone number.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -306,30 +329,23 @@
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
 								<label>Message</label>
-								<textarea value="" required class="form-control" name="qnA_Content" rows="5"
+								<textarea class="form-control" id="message" rows="5"
 									placeholder="Message" required="required"
 									data-validation-required-message="Please enter a message."></textarea>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<div class="control-group">
-							<div
-								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Password</label> <input value="" required class="form-control"
-									name="writer_Pw" type="password" placeholder="Password"
-									required="required"
-									data-validation-required-message="Please enter your Password.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<br>
 						<div id="success"></div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-encore_tours btn-lg" id="sendMessageButton"  >Send</button>
+							<button type="submit" class="btn btn-encore_tours btn-lg"
+									id="sendMessageButton"
+									onclick="location.href=''">Send</button>
 						</div>
 					</form>
 				</div>
 			</div>
+
 		</div>
 		
 		<!-- Scroll to Top Button-->
