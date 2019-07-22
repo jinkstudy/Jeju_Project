@@ -39,9 +39,13 @@
 	href="/team4_jeju/resources/style/fontawesome-all.css" type="text/css">
 <link rel="stylesheet"
 	href="/team4_jeju/resources/style/jeju_gyubeom.css" type="text/css">
+	
+<link rel="stylesheet"
+	  href="/team4_jeju/resources/style/style_main_test_jink.css" type="text/css">
 
 <script src="/team4_jeju/resources/js/jquery-3.4.1.js"></script>
 <script src="/team4_jeju/resources/js/bootstrap-4.3.1.js"></script>
+
 <script src="/team4_jeju/resources/js/main_test_jink.js"></script>
 <script src="/team4_jeju/resources/js/tourCateMidd_jink.js"></script>
 
@@ -95,7 +99,7 @@
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">
 							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-							   href="/team4_jeju/tour/tourTest.do">나의 여행 페이지
+							   href="/team4_jeju/pick/myPage.do">나의 여행 페이지
 							</a>
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">

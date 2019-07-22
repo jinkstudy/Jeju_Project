@@ -14,9 +14,6 @@
 
 <title>Encore Tours</title>
 
-<link rel="stylesheet"
-	href="/team4_jeju/resources/style/style_main_test_jink.css" type="text/css">
-
 </head>
 
 <body id="page-top">
@@ -26,8 +23,7 @@
 
 	<!-- main title header -->
 	<div class="masthead bg-encore_tours_background text-white text-center"
-	     id="jeju-main-head"
-	     style = "height : 51rem !important;">
+	     id="jeju-main-head">
 		<div class="d-flex align-items-center flex-column">
 
 			<div class="container">
@@ -78,14 +74,20 @@
 							<div class="form-group">
 								<span class="form-label">Options</span>
 								<div class="row place-opt">
-									<div class="col-md-4" style="cursor: pointer">핫플레이스</div>
-									<div class="col-md-4" style="cursor: pointer">적당히</div>
-									<div class="col-md-4" style="cursor: pointer">숨은 명소</div>
+									<a class="select-button col-md-4 btn-outline-light" 
+						     		   style="cursor: pointer">핫플레이스</a>
+									<a class="select-button col-md-4 btn-outline-light" 
+						               style="cursor: pointer">적당히</a>
+									<a class="select-button col-md-4 btn-outline-light"
+						     		   style="cursor: pointer">숨은 명소</a>								
 								</div>
 								<div class="row speed-opt">
-									<div class="col-md-4" style="cursor: pointer">여유롭게</div>
-									<div class="col-md-4" style="cursor: pointer">보통</div>
-									<div class="col-md-4" style="cursor: pointer">휙 빠르게</div>
+									<a class="select-button col-md-4 btn-outline-light"
+									     style="cursor: pointer">여유롭게</a>
+									<a class="select-button col-md-4 btn-outline-light"
+									     style="cursor: pointer">보통</a>
+									<a class="select-button col-md-4 btn-outline-light"
+									     style="cursor: pointer">휙 빠르게</a>
 								</div>
 
 							</div>
@@ -118,7 +120,10 @@
 							</div>
 
 							<div class="form-btn">
-								<button class="submit-btn">나만의 일정 만들기</button>
+								<a class="submit-btn btn btn-outline-light" 
+								   href="location.href='/team4_jeju/tour/tourTest.do">
+								      나만의 여행 만들기
+								</a>
 							</div>
 						</form>
 					</div>
