@@ -7,14 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/main")
 public class MainController {
 	
-	@RequestMapping(value="/mainRedirect.do")
+	@RequestMapping(value="mainRedirect.do")
 	public String mainRedirectMethod() {
-		return "redirect:/main/main.do";
+		System.out.println("mainRedirect.do 호출 완료.");
+		return "redirect:main.do";
 	}
 	
-	@RequestMapping(value="/main.do")
-	public void receiveRedirectMain() {
-		//return "redirect:/main_header_footer/main.do";
+	//수정 금지.
+	//리다이렉트를 받는 아이 필요.
+	@RequestMapping(value="main.do")
+	public void main() {
+		
 	}
+	
+	
 	
 }

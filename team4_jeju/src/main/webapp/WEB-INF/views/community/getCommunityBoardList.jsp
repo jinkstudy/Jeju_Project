@@ -6,11 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- 링크 순서 중요 -->
+
 <!-- Page level plugin CSS-->
 <link
 	href="/team4_jeju/resources/style/dataTables.bootstrap4_gyubeom.css"
 	rel="stylesheet">
-	
+
+<!-- Custom styles for this template-->
+<link href="/team4_jeju/resources/style/sb-admin_gyubeom.css"
+	rel="stylesheet">
+
 </head>
 <body>
 	
@@ -80,15 +87,23 @@
 			</div>
 		</div>
 	</div>
-			  <!-- Page level plugin JavaScript-->
-  <script src="/team4_jeju/resources/js/jquery.dataTables_gyubeom.js"></script>
-  <script src="/team4_jeju/resources/js/dataTables.bootstrap4_gyubeom.js"></script>		
-		<br> <a href="insertCommunityBoard.do">새글 등록</a>
+
+	<br> <a href="insertCommunityBoard.do">새글 등록</a>
 
 	</section>
 
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
+
+<!-- Page level plugin JavaScript-->
+<script src="/team4_jeju/resources/js/jquery.dataTables_gyubeom.js"></script>
+<script src="/team4_jeju/resources/js/dataTables.bootstrap4_gyubeom.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/team4_jeju/resources/js/sb-admin_gyubeom.js"></script>
+
+<!-- Demo scripts for this page-->
+<script src="/team4_jeju/resources/js/datatables-demo_gyubeom.js"></script>
 
 </body>
 </html>
