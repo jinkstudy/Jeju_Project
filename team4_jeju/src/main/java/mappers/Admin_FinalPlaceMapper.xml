@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="finalPlaceMap">
+	
+	<resultMap id="FPMap" type="finalPlaceVO">
+		<id property="final_Place_Num" column="FINAL_PLACE_NUM" />
+		<result property="place_Id" column="PLACE_ID" />
+		<result property="place_Name" column="PLACE_NAME" />
+		<result property="tour_Sequence_Key_Num" column="TOUR_SEQUENCE_KEY_NUM" />
+		<result property="next_Distance" column="Next_Distance" />
+		<result property="middle_Num" column="MIDDLE_NUM" />
+		<result property="restaurant_Place_Id" column="RESTAURANT_PLACE_ID" />
+		<result property="image_Path" column="IMAGE_PATH" />
+		<result property="lati_Coord" column="LATI_COORD" />
+		<result property="longi_Coord" column="LONGI_COORD" />
+		<result property="place_Tel" column="PLACE_TEL" />
+		<result property="place_Addr" column="PLACE_ADDR" />
+		<result property="close_Day" column="CLOSE_DAY" />
+		<result property="close_Possible_Day" column="CLOSE_POSSIBLE_DAY" />
+		<result property="open_Time" column="OPEN_TIME" />
+		<result property="close_Time" column="CLOSE_TIME" />
+		<result property="use_Time" column="USE_TIME" />
+		<result property="tour_Hour" column="TOUR_HOUR" />
+		<result property="place_Det" column="PLACE_DET" />
+		<result property="like_Count" column="LIKE_COUNT" />
+		<result property="tags" column="TAGS" />
+	</resultMap>
+	
+	<resultMap id="FPPartDataMap" type="finalPlaceVO">
+		<id property="final_Place_Num" column="FINAL_PLACE_NUM" />
+		<result property="place_Id" column="PLACE_ID" />
+		<result property="place_Name" column="PLACE_NAME" />
+		<result property="tour_Sequence_Key_Num" column="TOUR_SEQUENCE_KEY_NUM" />
+		<result property="next_Distance" column="Next_Distance" />
+		<result property="middle_Num" column="MIDDLE_NUM" />
+		<result property="restaurant_Place_Id" column="RESTAURANT_PLACE_ID" />
+		<result property="lati_Coord" column="LATI_COORD" />
+		<result property="longi_Coord" column="LONGI_COORD" />
+	</resultMap>
+	
+	<select id="selectFinalPlaceAll" resultMap="FPMap">
+		<![CDATA[
+		SELECT * FROM FINAL_PLACE ORDER BY FINAL_PLACE_NUM ASC
+		]]>
+	</select>
+	
+	<select id="selPartDataExceptRestaurant" resultMap="FPPartDataMap">
+		<![CDATA[
+		SELECT FINAL_PLACE_NUM
+		       , PLACE_ID
+		       , PLACE_NAME
+		       , TOUR_SEQUENCE_KEY_NUM
+		       , Fore_Distance
+		       , MIDDLE_NUM
+		       , RESTAURANT_PLACE_ID
+		       , LATI_COORD
+		       , LONGI_COORD FROM FINAL_PLACE
+		WHERE MIDDLE_NUM NOT IN (1, 2, 3, 4, 5, 6)
+		]]>
+	</select>
+	
+	<update id="updateTourSeqKeyNum" parameterType="finalPlaceVO">
+		
+	</update>
+	
+</mapper>

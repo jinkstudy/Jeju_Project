@@ -32,7 +32,7 @@ public class GetAPI {
 	
 	public GetAPI(){
 
-		System.out.println("시작");
+		System.out.println("GetAPI 시작");
 		System.out.println("==========================");
 	}
 
@@ -101,13 +101,13 @@ public class GetAPI {
 					
 					//15번 데이터 : overview
 					String overView;
-					String shortOverView = null;
+					String shortOverView = "-";
 					
 					if((String.valueOf(item2.get("overview"))) instanceof String) {
 						overView = String.valueOf(item2.get("overview"));
-						if(overView != null && overView.contains(".")) {
-							int idx = overView.indexOf(".") + 1;
-							shortOverView = overView.substring(0, idx); 
+						if(overView != null && overView.contains("다.")) {
+							int idx1 = overView.indexOf("다.") + 2;
+							shortOverView = overView.substring(0, idx1);
 						}
 					}else {
 						overView = null;
@@ -123,7 +123,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("usetimeculture"))) instanceof String) {
 						useTimeCulture = String.valueOf(item1.get("usetimeculture"));
 					}else {
-						useTimeCulture = null;
+						useTimeCulture = "-";
 					}
 					
 					//14번 데이터 : infoCenterCul			
@@ -131,7 +131,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("infocenterculture"))) instanceof String) {
 						infoCenterCul = String.valueOf(item1.get("infocenterculture"));
 					}else {
-						infoCenterCul = null;
+						infoCenterCul = "-";
 					}
 					
 					//14번 데이터 : restDateCul				
@@ -139,7 +139,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("restdateculture"))) instanceof String) {
 						restDateCul = String.valueOf(item1.get("restdateculture"));
 					}else {
-						restDateCul = null;
+						restDateCul = "-";
 					}
 					
 					
@@ -148,7 +148,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("infocenterleports"))) instanceof String) {
 						infoCenterLepo = String.valueOf(item1.get("infocenterleports"));
 					}else {
-						infoCenterLepo = null;
+						infoCenterLepo = "-";
 					}
 					
 					//28번 데이터 : restDateLepo						
@@ -156,7 +156,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("restdateleports"))) instanceof String) {
 						restDateLepo = String.valueOf(item1.get("restdateleports"));
 					}else {
-						restDateLepo = null;
+						restDateLepo = "-";
 					}
 					
 					
@@ -165,7 +165,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("opentime"))) instanceof String) {
 						openTime = String.valueOf(item1.get("opentime"));
 					}else {
-						openTime = null;
+						openTime = "-";
 					}
 					
 					//38번 데이터 : infoCenterShopping
@@ -173,7 +173,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("infocentershopping"))) instanceof String) {
 						infoCenterShopping = String.valueOf(item1.get("infocentershopping"));
 					}else {
-						infoCenterShopping = null;
+						infoCenterShopping = "-";
 					}
 					
 					//38번 데이터 : restDateShopping					
@@ -181,7 +181,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("restdateshopping"))) instanceof String) {
 						restDateShopping = String.valueOf(item1.get("restdateshopping"));
 					}else {
-						restDateShopping = null;
+						restDateShopping = "-";
 					}
 					
 					//39번 데이터 : openTimeFood
@@ -189,7 +189,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("opentimefood"))) instanceof String) {
 						openTimeFood = String.valueOf(item1.get("opentimefood"));
 					}else {
-						openTimeFood = null;
+						openTimeFood = "-";
 					}
 					
 					//39번 데이터 : firstMenu
@@ -197,7 +197,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("firstmenu"))) instanceof String) {
 						firstMenu = String.valueOf(item1.get("firstmenu"));
 					}else {
-						firstMenu = null;
+						firstMenu = "-";
 					}
 					
 					//39번 데이터 : infoCenterFood					
@@ -205,7 +205,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("infocenterfood"))) instanceof String) {
 						infoCenterFood = String.valueOf(item1.get("infocenterfood"));
 					}else {
-						infoCenterFood = null;
+						infoCenterFood = "-";
 					}
 					
 					//39번 데이터 : restDateFood
@@ -213,7 +213,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("restdatefood"))) instanceof String) {
 						restDateFood = String.valueOf(item1.get("restdatefood"));
 					}else {
-						restDateFood = null;
+						restDateFood = "-";
 					}
 					
 					//default 데이터 : useTim
@@ -221,7 +221,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("usetime"))) instanceof String) {
 						useTim = String.valueOf(item1.get("usetime"));
 					}else {
-						useTim = null;
+						useTim = "-";
 					}
 					
 					
@@ -230,7 +230,7 @@ public class GetAPI {
 					if((String.valueOf(item1.get("infocenter"))) instanceof String) {
 						infoCenter = String.valueOf(item1.get("infocenter"));
 					}else {
-						infoCenter = null;
+						infoCenter = "-";
 					}
 					
 					//default 데이터 : restDate					
@@ -238,21 +238,8 @@ public class GetAPI {
 					if((String.valueOf(item1.get("restdate"))) instanceof String) {
 						restDate = String.valueOf(item1.get("restdate"));
 					}else {
-						restDate = null;
+						restDate = "-";
 					}
-					
-//					vo.setClose_Day(null);
-//					vo.setUse_Time(null);
-//					vo.setInfo_Center(null);
-//					vo.setOpen_Date(null);
-//					vo.setUse_Season(null);
-//					vo.setTour_Hour("1");
-//					vo.setPlace_Price("");
-//					vo.setEvent_S_Date(null);
-//					vo.setEvent_E_Date(null);
-//					vo.setEvent_Homepage(null);
-//					vo.setEvent_Place(null);
-//					vo.setPlay_Time(null);
 
 					switch (String.valueOf(item1.get("contenttypeid"))) {
 
@@ -486,7 +473,7 @@ public class GetAPI {
 		urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "="+serviceKey); 
 	    urlBuilder.append("&" + URLEncoder.encode("MobileOS","UTF-8") + "=" + URLEncoder.encode("ETC", "UTF-8")); /*IOS(아이폰),AND(안드로이드),WIN(원도우폰),ETC*/
 	    urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
-	   urlBuilder.append("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode(contentId, "UTF-8")); /*콘텐츠 ID*/
+	    urlBuilder.append("&" + URLEncoder.encode("contentId","UTF-8") + "=" + URLEncoder.encode(contentId, "UTF-8")); /*콘텐츠 ID*/
 	    urlBuilder.append("&" + URLEncoder.encode("contentTypeId","UTF-8") + "=" + URLEncoder.encode(contenttypeid, "UTF-8")); /*관광타입(관광지, 숙박 등)ID*/
 	    urlBuilder.append("&" + URLEncoder.encode("defaultYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*기본정보 조회여부*/
         urlBuilder.append("&" + URLEncoder.encode("firstImageYN","UTF-8") + "=" + URLEncoder.encode("N", "UTF-8")); /*원본, 썸네일 대표이미지 조회여부*/

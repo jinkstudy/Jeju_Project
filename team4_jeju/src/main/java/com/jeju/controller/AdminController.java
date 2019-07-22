@@ -9,24 +9,23 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jeju.service.AdminServiceImpl;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/visitJejuData")
 public class AdminController {
 	
 	@Autowired
 	private AdminServiceImpl adminService;
 	
-	@RequestMapping(value="{url}.do")
-	public String blablabla(@PathVariable String url) {
-		return "/admin/"+url;
-	}	
+//	@RequestMapping(value="{url}.do")
+//	public String blablabla(@PathVariable String url) {
+//		return "/admin/"+url;
+//	}
 	
-	
-	@RequestMapping(value="visitJejuData/selectVisitJeju.do")
+	@RequestMapping(value="selectVisitJeju.do")
 	public ModelAndView selectVisitJejuData() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("visitJeju"
 			         , adminService.getVisitJejuArray());
-		//setViewName을 해주지 않으면 저하될 가능성 ↑
+		//setViewName을 해주지 않으면 속도 저하될 가능성 ↑
 		// 따라서 setViewName 지정해 줄 것
 		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
 		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
@@ -34,7 +33,7 @@ public class AdminController {
 		return mv;
 	}
 	
-	@RequestMapping(value="visitJejuData/insertVisitJeju.do")
+	@RequestMapping(value="insertVisitJeju.do")
 	public ModelAndView insertVisitJejuData() {
 		ModelAndView mv = new ModelAndView();
 		adminService.insertVisitJeju();
@@ -46,40 +45,6 @@ public class AdminController {
 		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
 		mv.setViewName("/admin/visitJejuData/visitJejuData");
 		return mv;
-	}
-	
-	
-	
-	@RequestMapping(value="apiData/selectApiData.do")
-	public ModelAndView selectApiData() {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("apiList"
-			         , adminService.getApiList());
-		//setViewName을 해주지 않으면 저하될 가능성 ↑
-		// 따라서 setViewName 지정해 줄 것
-		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
-		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
-		mv.setViewName("/admin/apiData/apiData");
-		return mv;
-	}
-	
-	@RequestMapping(value="apiData/insertApiData.do")
-	public ModelAndView insertApiData() {
-		ModelAndView mv = new ModelAndView();
-		adminService.insertApiList();
-		mv.addObject("apiList"
-			         , adminService.getApiList());
-		//setViewName을 해주지 않으면 저하될 가능성 ↑
-		// 따라서 setViewName 지정해 줄 것
-		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
-		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
-		mv.setViewName("/admin/apiData/apiData");
-		return mv;
-	}
-	
-	@RequestMapping(value="placeJoin/placeJoin.do")
-	public void placeJoin() {
-		
 	}
 	
 }

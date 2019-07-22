@@ -16,16 +16,38 @@
 
   <title> Encore Tours - Administrator </title>
 
+<style type="text/css">
+	.table-bordered {
+	  border: 0.05rem solid #FF7301 !important;
+	}
+	
+	.table-bordered tr,
+	.table-bordered td,
+	.table-bordered th,
+	.table-bordered thead th,
+	.table-bordered tbody + tbody,
+	.table-bordered tbody tr td,
+	.table-bordered tbody td,
+	.table-bordered tr td {
+	  border: 0.05rem solid #FF7301 !important;
+	}
+	
+	.table-bordered th{
+	  border: 0.05rem solid #FF7301 !important;
+	  background-color: #FFF2ED;
+	}
+</style>
+
 </head>
 
 <body id="page-top">
 
   	<!-- 헤더에 링크 파일 기술 되어 있음. -->
-	<jsp:include page="../header_of_admin.jsp"></jsp:include>
+	<jsp:include page="../admin/header_of_admin.jsp"></jsp:include>
 
 <div id="wrapper">
 
-	<jsp:include page="../left_sider_of_admin.jsp"></jsp:include>
+	<jsp:include page="../admin/left_sider_of_admin.jsp"></jsp:include>
 
     <div id="content-wrapper">
 
@@ -34,7 +56,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="/team4_jeju/admin/admin.do">Admin</a>
+            <a href="/team4_jeju/admin/admin/admin.do">Admin</a>
           </li>
           <li class="breadcrumb-item active">공공 API - 파싱 작업 실행</li>
         </ol>
@@ -45,7 +67,7 @@
 			<tr>
 				<td><br />
 					<button type="submit" 
-					        class="btn btn-encore_tours btn-lg"
+					        class="btn btn-get-api btn-lg"
 						    id="sendMessageButton" 
 						    onclick="location.href='/team4_jeju/admin/apiData/insertApiData.do'">
 						       공공 API - 파싱 작업 실행</button>
@@ -55,7 +77,7 @@
 				</td>
 				<td><br />
 					<button type="submit" 
-					        class="btn btn-encore_tours btn-lg"
+					        class="btn btn-get-api btn-lg"
 						    id="sendMessageButton" 
 						    onclick="location.href='/team4_jeju/admin/apiData/selectApiData.do'">
 						       공공 API DATA 리스트 - SELECT 갱신</button>
@@ -70,10 +92,11 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Table Example</div>
+                        공공 API - 파싱 작업 실행 테이블</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered"
+                     id="dataTable" width="100%" cellspacing="0">
                 <thead>
 					<tr>						
 						<th>place_Num</th>
@@ -153,7 +176,7 @@
       <!-- /.container-fluid -->
 
     <!-- 헤더에 링크 파일 기술 되어 있음. -->
-	<jsp:include page="../footer_of_admin.jsp"></jsp:include>
+	<jsp:include page="../admin/footer_of_admin.jsp"></jsp:include>
 
     </div>
     <!-- /.content-wrapper -->

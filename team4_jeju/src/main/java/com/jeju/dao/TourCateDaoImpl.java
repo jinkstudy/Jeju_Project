@@ -1,15 +1,24 @@
 package com.jeju.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jeju.vo.PlaceTestVO;
+
 //객체 변수명 첫 글자 소문자 주의
 @Repository("tourCateDao")
-public class TourCateDaoImpl implements TourSchDao{
+public class TourCateDaoImpl implements TourCateDao{
 	
 	//객체 변수명 첫 글자 소문자 주의
 	@Autowired
-	private SqlSessionTemplate mybatis;	
+	private SqlSessionTemplate mybatis;
+
+	public List<PlaceTestVO> getHotPlaceList() {
+		return mybatis.selectList("tourCateMap.selectHotPlace");
+	
+	}	
 	
 }

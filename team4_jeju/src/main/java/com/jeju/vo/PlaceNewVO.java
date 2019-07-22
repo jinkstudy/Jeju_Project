@@ -11,21 +11,21 @@ public class PlaceNewVO {
 	private double lati_Coord; //위도
 	private String place_Tel; //연락처
 	private String place_Addr; //장소주소
-	private String close_Day = null; //휴일
+	private String close_Day = "-"; //휴일
 	private String open_Time; //오픈시간
 	private String close_Time; //종료시간
-	private String use_Time = null; //이용시간 //13
+	private String use_Time = "-"; //이용시간 //13
 	private int tour_Hour = 2; //관광소요시간 //14
 	private String place_Det; //장소간략 설명 //15
-	private String place_Price = null; //입장료 //16
-	private String info_Center = null; //문의처
-	private String open_Date = null; //개장일
-	private String use_Season = null; //이용시기
-	private String event_S_Date = null; //행사시작일
-	private String event_E_Date = null; //행사종료일
-	private String event_Homepage = null; //행사홈페이지
-	private String event_Place = null; //행사장소
-	private String play_Time = null; //공연시간
+	private String place_Price = "-"; //입장료 //16
+	private String info_Center = "-"; //문의처
+	private String open_Date = "-"; //개장일
+	private String use_Season = "-"; //이용시기
+	private String event_S_Date = "-"; //행사시작일
+	private String event_E_Date = "-"; //행사종료일
+	private String event_Homepage = "-"; //행사홈페이지
+	private String event_Place = "-"; //행사장소
+	private String play_Time = "-"; //공연시간
 	
 	public PlaceNewVO() {
 		

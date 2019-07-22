@@ -4,7 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="tourCateMap">
-
+	<resultMap id="getPlacetest" type="placeTest">
+		<id property="place_num" column="PLACE_NUM" />
+		<result property="place_title" column="PLACE_TITLE" />
+		<result property="place_like_num" column="PLACE_LIKE_NUM" />
+		<result property="place_tags" column="PLACE_TAGS" />
+		<result property="place_img_path" column="PLACE_IMG_PATH" />
+		<result property="midd_num" column="MIDD_NUM" />
+	</resultMap>
+	
+	<select id="selectHotPlace" resultMap="getPlacetest">
+	<![CDATA[
+		select * from(select * from PLACE_TEST order by place_like_num desc) where Rownum<=9
+		]]>
+	
+	</select>
 
 
 

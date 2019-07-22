@@ -42,6 +42,8 @@
 
 <script src="/team4_jeju/resources/js/jquery-3.4.1.js"></script>
 <script src="/team4_jeju/resources/js/bootstrap-4.3.1.js"></script>
+<script src="/team4_jeju/resources/js/main_test_jink.js"></script>
+<script src="/team4_jeju/resources/js/tourCateMidd_jink.js"></script>
 
 </head>
 <body>
@@ -54,7 +56,7 @@
 			<div class="navbar-nav ml-auto ml-md-0">
 				<div class="nav-item no-arrow">
 					<a class="nav-link" 
-					   href="/team4_jeju/admin/admin.do"
+					   href="/team4_jeju/admin/admin/admin.do"
 					   role="button">
 						<i class="fas fa-user fa-fw admin"></i> admin
 					</a>
@@ -86,13 +88,14 @@
 					<ul class="navbar-nav ml-auto">						
 						<li class="nav-item mx-0 mx-lg-1">
 							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-							   href="/team4_jeju/main/main.do#about">
+							   href="/team4_jeju/main/main.do#about"
+							   id="introductionEncoreTours">
 							   Encore Tours 소개
 							</a>
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">
 							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-							   href="">나의 여행 페이지
+							   href="/team4_jeju/tour/tourTest.do">나의 여행 페이지
 							</a>
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">
@@ -102,7 +105,8 @@
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">
 							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-							   href="/team4_jeju/main/main.do#contact">
+							   href="/team4_jeju/main/main.do#contact"
+							   id="askAnythingYouWant">
 							      무엇이든 물어보세요
 							</a>
 						</li>
@@ -113,7 +117,7 @@
 				
 		
 		<!-- 검색창 내비게이션 navigation 시작 -->
-		<nav class="navbar navbar-expand-sm navbar-dark bg-white jeju-top-search">
+		<nav class="navbar navbar-expand navbar-dark bg-white jeju-top-search">
 
 			<!-- 검색창 -->
 			<!-- Navbar Search -->
@@ -122,7 +126,7 @@
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search for..."
 						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
+					<div class="input-group-append nav-item">
 						<button class="btn btn-encore_tours" type="button">
 							<i class="fas fa-search"></i>
 						</button>
@@ -186,6 +190,9 @@
 
 	</header>
 	
+	
+	
+	<!-- 모달 -->
 	<!-- modal start -->
 	<div class="modal fade" id="popUpWindow">
 	  <div class="modal-dialog">

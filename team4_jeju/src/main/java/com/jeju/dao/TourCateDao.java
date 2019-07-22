@@ -1,5 +1,9 @@
 package com.jeju.dao;
 
-public interface TourCateDao {
+import java.util.List;
 
+import com.jeju.vo.PlaceTestVO;
+
+public interface TourCateDao {
+	public List<PlaceTestVO> getHotPlaceList();
 }

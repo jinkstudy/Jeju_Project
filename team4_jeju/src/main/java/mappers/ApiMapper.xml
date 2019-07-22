@@ -29,12 +29,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="event_E_Date" column="EVENT_E_DATE" />
 		<result property="event_Homepage" column="EVENT_HOMEPAGE" />
 		<result property="event_Place" column="EVENT_PLACE" />
-		<result property="play_Time" column="PLAY_TIME" />		
+		<result property="play_Time" column="PLAY_TIME" />
 	</resultMap>
 	
 	<select id="selectApiListAll" resultMap="ApiMap">
 		<![CDATA[
-		SELECT * FROM PLACE ORDER BY PLACE_NUM DESC
+		SELECT * FROM PLACE ORDER BY PLACE_NUM ASC
 		]]>
 	</select>
 	
@@ -78,20 +78,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, #{place_Tel}
 		, #{place_Addr}
 		, #{close_Day}
-		, '08:00'
-		, '18:00'
+		, '-'
+		, '-'
 		, #{use_Time}
 		, #{tour_Hour}
 		, #{place_Det}
-		, '0'
+		, '-'
 		, #{info_Center}
-		, '0'
-		, '0'
-		, SYSDATE
-		, SYSDATE
-		, '0'
-		, '0'
-		, '0'
+		, '-'
+		, '-'
+		, '-'
+		, '-'
+		, '-'
+		, '-'
+		, '-'
 		) 
 	</insert>
 	

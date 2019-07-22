@@ -1,5 +1,9 @@
 package com.jeju.service;
 
-public interface TourCateService {
+import java.util.List;
 
+import com.jeju.vo.PlaceTestVO;
+
+public interface TourCateService {
+	public List<PlaceTestVO> getHotPlaceList() ;
 }

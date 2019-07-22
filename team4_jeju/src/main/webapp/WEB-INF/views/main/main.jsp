@@ -14,6 +14,8 @@
 
 <title>Encore Tours</title>
 
+<link rel="stylesheet"
+	href="/team4_jeju/resources/style/style_main_test_jink.css" type="text/css">
 
 </head>
 
@@ -23,200 +25,184 @@
 	<jsp:include page="./header_of_main.jsp"></jsp:include>
 
 	<!-- main title header -->
-	<header class="masthead bg-encore_tours_background text-white text-center">
-		<div class="container d-flex align-items-center flex-column">
+	<div class="masthead bg-encore_tours_background text-white text-center"
+	     id="jeju-main-head"
+	     style = "height : 51rem !important;">
+		<div class="d-flex align-items-center flex-column">
 
-			<!-- Masthead Avatar Image -->
-			<img class="masthead-avatar mb-5"
-			     src="/team4_jeju/resources/imgs/Seong_San.png"
-			     alt="">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<div class="booking-bg"></div>
 
-			<!-- Masthead Heading -->
-			<h1 class="masthead-heading text-uppercase mb-0">메인 문구 / 스케쥴러</h1>
+						<form>
+							<div class="form-header">
+								<h3>당신만을 위한 SmartPlanner</h3>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">여행 시작일</span> <input
+											class="form-control" type="date" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">여행 종료일</span> <input
+											class="form-control" type="date" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">성인</span> <select
+											class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select> <span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">아동</span> <select
+											class="form-control">
+											<option>0</option>
+											<option>1</option>
+											<option>2</option>
+										</select> <span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<span class="form-label">Options</span>
+								<div class="row place-opt">
+									<div class="col-md-4" style="cursor: pointer">핫플레이스</div>
+									<div class="col-md-4" style="cursor: pointer">적당히</div>
+									<div class="col-md-4" style="cursor: pointer">숨은 명소</div>
+								</div>
+								<div class="row speed-opt">
+									<div class="col-md-4" style="cursor: pointer">여유롭게</div>
+									<div class="col-md-4" style="cursor: pointer">보통</div>
+									<div class="col-md-4" style="cursor: pointer">휙 빠르게</div>
+								</div>
 
-			<!-- Icon Divider -->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon">
-					<i class="fas fa-globe-asia"></i>
+							</div>
+
+							<div class="form-group">
+								<div class="row sch-opt">
+									<div class="col-md-4">
+										<input type="checkbox" name="romantic" value="romantic">로맨틱
+									</div>
+									<div class="col-md-4">
+										<input type="checkbox" name="photo" value="photo">포토스팟
+									</div>
+									<div class="col-md-4">
+										<input type="checkbox" name="healing" value="healing">힐링
+									</div>
+								</div>
+								<div class="row sch-opt">
+									<div class="col-md-4">
+										<input type="checkbox" name="culture" value="culture">문화/체험
+									</div>
+									<div class="col-md-4">
+										<input type="checkbox" name="indoor" value="indoor">실내
+									</div>
+									<div class="col-md-4">
+										<input type="checkbox" name="shopping" value="shopping">쇼핑
+									</div>
+								</div>
+
+
+							</div>
+
+							<div class="form-btn">
+								<button class="submit-btn">나만의 일정 만들기</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="divider-custom-line"></div>
 			</div>
 
-			<!-- Masthead Subheading -->
-			<p class="masthead-subheading font-weight-light mb-0">
-			Enjoy Smarter Travel "Only for You"</p>
-
 		</div>
-	</header>
+	</div>
 	<!-- //end of header -->	
 	
 	<!-- Portfolio Section -->
 	<section class="page-section portfolio" id="portfolio">
 		<div class="container">
 
-			<!-- Portfolio Section Heading -->
-			<h2	class="page-section-heading text-center text-uppercase text-secondary mb-0">
-			여행 카테고리</h2>
-
-			<!-- Icon Divider -->
-			<div class="divider-custom">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon">
-					<i class="fas fa-passport"></i>
-				</div>
-				<div class="divider-custom-line"></div>
-			</div>
-			
-			<!-- Test : Portfolio row Grid Items -->
-			<div class="d-flex align-items-center justify-content-center">
-				
-				<!-- 핫플레이스 TOP 50 -->
-				<div class="col-md-auto"
-				     onclick="location.href=''">
-					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
-							</div>
+			<div class="major-cate">
+				<div class="container">
+					<h2
+						class="page-section-heading text-center text-uppercase text-secondary mb-0">
+						여행 카테고리</h2>
+		
+					<!-- Icon Divider -->
+					<div class="divider-custom">
+						<div class="divider-custom-line"></div>
+						<div class="divider-custom-icon">
+							<i class="fas fa-passport"></i>
 						</div>
-							<img src="/team4_jeju/resources/imgs/food_category.png"
-								 width="400"
-								 height="200"
-								 alt="" />
+						<div class="divider-custom-line"></div>
 					</div>
-				</div>
-				
-				<div class="col-md-auto">
-					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plane-departure fa-2x">&nbsp;즐길거리</i>
+		
+					<div class="row major-list">
+						<div class="col-md-6 major-odd"
+							onclick="location.href='/team4_jeju/tourCate/selectHotplace.do'"
+							style="cursor: pointer">
+							<div class="major1" >
+								<div class="text-center text-white">
+									<i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
+								</div>
 							</div>
 						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" 
-							 width="400"
-							 height="200" 
-							 alt="" />
-					</div>
-				</div>
-			</div>
-			
-			<!-- Test : Portfolio row Grid Items -->
-			<div class="d-flex align-items-center justify-content-center">
-				<div class="col-md-auto">
-					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
+						<div class="col-md-6"
+							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do'" 
+							style="cursor: pointer">
+							<div class="major2">
+								<div class="text-center text-white">
+									<i class="fas fa-plane fa-2x">&nbsp;가볼거리</i>
+								</div>
 							</div>
 						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" 
-							 width="400"
-							 height="200" 
-							 alt="" />
-					</div>
-				</div>
-				<div class="col-md-auto">
-					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plane-departure fa-2x">&nbsp;즐길거리</i>
+						</div>
+						<div class="row major-list">
+						<div class="col-md-6"
+							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do'" 
+							style="cursor: pointer">
+							<div class="major3">
+								<div class="text-center text-white">
+									<i class="fas fa-utensils fa-2x">&nbsp;먹을거리</i>
+								</div>
+							
 							</div>
 						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" 
-							 width="400"
-							 height="200" 
-							 alt="" />
+						<div class="col-md-6"
+							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do'"
+							style="cursor: pointer">
+							<div class="major4">
+								<div class="text-center text-white">
+									<i class="fas fa-grin-hearts fa-2x">&nbsp;즐길거리</i>
+								</div>
+							
+							</div>
+						</div>		
 					</div>
 				</div>
 			</div>
 			
-			<!-- Portfolio row 1 Grid Items -->
-			<div class="row">
+		</div>			
+	</section>
+	<!-- The end of Category section -->
 
-				<!-- Portfolio Item 1 -->
-				<div class="col-md-4">
-					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white"></div>
-						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" width="400"
-							height="200" alt="">
-					</div>
-				</div>
 
-				<!-- Portfolio Item 2 -->
-				<div class="col-md-4">
-					<div class="portfolio-item mx-auto" data-toggle="modal"
-						data-target="#portfolioModal2">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plane-departure fa-2x">&nbsp;즐길거리</i>
-							</div>
-						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" width="400"
-							height="200" alt="">
-					</div>
-				</div>
-				
-				<!-- Portfolio Item 3 -->
-				<div class="col-md-4">
-					<div class="portfolio-item mx-auto" data-toggle="modal"
-						data-target="#portfolioModal2">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plane-departure fa-2x">&nbsp;즐길거리</i>
-							</div>
-						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" width="400"
-							height="200" alt="">
-					</div>
-				</div>
-			</div>
-			
-			<!-- Portfolio row 2 Grid Items -->
-			<div class="row">
-
-				<!-- Portfolio Item 4 -->
-				<div class="col-md-4">
-					<div class="portfolio-item mx-auto" data-target="#portfolioModal1">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white"></div>
-						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" width="400"
-							height="200" alt="">
-					</div>
-				</div>
-
-				<!-- Portfolio Item 5 -->
-				<div class="col-md-4">
-					<div class="portfolio-item mx-auto" data-toggle="modal"
-						data-target="#portfolioModal2">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plane-departure fa-2x">&nbsp;즐길거리</i>
-							</div>
-						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" width="400"
-							height="200" alt="">
-					</div>
-				</div>
-				
-				<!-- Portfolio Item 6 -->
-				<div class="col-md-4">
-					<div class="portfolio-item mx-auto" data-toggle="modal"
-						data-target="#portfolioModal2">
-						<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plane-departure fa-2x">&nbsp;즐길거리</i>
-							</div>
-						</div>
-						<img src="/team4_jeju/resources/imgs/food_category.png" width="400"
-							height="200" alt="">
-					</div>
-				</div>
-			</div>
-			
+	<!-- fake section -->
+	<section id="about" 
+	         class="bg-encore_tours_title">
+		<div style="height : 5rem;">
+		</div>
 	</section>
 
 	<!-- About Section -->
@@ -255,7 +241,13 @@
 
 		</div>
 	</section>
-
+	
+	<!-- fake section -->
+	<section id="contact">
+		<div style="height : 5rem;">
+		</div>
+	</section>
+	
 	<!-- Contact Section -->
 	<section class="page-section" id="contact">
 		<div class="container">
