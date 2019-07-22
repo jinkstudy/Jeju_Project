@@ -21,6 +21,9 @@
       
       <!-- place alias 설정 -->
       <typeAlias alias="place" type="com.jeju.vo.PlaceNewVO"/>
+	  
+	  	<!-- Q&A alias 설정(별칭) -->
+		<typeAlias alias="qnA" type="com.jeju.vo.QnAVO"/>
    </typeAliases>
 
 </configuration>
