@@ -6,12 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<!-- Page level plugin CSS-->
+<link
+	href="/team4_jeju/resources/style/dataTables.bootstrap4_gyubeom.css"
+	rel="stylesheet">
+	
 </head>
 <body>
 	
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
+
 	
 	<!-- main title header -->
 	<header class="masthead bg-encore_tours_background text-white text-center">
@@ -38,49 +43,48 @@
 
 		</div>
 	</header>
-	<!-- //end of header -->		
-	
-	<section class="page-section portfolio" id="portfolio">
-		<div class="container">
-		
-			<div class="d-flex align-items-center justify-content-center">
-			
-			<table class="table table-bordered table-hover"
-				   style="width: 350px; text-align: center;">
-				<tr>
-					<th colspan='2'>Community Board List</th>
-				</tr>
-			</table>
+
+	<!-- DataTables -->
+	<div class="card mb-3">
+		<div class="card-header">
+			<i class="fas fa-table"></i>Community Board List
 		</div>
-		
-		<div class="d-flex align-items-center justify-content-center">
-			<table class="no-style">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%"
+					cellspacing="0">
+			<thead>
 				<tr>
-				<th width="100">번호</th>
-				<th width="200">제목</th>
-				<th width="150">작성자</th>
-				<th width="150">등록일</th>
-				<th width="100">조회수</th>
-				</tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>등록일</th>
+				<th>조회수</th>
+			</thead>
+			<tbody>
 				<c:forEach items="${community}" var="community">
-				<tr>
-				<td>'${community.comm_Mnum }'</td>
-				<td align="left"><a href="getCommunityBoard.do?comm_Mnum=${community.comm_Mnum }">
+				<td>${community.comm_Mnum }</td>
+				<td align="left"><a href="getCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">
 							${community.comm_Title }</a></td>
 				<td>${community.member_Email }</td>
 				<td>${community.comm_Date }</td>
 				<td>${community.comm_Cnt }</td>	
 				</tr>
 				</c:forEach>
-				
-			
-				
-				
+				</tbody>
 			</table>
-
+			<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
+			</div>
 		</div>
 	</div>
-		<br> <td align="center"><a href="insertCommunityBoard.do">새글 등록</a></td>
+			  <!-- Page level plugin JavaScript-->
+  <script src="/team4_jeju/resources/js/jquery.dataTables_gyubeom.js"></script>
+  <script src="/team4_jeju/resources/js/dataTables.bootstrap4_gyubeom.js"></script>		
+		<br> <a href="insertCommunityBoard.do">새글 등록</a>
+
 	</section>
 
 	<!-- footer -->
