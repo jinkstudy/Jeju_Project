@@ -1,0 +1,21 @@
+.mypage-tab
+.pick_list_table{
+	width:100%; height:auto; position:relative; 
+
+}
+body{
+font-family: 'Noto Sans KR', sans-serif;
+}
+.nav-link{
+	color: white;
+	background-color: #2970FF;
+}
+.nav-link active{
+	color : #DCF1FF;
+}
+.nav li{
+	margin-right:5px;
+}
+#myTab{
+	margin-bottom:1px;
+}
