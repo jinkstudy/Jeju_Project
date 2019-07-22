@@ -5,7 +5,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="communityMap">
 
+<select id="getCommunityBoardList" resultType="community">
+		<![CDATA[
+		SELECT * FROM COMMUNITY_BOARD ORDER BY MEMBER_EMAIL DESC
+		]]>
+</select>
 
+<insert id="insertCommunityBoard" parameterType="community">
+ 
+ 	<![CDATA[
+ INSERT INTO COMMUNITY_BOARD
+ (Comm_Mnum,Member_Email,Comm_Title,Comm_Content,Comm_Date,Comm_Cnt,Comm_Pass)
+ VALUES
+ (COMM_MNUM_SEQ.NEXTVAL,#{member_Email},#{comm_Title},#{comm_Content},
+ SYSDATE,0,#{comm_Pass})
+ 	]]>
+</insert>
 
+<update id="updateCommunityBoard" parameterType="community">
+<![CDATA[
+		UPDATE community_board SET
+		Comm_Content = #{comm_Content},
+		comm_Title = #{comm_Title}
+		WHERE member_Email = #{member_Email} and comm_mnum=#{comm_Mnum}
+		]]>
+</update>
+
+<delete id="deleteCommunityBoard" parameterType="community">
+		<![CDATA[
+		DELETE community_board
+		WHERE member_Email = #{member_Email} and comm_mnum=#{comm_Mnum}
+		]]>
+</delete>
+
+<select id="getCommunityBoard" parameterType="community" resultType="community">
+	<![CDATA[
+		SELECT *
+		FROM community_board
+		WHERE Comm_Mnum = #{comm_Mnum}
+		]]>
+</select>
 
 </mapper>
