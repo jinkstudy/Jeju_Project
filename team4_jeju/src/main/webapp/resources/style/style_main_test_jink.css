@@ -24,10 +24,11 @@
 	background-color: #fff;
 }
 
+/* 북킹 폼 전체 form */
 .booking-form {
 	width: 100%;
 	font-weight: 700px;
-	margin-left : 45rem;
+	margin-left : 50rem;
 	padding-top: 5px;
 	padding-bottom: 13px;
 	padding-left: 35px;
