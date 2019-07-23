@@ -9,7 +9,7 @@ public class MainController {
 	
 	@RequestMapping(value="mainRedirect.do")
 	public String mainRedirectMethod() {
-		System.out.println("mainRedirect.do 호출 완료.");
+		//System.out.println("mainRedirect.do 호출 완료.");
 		return "redirect:main.do";
 	}
 	

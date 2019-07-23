@@ -51,17 +51,17 @@
 	</section>
 	<!--// The end of map drawing -->
 	
-	<div class="d-flex align-items-center justify-content-center">		
+	<!-- <div class="d-flex align-items-center justify-content-center">		
 		<div class="card mb-3">
 			<table class="table">
 				<tr>
 					<td>
 						<p>
 							<em class="link">
-								<a href="MapTest_GyuBeom.do" 
+								<a href="" 
 								   target="_blank"
-								   id="">
-								Map Test _ GyuBeom Page로 이동</a>
+								   id="center_coordi_confirm">
+								현재 지도 중심 좌표의 위도, 경도 확인</a>
 							</em>
 						</p>
 					</td>
@@ -71,7 +71,7 @@
 				</tr>
 			</table>
 		</div> 
-	</div>
+	</div> -->
 		
 	<div class="jeju-div d-flex align-items-center justify-content-center">
 							

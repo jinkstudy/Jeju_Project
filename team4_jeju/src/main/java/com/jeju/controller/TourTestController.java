@@ -8,9 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/tour")
 public class TourTestController {
 	
+	
+	
 	@RequestMapping(value="{url}.do")
 	public String blablabla(@PathVariable String url) {
 		return "/tour/"+url;
+	}
+	
+	@RequestMapping(value="tourTest.do")
+	public void tourMapListDrawing() {
+		
 	}
 	
 }
