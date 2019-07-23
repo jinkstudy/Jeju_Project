@@ -27,14 +27,14 @@
 
 	<!-- main title header -->
 	<header
-		class="masthead bg-encore_tours_background text-white text-center">
+		class="mastheadd bg-encore_tours_background text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
 
-			<!-- Masthead Avatar Image -->
-			<img class="masthead-avatar mb-5" src="" alt="">
+			<!-- Mastheadd Avatar Image -->
+			<img class="mastheadd-avatar mb-5" src="" alt="">
 
-			<!-- Masthead Heading -->
-			<h1 class="masthead-heading text-uppercase mb-0">QA 페이지입니다.</h1>
+			<!-- Mastheadd Heading -->
+			<h1 class="mastheadd-heading text-uppercase mb-0">QA 페이지입니다.</h1>
 
 			<!-- Icon Divider -->
 			<div class="divider-custom divider-light">
@@ -45,8 +45,8 @@
 				<div class="divider-custom-line"></div>
 			</div>
 
-			<!-- Masthead Subheading -->
-			<p class="masthead-subheading font-weight-light mb-0">Enjoy
+			<!-- Mastheadd Subheading -->
+			<p class="mastheadd-subheading font-weight-light mb-0">Enjoy
 				Smarter Travel "Only for You"</p>
 
 		</div>
