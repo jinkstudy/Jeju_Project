@@ -54,7 +54,7 @@
 	<!-- //end of header -->
 
 	<!-- Contact Section -->
-	<section class="page-section" id="contact">
+	
 	<div class="card mb-3">
 		<div class="card-header">
 			<i class="fas fa-table"></i>QnA Board List
@@ -90,7 +90,7 @@
 			</div>
 		</div>
 	</div>
-	</section>
+	
 
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>

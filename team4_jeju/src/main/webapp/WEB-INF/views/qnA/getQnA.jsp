@@ -54,7 +54,7 @@
 	<!-- //end of header -->
 
 	<!-- Contact Section -->
-	<section class="page-section" id="contact">
+	
 		<div class="container">
 
 			<!-- Contact Section Heading -->
@@ -138,7 +138,6 @@
 			</div>
 
 		</div>
-	</section>
 
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
