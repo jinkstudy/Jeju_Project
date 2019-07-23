@@ -12,15 +12,11 @@
 <meta name="author" content="">
 <title>InsertQnA</title>
 
-<!-- 카카오톡 로그인 관련 스트립트 링크 -->
-<script src="
-	https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 <!-- jQuery 링크 -->
 <script src="../resources/js/jquery-3.4.1.js"></script>
 
-<!-- api 적용 스크립트 링크 -->
-<script src="../resources/js/jeju_gyubeom_kakao_log_in_out.js"></script>
+
 
 </head>
 <body>
@@ -81,25 +77,26 @@
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
 					<form action="updateQnA.do" method="post" id="contactForm"
 						novalidate="novalidate">
+<%-- 						<input name="qnA_Cnt" type="hidden" value="${qnA.qnA_Cnt }"/> --%>
 						<input name="qnA_Mnum" type="hidden" value="${qnA.qnA_Mnum}" />
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>${qnA.writer_Name }</label>
+								<div>${qnA.writer_Name }</div>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>${qnA.member_Email }</label>
+								<div>${qnA.member_Email }</div>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>${qnA.qnA_Title }</label>
+								<div>${qnA.qnA_Title }</div>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -116,14 +113,14 @@
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>${qnA.qnA_Date }</label>
+								<div>${qnA.qnA_Date }</div>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>${qnA.qnA_Cnt }</label>
+								<div>${qnA.qnA_Cnt }</div>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -131,8 +128,7 @@
 						<div id="success"></div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-encore_tours btn-lg"
-								id="sendMessageButton"
-								onclick="location.href='../qnA/updateQnA.do'">글 수정</button>
+								id="sendMessageButton">글 수정</button>
 						</div>
 					</form>
 					<a href="insertQnA.do">글등록</a>&nbsp;&nbsp;&nbsp; 

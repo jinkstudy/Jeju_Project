@@ -3,24 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
 
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
 <title>InsertQnA</title>
-
-<!-- 카카오톡 로그인 관련 스트립트 링크 -->
-<script src="
-	https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-
-<!-- jQuery 링크 -->
-<script src="../resources/js/jquery-3.4.1.js"></script>
-
-<!-- api 적용 스크립트 링크 -->
-<script src="../resources/js/jeju_gyubeom_kakao_log_in_out.js"></script>
 
 </head>
 <body>

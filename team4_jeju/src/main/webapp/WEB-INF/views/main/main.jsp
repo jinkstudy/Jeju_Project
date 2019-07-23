@@ -272,6 +272,7 @@
 		<div style="height : 5rem;">
 		</div>
 	</section>
+
 	
 	<!-- Contact Section -->
 	<section class="page-section" id="contact">
@@ -291,15 +292,15 @@
 				<div class="divider-custom-line"></div>
 			</div>
 
-			<!-- Contact Section Form -->
+									<!-- Contact Section Form -->
 			<div class="row">
 				<div class="col-lg-8 mx-auto">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<form name="sentMessage" id="contactForm" novalidate="novalidate">
+					<form action="../qnA/saveQnA.do" method="post" id="contactForm" novalidate="novalidate">
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Name</label> <input class="form-control" id="name"
+								<label>Name</label> <input value="" required class="form-control" name="writer_Name"
 									type="text" placeholder="Name" required="required"
 									data-validation-required-message="Please enter your name.">
 								<p class="help-block text-danger"></p>
@@ -308,20 +309,17 @@
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Email Address</label> <input class="form-control"
-									id="email" type="email" placeholder="Email Address"
-									required="required"
-									data-validation-required-message="Please enter your email address.">
+								<label>Email Address</label> <input value="" required class="form-control"
+									name="member_Email" type="email" placeholder="Email Address">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Phone Number</label> <input class="form-control"
-									id="phone" type="tel" placeholder="Phone Number"
-									required="required"
-									data-validation-required-message="Please enter your phone number.">
+								<label>Title</label> <input value="" required class="form-control" name="qnA_Title"
+									type="text" placeholder="Title" required="required"
+									data-validation-required-message="Please enter your title.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -329,24 +327,33 @@
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
 								<label>Message</label>
-								<textarea class="form-control" id="message" rows="5"
+								<textarea value="" required class="form-control" name="qnA_Content" rows="5"
 									placeholder="Message" required="required"
 									data-validation-required-message="Please enter a message."></textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="control-group">
+							<div
+								class="form-group floating-label-form-group controls mb-0 pb-2">
+								<label>Password</label> <input value="" required class="form-control"
+									name="writer_Pw" type="password" placeholder="Password"
+									required="required"
+									data-validation-required-message="Please enter your Password.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<br>
 						<div id="success"></div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-encore_tours btn-lg"
-									id="sendMessageButton"
-									onclick="location.href=''">Send</button>
+							<button type="submit" class="btn btn-encore_tours btn-lg" id="sendMessageButton"  >Send</button>
 						</div>
 					</form>
 				</div>
 			</div>
-
 		</div>
+
+	
 		
 		<!-- Scroll to Top Button-->
 		<a class="scroll-to-top rounded" href="#page-top">

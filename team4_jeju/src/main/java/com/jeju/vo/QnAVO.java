@@ -13,22 +13,22 @@ public class QnAVO {
 	private String writer_Pw;
 	private String qnA_Title;
 
-//	public QnAVO() {
-//
-//	}
+	public QnAVO() {
 
-//	public QnAVO(String qnA_Mnum, String member_Email, String writer_Name, String qnA_Content, 
-//			Date qnA_Date, int qnA_Cnt, String writer_Pw, String qnA_Title ) {
-//		super();
-//		this.qnA_Mnum = qnA_Mnum;
-//		this.member_Email = member_Email;
-//		this.writer_Name = writer_Name;
-//		this.qnA_Content = qnA_Content;
-//		this.qnA_Date = qnA_Date;
-//		this.qnA_Cnt = qnA_Cnt;
-//		this.writer_Pw = writer_Pw;
-//		this.qnA_Title = qnA_Title;
-//	}
+	}
+
+	public QnAVO(String qnA_Mnum, String member_Email, String writer_Name, String qnA_Content, 
+			Date qnA_Date, int qnA_Cnt, String writer_Pw, String qnA_Title ) {
+		super();
+		this.qnA_Mnum = qnA_Mnum;
+		this.member_Email = member_Email;
+		this.writer_Name = writer_Name;
+		this.qnA_Content = qnA_Content;
+		this.qnA_Date = qnA_Date;
+		this.qnA_Cnt = qnA_Cnt;
+		this.writer_Pw = writer_Pw;
+		this.qnA_Title = qnA_Title;
+	}
 
 	@Override
 	public String toString() {

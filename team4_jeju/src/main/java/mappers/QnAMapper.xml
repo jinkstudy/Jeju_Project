@@ -21,11 +21,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO QNA_BOARD
 		( QNA_MNUM , MEMBER_EMAIL,  WRITER_NAME,  QNA_CONTENT, QNA_DATE, QNA_CNT, WRITER_PW, QNA_TITLE	
 		)VALUES(
-		QNA_MNUM_SEQ.nextval, #{member_Email, jdbcType=VARCHAR},  #{writer_Name, jdbcType=VARCHAR } ,  #{qnA_Content, jdbcType=VARCHAR} , sysdate, 0 , 
-		  #{writer_Pw, jdbcType=VARCHAR} ,   #{qnA_Title, jdbcType=VARCHAR}  
+		QNA_MNUM_SEQ.nextval, #{member_Email},  #{writer_Name} ,  #{qnA_Content} , sysdate, 0 , 
+		  #{writer_Pw} ,   #{qnA_Title}  
 		)
 		]]>
 	</insert>
+	
+	
+	<update id="updateCnt" >
+		<![CDATA[
+		UPDATE QNA_BOARD SET
+		QNA_CNT = QNA_CNT + 1
+		WHERE qnA_Mnum = #{qnA_Mnum}
+		]]>
+	</update>
 	
 	<select id="getQnAList" resultMap="result">
 		<![CDATA[
@@ -33,15 +42,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>
 	
-		<update id="updateQnA" >
+		<update id="updateQnA" parameterType="qnA" >
 		<![CDATA[
 		UPDATE QNA_BOARD SET
 		QnA_Content = #{qnA_Content}
-		WHERE qnA_Mnum = #{qnA_Mnum}
+		WHERE  qnA_Mnum = #{qnA_Mnum}
 		]]>
 	</update>
 	
-	<delete id="deleteQnA" >
+	<delete id="deleteQnA" parameterType="qnA">
 		<![CDATA[
 		DELETE QNA_BOARD
 		WHERE qnA_Mnum = #{qnA_Mnum}
@@ -54,6 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM QNA_BOARD
 		WHERE qnA_Mnum = #{qnA_Mnum}
 		]]>
+		
 	</select>
 	
 	
