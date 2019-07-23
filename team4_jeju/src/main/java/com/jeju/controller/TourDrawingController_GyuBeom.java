@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/tour")
-public class TourTestController {
+public class TourDrawingController_GyuBeom {
 	
 	
 	

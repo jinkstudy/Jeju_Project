@@ -23,10 +23,12 @@
 
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
-
+	
+	
 	<!-- start of map title -->
-	<div class="masthead bg-encore_tours_background text-white text-center"
-	     id="jeju-head">
+	<div class="text-white text-center"
+	     id="jeju-map-head">
+	     <hr class="jeju-hr"/>
 	     <div class="masthead-heading">	     	
 			<div class="jeju-map-background">
 				<div class="jeju-title1">Jeju Journey for Me : 9박 10일</div>
@@ -36,8 +38,10 @@
 	</div>
 	<!--// The end of map title -->
 	
+	<hr class="jeju-hr"/>
+	
 	<!-- start of map drawing -->
-	<section class="page-section jeju-map-portfolio" id="portfolio">
+	<section class="jeju-map-portfolio" id="portfolio">
 		<div class="container">
 
 			<div class="d-flex align-items-center justify-content-center">		
