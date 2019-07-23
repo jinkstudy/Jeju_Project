@@ -1,4 +1,15 @@
-.comm-content{
-	cols : 40;
-	rows : 10;
+
+
+
+.comm_content_table{
+	height : 10rem;
+	width : 90%;
+	text-align : center;
+	border : 1px solid #e9ecef;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.comm_content_table tr td:first-of-type{
+	width : 15%;
+	background-color : #E9F1FF;
 }

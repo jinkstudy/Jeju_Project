@@ -62,21 +62,14 @@
 	<h6 align="right">작성자 : ${community.member_Email } </h6>
 </div>
 
-<div class="d-flex align-items-center justify-content-center">
-
-			<div class="panel panel-default">
-			  <div class="panel-body">
-			    내용
-			  </div>
-			  <div class="panel-footer">Panel footer</div>
-			</div>
-		<table class="no-style" >
- 				<tr>
+		<div class="d-flex align-items-center justify-content-center">
+			<table class="comm_content_table">
+				<tr>
 					<td>내용</td>
-					<td align="left"><div class="comm-content">${community.comm_Content }</div></td>
+					<td>${community.comm_Content}</td>
 				</tr>
-	</table>
-</div>
+			</table>			
+		</div>
 		
 		<div class="d-flex align-items-center justify-content-center">	
 <!-- 		<hr> -->
