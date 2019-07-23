@@ -9,6 +9,7 @@
 
 <!-- 링크 순서 중요 -->
 
+	
 <!-- Page level plugin CSS-->
 <link
 	href="/team4_jeju/resources/style/dataTables.bootstrap4_gyubeom.css"
@@ -16,6 +17,9 @@
 
 <!-- Custom styles for this template-->
 <link href="/team4_jeju/resources/style/sb-admin_gyubeom.css"
+	rel="stylesheet">
+<!-- 게시판 새글 등록 모달 스타일 -->
+<link href="/team4_jeju/resources/style/insertBoard_yoonyoung.css"
 	rel="stylesheet">
 
 </head>
@@ -88,10 +92,60 @@
 		</div>
 	</div>
 
-	<br> <a href="insertCommunityBoard.do">새글 등록</a>
-
+	<br> <!-- <a href="insertCommunityBoard.do">새글 등록</a> -->
+<a id="alertsDropdown"
+					   class="jeju-user py-3 px-0 px-lg-3 rounded"
+					   role="button"
+					   data-toggle="modal" 
+					   data-target="#insertBoard"
+					   aria-haspopup="true"
+					   aria-expanded="false"
+					   href="">새글 등록 </a>
 	</section>
-
+<!-- 모달 -->
+	<!-- modal start -->
+	<div class="com-jeju-modal fade" id="insertBoard">
+	  <div class="modal-dialog">
+	    <div class="modal-content jeju-modal-padding">
+	      <!-- header -->
+	      <div class="modal-header jeju-modal">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h3 class="modal-title">새글 등록</h3>
+	      </div>
+	      <!-- body -->
+	      <div class="modal-body jeju-modal">
+<!-- 	      	<div class="jeju-flex-wrap"> -->
+	      	<!-- 1. 폼태그에 속성 추가  -->
+		        <form action="saveCommunityBoard.do" method="post">
+		        <table class="no-style">
+				<!-- 2. 각 항목에  name 맞추기 -->
+				<tr>
+					<td width="70">제목</td>
+					<td align="left"><input type="text" name="comm_Title"/></td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td align="left"><input type="text" name="member_Email"/></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td align="left"><textarea cols="40" rows="10" name="comm_Content"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit"	value=" 새글 등록 " /></td>
+				</tr>
+				</table>
+		        </form>
+			</div>
+	      </div>	      
+	      <!-- footer -->
+	      <div class="modal-footer jeju-modal">
+	      </div>
+	      
+	    </div>
+	  </div>
+<!-- 	</div> -->
+	<!-- // The end of modal start -->
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
 
