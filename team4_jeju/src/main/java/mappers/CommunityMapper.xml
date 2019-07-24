@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  INSERT INTO COMMUNITY_BOARD
  (Comm_Mnum,Member_Email,Comm_Title,Comm_Content,Comm_Date,Comm_Cnt)
  VALUES
- (COMM_MNUM_SEQ.NEXTVAL,#{member_Email},#{comm_Title},#{comm_Content},
+ (to_char(sysdate,'YYYYMMDDHH24MISS')||to_char(SEQ_comm_MNUM.NEXTVAL),#{member_Email},#{comm_Title},#{comm_Content},
  SYSDATE,0)
  	]]>
 </insert>

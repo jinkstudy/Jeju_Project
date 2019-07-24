@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="replyMap">
+<insert id="addComment" parameterType="reply">
+ 	<![CDATA[
+ 	INSERT INTO REPLY(REPLY_NUM,MEMBER_EMAIL,REPLY_CONTENT,REPLY_DATE,COMM_MNUM)
+ 	VALUES('REPLY'||to_char(sysdate,'YYYYMMDDHH24MISS')||to_char(SEQ_REPLY_NUM.NEXTVAL)
+ 	,'hong@gmail.com',#{reply_Content},sysdate,#{comm_Mnum})
+ 	]]>
+</insert>
+<select id="getCommentList" parameterType="reply" resultType="reply">
+	<![CDATA[
+	SELECT * FROM REPLY 
+	WHERE COMM_MNUM=#{comm_Mnum}
+	ORDER BY REPLY_NUM ASC
+ 	]]>
+</select>
+</mapper>

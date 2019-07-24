@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,11 +11,15 @@
 <link
 	href="/team4_jeju/resources/style/communityBoard_yoonyoung.css"
 	rel="stylesheet">
+	
+
 </head>
 <body>
 	
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
+	<!-- 댓글 달기 js -->
+<script src="/team4_jeju/resources/js/comment_yoonyoung.js"></script>
 	
 	<!-- main title header -->
 	<header class="masthead bg-encore_tours_background text-white text-center">
@@ -68,10 +73,12 @@
 					<td>내용</td>
 					<td>${community.comm_Content}</td>
 				</tr>
-			</table>			
+			</table>	
 		</div>
-		
-		<div class="d-flex align-items-center justify-content-center">	
+	<div align="right">
+	<a href="deleteCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">글 삭제</a>&nbsp;&nbsp;&nbsp;
+	</div>				
+<!-- 		<div class="d-flex align-items-center justify-content-center">	 -->
 <!-- 		<hr> -->
 <!-- 		<form action="updateCommunityBoard.do" method="post"> -->
 <%-- 		<input name="member_Email" type="hidden" value="${community.member_Email }"/> --%>
@@ -103,8 +110,55 @@
 <!-- 			</table> -->
 <!-- 		</form> -->
 <!-- 		<hr> -->
-		<a href="deleteCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">삭제</a>&nbsp;&nbsp;&nbsp;
-		</div>
+	
+<!-- 		</div> -->
+	
+	<!-- 댓글달기 시작 -->
+	<div class="container">
+    <form id="commentListForm" name="commentListForm" method="post">
+
+        <div id="commentList">
+ 
+          	<c:forEach items="${reply}" var="reply">
+
+          	
+          	<table class='table'><h6><strong>${reply.member_Email}</strong></h6>
+          	<tr><td>${reply.reply_Content}</td></tr>
+          	</table>
+          	
+    		</c:forEach>
+    		
+        </div>
+
+    </form>
+	</div>
+	<div class="container">
+    <form id="commentForm" name="commentForm" method="post">
+    <br><br>
+        <div>
+            <div>
+                <span><strong>Comments</strong></span> <span id="cCnt"></span>
+            </div>
+            <div>
+                <table class="table">                    
+                    <tr>
+                        <td>
+                            <textarea id="reply_Content" style="width: 100%" rows="3" cols="30" name="comment" placeholder="댓글을 입력하세요"></textarea>
+                            <input type="hidden" value="${community.comm_Mnum}" id="comm_Mnum"/>
+                            <input type="hidden" value="${community.member_Email}" id="member_Email"/>
+                            <br>
+                            <div>
+                                <a id="addCommentBtn" class="btn pull-right btn-success">등록</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <input type="hidden" id="b_code" name="b_code" value="${result.code }" />        
+    </form>
+</div>
+ <!-- 댓글 달기 끝 -->
 	</div>
 			
 	</section>

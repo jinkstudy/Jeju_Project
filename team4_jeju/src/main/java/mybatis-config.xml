@@ -24,6 +24,8 @@
 	  
 	  	<!-- Q&A alias 설정(별칭) -->
 		<typeAlias alias="qnA" type="com.jeju.vo.QnAVO"/>
+		<!-- reply alias 설정(별칭) -->
+		<typeAlias alias="reply" type="com.jeju.vo.ReplyVO"/>
    </typeAliases>
 
 </configuration>

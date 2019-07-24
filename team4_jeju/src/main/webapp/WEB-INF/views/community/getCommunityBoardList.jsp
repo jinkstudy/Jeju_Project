@@ -75,7 +75,7 @@
 			<tbody>
 				<c:forEach items="${community}" var="community">
 				<td>${community.comm_Mnum }</td>
-				<td align="left"><a href="getCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">
+				<td align="left"><a href="getCommunityBoard.do?comm_Mnum=${community.comm_Mnum}">
 							${community.comm_Title }</a></td>
 				<td>${community.member_Email }</td>
 				<td>${community.comm_Date }</td>
