@@ -24,6 +24,8 @@ public class FinalPlaceVO_GyuBeom {
 	int like_Count; /* NUMBER, /* 20-좋아요횟수 !!!DONE!!! */
 	String tags; /* VARCHAR2(100)  /* 21-태그 !!!DONE!!! */
 	
+	MiddleClassVO middvo; //Middle_Class와 JOIN 수행 하기 위해 추가함.
+	
 	public FinalPlaceVO_GyuBeom() {
 		
 	}

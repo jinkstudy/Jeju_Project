@@ -4,22 +4,77 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="tourCateMap">
-	<resultMap id="getPlacetest" type="placeTest">
-		<id property="place_num" column="PLACE_NUM" />
-		<result property="place_title" column="PLACE_TITLE" />
-		<result property="place_like_num" column="PLACE_LIKE_NUM" />
-		<result property="place_tags" column="PLACE_TAGS" />
-		<result property="place_img_path" column="PLACE_IMG_PATH" />
-		<result property="midd_num" column="MIDD_NUM" />
+	
+	<resultMap id="getFinalPlace" type="finalPlaceVO">
+		<id property="final_Place_Num" column="FINAL_PLACE_NUM" />
+		<result property="place_Id" column="PLACE_ID" />
+		<result property="place_Name" column="PLACE_NAME" />
+		<result property="tour_Sequence_Key_Num" column="TOUR_SEQUENCE_KEY_NUM" />
+		<result property="next_Distance" column="Next_Distance" />
+		<result property="middle_Num" column="MIDDLE_NUM" />
+		<result property="restaurant_Place_Id" column="RESTAURANT_PLACE_ID" />
+		<result property="image_Path" column="IMAGE_PATH" />
+		<result property="lati_Coord" column="LATI_COORD" />
+		<result property="longi_Coord" column="LONGI_COORD" />
+		<result property="place_Tel" column="PLACE_TEL" />
+		<result property="place_Addr" column="PLACE_ADDR" />
+		<result property="close_Day" column="CLOSE_DAY" />
+		<result property="close_Possible_Day" column="CLOSE_POSSIBLE_DAY" />
+		<result property="open_Time" column="OPEN_TIME" />
+		<result property="close_Time" column="CLOSE_TIME" />
+		<result property="use_Time" column="USE_TIME" />
+		<result property="tour_Hour" column="TOUR_HOUR" />
+		<result property="place_Det" column="PLACE_DET" />
+		<result property="like_Count" column="LIKE_COUNT" />
+		<result property="tags" column="TAGS" />
+		<collection property="middvo" resultMap="getMidd"></collection>
 	</resultMap>
 	
-	<select id="selectHotPlace" resultMap="getPlacetest">
+	<resultMap id="getMajor" type="com.jeju.vo.MajorClassVO">
+		<id property="major_Num" column="MAJOR_NUM" />
+		<result property="major_Name" column="MAJOR_NAME" />
+	</resultMap>
+	
+	<resultMap id="getMidd" type="com.jeju.vo.MiddleClassVO">
+		<id property="middle_Num" column="MIDDLE_NUM" />
+		<result property="middle_Name" column="MIDDLE_NAME" />
+		<result property="major_Num" column="MAJOR_NUM" />
+	</resultMap>
+	
+	<select id="selectHotPlace" resultMap="getFinalPlace">
 	<![CDATA[
-		select * from(select * from PLACE_TEST order by place_like_num desc) where Rownum<=9
+		SELECT * FROM(SELECT * FROM final_place WHERE MIDDLE_NUM NOT IN(1,2,3,4,5,6) AND IMAGE_PATH IS NOT NULL ORDER BY like_count DESC) WHERE ROWNUM <=50
 		]]>
 	
 	</select>
 
 
+	<select id="selectMiddNameList" parameterType="major" resultMap="getMidd">
+	<![CDATA[
+		SELECT * FROM middle_Class WHERE MAJOR_NUM=#{major_Num}
+		]]>
+	
+	</select>
+	
+	<select id="selectPlacebyMidd" parameterType="midd" resultMap="getFinalPlace">
+	<![CDATA[
+		SELECT * FROM final_place WHERE MIDDLE_NUM=#{middle_Num} AND IMAGE_PATH IS NOT NULL ORDER BY LIKE_COUNT
+		]]>
+	
+	</select>
+	
+	<select id="selectMiddName" parameterType="int" resultMap="getMidd">
+	<![CDATA[
+		SELECT * FROM middle_Class WHERE MAJOR_NUM=#{i}
+		]]>
+	
+	</select>
+	
+	<select id="selectPlaceByMajor" parameterType="midd" resultMap="getFinalPlace">
+	<![CDATA[
+		SELECT * FROM final_place p INNER JOIN middle_class m ON p.MIDDLE_NUM = m.MIDDLE_NUM WHERE m.MAJOR_NUM=#{major_Num} AND p.IMAGE_PATH IS NOT NULL ORDER BY LIKE_COUNT
+	]]>
+	
+	</select>
 
 </mapper>

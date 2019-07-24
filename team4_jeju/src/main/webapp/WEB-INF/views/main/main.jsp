@@ -184,7 +184,7 @@
 							</div>
 						</div>
 						<div class="col-md-6"
-							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do'" 
+							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=3'" 
 							style="cursor: pointer">
 							<div class="major2">
 								<div class="text-center text-white">
@@ -195,7 +195,7 @@
 						</div>
 						<div class="row major-list">
 						<div class="col-md-6"
-							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do'" 
+							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=1'" 
 							style="cursor: pointer">
 							<div class="major3">
 								<div class="text-center text-white">
@@ -205,7 +205,7 @@
 							</div>
 						</div>
 						<div class="col-md-6"
-							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do'"
+							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=2'"
 							style="cursor: pointer">
 							<div class="major4">
 								<div class="text-center text-white">
