@@ -3,24 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
 
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
 <title>InsertQnA</title>
-
-<!-- 카카오톡 로그인 관련 스트립트 링크 -->
-<script src="
-	https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-
-<!-- jQuery 링크 -->
-<script src="../resources/js/jquery-3.4.1.js"></script>
-
-<!-- api 적용 스크립트 링크 -->
-<script src="../resources/js/jeju_gyubeom_kakao_log_in_out.js"></script>
 
 </head>
 <body>
@@ -31,15 +15,15 @@
 
 	<!-- main title header -->
 	<header
-		class="masthead bg-encore_tours_background text-white text-center">
+		class="mastheadd bg-encore_tours_background text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
 
-			<!-- Masthead Avatar Image -->
-			<img class="masthead-avatar mb-5" src="" alt="">
+			<!-- Mastheadd Avatar Image -->
+			<img class="mastheadd-avatar mb-5" src="" alt="">
 
 
-			<!-- Masthead Heading -->
-			<h1 class="masthead-heading text-uppercase mb-0">QA 페이지입니다.</h1>
+			<!-- Mastheadd Heading -->
+			<h1 class="mastheadd-heading text-uppercase mb-0">QA 페이지입니다.</h1>
 
 			<!-- Icon Divider -->
 			<div class="divider-custom divider-light">
@@ -50,8 +34,8 @@
 				<div class="divider-custom-line"></div>
 			</div>
 
-			<!-- Masthead Subheading -->
-			<p class="masthead-subheading font-weight-light mb-0">Enjoy
+			<!-- Mastheadd Subheading -->
+			<p class="mastheadd-subheading font-weight-light mb-0">Enjoy
 				Smarter Travel "Only for You"</p>
 
 		</div>
@@ -59,7 +43,7 @@
 	<!-- //end of header -->
 
 	<!-- Contact Section -->
-	<section class="page-section" id="contact">
+	
 		<div class="container">
 
 			<!-- Contact Section Heading -->
@@ -137,7 +121,7 @@
 			</div>
 
 		</div>
-	</section>
+	
 
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>

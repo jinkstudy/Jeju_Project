@@ -30,10 +30,12 @@ public class QnAController{
 		step ="qnA/"+step;
 		return step;
 	}
+	
+
 
 
 	// 글 목록 검색
-		@RequestMapping("/getQnAList.do")
+		@RequestMapping("/getQnAList.do" )
 		public void getQnAList(QnAVO vo,Model model) {
 			List<QnAVO> list= qnAService.getQnAList(vo);
 			model.addAttribute("qnAList",list);
@@ -64,25 +66,29 @@ public class QnAController{
 		public String updateQnA(@ModelAttribute("qnA")QnAVO vo) {
 			qnAService.updateQnA(vo);
 		     System.out.println("updateQnA실행");
-			return "redirect: /getQnAList.do";
+			return "redirect:getQnAList.do";
 		}
 	
 		// 글 삭제
 		@RequestMapping("/deleteQnA.do")
 		public String deleteQnA(QnAVO vo) {
 			qnAService.deleteQnA(vo);
-			return "redirect:/getQnAList.do";
+			return "redirect:getQnAList.do";
 		}
 	
 		// 글 상세 조회
 		@RequestMapping("/getQnA.do")
 		public void getQnA(QnAVO vo,Model model) {
+//			qnAService.updateCnt(vo);
+			System.out.println("getQnA실행");
 			model.addAttribute("qnA", qnAService.getQnA(vo));// Model 정보 저장		
 		}
-		
 		public void updateCnt(QnAVO vo) {
+			 System.out.println("updateCnt실행");
 			qnAService.updateCnt(vo);
+
 		}
+	
 
 
 }

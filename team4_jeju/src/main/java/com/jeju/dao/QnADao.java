@@ -12,6 +12,9 @@ public interface QnADao {
 	// QnA 수정
 	public void updateQnA(QnAVO vo) ;
 
+	// updateCnt 수정
+	public void updateCnt(QnAVO vo)  ;
+		
 	// QnA 삭제
 	public void deleteQnA(QnAVO vo);
 

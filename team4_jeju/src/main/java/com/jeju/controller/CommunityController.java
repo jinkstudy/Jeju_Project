@@ -8,10 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeju.service.CommunityService;
+import com.jeju.service.ReplyService;
 import com.jeju.vo.CommunityBoardVO;
+import com.jeju.vo.ReplyVO;
 
 @Controller
 @RequestMapping("/community")
@@ -20,6 +23,8 @@ public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
 	
+	@Autowired
+	private ReplyService replyService;
 	
 //	@RequestMapping(value=""
 //	                , produces="application/text; charset=UTF-8")
@@ -40,7 +45,6 @@ public class CommunityController {
 		//model.addAttribute("cList", communityService.getCommunityBoardList(vo));
 		// ViewResolver를 지정하지 않으면 아래처럼 페이지명 지정
 		// return "views/getCommunityBoardList.jsp"; // View 이름 리턴
-		System.out.println("vo.getComm_Mnum()->"+vo.getComm_Mnum());
 		ModelAndView model = new ModelAndView();
 		model.addObject("community",communityService.getCommunityBoardList(vo));
 		model.setViewName("community/getCommunityBoardList");
@@ -67,8 +71,72 @@ public class CommunityController {
 		return "redirect:getCommunityBoardList.do";
 	}
 	//글 상세 조회
-	@RequestMapping("/getCommunityBoard.do")
-	public void getCommunityBoard(CommunityBoardVO vo,Model model) {
-		model.addAttribute("community", communityService.getCommunityBoard(vo));// Model 정보 저장		
+	@RequestMapping(value="/getCommunityBoard.do")
+	public void getCommunityBoard(CommunityBoardVO vo,ReplyVO revo,Model model) {
+		model.addAttribute("community", communityService.getCommunityBoard(vo));// Model 정보 저장	
+    	model.addAttribute("reply", replyService.getCommentList(revo));// model에 정보저장
 	}
+	
+	
+	  /**
+     * 댓글 등록(Ajax)
+     */
+    @RequestMapping(value="/addComment.do")
+    @ResponseBody
+    public void addComment(ReplyVO vo) throws IOException{
+    	System.out.println("controller"+vo.getReply_Content());
+    	replyService.addComment(vo);  
+    }
+   /*
+    public String ajax_addComment(@ModelAttribute("ReplyVO") ReplyVO vo, HttpServletRequest request) throws Exception{
+        
+        HttpSession session = request.getSession();
+        LoginVO loginVO = (LoginVO)session.getAttribute("loginVO");
+        
+        try{
+        
+        	ReplyVO.setWriter(loginVO.getUser_id());        
+            boardServiceImpl.addComment(ReplyVO);
+            
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        return "success";
+    }
+    */
+    
+    /**
+     * 게시물 댓글 불러오기(Ajax)
+     */
+//    @RequestMapping(value="/getCommentList.do", produces="application/json; charset=utf8")
+//    @ResponseBody
+//    public void getCommentList(ReplyVO vo,Model model) {
+//    	model.addAttribute("reply", replyService.getCommentList(vo));// model에 정보저장
+//    }
+//    public ResponseEntity ajax_commentList(@ModelAttribute("boardVO") BoardVO boardVO, HttpServletRequest request) throws Exception{
+//        
+//        HttpHeaders responseHeaders = new HttpHeaders();
+//        ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
+//        
+//        // 해당 게시물 댓글
+//        List<BoardVO> commentVO = boardServiceImpl.selectBoardCommentByCode(boardVO);
+//        
+//        if(commentVO.size() > 0){
+//            for(int i=0; i<commentVO.size(); i++){
+//                HashMap hm = new HashMap();
+//                hm.put("c_code", commentVO.get(i).getC_code());
+//                hm.put("comment", commentVO.get(i).getComment());
+//                hm.put("writer", commentVO.get(i).getWriter());
+//                
+//                hmlist.add(hm);
+//            }
+//            
+//        }
+//        
+//        JSONArray json = new JSONArray(hmlist);        
+//        return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
+//        
+//    }
+//}
 }

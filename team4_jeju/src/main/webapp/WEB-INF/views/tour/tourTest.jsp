@@ -7,13 +7,9 @@
 <title>Insert title here</title>
 
 
-<!-- 카카오톡 로그인 관련 스트립트 링크 -->
-<script src="
-	https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-
 <!-- 카카오 map 링크 -->
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e85aa66afbc7aaf828aa2355f1eb56"></script>
+	    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e85aa66afbc7aaf828aa2355f1eb56"></script>
 
 <!-- jQuery 링크 -->
 <script src="../resources/js/jquery-3.4.1.js"></script>
@@ -27,24 +23,102 @@
 
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
-
-	<!-- start of map drawing and title -->
-	<section class="page-section portfolio" id="portfolio">
+	
+	
+	<!-- start of map title -->
+	<div class="text-white text-center"
+	     id="jeju-map-head">
+	     <hr class="jeju-hr"/>
+	     <div class="masthead-heading">	     	
+			<div class="jeju-map-background">
+				<div class="jeju-title1">Jeju Journey for Me : 9박 10일</div>
+				<div class="jeju-sub-title1">(19.07.02 ~ 19.07.11)</div>
+			</div>
+	     </div>	     
+	</div>
+	<!--// The end of map title -->
+	
+	<hr class="jeju-hr"/>
+	
+	<!-- start of map drawing -->
+	<section class="jeju-map-portfolio" id="portfolio">
 		<div class="container">
 
-			<div class="d-flex align-items-center justify-content-center">
-
-				<div class="jeju-map-background">
-					<h2 class="jeju-map-title1">Journey Only for Me</h2>
+			<div class="d-flex align-items-center justify-content-center">		
+				
+				<div class="row">
+					<div id="map" style="width: 70rem; height: 23rem;"></div>
 				</div>
-
-				<div id="map" style="width: 500px; height: 400px;"></div>
+				
 			</div>
 		</div>
-
 	</section>
-	<!--// The end of map drawing and title -->
-
+	<!--// The end of map drawing -->
+	
+	<div class="d-flex align-items-center justify-content-center">		
+		<div class="card mb-3">
+			<table class="table">
+				<tr>
+					<td>
+						<p>
+							<em class="link">
+								<a href="MapTest_GyuBeom.do" 
+								   target="_blank"
+								   id="">
+								Map Test _ GyuBeom Page로 이동</a>
+							</em>
+						</p>
+					</td>
+					<td>
+						<div id="center_coordi_confirm_td"></div>
+					</td>
+				</tr>
+			</table>
+		</div> 
+	</div>
+		
+	<div class="jeju-div d-flex align-items-center justify-content-center">
+							
+		<div class="card mb-3">
+			<div class="card-header">
+				<i class="fas fa-plane-departure"></i> My Tour Table
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%"
+						   cellspacing="0">
+						<thead>
+							<tr>
+								<th>Time</th>
+								<th>Picture</th>
+								<th>Content</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+	
+						<!-- <tfoot>
+	               <tr>
+	                 <th>Name</th>
+	                 <th>Position</th>
+	                 <th>Office</th>
+	                 <th>Age</th>
+	               </tr>
+	             </tfoot> -->
+	
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- //The End of DataTables -->
+		
+	</div>
+	
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
 

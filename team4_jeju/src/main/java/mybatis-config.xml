@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
 	<!-- AdminSelVO Alias 등 tour 관련 설정 -->
 	<typeAliases>
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
 		<typeAlias alias="getApiVO" type="com.jeju.vo.PlaceNewVO" />
-		<typeAlias alias="finalPlaceVO"
-			type="com.jeju.vo.FinalPlaceVO_GyuBeom" />
+		<typeAlias alias="finalPlaceVO" type="com.jeju.vo.FinalPlaceVO_GyuBeom" />
 
 		<!-- Tour Team Test -->
 		<typeAlias alias="placeTest" type="com.jeju.vo.PlaceTestVO" />
@@ -30,6 +30,9 @@
 		<!-- Category alias 설정(별칭) -->
 		<typeAlias alias="major" type="com.jeju.vo.MajorClassVO" />
 		<typeAlias alias="midd" type="com.jeju.vo.MiddleClassVO" />
+		
+		<!-- reply alias 설정(별칭) -->
+		<typeAlias alias="reply" type="com.jeju.vo.ReplyVO"/>
 	</typeAliases>
 
 </configuration>

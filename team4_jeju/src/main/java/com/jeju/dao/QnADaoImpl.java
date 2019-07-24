@@ -33,7 +33,10 @@ public class QnADaoImpl implements QnADao{
 	
 	public QnAVO getQnA(QnAVO vo) {
 		System.out.println("===> Mybatis getQnA() 호출");
+		mybatis.update("QnADao.updateCnt", vo);
+		System.out.println("===> Mybatis updateCnt() 호출");
 		return (QnAVO) mybatis.selectOne("QnADao.getQnA", vo);
+		
 	}
 	
 	public List<QnAVO> getQnAList(QnAVO vo) {
@@ -41,9 +44,16 @@ public class QnADaoImpl implements QnADao{
 		return mybatis.selectList("QnADao.getQnAList", vo);
 	}
 	
-	public void updateCnt(QnAVO vo) {
+//	public void updateCnt(QnAVO vo) {
+//		System.out.println("===> Mybatis updateCnt() 호출");
+//		mybatis.update("QnADao.updateCnt", vo);
+//	}
+
+	@Override
+	public void updateCnt (QnAVO qnA_Cnt) {
 		System.out.println("===> Mybatis updateCnt() 호출");
-		mybatis.update("QnADao.updateCnt", vo);
+		mybatis.update("QnADao.updateCnt", qnA_Cnt);
+		
 	}
 	
 }

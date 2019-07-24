@@ -1,0 +1,15 @@
+.com-insert-board-form{
+	padding : 4rem;
+	background-color : #E9F1FF;	
+}
+.com-jeju-modal{
+	position : fixed;
+	top: 8.9rem;
+	left: 0;
+	z-index: 1043;
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	outline: 0;
+}

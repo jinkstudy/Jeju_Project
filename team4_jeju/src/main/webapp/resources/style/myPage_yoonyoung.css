@@ -6,10 +6,7 @@
 body{
 font-family: 'Noto Sans KR', sans-serif;
 }
-.nav-link{
-	color: white;
-	background-color: #2970FF;
-}
+
 .nav-link active{
 	color : #DCF1FF;
 }
