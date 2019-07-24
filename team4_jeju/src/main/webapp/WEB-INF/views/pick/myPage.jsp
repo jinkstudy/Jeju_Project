@@ -16,7 +16,33 @@
 
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
+<!-- main title header -->
+	<header
+		class="mastheadd bg-encore_tours_background text-white text-center">
+		<div class="container d-flex align-items-center flex-column">
 
+			<!-- Mastheadd Avatar Image -->
+			<img class="mastheadd-avatar mb-5" src="" alt="">
+
+			<!-- Mastheadd Heading -->
+			<h1 class="mastheadd-heading text-uppercase mb-0">My Page.</h1>
+
+			<!-- Icon Divider -->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon">
+					<i class="fas fa-globe-asia"></i>
+				</div>
+				<div class="divider-custom-line"></div>
+			</div>
+
+			<!-- Mastheadd Subheading -->
+			<p class="mastheadd-subheading font-weight-light mb-0">Enjoy
+				Smarter Travel "Only for You"</p>
+
+		</div>
+	</header>
+	<!-- //end of header -->
 	<!-- start of map drawing and title -->
 	<div
 		class="container long-height-jeju">

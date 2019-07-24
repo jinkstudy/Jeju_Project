@@ -35,3 +35,4 @@ Servers/Pivotal tc Server Developer Edition v4.0-config/catalina.properties
 Servers/Pivotal tc Server Developer Edition v4.0-config/catalina.policy
 Servers/.settings/org.eclipse.wst.server.core.prefs
 Servers/
+team4_jeju/target/classes/mappers/QnAMapper.xml
