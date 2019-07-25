@@ -17,15 +17,19 @@
 <!-- 게시판 새글 등록 모달 스타일(글 수정에서 활용) -->
 <link href="/team4_jeju/resources/style/insertBoard_yoonyoung.css"
 	rel="stylesheet">
+
+<!-- 댓글 달기 js -->
+<script src="/team4_jeju/resources/js/comment_yoonyoung.js"></script>	
+	
 </head>
 <body>
 	
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
-	<!-- 댓글 달기 js -->
-<script src="/team4_jeju/resources/js/comment_yoonyoung.js"></script>
+		
+
 	
-			<!-- main title header -->
+	<!-- main title header -->
 	<header
 		class="mastheadd bg-encore_tours_background text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
