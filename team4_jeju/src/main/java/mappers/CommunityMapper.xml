@@ -11,6 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 </select>
 
+<update id="updateCnt" parameterType="community">
+
+		<![CDATA[
+		UPDATE COMMUNITY_BOARD
+		SET COMM_CNT = COMM_CNT+1
+		WHERE COMM_MNUM =#{comm_Mnum}	
+		]]>
+</update>
+
+
 <insert id="insertCommunityBoard" parameterType="community">
  
  	<![CDATA[

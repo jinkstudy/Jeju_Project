@@ -26,7 +26,6 @@ public class CommunityDaoImpl implements CommunityDao{
 //				System.out.println(m.getComm_Mnum());
 //		}
 //		return list;
-		
 		return mybatis.selectList("communityMap.getCommunityBoardList",vo);
 	}
 	
@@ -49,6 +48,7 @@ public class CommunityDaoImpl implements CommunityDao{
 	//글 상세조회
 	public CommunityBoardVO getCommunityBoard(CommunityBoardVO vo) {
 		System.out.println("===> Mybatis getBoard() 호출");
+		mybatis.update("communityMap.updateCnt",vo);
 		return (CommunityBoardVO) mybatis.selectOne("communityMap.getCommunityBoard", vo);
 	}
 	
