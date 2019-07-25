@@ -48,6 +48,7 @@ public class CommunityController {
 		ModelAndView model = new ModelAndView();
 		model.addObject("community",communityService.getCommunityBoardList(vo));
 		model.setViewName("community/getCommunityBoardList");
+
 		return model;
 	}
 	
@@ -83,60 +84,9 @@ public class CommunityController {
      */
     @RequestMapping(value="/addComment.do")
     @ResponseBody
-    public void addComment(ReplyVO vo) throws IOException{
-    	System.out.println("controller"+vo.getReply_Content());
+    public void addComment(ReplyVO vo,Model model) throws IOException{
     	replyService.addComment(vo);  
+    	model.addAttribute("reply",replyService.getCommentList(vo));
     }
-   /*
-    public String ajax_addComment(@ModelAttribute("ReplyVO") ReplyVO vo, HttpServletRequest request) throws Exception{
-        
-        HttpSession session = request.getSession();
-        LoginVO loginVO = (LoginVO)session.getAttribute("loginVO");
-        
-        try{
-        
-        	ReplyVO.setWriter(loginVO.getUser_id());        
-            boardServiceImpl.addComment(ReplyVO);
-            
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        
-        return "success";
-    }
-    */
-    
-    /**
-     * 게시물 댓글 불러오기(Ajax)
-     */
-//    @RequestMapping(value="/getCommentList.do", produces="application/json; charset=utf8")
-//    @ResponseBody
-//    public void getCommentList(ReplyVO vo,Model model) {
-//    	model.addAttribute("reply", replyService.getCommentList(vo));// model에 정보저장
-//    }
-//    public ResponseEntity ajax_commentList(@ModelAttribute("boardVO") BoardVO boardVO, HttpServletRequest request) throws Exception{
-//        
-//        HttpHeaders responseHeaders = new HttpHeaders();
-//        ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
-//        
-//        // 해당 게시물 댓글
-//        List<BoardVO> commentVO = boardServiceImpl.selectBoardCommentByCode(boardVO);
-//        
-//        if(commentVO.size() > 0){
-//            for(int i=0; i<commentVO.size(); i++){
-//                HashMap hm = new HashMap();
-//                hm.put("c_code", commentVO.get(i).getC_code());
-//                hm.put("comment", commentVO.get(i).getComment());
-//                hm.put("writer", commentVO.get(i).getWriter());
-//                
-//                hmlist.add(hm);
-//            }
-//            
-//        }
-//        
-//        JSONArray json = new JSONArray(hmlist);        
-//        return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
-//        
-//    }
-//}
+
 }

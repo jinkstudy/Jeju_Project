@@ -63,7 +63,7 @@
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered" id="dataTable" width="100%"
+				<table class="table table-bordered table-hover" id="dataTable" width="100%"
 					cellspacing="0">
 			<thead>
 				<tr>
@@ -93,7 +93,7 @@
 		</div>
 	</div>
 
-	<br> <!-- <a href="insertCommunityBoard.do">새글 등록</a> -->
+	<br>
 <a id="alertsDropdown"
 					   class="jeju-user py-3 px-0 px-lg-3 rounded"
 					   role="button"
@@ -115,7 +115,6 @@
 	      </div>
 	      <!-- body -->
 	      <div class="modal-body jeju-modal">
-<!-- 	      	<div class="jeju-flex-wrap"> -->
 	      	<!-- 1. 폼태그에 속성 추가  -->
 		        <form action="saveCommunityBoard.do" method="post">
 		        <table class="no-style">
@@ -142,7 +141,6 @@
 	      
 	    </div>
 	  </div>
-<!-- 	</div> -->
 	<!-- // The end of modal start -->
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>

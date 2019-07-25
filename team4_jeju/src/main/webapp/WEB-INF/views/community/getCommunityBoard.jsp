@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,7 +14,9 @@
 	href="/team4_jeju/resources/style/communityBoard_yoonyoung.css"
 	rel="stylesheet">
 	
-
+<!-- 게시판 새글 등록 모달 스타일(글 수정에서 활용) -->
+<link href="/team4_jeju/resources/style/insertBoard_yoonyoung.css"
+	rel="stylesheet">
 </head>
 <body>
 	
@@ -51,16 +55,6 @@
 	
 	<section class="page-section portfolio" id="portfolio">
 		<div class="container">
-		
-<!-- 			<div class="d-flex align-items-center justify-content-center"> -->
-			
-<!-- 			<table class="table table-bordered table-hover" -->
-<!-- 				   style="width: 350px; text-align: center;"> -->
-<!-- 				<tr> -->
-<!-- 					<th colspan='2'>글 상세 페이지</th> -->
-<!-- 				</tr> -->
-<!-- 			</table> -->
-<!-- 		</div> -->
 
 <div class="page-header">
   <h1 align="center"><a href="getCommunityBoardList.do">${community.comm_Title }</a></h1><hr/>
@@ -68,6 +62,19 @@
 	<h6 align="right">작성자 : ${community.member_Email } </h6>
 </div>
 
+	<div align="right">
+	<!-- 글 수정 모달 불러오기 -->
+	<a id="alertsDropdown"
+					   class="py-3 px-0 px-lg-3"
+					   role="button"
+					   data-toggle="modal" 
+					   data-target="#modifyBoard"
+					   aria-haspopup="true"
+					   aria-expanded="false"
+					   href="">글 수정 </a>
+	<a href="deleteCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">글 삭제</a>&nbsp;&nbsp;&nbsp;
+	</div>
+	
 		<div class="d-flex align-items-center justify-content-center">
 			<table class="comm_content_table">
 				<tr>
@@ -76,57 +83,80 @@
 				</tr>
 			</table>	
 		</div>
-	<div align="right">
-	<a href="deleteCommunityBoard.do?member_Email=${community.member_Email }&comm_Mnum=${community.comm_Mnum}">글 삭제</a>&nbsp;&nbsp;&nbsp;
-	</div>				
-<!-- 		<div class="d-flex align-items-center justify-content-center">	 -->
-<!-- 		<hr> -->
-<!-- 		<form action="updateCommunityBoard.do" method="post"> -->
-<%-- 		<input name="member_Email" type="hidden" value="${community.member_Email }"/> --%>
-<%-- 		<input name="comm_Mnum" type="hidden" value="${community.comm_Mnum }"/> --%>
-		
-		
-<!-- 			<table class="no-style" > -->
-<!-- 				<tr> -->
-<!-- 					<td width="70">제목</td> -->
-<!-- 					<td align="left"><input name="comm_Title" type="text" -->
-<%-- 					value="${community.comm_Title }"/></td>  --%>
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<td>내용</td> -->
-<%-- 					<td align="left"><textarea name="comm_Content" cols="40" rows="10">${community.comm_Content }</textarea></td> --%>
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<td>등록일</td> -->
-<%-- 					<td align="left">${community.comm_Date }</td> --%>
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<td>조회수</td> -->
-<%-- 					<td align="left">${community.comm_Cnt }</td> --%>
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<td colspan="2" align="center"> -->
-<!-- 					<input type="submit" value="글 수정" /></td> -->
-<!-- 				</tr> -->
-<!-- 			</table> -->
-<!-- 		</form> -->
-<!-- 		<hr> -->
+
 	
-<!-- 		</div> -->
-	
+	<!-- 글 수정 모달 시작 -->
+	<!-- modal start -->
+	<div class="com-jeju-modal fade" id="modifyBoard">
+	  <div class="modal-dialog">
+	    <div class="modal-content jeju-modal-padding">
+	      <!-- header -->
+	      <div class="modal-header jeju-modal">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h3 class="modal-title">글 수정</h3>
+	      </div>
+	      <!-- body -->
+	      <div class="modal-body jeju-modal">
+	      	<!-- 1. 폼태그에 속성 추가  -->
+		       <form action="updateCommunityBoard.do" method="post">
+		<input name="member_Email" type="hidden" value="${community.member_Email }"/>
+		<input name="comm_Mnum" type="hidden" value="${community.comm_Mnum }"/>
+			<table class="no-style" >
+				<tr>
+					<td width="70">제목</td>
+					<td align="left"><input name="comm_Title" type="text"
+					value="${community.comm_Title }"/></td> 
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td align="left"><textarea name="comm_Content" cols="40" rows="10">${community.comm_Content }</textarea></td>
+				</tr>
+				<tr>
+					<td>등록일</td>
+					<td align="left">${community.comm_Date }</td>
+				</tr>
+				<tr>
+					<td>조회수</td>
+					<td align="left">${community.comm_Cnt }</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+					<input type="submit" value="글 수정" /></td>
+				</tr>
+			</table>
+		</form>
+			</div>
+	      </div>
+	      
+	    </div>
+	  </div>
+	<!-- // The end of modal start -->			
+	&nbsp;&nbsp;&nbsp;
 	<!-- 댓글달기 시작 -->
 	<div class="container">
     <form id="commentListForm" name="commentListForm" method="post">
 
         <div id="commentList">
- 
+ 			
           	<c:forEach items="${reply}" var="reply">
-
-          	
-          	<table class='table'><h6><strong>${reply.member_Email}</strong></h6>
-          	<tr><td>${reply.reply_Content}</td></tr>
+          	<table class='table'
+          	       id = "reply_table_hoho">
+          	<tr>
+          	<td align="left"><strong>${reply.member_Email}</strong></td>
+          	<td align="right">
+          	${reply.reply_Date}
+          	</td>
+          	<td>
+          	<a role="button" class="btn btn-info" id="modifyComment">수정</a>
+          	</td>
+          	<td>
+            <a role="button" class="btn btn-danger" id="deleteComment">삭제</a>
+   			</td>    
+          	</tr>
+          	<tr>
+          		<td colspan = "3">${reply.reply_Content}</td>
+          	</tr>
           	</table>
-          	
     		</c:forEach>
     		
         </div>
@@ -138,7 +168,7 @@
     <br><br>
         <div>
             <div>
-                <span><strong>Comments</strong></span> <span id="cCnt"></span>
+                <span><strong>Comments</strong></span> <span id="cCnt">${fn:length(reply)}</span>
             </div>
             <div>
                 <table class="table">                    
@@ -156,7 +186,6 @@
                 </table>
             </div>
         </div>
-        <input type="hidden" id="b_code" name="b_code" value="${result.code }" />        
     </form>
 </div>
  <!-- 댓글 달기 끝 -->

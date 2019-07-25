@@ -13,3 +13,17 @@
 	overflow: hidden;
 	outline: 0;
 }
+
+#reply_table_hoho tr:first-child td{
+	width: 100%;
+	button-size : 5px;
+	display : inline;
+	padding  : .25rem .4rem;
+    font-size  : 0.7rem;
+    line-height  : .5;
+    border-radius : .2rem;
+}
+
+#reply_table_hoho tr td{
+	width: 100%;
+}

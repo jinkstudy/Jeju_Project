@@ -43,6 +43,7 @@ public class CommunityDaoImpl implements CommunityDao{
 	//글 삭제
 	public void deleteCommunityBoard(CommunityBoardVO vo) {
 		System.out.println("===> Mybatis deleteBoard() 호출");
+		mybatis.delete("communityMap.deleteReply",vo);
 		mybatis.delete("communityMap.deleteCommunityBoard", vo);
 	}
 	//글 상세조회

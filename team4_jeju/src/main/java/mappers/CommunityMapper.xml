@@ -30,10 +30,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE member_Email = #{member_Email} and comm_mnum=#{comm_Mnum}
 		]]>
 </update>
+<delete id="deleteReply" parameterType="community">
+		<![CDATA[
+		delete from reply where comm_mnum=#{comm_Mnum}
+		]]>
+</delete>
 
 <delete id="deleteCommunityBoard" parameterType="community">
 		<![CDATA[
-		DELETE community_board
+		DELETE from community_board
 		WHERE member_Email = #{member_Email} and comm_mnum=#{comm_Mnum}
 		]]>
 </delete>
