@@ -130,48 +130,60 @@
 	      
 	    </div>
 	  </div>
-	<!-- // The end of modal start -->			
-	&nbsp;&nbsp;&nbsp;
+	<!-- // The end of modal start -->
 	<!-- 댓글달기 시작 -->
 	<div class="container">
+	
     <form id="commentListForm" name="commentListForm" method="post">
-
+		<div>
+                <span><strong>Comments</strong></span> <span id="cCnt">(&nbsp;${fn:length(reply)}&nbsp;)</span>
+            </div>
         <div id="commentList">
- 			
-          	<c:forEach items="${reply}" var="reply">
-          	<table class='table'
-          	       id = "reply_table_hoho">
-          	<tr>
-          	<td align="left"><strong>${reply.member_Email}</strong></td>
-          	<td align="right">
-          	${reply.reply_Date}
-          	</td>
-          	<td>
-          	<a role="button" class="btn btn-info" id="modifyComment">수정</a>
-          	</td>
-          	<td>
-            <a role="button" class="btn btn-danger" id="deleteComment">삭제</a>
-   			</td>    
-          	</tr>
-          	<tr>
-          		<td colspan = "3">${reply.reply_Content}</td>
-          	</tr>
-          	</table>
-    		</c:forEach>
-    		
-        </div>
+
+			<c:forEach items="${reply}" var="reply">
+				<table class='table' id="reply_table_hoho">
+					<tr>
+						<td>
+							<div class="row">
+								<div class="col-md-3">작성자:&nbsp;<strong>${reply.member_Email}</strong></div>
+								<div class="col-md-3"></div>
+								<div class="col-md-3">									
+								</div>
+								<div class="col-md-3">
+									&nbsp;&nbsp;
+									${reply.reply_Date}
+									&nbsp;&nbsp;
+									<a role="button" class="btn btn-xs reply-buttons"
+									   id="modifyComment"
+									   href="">수정</a>
+									&nbsp;&nbsp;
+									<a role="button" class="btn btn-xs reply-buttons"
+							           id="deleteComment"
+							           href="">삭제</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="reply_content">
+							${reply.reply_Content}
+							</div>
+						</td>
+					</tr>
+				</table>
+			</c:forEach>
+	
+		</div>
 
     </form>
 	</div>
 	<div class="container">
     <form id="commentForm" name="commentForm" method="post">
     <br><br>
-        <div>
+        <div>            
             <div>
-                <span><strong>Comments</strong></span> <span id="cCnt">${fn:length(reply)}</span>
-            </div>
-            <div>
-                <table class="table">                    
+                <table class="table">                 
                     <tr>
                         <td>
                             <textarea id="reply_Content" style="width: 100%" rows="3" cols="30" name="comment" placeholder="댓글을 입력하세요"></textarea>
@@ -179,7 +191,7 @@
                             <input type="hidden" value="${community.member_Email}" id="member_Email"/>
                             <br>
                             <div>
-                                <a id="addCommentBtn" class="btn pull-right btn-success">등록</a>
+                                <a id="addCommentBtn" class="btn pull-right btn-encore_tours">댓글 등록</a>
                             </div>
                         </td>
                     </tr>

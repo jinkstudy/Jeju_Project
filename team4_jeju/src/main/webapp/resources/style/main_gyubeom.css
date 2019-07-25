@@ -2625,6 +2625,14 @@ fieldset:disabled a.btn {
   border-color: #148f77;
 }
 
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
 .jeju-hr {
 	-webkit-box-sizing: content-box;
 	box-sizing: content-box;

@@ -14,16 +14,55 @@
 	outline: 0;
 }
 
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 0.5rem;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
 #reply_table_hoho tr:first-child td{
+	height : 5px !important;
 	width: 100%;
-	button-size : 5px;
-	display : inline;
-	padding  : .25rem .4rem;
     font-size  : 0.7rem;
-    line-height  : .5;
-    border-radius : .2rem;
 }
 
 #reply_table_hoho tr td{
+	font-family: 'Noto Sans KR', sans-serif;
 	width: 100%;
+}
+
+.reply-buttons{
+	color: #000 !important;
+	background-color: #E9F1FF !important;
+	border-color: #E9F1FF !important;
+}
+
+.reply-buttons:hover{
+	color: #fff;
+	box-shadow: 0 80px 0 0 rgba(233,241,255,0.25) inset, 0 -80px 0 0 rgba(233,241,255,0.25) inset;
+	border-color: #FFE2A3;
+}
+
+.reply_content{
+	background-color : #DCF1FF;
+	border-radius : 5px 5px 30px 5px;
+	padding : 10px;
+}
+
+#addCommentBtn {
+  color: #fff !important;
+  background-color: #518DFF;
+  border-color: #518DFF;
+}
+
+#addCommentBtn:hover {
+  color: #fff !important;
+  box-shadow: 0 80px 0 0 rgba(233,241,255,0.25) inset, 0 -80px 0 0 rgba(233,241,255,0.25) inset;
+  border-color: #e9f1ff;
+}
+
+#commentListForm{
+	margin-top : 100px;
 }
