@@ -6,7 +6,7 @@ public class FinalPlaceVO_GyuBeom {
 	String place_Id; /* VARCHAR(100), /* 2-장소ID !!!DONE!!! */
 	String place_Name; /* VARCHAR2(1000), /* 3-장소이름 !!!DONE!!! */
 	int tour_Sequence_Key_Num; /* NUMBER, /*** 4-투어 시퀀스 키 넘버 ***/
-	double next_Distance; /* NUMBER(20,10), /*** 5-다음 코스까지의 거리 ***/
+	double fore_Distance; /* NUMBER(20,10), /*** 5-다음 코스까지의 거리 ***/
 	int middle_Num; /* NUMBER(3), /* 6-중분류관리번호 !!!DONE!!! */
 	String restaurant_Place_Id; /* VARCHAR(100), /* 7-해당 장소 식당 아이디 */
 	String image_Path; /* VARCHAR2(700), /* 8-이미지경로 !!!DONE!!! */
@@ -31,7 +31,7 @@ public class FinalPlaceVO_GyuBeom {
 	}
 
 	public FinalPlaceVO_GyuBeom(int final_Place_Num, String place_Id, String place_Name, int tour_Sequence_Key_Num,
-			double next_Distance, int middle_Num, String restaurant_Place_Id, String image_Path, double lati_Coord,
+			double fore_Distance, int middle_Num, String restaurant_Place_Id, String image_Path, double lati_Coord,
 			double longi_Coord, String place_Tel, String place_Addr, String close_Day, String close_Possible_Day,
 			String open_Time, String close_Time, String use_Time, int tour_Hour, String place_Det, int like_Count,
 			String tags) {
@@ -40,7 +40,7 @@ public class FinalPlaceVO_GyuBeom {
 		this.place_Id = place_Id;
 		this.place_Name = place_Name;
 		this.tour_Sequence_Key_Num = tour_Sequence_Key_Num;
-		this.next_Distance = next_Distance;
+		this.fore_Distance = fore_Distance;
 		this.middle_Num = middle_Num;
 		this.restaurant_Place_Id = restaurant_Place_Id;
 		this.image_Path = image_Path;
@@ -91,12 +91,12 @@ public class FinalPlaceVO_GyuBeom {
 		this.tour_Sequence_Key_Num = tour_Sequence_Key_Num;
 	}
 
-	public double getNext_Distance() {
-		return next_Distance;
+	public double getFore_Distance() {
+		return fore_Distance;
 	}
 
-	public void setNext_Distance(double next_Distance) {
-		this.next_Distance = next_Distance;
+	public void setFore_Distance(double fore_Distance) {
+		this.fore_Distance = fore_Distance;
 	}
 
 	public int getMiddle_Num() {
@@ -226,5 +226,7 @@ public class FinalPlaceVO_GyuBeom {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
+
+	
 	
 }

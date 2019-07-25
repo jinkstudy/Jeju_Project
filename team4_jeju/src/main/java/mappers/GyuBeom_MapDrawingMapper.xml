@@ -3,9 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="finalPlaceMap">
+<mapper namespace="tourDrawingMap">
 	
-	<resultMap id="FPMap" type="finalPlaceVO">
+	<resultMap id="wholeDrawMap" type="finalPlaceVO">
 		<id property="final_Place_Num" column="FINAL_PLACE_NUM" />
 		<result property="place_Id" column="PLACE_ID" />
 		<result property="place_Name" column="PLACE_NAME" />
@@ -29,51 +29,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="tags" column="TAGS" />
 	</resultMap>
 	
-	<resultMap id="FPPartDataMap" type="finalPlaceVO">
+	<resultMap id="selectDrawMap" type="finalPlaceVO">
 		<id property="final_Place_Num" column="FINAL_PLACE_NUM" />
 		<result property="place_Id" column="PLACE_ID" />
 		<result property="place_Name" column="PLACE_NAME" />
 		<result property="tour_Sequence_Key_Num" column="TOUR_SEQUENCE_KEY_NUM" />
-		<result property="next_Distance" column="Next_Distance" />
-		<result property="middle_Num" column="MIDDLE_NUM" />
-		<result property="restaurant_Place_Id" column="RESTAURANT_PLACE_ID" />
 		<result property="lati_Coord" column="LATI_COORD" />
 		<result property="longi_Coord" column="LONGI_COORD" />
+		<result property="open_Time" column="OPEN_TIME" />
+		<result property="close_Time" column="CLOSE_TIME" />
+		<result property="image_Path" column="IMAGE_PATH" />
+		<result property="place_Det" column="PLACE_DET" />
 	</resultMap>
 	
-	<select id="selectFinalPlaceAll" resultMap="FPMap">
+	<select id="selectTourDrawing" resultMap="selectDrawMap">
 		<![CDATA[
-		SELECT * FROM FINAL_PLACE ORDER BY FINAL_PLACE_NUM ASC
+		SELECT 
+		TOUR_SEQUENCE_KEY_NUM
+		, FINAL_PLACE_NUM
+		, PLACE_ID
+		, PLACE_NAME
+		, LATI_COORD
+		, LONGI_COORD
+		, OPEN_TIME
+		, CLOSE_TIME
+		, IMAGE_PATH
+		, PLACE_DET
+        FROM FINAL_PLACE 
+        WHERE MIDDLE_NUM NOT IN (1, 2, 3, 4, 5, 6)
+        AND 
+        PLACE_NAME NOT LIKE '%추자%'
+        AND
+        PLACE_NAME NOT LIKE '%마라도%'
+        ORDER BY TOUR_SEQUENCE_KEY_NUM ASC
 		]]>
 	</select>
-	
-	<select id="selPartDataExceptRestaurant" resultMap="FPPartDataMap">
-		<![CDATA[
-		SELECT FINAL_PLACE_NUM
-		       , PLACE_ID
-		       , PLACE_NAME
-		       , TOUR_SEQUENCE_KEY_NUM
-		       , Fore_Distance
-		       , MIDDLE_NUM
-		       , RESTAURANT_PLACE_ID
-		       , LATI_COORD
-		       , LONGI_COORD 
-		       FROM FINAL_PLACE
-		WHERE MIDDLE_NUM NOT IN (1, 2, 3, 4, 5, 6)
-		]]>
-	</select>
-	
-	<update id="updateTourSeqKeyNum" parameterType="finalPlaceVO">
-		<![CDATA[
-		UPDATE FINAL_PLACE
-			SET 
-			TOUR_SEQUENCE_KEY_NUM = #{tour_Sequence_Key_Num}
-			, FORE_DISTANCE = #{fore_Distance}
-			WHERE
-			FINAL_PLACE_NUM = #{final_Place_Num}
-			AND
-			PLACE_ID = #{place_Id}		
-		]]>
-	</update>
 	
 </mapper>

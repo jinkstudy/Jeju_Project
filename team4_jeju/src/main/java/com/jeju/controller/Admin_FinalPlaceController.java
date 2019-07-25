@@ -36,7 +36,10 @@ public class Admin_FinalPlaceController {
 	
 	@RequestMapping(value="updateFinalPlace.do")
 	public ModelAndView updatePlaceJoin() {
+		
+		//db update go.
 		adminService.updateTourSequenceKeyNum();
+				
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("finalPlace"
 			         , adminService.getFinalPlaceList());

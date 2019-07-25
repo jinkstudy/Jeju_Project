@@ -11,6 +11,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<META HTTP-EQUIV="Page-exit" CONTENT="BlendTrans(Duration=0.5)">
+<META HTTP-EQUIV="Page-Enter" CONTENT="BlendTrans(Duration=0.5)">
 
 <title>Encore Tours</title>
 
@@ -140,7 +142,7 @@
 
 							<div class="form-btn">
 								<a class="submit-btn btn btn-outline-light" 
-								   href="/team4_jeju/tour/tourTest.do">
+								   href="/team4_jeju/tour/tourDrawingPage.do">
 								      나만의 여행 만들기
 								</a>
 							</div>
@@ -155,72 +157,73 @@
 	<!-- //end of header -->	
 	
 	<!-- Portfolio Section -->
-	<section class="page-section portfolio" id="portfolio">
-		<div class="container">
+   <section class="page-section portfolio" id="portfolio">
+      <div class="container">
 
-			<div class="major-cate">
-				<div class="container">
-					<h2
-						class="page-section-heading text-center text-uppercase text-secondary mb-0">
-						여행 카테고리</h2>
-		
-					<!-- Icon Divider -->
-					<div class="divider-custom">
-						<div class="divider-custom-line"></div>
-						<div class="divider-custom-icon">
-							<i class="fas fa-passport"></i>
-						</div>
-						<div class="divider-custom-line"></div>
-					</div>
-		
-					<div class="row major-list">
-						<div class="col-md-6 major-odd"
-							onclick="location.href='/team4_jeju/tourCate/selectHotplace.do'"
-							style="cursor: pointer">
-							<div class="major1" >
-								<div class="text-center text-white">
-									<i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6"
-							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=3'" 
-							style="cursor: pointer">
-							<div class="major2">
-								<div class="text-center text-white">
-									<i class="fas fa-plane fa-2x">&nbsp;가볼거리</i>
-								</div>
-							</div>
-						</div>
-						</div>
-						<div class="row major-list">
-						<div class="col-md-6"
-							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=1'" 
-							style="cursor: pointer">
-							<div class="major3">
-								<div class="text-center text-white">
-									<i class="fas fa-utensils fa-2x">&nbsp;먹을거리</i>
-								</div>
-							
-							</div>
-						</div>
-						<div class="col-md-6"
-							onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=2'"
-							style="cursor: pointer">
-							<div class="major4">
-								<div class="text-center text-white">
-									<i class="fas fa-grin-hearts fa-2x">&nbsp;즐길거리</i>
-								</div>
-							
-							</div>
-						</div>		
-					</div>
-				</div>
-			</div>
-			
-		</div>			
-	</section>
-	<!-- The end of Category section -->
+         <div class="major-cate">
+            <div class="container">
+               <h2
+                  class="page-section-heading text-center text-uppercase text-secondary mb-0">
+                  여행 카테고리</h2>
+      
+               <!-- Icon Divider -->
+               <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                     <i class="fas fa-passport"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+               </div>
+      
+               <div class="row major-list">
+                  <div class="col-md-6 major-odd"
+                     onclick="location.href='/team4_jeju/tourCate/selectHotplace.do'"
+                     style="cursor: pointer">
+                     <div class="major1" >
+                        <div class="text-center text-white">
+                           <i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6"
+                     onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=3'" 
+                     style="cursor: pointer">
+                     <div class="major2">
+                        <div class="text-center text-white">
+                           <i class="fas fa-plane fa-2x">&nbsp;가볼거리</i>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="row major-list">
+                  <div class="col-md-6"
+                     onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=1'" 
+                     style="cursor: pointer">
+                     <div class="major3">
+                        <div class="text-center text-white">
+                           <i class="fas fa-utensils fa-2x">&nbsp;먹을거리</i>
+                        </div>
+                     
+                     </div>
+                  </div>
+                  <div class="col-md-6"
+                     onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=2'"
+                     style="cursor: pointer">
+                     <div class="major4">
+                        <div class="text-center text-white">
+                           <i class="fas fa-grin-hearts fa-2x">&nbsp;즐길거리</i>
+                        </div>
+                     
+                     </div>
+                  </div>      
+               </div>
+            </div>
+         </div>
+         
+      </div>         
+   </section>
+   <!-- The end of Category section -->
+
 
 
 	<!-- fake section -->

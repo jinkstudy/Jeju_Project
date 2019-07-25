@@ -137,9 +137,6 @@
 				</table>
 		        </form>
 			</div>
-	      </div>	      
-	      <!-- footer -->
-	      <div class="modal-footer jeju-modal">
 	      </div>
 	      
 	    </div>

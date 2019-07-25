@@ -5,6 +5,7 @@ import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import com.jeju.vo.FinalPlaceVO_GyuBeom;
 import com.jeju.vo.PlaceNewVO;
@@ -14,6 +15,10 @@ public class CalCulateDistance_GyuBeom {
 	//출발 - 제주 국제 공항 - 국내선터미널
 	double first_lati = 33.506996;
 	double first_longi = 126.492941;
+	
+	//카카오 api로 구한 중심 좌표
+	double center_lati = 33.368957616877644;
+	double center_longi = 126.52752300137345;
 	
 	//테스트
 	FileWriter fw;
@@ -62,14 +67,23 @@ public class CalCulateDistance_GyuBeom {
 		//시퀀스 작업에 따라 변하는 숫자
 		int change_count = 0;
 		
-		//rank 등수 숫자 2등 부터 시작 (1등은 공항 / 혹은 항구 등 도착지점)
+		//(1등은 공항 / 혹은 항구 등 도착지점)
+		//항상 로직이 이런 식으로 1등(출발지점은) 무조건 비워놓는 것으로.
+		//후에는 고객이 원하는 곳이 1등으로 들어갈 수 있게.
+		//rank 등수 숫자 2등 부터 시작 (아래 숫자 2 수정 금지.)
 		int rank = 2;
 		
 		//경도 최소값 -180
-		double lat1 = -181;
-
+		double mini_longi = -181;
 		
 		double now_number1_distance = 0;
+		
+
+//테스트 standard_distance
+String standard_distance_log = "D:\\"+"standard_dis_log.txt";			
+try {
+	FileWriter sdisfw = new FileWriter(standard_distance_log);
+	String s_distance = "";
 		
 		
 		//start of final for
@@ -90,6 +104,8 @@ public class CalCulateDistance_GyuBeom {
 												, fvo.getLati_Coord()
 												, fvo.getLongi_Coord()));
 				
+				
+				
 				if(now_Distance < standard_distance) {
 					now_number1_distance = now_Distance;
 					standard_distance = now_Distance; //1등 되는 순간 기준이 됨.
@@ -98,6 +114,12 @@ public class CalCulateDistance_GyuBeom {
 				}else if(now_Distance == standard_distance) {
 					tempNumber1s.add(fvo); //1등이 여러명일 수 있다.
 				}
+				
+				//테스트
+//				System.out.println("------------------------------");
+//				System.out.println("standard_distance" + standard_distance);
+//				System.out.println("now_Distance" + now_Distance);
+//				System.out.println("------------------------------\n");
 				
 //				//테스트
 //				if(tempNumber1s.size() > 1) {
@@ -135,13 +157,32 @@ public class CalCulateDistance_GyuBeom {
 //						           + " | " + fvo.getLongi_Coord());
 				
 			}//end of 1st for
+
 			
+//테스트 standard_distance
+//자바에서 "\n" 엔터 쳐도 메모장에 엔터 안 쳐지니까
+//다음부터 이 것 때문에 밤 새지 마세요.
+s_distance = Double.toString(standard_distance);
+System.out.println("-------------------------");
+System.out.println("part standard distance : " + Double.toString(standard_distance));
+System.out.println("-------------------------\n");
+s_distance += "\n";
+sdisfw.append(s_distance);
+
 			
 			//start of processing for
 			//1등 구했으면 이제 담자.
-			for(int i = 0; i < tempNumber1s.size(); i++) {
+			for(int i = 0, max = tempNumber1s.size(); i < max; i++) {
+				
+				//다수 1등 확인 여부 test
+				System.out.println("--------------------------------------");
+				System.out.println("다수 1등 확인 여부 test");
+				System.out.println("--------------------------------------");
+				System.out.println(tempNumber1s.get(i).getLati_Coord());
+				System.out.println(tempNumber1s.get(i).getLongi_Coord());
+				
 				tempNumber1s.get(i).setTour_Sequence_Key_Num(rank); //ranking
-				tempNumber1s.get(i).setNext_Distance(standard_distance);
+				tempNumber1s.get(i).setFore_Distance(standard_distance);
 				rank++; //그 다음 ranking 받을 준비.
 				
 				//확정 리스트에 ranking이 매겨진 아이들 최종 담기.
@@ -150,15 +191,12 @@ public class CalCulateDistance_GyuBeom {
 				//담았으면 이제 1등 아이는 쉬게 해주자. flist에서 제거.
 				flist.remove(tempNumber1s.get(i));
 								
-				//경도 값이 작아질 수록 왼쪽 변두리부터 경로를 그려 더 원 모양의 경로 가능.				
-				if(tempNumber1s.get(i).getLongi_Coord() < lat1) {
-					//new 1등(기준) 세팅.
-					now_number1_place[0].setLati_Coord(tempNumber1s.get(i).getLati_Coord());
-					now_number1_place[0].setLongi_Coord(tempNumber1s.get(i).getLongi_Coord());
-				}
-				lat1 = tempNumber1s.get(i).getLongi_Coord();				
+				//new 1등(기준) 세팅.
+				now_number1_place[0].setLati_Coord(tempNumber1s.get(0).getLati_Coord());
+				now_number1_place[0].setLongi_Coord(tempNumber1s.get(0).getLongi_Coord());			
 				
 			}// end of processing for
+			System.out.println("--------------------------------------\n");
 			
 			
 			//test of processing 
@@ -166,7 +204,7 @@ public class CalCulateDistance_GyuBeom {
 			//               )
 //			try {
 //				
-//				int i = 0;
+//				int i = 0;						
 //				String processing_receipt_name = "D:\\"+"tour_processing_test.txt";			
 //				fw = new FileWriter(processing_receipt_name);
 //								
@@ -214,64 +252,71 @@ public class CalCulateDistance_GyuBeom {
 			
 		}
 		//end of final for
-						
+
+		
+//테스트 standard_distance
+sdisfw.close();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
 		
 		//-----------------------------------------------------------		
 		//FINAL TEST
 		//-----------------------------------------------------------		
-		try {
-			
-			int i = 0;
-			String receipt_name = "D:\\"+"tour_logic_test.txt";			
-			fw = new FileWriter(receipt_name);
-			
-			String apiString = "최초 요청 건수 count : " + fixed_count;
-			apiString += "\n최종 처리 건수 count : " + afterUpdateList.size();
-			fw.append(apiString);
-			
-			for (FinalPlaceVO_GyuBeom vo : afterUpdateList) {
-								
-				i++;
-				
-				//test
-				System.out.println("\n---------------------------------");
-				System.out.println("[ "+ i +" ]");
-				System.out.println("---------------------------------");
-				System.out.println(vo.getFinal_Place_Num());
-				System.out.println(vo.getPlace_Id());
-				System.out.println(vo.getPlace_Name());
-				System.out.println(vo.getTour_Sequence_Key_Num());
-				System.out.println(vo.getNext_Distance());
-				System.out.println(vo.getLati_Coord());
-				System.out.println(vo.getLongi_Coord());
-				System.out.println("---------------------------------\n\n");
-				
-				apiString = 
-				"\n\n---------------------------------"
-				+"\n"+"[ "+ i +" ]"
-				+"\n---------------------------------"
-				+"\n"+vo.getPlace_Id()
-				+"\n---------------------------------"
-				+"\n"+"1 >>>"+vo.getFinal_Place_Num()
-				+"\n"+"2 >>>"+vo.getPlace_Id()
-				+"\n"+"3 >>>"+vo.getPlace_Name()
-				+"\n"+"4 >>>"+vo.getTour_Sequence_Key_Num()
-				+"\n"+"5 >>>"+vo.getNext_Distance()
-				+"\n"+"6 >>>"+vo.getLati_Coord()
-				+"\n"+"7 >>>"+vo.getLongi_Coord()
-				+"\n---------------------------------\n\n";				
-                
-                fw.append(apiString);
-			}
-			
-			fw.close();
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//		
+//			int i = 0;
+//			String receipt_name = "D:\\"+"tour_logic_test.txt";			
+//			fw = new FileWriter(receipt_name);			
+//			
+//			String apiString = "최초 요청 건수 count : " + fixed_count;
+//			apiString += "\n최종 처리 건수 count : " + afterUpdateList.size();
+//			fw.append(apiString);
+//			
+//			for (FinalPlaceVO_GyuBeom vo : afterUpdateList) {
+//								
+//				i++;
+//				
+//				//test
+//				System.out.println("\n---------------------------------");
+//				System.out.println("[ "+ i +" ]");
+//				System.out.println("---------------------------------");
+//				System.out.println(vo.getFinal_Place_Num());
+//				System.out.println(vo.getPlace_Id());
+//				System.out.println(vo.getPlace_Name());
+//				System.out.println(vo.getTour_Sequence_Key_Num());
+//				System.out.println(vo.getFore_Distance());
+//				System.out.println(vo.getLati_Coord());
+//				System.out.println(vo.getLongi_Coord());
+//				System.out.println("---------------------------------\n\n");
+//				
+//				apiString = 
+//				"\n\n---------------------------------"
+//				+"\n"+"[ "+ i +" ]"
+//				+"\n---------------------------------"
+//				+"\n"+vo.getPlace_Id()
+//				+"\n---------------------------------"
+//				+"\n"+"1 >>>"+vo.getFinal_Place_Num()
+//				+"\n"+"2 >>>"+vo.getPlace_Id()
+//				+"\n"+"3 >>>"+vo.getPlace_Name()
+//				+"\n"+"4 >>>"+vo.getTour_Sequence_Key_Num()
+//				+"\n"+"5 >>>"+vo.getFore_Distance()
+//				+"\n"+"6 >>>"+vo.getLati_Coord()
+//				+"\n"+"7 >>>"+vo.getLongi_Coord()
+//				+"\n---------------------------------\n\n";				
+//                
+//                fw.append(apiString);
+//			}
+//			
+//			fw.close();
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 
 		
-		
+		//시퀀스 업데이트 완료 리스트 - 리턴!
 		return afterUpdateList;
 		
 	}

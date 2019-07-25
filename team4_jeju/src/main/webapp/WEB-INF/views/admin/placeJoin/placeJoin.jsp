@@ -8,11 +8,13 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<META HTTP-EQUIV="Page-exit" CONTENT="BlendTrans(Duration=0.5)">
+<META HTTP-EQUIV="Page-Enter" CONTENT="BlendTrans(Duration=0.5)">
 
   <title> Encore Tours - Administrator </title>
 
@@ -36,14 +38,36 @@
 	  border: 0.03rem solid #518DFF !important;
 	  background-color: #E9F1FF;
 	}
+	
+	#divLoading{
+		z-index : 1700;
+		color : #00BFFF;
+		font-size : 2.7rem;
+		font-weight : 700;
+	}
 </style>
+
+<script>
+	function switchScreen(){
+	    $("#divLoading").hide();
+	}
+</script>
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="switchScreen();">
+
+<div id="divLoading" style="position:absolute; top:12rem; left:0; width:100%; text-align:center; margin:0 auto;">
+	<img src="/team4_jeju/resources/imgs/image_gyubeom/loading_gyubeom.gif"
+	     alt="" />
+	Tour Path Sequence and Distance DATA - 로딩 중...
+</div>
 
   	<!-- 헤더에 링크 파일 기술 되어 있음. -->
 	<jsp:include page="../admin/header_of_admin.jsp"></jsp:include>
+
+<!-- data 작업시 - fakeLoader -->
+<div id="fakeLoader"></div>
 
 <div id="wrapper">
 
@@ -67,7 +91,7 @@
 				<td><br/>
 					<button type="submit" 
 					        class="btn btn-encore_tours btn-lg"
-						    id="sendMessageButton" 
+						    id="dataProcessingButton" 
 						    onclick="location.href='/team4_jeju/admin/placeJoin/updateFinalPlace.do'">
 						    TOUR_SEQUENCE_KEY_NUM - UPDATE</button>
 				</td>
@@ -131,7 +155,7 @@
 							<td>${fp.place_Id}</td>
 							<td>${fp.place_Name}</td>
 							<td>${fp.tour_Sequence_Key_Num}</td>
-							<td>${fp.next_Distance}</td>
+							<td>${fp.fore_Distance}</td>
 							<td>${fp.middle_Num}</td>
 							<td>${fp.restaurant_Place_Id}</td>
 							<td>${fp.image_Path}</td>
@@ -184,6 +208,7 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
 
 </body>
 

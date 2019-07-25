@@ -41,6 +41,7 @@
 	background-color: #fff;
 	-webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
 	box-shadow: 12px 12px 12px rgba(81, 141, 255, 0.3), 0 0 12px rgba(81, 141, 255, 0.3);
+	z-index : 1600;
 }
 
 #jeju-home-title{

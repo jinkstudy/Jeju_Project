@@ -36,7 +36,10 @@ public class APIDataController {
 	@RequestMapping(value="insertApiData.do")
 	public ModelAndView insertApiData() {
 		ModelAndView mv = new ModelAndView();
+		
+		//api data 파싱 후 - insert
 		adminService.insertApiList();
+		
 		mv.addObject("apiList"
 			         , adminService.getApiList());
 		//setViewName을 해주지 않으면 저하될 가능성 ↑

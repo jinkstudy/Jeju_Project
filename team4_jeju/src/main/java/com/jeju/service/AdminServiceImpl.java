@@ -1,5 +1,6 @@
 package com.jeju.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,10 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	public void updateTourSequenceKeyNum() {
+		List<FinalPlaceVO_GyuBeom> fvolist = new ArrayList<FinalPlaceVO_GyuBeom>();
 		CalCulateDistance_GyuBeom calDist = new CalCulateDistance_GyuBeom();
-		calDist.updateTourSeqKeyNum(adminDao.getDefaultTourPartData());
+		fvolist = calDist.updateTourSeqKeyNum(adminDao.getDefaultTourPartData());
+		adminDao.updateFinalPlaceSequenceList(fvolist);
 	}
 	
 	public List<FinalPlaceVO_GyuBeom> getFinalPlaceList(){

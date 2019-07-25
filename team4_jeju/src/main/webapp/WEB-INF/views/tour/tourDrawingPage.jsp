@@ -4,8 +4,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<META HTTP-EQUIV="Page-exit" CONTENT="BlendTrans(Duration=0.5)">
+<META HTTP-EQUIV="Page-Enter" CONTENT="BlendTrans(Duration=0.5)">
 
+<title>Insert title here</title>
 
 <!-- 카카오 map 링크 -->
 <script type="text/javascript"
@@ -15,8 +19,10 @@
 <script src="../resources/js/jquery-3.4.1.js"></script>
 
 <!-- 카카오 map_gyubeom coding 링크 -->
-<script src="../resources/js/map_gyubeom.js"></script>
+<script src="../resources/js/map_gyubeom_original.js"></script>
 
+<link rel="stylesheet"
+	  href="/team4_jeju/resources/style/map_gyubeom.css" type="text/css">
 
 </head>
 <body>
@@ -31,7 +37,7 @@
 	     <hr class="jeju-hr"/>
 	     <div class="masthead-heading">	     	
 			<div class="jeju-map-background">
-				<div class="jeju-title1">Jeju Journey for Me : 9박 10일</div>
+				<div class="jeju-title1">Jeju Journey only for Me : 9박 10일</div>
 				<div class="jeju-sub-title1">(19.07.02 ~ 19.07.11)</div>
 			</div>
 	     </div>	     
@@ -57,16 +63,14 @@
 	
 	<div class="d-flex align-items-center justify-content-center">		
 		<div class="card mb-3">
-			<table class="table">
+			<table class="table jeju-table">
 				<tr>
 					<td>
 						<p>
-							<em class="link">
-								<a href="MapTest_GyuBeom.do" 
+							<a href="MapDrawing.do"
 								   target="_blank"
 								   id="">
-								Map Test _ GyuBeom Page로 이동</a>
-							</em>
+								   Map Test Page로 이동</a>
 						</p>
 					</td>
 					<td>

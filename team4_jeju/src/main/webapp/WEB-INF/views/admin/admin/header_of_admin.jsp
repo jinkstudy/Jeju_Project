@@ -7,11 +7,12 @@
 <head>
 
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<META HTTP-EQUIV="Page-exit" CONTENT="BlendTrans(Duration=0.5)">
+<META HTTP-EQUIV="Page-Enter" CONTENT="BlendTrans(Duration=0.5)">
 
 <title>Encore Tours - Administrator</title>
 
@@ -22,14 +23,15 @@
 	rel="stylesheet" type="text/css">
 
 <!-- Page level plugin CSS-->
-<link
-	href="/team4_jeju/resources/style/dataTables.bootstrap4_gyubeom.css"
-	rel="stylesheet">
+<link href="/team4_jeju/resources/style/main_gyubeom.css"
+      rel="stylesheet">
+
+<link href="/team4_jeju/resources/style/dataTables.bootstrap4_gyubeom.css"
+      rel="stylesheet">
 
 <!-- Custom styles for this template-->
 <link href="/team4_jeju/resources/style/sb-admin_gyubeom.css"
 	rel="stylesheet">
-	
 
 </head>
 

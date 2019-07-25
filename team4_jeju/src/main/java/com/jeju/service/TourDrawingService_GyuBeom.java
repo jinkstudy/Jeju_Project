@@ -5,6 +5,6 @@ import com.jeju.vo.FinalPlaceVO_GyuBeom;
 
 public interface TourDrawingService_GyuBeom {
 	
-	List<FinalPlaceVO_GyuBeom> tourListDrawing();
+	List<FinalPlaceVO_GyuBeom> tourMapDrawing();
 	
 }

@@ -28,6 +28,18 @@ public class AdminDaoImpl implements AdminDao{
 		return mybatis.selectList("finalPlaceMap.selectFinalPlaceAll");
 	}
 	
+	//수정 금지 - updateFinalPlaceSequenceList
+	public void updateFinalPlaceSequenceList(List<FinalPlaceVO_GyuBeom> fvolist) {
+		try {
+			for(FinalPlaceVO_GyuBeom fv : fvolist) {
+				mybatis.update("finalPlaceMap.updateTourSeqKeyNum", fv);
+				Thread.sleep(50);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//수정 금지 - getDefaultTourPartData
 	public List<FinalPlaceVO_GyuBeom> getDefaultTourPartData(){
 		return mybatis.selectList("finalPlaceMap.selPartDataExceptRestaurant");

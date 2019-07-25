@@ -18,4 +18,7 @@ public interface AdminDao {
 	void insertApiList(List<PlaceNewVO> placeListArray);
 	
 	List<FinalPlaceVO_GyuBeom> getFinalPlaceList();
+	
+	void updateFinalPlaceSequenceList(List<FinalPlaceVO_GyuBeom> fvolist);
+	
 }
