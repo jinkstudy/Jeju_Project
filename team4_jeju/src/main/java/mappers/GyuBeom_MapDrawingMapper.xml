@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="place_Id" column="PLACE_ID" />
 		<result property="place_Name" column="PLACE_NAME" />
 		<result property="tour_Sequence_Key_Num" column="TOUR_SEQUENCE_KEY_NUM" />
+		<result property="divided_by_Center" column="Divided_by_Center" />
 		<result property="next_Distance" column="Next_Distance" />
 		<result property="middle_Num" column="MIDDLE_NUM" />
 		<result property="restaurant_Place_Id" column="RESTAURANT_PLACE_ID" />

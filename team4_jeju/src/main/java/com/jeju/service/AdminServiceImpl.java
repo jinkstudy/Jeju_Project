@@ -40,6 +40,15 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.getApiArray();
 	}
 	
+	
+	//순서 중요 - 1.
+	public void updateWhatAreaAreYou() {
+		List<FinalPlaceVO_GyuBeom> fvolist = new ArrayList<FinalPlaceVO_GyuBeom>();
+		CalCulateDistance_GyuBeom calDist = new CalCulateDistance_GyuBeom();
+		
+	}
+	
+	//순서 중요 - 2.
 	public void updateTourSequenceKeyNum() {
 		List<FinalPlaceVO_GyuBeom> fvolist = new ArrayList<FinalPlaceVO_GyuBeom>();
 		CalCulateDistance_GyuBeom calDist = new CalCulateDistance_GyuBeom();

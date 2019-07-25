@@ -23,7 +23,49 @@ public class CalCulateDistance_GyuBeom {
 	//테스트
 	FileWriter fw;
 	
-	//경로 순서 알고리즘
+	//경로 순서 알고리즘 1
+	//1-1. 방법에는 최단 거리를 구하는 방법 (특정 출발 지점 기준) 과 <<< 직전 지점과의 거리가 최단 거리가 아닐수도 있음.
+	//1-2. 직전(이전) 거리와의 거리를 줄이는 방법이 있다.
+	//위 1-2 방법 중에 내가 택한 방법은 
+	//중심 좌표를 기준으로 NN, NW, WW, WS, SS, SE, EE, EN, CC
+	// 9구역으로 나누고 위 지역 순으로(지역 내 순으로) 최단 거리를 구하는 것이다.
+	public List<FinalPlaceVO_GyuBeom> answerToWhatAreaAreYou(List<FinalPlaceVO_GyuBeom> flist){
+		
+		FinalPlaceVO_GyuBeom vo = new FinalPlaceVO_GyuBeom();
+		
+		//임시 1등을 담기 위한 변수
+		List<FinalPlaceVO_GyuBeom> area_list = new ArrayList<FinalPlaceVO_GyuBeom>();
+		
+		for(FinalPlaceVO_GyuBeom v1 : flist) {
+			
+			//1 구역 : NN, NW
+			// A. NN - 중심 좌표와 비교시, 위도가 크고 경도가 같은 경우
+			// B. NW - 중심 좌표와 비교시, 위도가 크고 경도가 작은 경우
+			
+			//2구역 : WW, WS
+			// C. WW - 중심 좌표와 비교시, 위도가 같고 경도가 작은 경우
+			// D. WS - 중심 좌표와 비교시, 위도가 작고 경도가 작은 경우
+			
+			//3. 구역 : SS, SE
+			// E. SS - 중심 좌표와 비교시, 위도가 작고 경도가 같은 경우
+			// F.  - 중심 좌표와 비교시, 위도가 고 경도가 은 경우
+			
+			//4. 구역 : EE, EN, CC
+			// G.  - 중심 좌표와 비교시, 위도가 고 경도가 은 경우
+			// H.  - 중심 좌표와 비교시, 위도가 고 경도가 은 경우
+			// I.  - 중심 좌표와 비교시, 위도가 고 경도가 은 경우
+			
+			
+			
+			
+			
+		}		
+		
+		return area_list;
+		
+	}
+	
+	//경로 순서 알고리즘 2
 	//1. 두 좌표의 거리를 미터로 반환하는 메소드
 	//2. 디비에서 넘어오는 값은 아이디와 좌표
 	//3. vo list는 TOUR_SEQUENCE_KEY_NUM (등수), PLACE_ID 값으로 가지고 있음.
@@ -170,9 +212,10 @@ s_distance += "\n";
 sdisfw.append(s_distance);
 
 			
+			int max = tempNumber1s.size();
 			//start of processing for
 			//1등 구했으면 이제 담자.
-			for(int i = 0, max = tempNumber1s.size(); i < max; i++) {
+			for(int i = 0; i < max; i++) {
 				
 				//다수 1등 확인 여부 test
 				System.out.println("--------------------------------------");
@@ -190,13 +233,14 @@ sdisfw.append(s_distance);
 				
 				//담았으면 이제 1등 아이는 쉬게 해주자. flist에서 제거.
 				flist.remove(tempNumber1s.get(i));
-								
-				//new 1등(기준) 세팅.
-				now_number1_place[0].setLati_Coord(tempNumber1s.get(0).getLati_Coord());
-				now_number1_place[0].setLongi_Coord(tempNumber1s.get(0).getLongi_Coord());			
 				
 			}// end of processing for
 			System.out.println("--------------------------------------\n");
+			
+			//new 1등(기준) 세팅.
+			now_number1_place[0].setLati_Coord(tempNumber1s.get(max-1).getLati_Coord());
+			now_number1_place[0].setLongi_Coord(tempNumber1s.get(max-1).getLongi_Coord());
+			
 			
 			
 			//test of processing 
@@ -363,6 +407,7 @@ sdisfw.close();
 	    return (double)(rad * (double)180d / Math.PI);  
 	} 
 	
+	//나만의 자료형 타입 확인하기 - 규범.
 	public String WhatIsYourType(Object ob) {
 		if (ob instanceof Integer) { 
 			return "int";

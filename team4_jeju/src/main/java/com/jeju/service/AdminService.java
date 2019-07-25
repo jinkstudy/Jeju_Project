@@ -20,6 +20,9 @@ public interface AdminService {
 	//api data get
 	List<PlaceNewVO> getApiList();
 	
+	// ! important
+	void updateWhatAreaAreYou();
+	
 	// !important - updateTourSequenceKeyNum in DB Table, named Final_Place
 	void updateTourSequenceKeyNum();
 	

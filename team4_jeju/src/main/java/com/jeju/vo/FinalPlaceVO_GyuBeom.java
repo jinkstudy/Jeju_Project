@@ -6,23 +6,24 @@ public class FinalPlaceVO_GyuBeom {
 	String place_Id; /* VARCHAR(100), /* 2-장소ID !!!DONE!!! */
 	String place_Name; /* VARCHAR2(1000), /* 3-장소이름 !!!DONE!!! */
 	int tour_Sequence_Key_Num; /* NUMBER, /*** 4-투어 시퀀스 키 넘버 ***/
-	double fore_Distance; /* NUMBER(20,10), /*** 5-다음 코스까지의 거리 ***/
-	int middle_Num; /* NUMBER(3), /* 6-중분류관리번호 !!!DONE!!! */
-	String restaurant_Place_Id; /* VARCHAR(100), /* 7-해당 장소 식당 아이디 */
-	String image_Path; /* VARCHAR2(700), /* 8-이미지경로 !!!DONE!!! */
-	double lati_Coord; /* NUMBER(30,20), /* 9-위도 !!!DONE!!! */
-	double longi_Coord; /* NUMBER(30,20), /* 10-경도 !!!DONE!!! */
-	String place_Tel; /* VARCHAR2(700),  /* 11-연락처 !!!DONE!!! */
-	String place_Addr; /* VARCHAR2(700), /* 12-장소주소 !!!DONE!!! */
-	String close_Day; /* VARCHAR2(10), /* 13-휴일 !!!DONE!!! */
-	String close_Possible_Day; /* VARCHAR2(100), /* 14-휴일가능여부(동일 텍스트) !!!DONE!!! */
-	String open_Time; /* VARCHAR2(30), /* 15-오픈시간 !!!DONE!!! */
-	String close_Time; /* VARCHAR2(30),  /* 16-종료시간 !!!DONE!!! */
-	String use_Time; /* VARCHAR2(100), /* 17-이용시간  (오픈시간~종료시간 텍스트) !!!DONE!!! */
-	int tour_Hour; /* NUMBER, /* 18-관광소요시간 - 2시간 (10:00부터 관광 START) !!!DONE!!! */
-	String place_Det; /* VARCHAR2(4000), /* 19-장소간략설명 !!!DONE!!! */
-	int like_Count; /* NUMBER, /* 20-좋아요횟수 !!!DONE!!! */
-	String tags; /* VARCHAR2(100)  /* 21-태그 !!!DONE!!! */
+	String divided_by_Center; /* 5-센터 좌표로 구분한 구역 명명 */
+	double fore_Distance; /* NUMBER(20,10), /*** 6-다음 코스까지의 거리 ***/
+	int middle_Num; /* NUMBER(3), /* 7-중분류관리번호 !!!DONE!!! */
+	String restaurant_Place_Id; /* VARCHAR(100), /* 8-해당 장소 식당 아이디 */
+	String image_Path; /* VARCHAR2(700), /* 9-이미지경로 !!!DONE!!! */
+	double lati_Coord; /* NUMBER(30,20), /* 10-위도 !!!DONE!!! */
+	double longi_Coord; /* NUMBER(30,20), /* 11-경도 !!!DONE!!! */
+	String place_Tel; /* VARCHAR2(700),  /* 12-연락처 !!!DONE!!! */
+	String place_Addr; /* VARCHAR2(700), /* 13-장소주소 !!!DONE!!! */
+	String close_Day; /* VARCHAR2(10), /* 14-휴일 !!!DONE!!! */
+	String close_Possible_Day; /* VARCHAR2(100), /* 15-휴일가능여부(동일 텍스트) !!!DONE!!! */
+	String open_Time; /* VARCHAR2(30), /* 16-오픈시간 !!!DONE!!! */
+	String close_Time; /* VARCHAR2(30),  /* 17-종료시간 !!!DONE!!! */
+	String use_Time; /* VARCHAR2(100), /* 18-이용시간  (오픈시간~종료시간 텍스트) !!!DONE!!! */
+	int tour_Hour; /* NUMBER, /* 19-관광소요시간 - 2시간 (10:00부터 관광 START) !!!DONE!!! */
+	String place_Det; /* VARCHAR2(4000), /* 20-장소간략설명 !!!DONE!!! */
+	int like_Count; /* NUMBER, /* 21-좋아요횟수 !!!DONE!!! */
+	String tags; /* VARCHAR2(100)  /* 22-태그 !!!DONE!!! */
 	
 	MiddleClassVO middvo; //Middle_Class와 JOIN 수행 하기 위해 추가함.
 	
@@ -31,15 +32,16 @@ public class FinalPlaceVO_GyuBeom {
 	}
 
 	public FinalPlaceVO_GyuBeom(int final_Place_Num, String place_Id, String place_Name, int tour_Sequence_Key_Num,
-			double fore_Distance, int middle_Num, String restaurant_Place_Id, String image_Path, double lati_Coord,
-			double longi_Coord, String place_Tel, String place_Addr, String close_Day, String close_Possible_Day,
-			String open_Time, String close_Time, String use_Time, int tour_Hour, String place_Det, int like_Count,
-			String tags) {
+			String divided_by_Center, double fore_Distance, int middle_Num, String restaurant_Place_Id,
+			String image_Path, double lati_Coord, double longi_Coord, String place_Tel, String place_Addr,
+			String close_Day, String close_Possible_Day, String open_Time, String close_Time, String use_Time,
+			int tour_Hour, String place_Det, int like_Count, String tags, MiddleClassVO middvo) {
 		super();
 		this.final_Place_Num = final_Place_Num;
 		this.place_Id = place_Id;
 		this.place_Name = place_Name;
 		this.tour_Sequence_Key_Num = tour_Sequence_Key_Num;
+		this.divided_by_Center = divided_by_Center;
 		this.fore_Distance = fore_Distance;
 		this.middle_Num = middle_Num;
 		this.restaurant_Place_Id = restaurant_Place_Id;
@@ -57,6 +59,7 @@ public class FinalPlaceVO_GyuBeom {
 		this.place_Det = place_Det;
 		this.like_Count = like_Count;
 		this.tags = tags;
+		this.middvo = middvo;
 	}
 
 	public int getFinal_Place_Num() {
@@ -89,6 +92,14 @@ public class FinalPlaceVO_GyuBeom {
 
 	public void setTour_Sequence_Key_Num(int tour_Sequence_Key_Num) {
 		this.tour_Sequence_Key_Num = tour_Sequence_Key_Num;
+	}
+
+	public String getDivided_by_Center() {
+		return divided_by_Center;
+	}
+
+	public void setDivided_by_Center(String divided_by_Center) {
+		this.divided_by_Center = divided_by_Center;
 	}
 
 	public double getFore_Distance() {
@@ -227,6 +238,13 @@ public class FinalPlaceVO_GyuBeom {
 		this.tags = tags;
 	}
 
+	public MiddleClassVO getMiddvo() {
+		return middvo;
+	}
+
+	public void setMiddvo(MiddleClassVO middvo) {
+		this.middvo = middvo;
+	}	
 	
 	
 }
