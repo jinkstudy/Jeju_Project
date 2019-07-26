@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="replyMap">
+
 <insert id="addComment" parameterType="reply">
  	<![CDATA[
  	INSERT INTO REPLY(REPLY_NUM,MEMBER_EMAIL,REPLY_CONTENT,REPLY_DATE,COMM_MNUM)
@@ -18,4 +19,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	ORDER BY REPLY_NUM ASC
  	]]>
 </select>
+
+<delete id="deleteComment" parameterType="reply">
+	<![CDATA[
+	delete from reply where comm_mnum=#{comm_Mnum} and reply_num=#{reply_Num}
+ 	]]>
+</delete>
+<update id="modifyComment" parameterType="reply">
+<![CDATA[
+update reply set
+reply_content=#{reply_Content}
+where comm_mnum=#{comm_Mnum} and reply_num=#{reply_Num} and member_email=#{member_Email}
+
+]]>
+</update>
 </mapper>

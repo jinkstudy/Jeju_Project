@@ -11,5 +11,7 @@ public interface ReplyService {
 	//댓글 리스트 조회
 	List<ReplyVO> getCommentList(ReplyVO vo);
 	//댓글 수정
+	void modifyComment(ReplyVO vo);
 	//댓글 삭제
+	void deleteComment(ReplyVO vo);
 }

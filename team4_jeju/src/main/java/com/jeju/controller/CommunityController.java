@@ -108,10 +108,28 @@ public class CommunityController {
     		hm.put("reply_Content", replyVO.get(i).getReply_Content());
     		hm.put("member_Email", replyVO.get(i).getMember_Email());
     		hm.put("reply_Date", replyVO.get(i).getReply_Date());
+    		hm.put("reply_Num", replyVO.get(i).getReply_Num());
+    		hm.put("comm_Mnum", replyVO.get(i).getComm_Mnum());
     		hmlist.add(hm);
     		}
     	}
     	JSONArray json = new JSONArray(hmlist);
     	return json.toString();
+    }
+    
+    /*댓글 수정하기(Ajax)*/
+    @RequestMapping(value="/modifyComment.do")
+    @ResponseBody
+    public String modifyComment(@ModelAttribute("ReplyVO")ReplyVO vo) throws IOException{
+    	replyService.modifyComment(vo);
+    	return "success";
+    }
+    
+    /*댓글 삭제하기(Ajax)*/
+    @RequestMapping(value="/deleteComment.do")
+    @ResponseBody
+    public String deleteComment(@ModelAttribute("ReplyVO")ReplyVO vo) throws IOException{
+    	replyService.deleteComment(vo);
+    	return "success";
     }
 }

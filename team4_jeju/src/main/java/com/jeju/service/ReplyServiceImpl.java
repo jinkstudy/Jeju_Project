@@ -22,9 +22,15 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 	//댓글 리스트 조회
 	public List<ReplyVO> getCommentList(ReplyVO vo){
+		System.out.println("서비스 : " + vo.getComm_Mnum());
 		return replyDao.getCommentList(vo);
 	}
 	//댓글 수정
+	public void modifyComment(ReplyVO vo) {
+		replyDao.modifyComment(vo);
+	}
 	//댓글 삭제
-	
+	public void deleteComment(ReplyVO vo) {
+		replyDao.deleteComment(vo);
+	}
 }

@@ -21,12 +21,20 @@ public class ReplyDaoImpl implements ReplyDao {
 		System.out.println("===>ReplyMapper addComment 호출");
 		mybatis.insert("replyMap.addComment",vo);
 	}
+	
 	//댓글 리스트 조회
 	public List<ReplyVO> getCommentList(ReplyVO vo){
-		System.out.println("===>ReplyMapper getCommentList 호출"+vo.getComm_Mnum());
-		
+		System.out.println("===>ReplyMapper getCommentList 호출");
 		return mybatis.selectList("replyMap.getCommentList",vo);
 	}
  	//댓글 수정
+	public void modifyComment(ReplyVO vo) {
+		System.out.println("===>ReplyMapper modifyComment 호출");
+		mybatis.update("replyMap.modifyComment",vo);
+	}
 	//댓글 삭제
+	public void deleteComment(ReplyVO vo) {
+		System.out.println("===>ReplyMapper deleteComment 호출");
+		mybatis.delete("replyMap.deleteComment",vo);
+	}
 }
