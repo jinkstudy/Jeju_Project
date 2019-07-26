@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>Bootstrap Example</title>
+<title>Encore Tours</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -123,8 +123,9 @@
 
 									<!-- Modal Header -->
 									<div class="modal-header place-modal-header">
-										<h4 class="modal-title text-white">${place.place_Name}</h4>
-			
+										<h4 class="modal-title place-modal-title text-white">${place.place_Name}</h4>
+										<input type="hidden" class ="pick_num" value="${place.final_Place_Num}">
+										<img src="/team4_jeju/resources/imgs/like_0.png" class="pick-img">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
 										
 									</div>
@@ -154,10 +155,9 @@
 
 									<!-- Modal footer -->
 									<div class="modal-footer">
-			
-		
-										<button type="button" class="btn btn-danger"
-											data-dismiss="modal">Close</button>
+							
+										
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 									</div>
 
 								</div>

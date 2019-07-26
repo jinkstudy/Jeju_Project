@@ -5,6 +5,78 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="tourSchMap">
 
+<resultMap id="schOutPlace" type="schOutput">
+		<id property="sch_Output_Mnum" column="SCH_OUTPUT_MNUM" />
+		<result property="sch_Input_Mnum" column="SCH_INPUT_MNUM" />
+		<result property="s_out_Sequence" column="S_OUT_SEQUENCE" />
+		<result property="sch_Date" column="SCH_DATE" />
+		<result property="sch_Start_Time" column="SCH_START_TIME" />
+		<result property="sch_Start_Time" column="SCH_FINISH_TIME" />
+		<result property="place_Num" column="PLACE_NUM" />
+		<collection property="finalplacevo" resultMap="getFinalPlace"></collection>
+</resultMap>
+
+	<resultMap id="getFinalPlace" type="finalPlaceVO">
+		<id property="final_Place_Num" column="FINAL_PLACE_NUM" />
+		<result property="place_Id" column="PLACE_ID" />
+		<result property="place_Name" column="PLACE_NAME" />
+		<result property="tour_Sequence_Key_Num" column="TOUR_SEQUENCE_KEY_NUM" />
+		<result property="next_Distance" column="Next_Distance" />
+		<result property="middle_Num" column="MIDDLE_NUM" />
+		<result property="restaurant_Place_Id" column="RESTAURANT_PLACE_ID" />
+		<result property="image_Path" column="IMAGE_PATH" />
+		<result property="lati_Coord" column="LATI_COORD" />
+		<result property="longi_Coord" column="LONGI_COORD" />
+		<result property="place_Tel" column="PLACE_TEL" />
+		<result property="place_Addr" column="PLACE_ADDR" />
+		<result property="close_Day" column="CLOSE_DAY" />
+		<result property="close_Possible_Day" column="CLOSE_POSSIBLE_DAY" />
+		<result property="open_Time" column="OPEN_TIME" />
+		<result property="close_Time" column="CLOSE_TIME" />
+		<result property="use_Time" column="USE_TIME" />
+		<result property="tour_Hour" column="TOUR_HOUR" />
+		<result property="place_Det" column="PLACE_DET" />
+		<result property="like_Count" column="LIKE_COUNT" />
+		<result property="tags" column="TAGS" />
+	</resultMap>
+	
+	<select id="getSchOutputByInputNum" parameterType="schOutput" resultMap="schOutPlace">
+	<![CDATA[
+		SELECT * FROM SCHEDULE_OUTPUT WHERE SCH_INPUT_MNUM = #{sch_Input_Mnum} ORDER BY S_OUT_SEQUENCE
+		]]>
+	
+	</select>
+	
+	<select id="getSchPlace" parameterType="schOutput" resultMap="schOutPlace">
+	<![CDATA[
+		select * from schedule_output s inner join final_place f on s.place_num = f.final_place_num where s.Sch_Input_Mnum= #{sch_Input_Mnum} order by s_out_sequence
+		]]>
+	
+	</select>
+	
+	<select id="getSchDay" parameterType="schOutput" resultType="schOutput">
+	<![CDATA[
+		select distinct sch_Date from schedule_output where Sch_Input_Mnum=#{sch_Input_Mnum} order by sch_date
+		]]>
+	
+	</select>
+	
+		
+		<select id="getListByDay" parameterType="java.util.Map" resultMap="schOutPlace">
+	<![CDATA[
+	select * from schedule_output s inner join final_place f on s.place_num = f.final_place_num where s.Sch_Input_Mnum=#{sch_Input_Mnum} and sch_date=#{sch_Date} order by s_out_sequence 
+		]]> 
+	
+	</select>
+	
+	<update id="updateDelSch" parameterType="schOutput">
+	<![CDATA[
+	update schedule_output set place_num=0 where sch_output_mnum=#{sch_Output_Mnum}
+		]]> 
+	
+	</update>
+	
+	
 
 
 
