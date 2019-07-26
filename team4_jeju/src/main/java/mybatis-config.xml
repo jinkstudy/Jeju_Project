@@ -33,6 +33,9 @@
 		
 		<!-- reply alias 설정(별칭) -->
 		<typeAlias alias="reply" type="com.jeju.vo.ReplyVO"/>
+		
+		<!-- Q&A alias 설정(별칭) -->
+		<typeAlias alias="login" type="com.jeju.vo.MemberVO"/>
 	</typeAliases>
 
 </configuration>

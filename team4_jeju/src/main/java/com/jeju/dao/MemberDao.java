@@ -1,21 +1,28 @@
 package com.jeju.dao;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Repository;
+
 import com.jeju.vo.MemberVO;
 
+@Repository
 public interface MemberDao {
-	/**
-	 * id 중복체트 기능 구현
-	 */	
-	MemberVO  idCheck( MemberVO vo );
 	
-	/**
-	 * 회원가입기능 구현
-	 */
-	int memberInsert(MemberVO vo);
+	// 회원가입
+	public int signUp(MemberVO vo);
 	
-	/**
-	 * 로그인 확인 기능 구현
-	 */
-	MemberVO memberLogin(MemberVO vo);
+	// 회원 로그인체크
+	public void loginCheck(MemberVO vo, HttpSession session);
+
+	// 회원 로그인 정보
+	public MemberVO viewMember(MemberVO vo);
+
+	// 회원 로그아웃
+	public void logout(HttpSession session, HttpServletResponse response);
+
+	
+	
 	
 }

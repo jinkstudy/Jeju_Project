@@ -330,7 +330,7 @@
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
 								<label>Message</label>
-								<textarea value="" required class="form-control" name="qnA_Content" rows="5"
+								<textarea  required class="form-control" name="qnA_Content" rows="5"
 									placeholder="Message" required="required"
 									data-validation-required-message="Please enter a message."></textarea>
 								<p class="help-block text-danger"></p>
@@ -363,42 +363,42 @@
 		  <i class="fas fa-angle-up"></i>
 		</a>
 		
-		<div class="modal fade" id="modal_layout">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- close button -->
-				<button type="button" class="close" data-dismiss="modal">
-				x</button>
-				<div class="jeju-flex-wrap">
-				    <fieldset>
-				        <form action novalidate>
-				            <input type="radio" 
-				                   class="jeju-input"
-				                   name="rg" id="sign-in" checked/>
-				            <input type="radio" 
-				                   class="jeju-input"
-				                   name="rg" id="sign-up" />
-				            <input type="radio" 
-				                   class="jeju-input"
-				                   name="rg" id="reset" />        
+<!-- 		<div class="modal fade" id="modal_layout"> -->
+<!-- 		<div class="modal-dialog"> -->
+<!-- 			<div class="modal-content"> -->
+<!-- 				close button -->
+<!-- 				<button type="button" class="close" data-dismiss="modal"> -->
+<!-- 				x</button> -->
+<!-- 				<div class="jeju-flex-wrap"> -->
+<!-- 				    <fieldset> -->
+<!-- 				        <form action novalidate> -->
+<!-- 				            <input type="radio"  -->
+<!-- 				                   class="jeju-input" -->
+<!-- 				                   name="rg" id="sign-in" checked/> -->
+<!-- 				            <input type="radio"  -->
+<!-- 				                   class="jeju-input" -->
+<!-- 				                   name="rg" id="sign-up" /> -->
+<!-- 				            <input type="radio"  -->
+<!-- 				                   class="jeju-input" -->
+<!-- 				                   name="rg" id="reset" />         -->
 				
-				            <label for="sign-in"
-				                   class="jeju-label">Sign in</label>
-				            <label for="sign-up"
-				                   class="jeju-label">Sign up</label>
-				            <label for="reset"
-				                   class="jeju-label">Reset</label>  
+<!-- 				            <label for="sign-in" -->
+<!-- 				                   class="jeju-label">Sign in</label> -->
+<!-- 				            <label for="sign-up" -->
+<!-- 				                   class="jeju-label">Sign up</label> -->
+<!-- 				            <label for="reset" -->
+<!-- 				                   class="jeju-label">Reset</label>   -->
 				
-				            <input class="sign-up sign-in reset" type="email" placeholder="Email" />
-				            <input class="sign-up sign-in" type="password" placeholder ="Password" />
-				            <input class="sign-up" type="password" placeholder ="Repeat Password" />
-				            <button class="jeju-button">Submit</button>
-				        </form>
-				    </fieldset>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- 				            <input class="sign-up sign-in reset" type="email" placeholder="Email" /> -->
+<!-- 				            <input class="sign-up sign-in" type="password" placeholder ="Password" /> -->
+<!-- 				            <input class="sign-up" type="password" placeholder ="Repeat Password" /> -->
+<!-- 				            <button class="jeju-button">Submit</button> -->
+<!-- 				        </form> -->
+<!-- 				    </fieldset> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 		
 	</section>
 	
