@@ -1,7 +1,11 @@
 package com.jeju.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,9 +88,30 @@ public class CommunityController {
      */
     @RequestMapping(value="/addComment.do")
     @ResponseBody
-    public void addComment(ReplyVO vo,Model model) throws IOException{
-    	replyService.addComment(vo);  
-    	model.addAttribute("reply",replyService.getCommentList(vo));
+    public String addComment(@ModelAttribute("ReplyVO")ReplyVO vo) throws IOException{
+    	replyService.addComment(vo);
+    	return "success";
     }
-
+    
+    /*댓글 리스트 불러오기 (Ajax)*/
+    @RequestMapping(value="/getCommentList",produces="application/json; charset=utf8")
+    @ResponseBody
+    public String getCommentdList(@ModelAttribute("ReplyVO") ReplyVO vo) throws Exception {
+    	System.out.println("컨트롤러 : " + vo.getComm_Mnum());
+    	ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
+    	
+    	List<ReplyVO> replyVO = replyService.getCommentList(vo);
+    	
+    	if(replyVO.size()>0) {
+    		for(int i =0; i< replyVO.size();i++) {
+    		HashMap hm = new HashMap();
+    		hm.put("reply_Content", replyVO.get(i).getReply_Content());
+    		hm.put("member_Email", replyVO.get(i).getMember_Email());
+    		hm.put("reply_Date", replyVO.get(i).getReply_Date());
+    		hmlist.add(hm);
+    		}
+    	}
+    	JSONArray json = new JSONArray(hmlist);
+    	return json.toString();
+    }
 }

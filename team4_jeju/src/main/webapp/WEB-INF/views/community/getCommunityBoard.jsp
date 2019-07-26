@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -18,18 +17,14 @@
 <link href="/team4_jeju/resources/style/insertBoard_yoonyoung.css"
 	rel="stylesheet">
 
-<!-- 댓글 달기 js -->
-<script src="/team4_jeju/resources/js/comment_yoonyoung.js"></script>	
-	
 </head>
-<body>
-	
+<body>	
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
-		
-
+	<!-- 댓글 달기 js -->
+	<script src="/team4_jeju/resources/js/comment_yoonyoung.js"></script>
 	
-	<!-- main title header -->
+			<!-- main title header -->
 	<header
 		class="mastheadd bg-encore_tours_background text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
@@ -140,43 +135,43 @@
 	
     <form id="commentListForm" name="commentListForm" method="post">
 		<div>
-                <span><strong>Comments</strong></span> <span id="cCnt">(&nbsp;${fn:length(reply)}&nbsp;)</span>
+                <span><strong>Comments</strong></span> <span id="cCnt"></span>
             </div>
         <div id="commentList">
 
-			<c:forEach items="${reply}" var="reply">
-				<table class='table' id="reply_table_hoho">
-					<tr>
-						<td>
-							<div class="row">
-								<div class="col-md-3">작성자:&nbsp;<strong>${reply.member_Email}</strong></div>
-								<div class="col-md-3"></div>
-								<div class="col-md-3">									
-								</div>
-								<div class="col-md-3">
-									&nbsp;&nbsp;
-									${reply.reply_Date}
-									&nbsp;&nbsp;
-									<a role="button" class="btn btn-xs reply-buttons"
-									   id="modifyComment"
-									   href="">수정</a>
-									&nbsp;&nbsp;
-									<a role="button" class="btn btn-xs reply-buttons"
-							           id="deleteComment"
-							           href="">삭제</a>
-								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class="reply_content">
-							${reply.reply_Content}
-							</div>
-						</td>
-					</tr>
-				</table>
-			</c:forEach>
+<%-- 			<c:forEach items="${reply}" var="reply"> --%>
+<!-- 				<table class='table' id="reply_table_hoho"> -->
+<!-- 					<tr> -->
+<!-- 						<td> -->
+<!-- 							<div class="row"> -->
+<%-- 								<div class="col-md-3">작성자:&nbsp;<strong>${reply.member_Email}</strong></div> --%>
+<!-- 								<div class="col-md-3"></div> -->
+<!-- 								<div class="col-md-3">									 -->
+<!-- 								</div> -->
+<!-- 								<div class="col-md-3"> -->
+<!-- 									&nbsp;&nbsp; -->
+<%-- 									${reply.reply_Date} --%>
+<!-- 									&nbsp;&nbsp; -->
+<!-- 									<button role="button" class="btn btn-xs reply-buttons" -->
+<!-- 									   name="modifyComment" -->
+<!-- 									   >수정</button> -->
+<!-- 									&nbsp;&nbsp; -->
+<!-- 									<button role="button" class="btn btn-xs reply-buttons" -->
+<!-- 							           name="deleteComment" -->
+<!-- 							           >삭제</button> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<td> -->
+<!-- 							<div class="reply_content"> -->
+<%-- 							${reply.reply_Content} --%>
+<!-- 							</div> -->
+<!-- 						</td> -->
+<!-- 					</tr> -->
+<!-- 				</table> -->
+<%-- 			</c:forEach> --%>
 	
 		</div>
 
