@@ -142,7 +142,7 @@
 
 							<div class="form-btn">
 								<a class="submit-btn btn btn-outline-light" 
-								   href="/team4_jeju/tour/tourDrawingPage.do?sch_Input_Mnum=190725123456">
+								   href="/team4_jeju/tourSch/tourDrawingPage.do?sch_Input_Mnum=190725123456">
 								      나만의 여행 만들기
 								</a>
 							</div>
