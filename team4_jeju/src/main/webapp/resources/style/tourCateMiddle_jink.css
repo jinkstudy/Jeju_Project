@@ -110,7 +110,15 @@ footer {
 	opacity : 0.7;
 	color :#fff;
 	border :black ;
+	padding-top:2px !important;
+	padding-bottom:2px !important;
+	
+
 } 
+
+.place-modal-title{
+	margin-top: 1rem;
+}
 
 .place-modal-content{
 	width : 600px !important;
@@ -154,7 +162,7 @@ footer {
 }
 
 .place-modal-body{
-    height: 250px;
+    height: 200px;
     overflow-y: auto;
 }
 
@@ -168,6 +176,11 @@ footer {
 
 
 
-#pick_img{
-	text-align : right;
+.pick-img{
+    
+      height: 60px;
+    margin-right: -2rem;
+   
+
+	
 }

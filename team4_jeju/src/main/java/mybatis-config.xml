@@ -36,6 +36,9 @@
 		
 		<!-- Q&A alias 설정(별칭) -->
 		<typeAlias alias="login" type="com.jeju.vo.MemberVO"/>
+		
+		<!-- TourSch alias 설정(별칭) -->
+		<typeAlias alias="schOutput" type="com.jeju.vo.ScheduleOutputVO"/>
 	</typeAliases>
 
 </configuration>
