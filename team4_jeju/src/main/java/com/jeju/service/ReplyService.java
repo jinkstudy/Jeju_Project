@@ -14,4 +14,14 @@ public interface ReplyService {
 	void modifyComment(ReplyVO vo);
 	//댓글 삭제
 	void deleteComment(ReplyVO vo);
+
+	//댓글 등록
+	void qnAComment(ReplyVO vo);
+	//댓글 리스트 조회
+	List<ReplyVO> qnACommentList(ReplyVO vo);
+	//댓글 수정
+	void qnAModifyComment(ReplyVO vo);
+	//댓글 삭제
+	void qnADeleteComment(ReplyVO vo);
+
 }

@@ -16,33 +16,33 @@ public class QnAServiceImpl implements QnAService{
 	@Autowired
 	private QnADaoImpl qnADao;
 
-	
+	// 글 등록
 	public void insertQnA(QnAVO vo) {
 		qnADao.insertQnA(vo); //
 	}
 
-	
+	// 글 수정
 	public void updateQnA(QnAVO vo) {
 		qnADao.updateQnA(vo);
 	}
 
-	
+	// 글 삭제
 	public void deleteQnA(QnAVO vo) {
 		qnADao.deleteQnA(vo);
 		
 	}
 
-	
+	// 글 상세조회
 	public QnAVO getQnA(QnAVO vo) {
 		return qnADao.getQnA(vo);
 	}
 
-	
+	// 글 목록 조회
 	public List<QnAVO> getQnAList(QnAVO vo) {
 		return qnADao.getQnAList(vo);
 	}
 	
-	@Override
+	@Override // 조회수 수정
 	public void updateCnt(QnAVO vo) {
 		qnADao.updateCnt(vo);
 	}

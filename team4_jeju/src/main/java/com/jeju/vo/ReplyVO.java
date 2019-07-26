@@ -7,6 +7,7 @@ public class ReplyVO {
 	private String reply_Content;
 	private String reply_Date;
 	private String comm_Mnum;
+	private String qnA_Mnum;
 	private String p_Reply_Num;
 	
 	public ReplyVO() {
@@ -14,7 +15,7 @@ public class ReplyVO {
 	}
 
 	public ReplyVO(String reply_Num, String member_Email, String reply_Content, String reply_Date, String comm_Mnum,
-			String p_Reply_Num) {
+			String p_Reply_Num, String qnA_Mnum) {
 		super();
 		this.reply_Num = reply_Num;
 		this.member_Email = member_Email;
@@ -22,6 +23,15 @@ public class ReplyVO {
 		this.reply_Date = reply_Date;
 		this.comm_Mnum = comm_Mnum;
 		this.p_Reply_Num = p_Reply_Num;
+		this.qnA_Mnum = qnA_Mnum;
+	}
+
+	public String getQnA_Mnum() {
+		return qnA_Mnum;
+	}
+
+	public void setQnA_Mnum(String qnA_Mnum) {
+		this.qnA_Mnum = qnA_Mnum;
 	}
 
 	public String getReply_Num() {

@@ -33,4 +33,26 @@ public class ReplyServiceImpl implements ReplyService {
 	public void deleteComment(ReplyVO vo) {
 		replyDao.deleteComment(vo);
 	}
+
+	//댓글 등록
+	public void qnAComment(ReplyVO vo) {
+		replyDao.qnAComment(vo);
+	}
+	
+	//댓글 리스트 조회
+	public List<ReplyVO> qnACommentList(ReplyVO vo){
+		return replyDao.qnACommentList(vo);
+	}
+	
+	//댓글 수정
+	public void qnAModifyComment(ReplyVO vo) {
+		replyDao.qnAModifyComment(vo);
+		
+	}
+	
+	//댓글 삭제
+	public void qnADeleteComment(ReplyVO vo) {
+		replyDao.qnADeleteComment(vo);
+		
+	}
 }

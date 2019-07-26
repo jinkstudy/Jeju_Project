@@ -10,7 +10,6 @@ public class QnAVO {
 	private String qnA_Content;
 	private Date qnA_Date;
 	private int qnA_Cnt;
-	private String writer_Pw;
 	private String qnA_Title;
 
 	public QnAVO() {
@@ -18,7 +17,7 @@ public class QnAVO {
 	}
 
 	public QnAVO(String qnA_Mnum, String member_Email, String writer_Name, String qnA_Content, 
-			Date qnA_Date, int qnA_Cnt, String writer_Pw, String qnA_Title ) {
+			Date qnA_Date, int qnA_Cnt, String qnA_Title ) {
 		super();
 		this.qnA_Mnum = qnA_Mnum;
 		this.member_Email = member_Email;
@@ -26,14 +25,13 @@ public class QnAVO {
 		this.qnA_Content = qnA_Content;
 		this.qnA_Date = qnA_Date;
 		this.qnA_Cnt = qnA_Cnt;
-		this.writer_Pw = writer_Pw;
 		this.qnA_Title = qnA_Title;
 	}
 
 	@Override
 	public String toString() {
 		return "QnAVO [qnA_Mnum=" + qnA_Mnum + ", member_Email=" + member_Email + ", writer_Name=" + writer_Name	 + ", qnA_Content=" + qnA_Content + ", qnA_Date="
-				+ qnA_Date + ", qnA_Cnt=" + qnA_Cnt + ", writer_Pw=" + writer_Pw  + ", qnA_Title=" + qnA_Title + "]";
+				+ qnA_Date + ", qnA_Cnt=" + qnA_Cnt + ", qnA_Title=" + qnA_Title + "]";
 	}
 
 	public String getQnA_Mnum() {
@@ -84,14 +82,6 @@ public class QnAVO {
 		this.qnA_Cnt = qnA_Cnt;
 	}
 
-	public String getWriter_Pw() {
-		return writer_Pw;
-	}
-
-	public void setWriter_Pw(String writer_Pw) {
-		this.writer_Pw = writer_Pw;
-	}
-
 	public String getQnA_Title() {
 		return qnA_Title;
 	}
@@ -99,10 +89,5 @@ public class QnAVO {
 	public void setQnA_Title(String qnA_Title) {
 		this.qnA_Title = qnA_Title;
 	}
-	
-
-	
-	
-
 	
 }
