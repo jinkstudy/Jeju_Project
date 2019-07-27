@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.jeju.dao.MemberDaoImpl;
 import com.jeju.vo.MemberVO;
@@ -27,19 +28,20 @@ public class MemberServiceImpl implements MemberService{
 
 	// 회원 로그인 체크
 	@Override
-	public void loginCheck(MemberVO vo, HttpSession session) {
-		memberDao.loginCheck(vo, session);	
+	public void loginCheck(MemberVO vo, Model model) {
+		memberDao.loginCheck(vo, model);	
 		
 		
 //			// 세션 변수 등록
 //			MemberVO vo2 = viewMember();
 			
-			session.setAttribute("member_Email", vo.getMember_Email());
-			session.setAttribute("password", vo.getPassword());
+			model.addAttribute("member_Email", vo.getMember_Email());
+			model.addAttribute("password", vo.getPassword());
 		
 		System.out.println(" login service ");
-		System.out.println(session+"session");
-		System.out.println(vo+"vo");
+		System.out.println("member_Email   = " + vo.getMember_Email());
+		System.out.println("password   = " + vo.getPassword());
+		System.out.println("vo    =   " + vo);
 
 	}
 
@@ -53,8 +55,9 @@ public class MemberServiceImpl implements MemberService{
 
 	// 회원 로그아웃
 	@Override
-	public void logout(HttpSession session) {
+	public void logout(MemberVO vo, Model model) {
 		System.out.println(" logout service ");
-		session.invalidate();
+		System.out.println("vo  =  "+ vo);	
+		System.out.println("model  =  "+ model);
 	}
 }

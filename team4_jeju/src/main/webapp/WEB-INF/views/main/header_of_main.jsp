@@ -174,7 +174,7 @@ $(document).ready(function(){
 			<!-- 하기 주석까지도 수정 금지! -->
 			<ul class="navbar-nav ml-auto ml-md-0">
 				<c:choose>
-					<c:when test="${sessionScope.member_Email == null}">
+					<c:when test="${ user == null}">
 						<li class="nav-item dropdown no-arrow mx-1">
 							<!-- 여러 기능을 원할 경우 하기 클래스 추가 후 사용 --> <!-- class="dropdown-toggle" -->
 							<a id="alertsDropdown"

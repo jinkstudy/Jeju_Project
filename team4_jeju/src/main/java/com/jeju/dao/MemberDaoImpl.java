@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import com.jeju.vo.MemberVO;
 
@@ -26,11 +27,14 @@ public class MemberDaoImpl implements MemberDao{
 
     // 회원 로그인 체크
 	@Override
-	public void loginCheck(MemberVO vo, HttpSession session) {
-		String member_Email = 
+	public void loginCheck(MemberVO vo, Model model) {
+		
 		mybatis.selectOne("memberMapper.loginCheck",vo);
+//		mybatis.selectOne("memberMapper.loginCheck",model);
 //		sqlSession.selectOne("memberMapper.loginCheck",vo);
-		System.out.println("login dao mybatis   "+vo+ "    "+ member_Email );
+		System.out.println("login dao  "+vo);
+		System.out.println("login dao vo  =   "+vo);
+		System.out.println("login dao model  =   "+model);
 //		System.out.println("login dao member_Email   " +vo + "    "+member_Email );
 		
 		
