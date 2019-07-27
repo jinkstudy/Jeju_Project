@@ -16,6 +16,7 @@ public interface ReplyDao {
 	//댓글 삭제
 	public void deleteComment(ReplyVO vo);
 
+	/*QnA 부분 댓글*/
 	//댓글 등록
 	public void qnAComment(ReplyVO vo);
 	//댓글 리스트 조회

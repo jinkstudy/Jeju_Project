@@ -36,7 +36,7 @@ where comm_mnum=#{comm_Mnum} and reply_num=#{reply_Num} and member_email=#{membe
 <insert id="qnAComment" parameterType="reply">
  	<![CDATA[
  	INSERT INTO REPLY(REPLY_NUM,MEMBER_EMAIL,REPLY_CONTENT,REPLY_DATE,QNA_MNUM)
- 	VALUES('REPLY'||to_char(sysdate,'YYYYMMDDHH24MISS')||to_char(SEQ_REPLY_NUM.NEXTVAL)
+ 	VALUES('QREPLY'||to_char(sysdate,'YYYYMMDDHH24MISS')||to_char(SEQ_REPLY_NUM.NEXTVAL)
  	,'hong@gmail.com',#{reply_Content},sysdate,#{qnA_Mnum})
  	]]>
 </insert>

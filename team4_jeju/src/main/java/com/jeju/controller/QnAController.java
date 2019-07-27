@@ -105,7 +105,7 @@ public class QnAController{
 	}
 
 	/*댓글 리스트 불러오기 (Ajax)*/
-	@RequestMapping(value="/qnACommentList",produces="application/json; charset=utf8")
+	@RequestMapping(value="/qnACommentList.do",produces="application/json; charset=utf8")
 	@ResponseBody
 	public String qnACommentList(@ModelAttribute("ReplyVO") ReplyVO vo) throws Exception {
 		System.out.println("컨트롤러 : " + vo.getQnA_Mnum());
@@ -119,12 +119,28 @@ public class QnAController{
 				hm.put("reply_Content", replyVO.get(i).getReply_Content());
 				hm.put("member_Email", replyVO.get(i).getMember_Email());
 				hm.put("reply_Date", replyVO.get(i).getReply_Date());
+				hm.put("reply_Num", replyVO.get(i).getReply_Num());
+				hm.put("qnA_Mnum", replyVO.get(i).getQnA_Mnum());
 				hmlist.add(hm);
 			}
 		}
 		JSONArray json = new JSONArray(hmlist);
 		return json.toString();
 	}
-
+    /*댓글 수정하기(Ajax)*/
+    @RequestMapping(value="/qnAModifyComment.do")
+    @ResponseBody
+    public String qnAModifyComment(@ModelAttribute("ReplyVO")ReplyVO vo) throws IOException{
+    	replyService.qnAModifyComment(vo);
+    	return "success";
+    }
+    
+    /*댓글 삭제하기(Ajax)*/
+    @RequestMapping(value="/qnADeleteComment.do")
+    @ResponseBody
+    public String qnADeleteComment(@ModelAttribute("ReplyVO")ReplyVO vo) throws IOException{
+    	replyService.qnADeleteComment(vo);
+    	return "success";
+    }
 
 }

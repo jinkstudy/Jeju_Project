@@ -26,13 +26,12 @@ function qnACommentList(){
 					htmls +='&nbsp;&nbsp;';
 					htmls +=result[i].reply_Date;
 					htmls +='&nbsp;&nbsp;';
-					htmls +='<a role="button" class="btn btn-xs reply-buttons"';
-					htmls +='id="modifyComment"';
-					htmls +='href="">수정</a>';
+					htmls +='<input type="button" class="btn btn-xs reply-buttons modifyComment"';
+					htmls +='reply_num="'+result[i].reply_Num+'" qnA_Mnum="'+ result[i].qnA_Mnum;
+					htmls +='" member_email="'+result[i].member_Email+'" value="수정"/>';
 					htmls +='&nbsp;&nbsp;';
-					htmls +='<a role="button" class="btn btn-xs reply-buttons"';
-					htmls +=' id="deleteComment"';
-					htmls +=' href="">삭제</a>';
+					htmls +='<input type="button" class="btn btn-xs reply-buttons deleteComment"';
+					htmls +=' reply_num="'+result[i].reply_Num+'" qna_mnum="'+ result[i].qnA_Mnum+'" value="삭제"/>';
 					htmls +='</div>';
 					htmls +='</div>';
 					htmls +='</td>';
@@ -50,20 +49,20 @@ function qnACommentList(){
 				htmls = '등록된 댓글이 없습니다.';
 			}//end of if-else
 			$("#cCnt").html(cCnt);
-			$("#qnACommentList").html(htmls);
+			$("#commentList").html(htmls);
 
 
 
 			/*댓글 삭제하기*/
-			$('.DeleteComment').each(function(){
+			$('.deleteComment').each(function(){
 				$(this).on('click', function(){
 					$.ajax({
 						url: "qnADeleteComment.do",
-						data: {"reply_Num" : $(this).attr('reply_num'),"qnA_Mnum": $(this).attr('qnA_Mnum')},
+						data: {"reply_Num" : $(this).attr('reply_num'),"qnA_Mnum": $(this).attr('qna_mnum')},
 						success : function(result){
 							if(result=="success"){
 								qnACommentList();
-								$('#qnACommentList').val("");
+								$('#commentList').val("");
 							}
 						}
 					});// end of delete-ajax
@@ -78,7 +77,7 @@ function qnACommentList(){
 					var htmls = "";
 					htmls+='<textarea class="modifyCommentContent" style="width: 100%" rows="3" cols="30"/>';
 					htmls +='<input type="button" class="btn btn-xs reply-buttons saveModifyComment"';
-					htmls +='reply_num="'+$(this).attr('reply_num')+'" qnA_Mnum="'+ $(this).attr('qnA_Mnum');
+					htmls +='reply_num="'+$(this).attr('reply_num')+'" qna_mnum="'+ $(this).attr('qna_mnum');
 					htmls +='" member_email="'+$(this).attr('member_email')+'" value="저장"/>';
 					htmls +='&nbsp;&nbsp;';
 					htmls +='<input type="button" class="btn btn-xs reply-buttons cancleModifyComment"';
@@ -89,12 +88,12 @@ function qnACommentList(){
 						$(this).on('click',function(){
 							$.ajax({
 								url: "qnAModifyComment.do",
-								data: {"reply_Num" : $(this).attr('reply_num'),"qnA_Mnum": $(this).attr('qnA_Mnum'),
+								data: {"reply_Num" : $(this).attr('reply_num'),"qnA_Mnum": $(this).attr('qna_mnum'),
 									"member_Email": $(this).attr('member_email'),"reply_Content":$('.modifyCommentContent').val()},
 									success : function(result){
 										alert("성공");
 										if(result=="success"){
-											getCommentList();
+											qnACommentList();
 										}		
 									}
 							});//end of modify-ajax
@@ -102,7 +101,7 @@ function qnACommentList(){
 					});//end of saveModifyComment
 					$('.cancleModifyComment').each(function(){
 						$(this).on('click',function(){
-							getCommentList();
+							qnACommentList();
 						});
 					});//end of cancleModifyComment
 				});
@@ -116,14 +115,14 @@ function qnACommentList(){
  * 등록 버튼이 눌렸을때 ajax로 DB에 값 넣어주기
  * */
 $(function(){
-	$('#qnACommentBtn').click(function(){ //**버튼 이미지를 클릭했을때
+	$('#addCommentBtn').click(function(){ //**버튼 이미지를 클릭했을때
 		$.ajax({
 			url: "qnAComment.do",
 			data: {"reply_Content" : $('#reply_Content').val(),"qnA_Mnum": $('#qnA_Mnum').val()},
 			success : function(result){
 				if(result=="success"){
 					qnACommentList();
-					$('#qnACommentList').val("");
+					$('#commentList').val("");
 				}
 				document.getElementById("reply_Content").value='';//댓글 입력후 textarea의 내용을 초기화 >자동으로 placeholder의 값이 다시 보인다.
 

@@ -15,6 +15,7 @@ public interface ReplyService {
 	//댓글 삭제
 	void deleteComment(ReplyVO vo);
 
+	/*QnA 부분 댓글*/
 	//댓글 등록
 	void qnAComment(ReplyVO vo);
 	//댓글 리스트 조회

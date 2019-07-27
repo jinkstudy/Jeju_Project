@@ -33,7 +33,8 @@ public class ReplyServiceImpl implements ReplyService {
 	public void deleteComment(ReplyVO vo) {
 		replyDao.deleteComment(vo);
 	}
-
+	
+	/*QnA 부분 댓글*/
 	//댓글 등록
 	public void qnAComment(ReplyVO vo) {
 		replyDao.qnAComment(vo);

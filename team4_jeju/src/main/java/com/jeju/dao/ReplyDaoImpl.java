@@ -31,6 +31,7 @@ public class ReplyDaoImpl implements ReplyDao {
 	public void modifyComment(ReplyVO vo) {
 		System.out.println("===>ReplyMapper modifyComment 호출");
 		mybatis.update("replyMap.modifyComment",vo);
+		System.out.println("vo.getReply_Content()"+vo.getReply_Content());
 	}
 	//댓글 삭제
 	public void deleteComment(ReplyVO vo) {
@@ -38,8 +39,8 @@ public class ReplyDaoImpl implements ReplyDao {
 		mybatis.delete("replyMap.deleteComment",vo);
 	}
 
+	/*QnA 부분 댓글*/
 	//댓글 등록
-	@Override
 	public void qnAComment(ReplyVO vo) {
 		System.out.println("===>ReplyMapper qnAComment 호출");
 		mybatis.insert("replyMap.qnAComment",vo);
