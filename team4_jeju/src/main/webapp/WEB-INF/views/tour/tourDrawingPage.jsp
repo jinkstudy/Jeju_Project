@@ -81,7 +81,7 @@
 					
 							<li>
 						
-							<div class="cbp_tmtime" value="2017-11-04T18:30">
+							<div class="cbp_tmtime" value="2017-11-04">
 								<span class="hidden">${day.sch_Date}</span> <span class="large"></span>
 							</div>
 							<div class="cbp_tmicon">
@@ -105,10 +105,23 @@
 									<div class="row">
 										<div class="col-lg-4 col-md-4 col-4 ">
 											<a href="javascript:void(0);">
-											<img
+											<c:choose>
+												<c:when test="${empty schlist.finalplacevo.image_Path}">
+												<img
+												src="/team4_jeju/resources/imgs/NullImg.png"
+												alt="${schlist.finalplacevo.place_Name}"
+												class="img-fluid img-thumbnail m-t-30">
+												</c:when>
+												<c:otherwise>
+													<img
 												src="${schlist.finalplacevo.image_Path }"
 												alt="${schlist.finalplacevo.place_Name}"
-												class="img-fluid img-thumbnail m-t-30"></a>
+												class="img-fluid img-thumbnail m-t-30">
+												</c:otherwise>
+											
+											</c:choose>
+											
+										</a>
 										</div>
 										<div class="col-lg-6 col-md-6 col-6 sch-place-name">
 											<a href="javascript:void(0);"><div class="sch-place-name">${schlist.finalplacevo.place_Name}</div></a>

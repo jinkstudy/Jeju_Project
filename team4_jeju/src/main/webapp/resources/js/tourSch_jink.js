@@ -19,7 +19,7 @@ $(function(){
 					var info = row_total.find(".sch-place-name");
 					info.html("<p>일정이 없습니다.<br/> 새로운 일정을 추가하세요.</p>");
 					//$(this).removeClass("btn-danger").addClass("btn-success");
-					alert("ajax 등록 성공" + sch_Output_Mnum);
+					//alert("ajax 등록 성공" + sch_Output_Mnum);
 					button.removeClass("btn-danger").addClass("btn-success");
 					button.text("일정추가");
 									

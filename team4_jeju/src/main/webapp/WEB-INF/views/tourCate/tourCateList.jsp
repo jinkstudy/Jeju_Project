@@ -24,10 +24,11 @@
 		<div class="d-flex align-items-center flex-column">
 			<div class="major-bar text-center">
 				<i class="fas fa-crown fa-2x"></i>
+				<br/>
 				<h1>
-					Hot<br />플레이스<br /> <br />
+					제주도 여행지<br />
 				</h1>
-				<h2>Top50</h2>
+<!-- 				<h2>Top50</h2> -->
 
 			</div>
 		</div>
@@ -101,8 +102,22 @@
 						<div class="col-lg-4 col-md-6 mb-4">
 							<div class="card h-100" style="cursor: pointer"
 								data-toggle="modal" data-target="${c}">
-								<img class="card-img-top"
+													<c:choose>
+												<c:when test="${empty place.image_Path}">
+												<img class="card-img-top"
+												src="/team4_jeju/resources/imgs/NullImg.png"
+												alt=""
+												>
+												</c:when>
+												<c:otherwise>
+												<img class="card-img-top"
 									src="<c:url value="${place.image_Path}"/>" alt="">
+												</c:otherwise>
+											
+											</c:choose>
+							
+<!-- 								<img class="card-img-top" -->
+<%-- 									src="<c:url value="${place.image_Path}"/>" alt=""> --%>
 								<div class="card-body place-card-body">
 									<h5 class="card-title place-card-title">
 										<a href="#">${place.place_Name}</a>
@@ -135,7 +150,19 @@
 									<div class="place-det"> ${place.place_Det}</div>
 									<hr>
 										<div class="place-pic-container">
-										<img class="place-pic" alt="" src="${place.image_Path}">
+												<c:choose>
+												<c:when test="${empty place.image_Path}">
+												<img class="place-pic"
+												src="/team4_jeju/resources/imgs/NullImg.png"
+												alt=""
+												>
+												</c:when>
+												<c:otherwise>
+												<img class="place-pic" alt="" src="${place.image_Path}">
+												</c:otherwise>
+											
+											</c:choose>
+										
 										<hr>
 									</div>
 									<h2>이용안내</h2>

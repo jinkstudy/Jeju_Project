@@ -13,7 +13,7 @@ import com.jeju.vo.MemberVO;
 //객체 변수명 첫 글자 소문자 주의
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
-	
+
 	@Inject
 	@Autowired
 	private MemberDaoImpl memberDao;
@@ -22,7 +22,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void signUp(MemberVO vo) {
 		memberDao.signUp(vo);
-		
+
 	}
 
 
@@ -30,18 +30,14 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void loginCheck(MemberVO vo, Model model) {
 		memberDao.loginCheck(vo, model);	
-		
-		
-//			// 세션 변수 등록
-//			MemberVO vo2 = viewMember();
-			
-			model.addAttribute("member_Email", vo.getMember_Email());
-			model.addAttribute("password", vo.getPassword());
-		
+
+		model.addAttribute("member_Email", vo.getMember_Email());
+		model.addAttribute("password", vo.getPassword());
+
 		System.out.println(" login service ");
-		System.out.println("member_Email   = " + vo.getMember_Email());
-		System.out.println("password   = " + vo.getPassword());
-		System.out.println("vo    =   " + vo);
+//		System.out.println("member_Email   = " + vo.getMember_Email());
+//		System.out.println("password   = " + vo.getPassword());
+//		System.out.println("vo    =   " + vo);
 
 	}
 
@@ -57,7 +53,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void logout(MemberVO vo, Model model) {
 		System.out.println(" logout service ");
-		System.out.println("vo  =  "+ vo);	
-		System.out.println("model  =  "+ model);
+//		System.out.println("vo  =  "+ vo);	
+//		System.out.println("model  =  "+ model);
 	}
 }

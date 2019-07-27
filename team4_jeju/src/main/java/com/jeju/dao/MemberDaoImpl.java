@@ -30,21 +30,17 @@ public class MemberDaoImpl implements MemberDao{
 	public void loginCheck(MemberVO vo, Model model) {
 		
 		mybatis.selectOne("memberMapper.loginCheck",vo);
-//		mybatis.selectOne("memberMapper.loginCheck",model);
-//		sqlSession.selectOne("memberMapper.loginCheck",vo);
-		System.out.println("login dao  "+vo);
-		System.out.println("login dao vo  =   "+vo);
-		System.out.println("login dao model  =   "+model);
-//		System.out.println("login dao member_Email   " +vo + "    "+member_Email );
-		
-		
+		System.out.println("loginCheck DaoImpl");
+//		System.out.println("login dao  "+vo);
+//		System.out.println("login dao vo  =   "+vo);
+//		System.out.println("login dao model  =   "+model);
+//		
 	}
 
 
 	// 회원 로그인 정보
 	@Override
 	public MemberVO viewMember(MemberVO vo) {
-		
 		return sqlSession.selectOne("main.viewMember", vo);
 	}
 
@@ -55,7 +51,7 @@ public class MemberDaoImpl implements MemberDao{
 		System.out.println("logout dao session"+session);
 	}
 
-
+	// 회원가입
 	public int signUp(MemberVO vo) {
 		return mybatis.insert("memberMapper.signUp",vo);
 		

@@ -179,7 +179,7 @@
                   <div class="col-md-6 major-odd"
                      onclick="location.href='/team4_jeju/tourCate/selectHotplace.do'"
                      style="cursor: pointer">
-                     <div class="major1" >
+                     <div class="major" >
                         <div class="text-center text-white">
                            <i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
                         </div>
@@ -188,7 +188,7 @@
                   <div class="col-md-6"
                      onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=3'" 
                      style="cursor: pointer">
-                     <div class="major2">
+                     <div class="major">
                         <div class="text-center text-white">
                            <i class="fas fa-plane fa-2x">&nbsp;가볼거리</i>
                         </div>
@@ -199,7 +199,7 @@
                   <div class="col-md-6"
                      onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=1'" 
                      style="cursor: pointer">
-                     <div class="major3">
+                     <div class="major">
                         <div class="text-center text-white">
                            <i class="fas fa-utensils fa-2x">&nbsp;먹을거리</i>
                         </div>
@@ -209,7 +209,7 @@
                   <div class="col-md-6"
                      onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=2'"
                      style="cursor: pointer">
-                     <div class="major4">
+                     <div class="major">
                         <div class="text-center text-white">
                            <i class="fas fa-grin-hearts fa-2x">&nbsp;즐길거리</i>
                         </div>

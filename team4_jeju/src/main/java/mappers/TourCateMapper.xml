@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectHotPlace" resultMap="getFinalPlace">
 	<![CDATA[
-		SELECT * FROM(SELECT * FROM final_place WHERE MIDDLE_NUM NOT IN(1,2,3,4,5,6) AND IMAGE_PATH IS NOT NULL ORDER BY like_count DESC) WHERE ROWNUM <=50
+		SELECT * FROM(SELECT * FROM final_place WHERE MIDDLE_NUM NOT IN(1,2,3,4,5,6) ORDER BY like_count DESC) WHERE ROWNUM <=50
 		]]>
 	
 	</select>
@@ -58,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectPlacebyMidd" parameterType="midd" resultMap="getFinalPlace">
 	<![CDATA[
-		SELECT * FROM final_place WHERE MIDDLE_NUM=#{middle_Num} AND IMAGE_PATH IS NOT NULL ORDER BY LIKE_COUNT
+		SELECT * FROM final_place WHERE MIDDLE_NUM=#{middle_Num} ORDER BY LIKE_COUNT
 		]]>
 	
 	</select>
@@ -72,7 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectPlaceByMajor" parameterType="midd" resultMap="getFinalPlace">
 	<![CDATA[
-		SELECT * FROM final_place p INNER JOIN middle_class m ON p.MIDDLE_NUM = m.MIDDLE_NUM WHERE m.MAJOR_NUM=#{major_Num} AND p.IMAGE_PATH IS NOT NULL ORDER BY LIKE_COUNT
+		SELECT * FROM final_place p INNER JOIN middle_class m ON p.MIDDLE_NUM = m.MIDDLE_NUM WHERE m.MAJOR_NUM=#{major_Num} ORDER BY LIKE_COUNT
 	]]>
 	
 	</select>
