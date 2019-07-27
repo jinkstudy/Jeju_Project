@@ -1,5 +1,6 @@
 $(function(){
 		
+	//일정 삭제버튼 클릭 시
 		$(".delete_b").click(function () {
 			var row_total =  $(this).parent().parent().parent();
 			var imgA = row_total.find("img");
@@ -30,4 +31,105 @@ $(function(){
 			
 		});
 		//end of click function
+		
+		
+		//일정 확정버튼 클릭 시
+		$(".confirm-btn").click(function(){
+			var sch_Input_Mnum = $(this).parent().find("input").val();
+			//alert(sch_Input_Mnum);
+			var tasks = [];
+			var headers = [];
+			
+			$.ajax({
+				url:"getTimetable.do", //controller에서 mapping할 주소를 입력한다.
+				data : {"sch_Input_Mnum" : sch_Input_Mnum},
+				success: function(result){
+					//alert("성공");
+				var days= result.daylist;
+					
+					for(var j=0; j<days.length; j++){
+						headers.push(days[j].sch_Date);
+						
+//						console.log(days[j].sch_Date);
+				
+					var schPlace = result.schPlaceList;
+					for (var i = 0; i < schPlace.length; i++) {
+						console.log(schPlace[i].sch_Date +"/" +days[j].sch_Date);
+						if(schPlace[i].place_Num != 0 && ((days[j].sch_Date==schPlace[i].sch_Date)) ){
+//							console.log(schPlace[i].sch_Date);
+//							console.log(schPlace[i].sch_Start_Time);
+//							console.log(schPlace[i].sch_Finish_Time);
+//							console.log(schPlace[i].finalplacevo.place_Name);
+							
+							var Stime =	schPlace[i].sch_Start_Time.split(':');
+							var Stime_ = parseInt(Stime[0])+parseFloat(Stime[1])/60;
+							
+							var Ftime =	schPlace[i].sch_Finish_Time.split(':');
+							var Ftime_ = parseInt(Ftime[0])+parseFloat(Ftime[1])/60;
+							var duration = Ftime_ - Stime_;
+							
+							var task = {
+									startTime:Stime_,
+									duration:duration,
+									column : j,
+									id:schPlace[i].finalplacevo.place_Id,
+									title:schPlace[i].finalplacevo.place_Name
+							};
+							
+							 tasks.push(task);	
+//							console.log (task.starTime);
+						}
+					}
+
+//					
+					}
+//					 console.log("tasks count: " + tasks.length);
+					
+					 $("#skeduler-container").skeduler({
+						    headers: headers,
+						    tasks: tasks,
+						    cardTemplate: '<div>${title}</div>',
+						    onClick: function (e, t) { console.log(e, t); }
+						  });
+					 
+					 $("#timetable-modal").modal('show');
+					 
+				}
+			});
+			
+			
+			
+		});
+		
+		
+		//pdf출력
+		
+		$('.pdf-btn').click(function(){
+		
+			
+				var doc=new jsPDF('p', 'mm', [297, 210]);
+				var specialElementHandlers = {
+						'#skeduler-container':function(element,renderer){
+							return true;
+						}
+				}
+				
+				html2canvas($("#skeduler-container"),{
+					useCORS:true,
+					allowTaint:true,
+					onrendered:function(canvas){
+						var imgData = canvas.toDataURL('image/jpeg');
+						var doc = new jsPDF("p","mm");
+						doc.addImage(imgData,'JPEG',10,10);
+						doc.save('schedule.pdf');
+					}
+				})
+	
+		
+		        
+		});
+	
+		
+		
+		
 	});

@@ -1,6 +1,8 @@
 package com.jeju.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeju.service.TourSchService;
-import com.jeju.vo.PickVO;
 import com.jeju.vo.ScheduleOutputVO;
 
 @Controller
@@ -36,20 +37,43 @@ public class TourSchController {
 		//mv.addObject("listByDay",tourschService.getListByDay(vo));
 		mv.addObject("daylist",tourschService.getDayList(vo));
 		mv.addObject("schPlaceList",tourschService.getSchPlace(vo));
-		
-//		List<ScheduleOutputVO> li = tourschService.getSchPlace(vo);
-//		for (ScheduleOutputVO v : li) {
-//			System.out.println(v.getSch_Date());
+		mv.addObject("schInputNum",vo);
+		List<ScheduleOutputVO> li = tourschService.getSchPlace(vo);
+		for (ScheduleOutputVO v : li) {
+			System.out.println(v.getSch_Finish_Time());
 //			System.out.println(v.getFinalplacevo().getFinal_Place_Num() +"/"+v.getFinalplacevo().getPlace_Name()+"/" + v.getFinalplacevo().getImage_Path());
 //			System.out.println();
-//		}
-//		System.out.println();
+		}
+		System.out.println();
 		
 		mv.setViewName("/tour/tourDrawingPage");
 		return mv;
 	}
+//	@RequestMapping(value="getTimetable.do")
+//	@ResponseBody
+//	public ModelAndView getTimetable(ScheduleOutputVO vo) {
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("daylist",tourschService.getDayList(vo));
+//		mv.addObject("schPlaceList",tourschService.getSchPlace(vo));
+//
+//		
+//		mv.setViewName("/tour/tourDrawingPage");
+//		return mv;
+//	}
 	
 	
+		@RequestMapping(value="getTimetable.do")
+		@ResponseBody
+	public Map<String, List<ScheduleOutputVO>>getTimetable(ScheduleOutputVO vo) {
+			Map<String, List<ScheduleOutputVO>> result = new HashMap<String, List<ScheduleOutputVO>>();
+			result.put("daylist", tourschService.getDayList(vo));
+			result.put("schPlaceList", tourschService.getSchPlace(vo));
+		
+		//mv.addObject("daylist",tourschService.getDayList(vo));
+		//mv.addObject("schPlaceList",tourschService.getSchPlace(vo));
+
+		return result;
+	}
 	
 	
 	

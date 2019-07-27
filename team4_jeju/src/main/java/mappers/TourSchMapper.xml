@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="s_out_Sequence" column="S_OUT_SEQUENCE" />
 		<result property="sch_Date" column="SCH_DATE" />
 		<result property="sch_Start_Time" column="SCH_START_TIME" />
-		<result property="sch_Start_Time" column="SCH_FINISH_TIME" />
+		<result property="sch_Finish_Time" column="SCH_FINISH_TIME" />
 		<result property="place_Num" column="PLACE_NUM" />
 		<collection property="finalplacevo" resultMap="getFinalPlace"></collection>
 </resultMap>

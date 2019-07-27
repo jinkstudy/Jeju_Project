@@ -13,7 +13,7 @@
 <META HTTP-EQUIV="Page-exit" CONTENT="BlendTrans(Duration=0.5)">
 <META HTTP-EQUIV="Page-Enter" CONTENT="BlendTrans(Duration=0.5)">
 
-<title>Insert title here</title>
+<title>Encore tours</title>
 
 <!-- 카카오 map 링크 -->
 <script type="text/javascript"
@@ -29,6 +29,13 @@
 	href="/team4_jeju/resources/style/map_gyubeom.css" type="text/css">
 <link type="text/css" rel="stylesheet"
 	href="/team4_jeju/resources/style/tourSch_jink.css" />
+<!-- 타임테이블 관련 링크 -->
+<link rel="stylesheet" href="/team4_jeju/resources/style/jquery.skeduler.css" type="text/css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+<!-- pdf관련 -->
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
 </head>
 <body>
@@ -36,6 +43,10 @@
 	<!-- header -->
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
 	<script src="/team4_jeju/resources/js/tourSch_jink.js"></script>
+	
+<!-- 타임테이블  -->
+    <script src="/team4_jeju/resources/js/jquery.skeduler.js"></script>
+    <script src="/team4_jeju/resources/js/main_timetable.js"></script>
 
 	<!-- start of map title -->
 	<div class="text-white text-center" id="jeju-map-head">
@@ -70,8 +81,19 @@
 	<div class="card-header text-center tour-table-text">
 		<i class="fas fa-plane-departure "></i> My Tour TimeLine
 	</div>
+	<div class = "confbtn" style="text-align:right">
+	<input type="hidden" class="schInputNum" value="${schInputNum.sch_Input_Mnum}">
+	 <button  type="button" class="btn btn-success confirm-btn" data-toggle="modal" data-target="timetable-modal">일정 확정 하기</button>
+	
+<a id="kakao-link-btn" href="javascript:;">
+<img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" style="padding-top :40px"/>
+</a>
+	</div>
+
+	
+	
 	<!-- timeline 시작 -->
-	<section class="page-section">
+	<section class="page-section sch-page-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -169,68 +191,72 @@
 	</section>
 	<!-- timeline 끝 -->
 
-	<div class="d-flex align-items-center justify-content-center">
-		<div class="card mb-3">
-			<table class="table jeju-table">
-				<tr>
-					<td>
-						<p>
-							<a href="MapDrawing.do" target="_blank" id=""> Map Test Page로
-								이동</a>
-						</p>
-					</td>
-					<td>
-						<div id="center_coordi_confirm_td"></div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
 
-	<div class="jeju-div d-flex align-items-center justify-content-center">
-
-		<div class="card mb-3">
-			<div class="card-header">
-				<i class="fas fa-plane-departure"></i> My Tour Table
-			</div>
-			<div class="card-body">
-				<div class="table-responsive">
-					<table class="table table-bordered" id="dataTable" width="100%"
-						cellspacing="0">
-						<thead>
-							<tr>
-								<th>Time</th>
-								<th>Picture</th>
-								<th>Content</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-
-						<!-- <tfoot>
-	               <tr>
-	                 <th>Name</th>
-	                 <th>Position</th>
-	                 <th>Office</th>
-	                 <th>Age</th>
-	               </tr>
-	             </tfoot> -->
-
-					</table>
+<!-- timetable 그리기 -->
+<!-- The Modal -->
+	<div class="modal modal-center fade" id="timetable-modal">
+		<div class="modal-dialog modal-center">
+			<div class="modal-content timetable-modal-content">
+			<!-- Modal Header -->
+				<div class="modal-header timetable-modal-header">
+					<h4 class="modal-title timetable-modal-title text-white">나의 여행 스케줄</h4>
+					<button  type="button" class="btn  pdf-btn">파일만들기</button>
+					
 				</div>
+				<!-- Modal body -->
+				<div class="modal-body timetable-modal-body">
+					<div id="skeduler-container"></div>
+				</div>
+				
+					<!-- Modal footer -->
+				<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+				</div>
+		</div>
+<!-- End of The Modal -->
 			</div>
 		</div>
-		<!-- //The End of DataTables -->
-
 	</div>
 
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>
+	<script type="text/javascript">
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('f91d9fd8759d4ae645a990bf6cb797cf');
+    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createDefaultButton({
+      container: '#kakao-link-btn',
+      objectType: 'feed',
+      content: {
+        title: document.title,
+        description: '내용, 주로 해시태그',
+        imageUrl: document.images[0].src,
+        link: {
+          webUrl: document.location.href,
+          mobileWebUrl: document.location.href
+        }
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845
+      },
+      buttons: [
+        {
+          title: 'Open!',
+          link: {
+            mobileWebUrl: document.location.href,
+            webUrl: document.location.href
+          }
+        }  
+      ]
+    });
+  //]]>
+</script>
+	
 
 </body>
 </html>

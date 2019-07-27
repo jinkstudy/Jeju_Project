@@ -249,4 +249,98 @@
 	opacity : 0.8;
 }
 
+.sch-page-section{
+	padding : 3rem 0 !important;
+	margin-right : 3% !important;
+}
 
+.confirm-btn{
+	
+	margin-top : 3rem;
+	margin-right : 1rem;
+	
+}
+
+#kakao-link-btn{
+	
+	margin-right : 15% 	!important;
+	padding-top : 40px !important;
+}
+
+.timetable-modal-content{
+	width:800px !important; 
+	pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0 solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    outline: 0;
+    box-shadow: 0 0 20px 20px rgba(81, 141, 255, 0.35);
+	
+}
+.timetable-modal-header{
+	background-color : #518DFF;
+	opacity : 0.7;
+	color :#fff;
+	border :black ;
+	padding-top:2px !important;
+	padding-bottom:2px !important;
+}
+
+
+.timetable-modal-title{
+	margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal.modal-center:before {
+    content: " ";
+    height: 100%;
+  }
+}
+
+.timetable-modal-body{
+    height: 1000px;
+    overflow-y: auto;
+}
+
+@media (min-height: 500px) {
+    .modal-body { height: 400px; }
+}
+
+@media (min-height: 800px) {
+    .modal-body { height: 600px; }
+}
+
+.skeduler-main-body > div > .skeduler-task-placeholder > div {
+  position: absolute;
+  overflow: hidden;
+  background-color: #878ff8!important;
+  ceblue;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px .125em .25em rgba(0,0,0,.25);
+  margin-top: 2px;
+  cursor: pointer;
+  color: #FFFFFF;
+  word-wrap: break-word;
+  min-width: 0;
+  min-height: 0;
+  transition: all .4s;
+}
+
+.skeduler-main-body > div > .skeduler-task-placeholder > div:hover {
+  box-shadow: 0 .25em .5em rgba(0,0,0,.5);
+  background-color: #717af7!importatnt;
+  min-height: 150px;
+  min-width: 200px;
+  opacity: 0.8;
+  z-index: 9999;
+}
+
+.pdf-btn{
+	background-color:#FFFFFF !important;
+	margin-top : 0.4rem;
+	
+}
+.html2canvas-container { width: 3000px !important; height: 3000px !important; } 
