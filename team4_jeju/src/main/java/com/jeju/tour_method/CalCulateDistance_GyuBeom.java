@@ -20,6 +20,30 @@ public class CalCulateDistance_GyuBeom {
 	double center_lati = 33.368957616877644;
 	double center_longi = 126.52752300137345;
 	
+	//NNNW 의 중심 좌표 - 로직 자체를 이제부터 정확한 중심 좌표가 아니어도 경로를 잘 그려 줄 수 있도록 잤다.
+	// 중심좌표로부터 지역(지경)의 꼭지점 내부 안에 있는 좌표라면 통과.
+	// !다만 위 지역을 벗어나면 안 된다.
+	double nnnw_center_lati = 33.437147;
+	double nnnw_center_longi = 126.429909;
+	
+	//WWWS 의 중심 좌표 - 로직 자체를 이제부터 정확한 중심 좌표가 아니어도 경로를 잘 그려 줄 수 있도록 잤다.
+	// 중심좌표로부터 지역(지경)의 꼭지점 내부 안에 있는 좌표라면 통과.
+	// !다만 위 지역을 벗어나면 안 된다.
+	double wwws_center_lati = 33.308499;
+	double wwws_center_longi = 126.380033;
+	
+	//SSSE 의 중심 좌표 - 로직 자체를 이제부터 정확한 중심 좌표가 아니어도 경로를 잘 그려 줄 수 있도록 잤다.
+	// 중심좌표로부터 지역(지경)의 꼭지점 내부 안에 있는 좌표라면 통과.
+	// !다만 위 지역을 벗어나면 안 된다.
+	double ssse_center_lati = 33.332787;
+	double ssse_center_longi = 126.680943;
+	
+	//EEENCC 의 중심 좌표 - 로직 자체를 이제부터 정확한 중심 좌표가 아니어도 경로를 잘 그려 줄 수 있도록 잤다.
+	// 중심좌표로부터 지역(지경)의 꼭지점 내부 안에 있는 좌표라면 통과.
+	// !다만 위 지역을 벗어나면 안 된다.
+	double eeencc_center_lati = 33.460462;
+	double eeencc_center_longi = 126.710693;
+	
 	//테스트
 	FileWriter fw;	
 	
@@ -105,6 +129,113 @@ public class CalCulateDistance_GyuBeom {
 		
 		
 		
+		//4구역으로 쪼갰으면 이제 16구역으로 세분화 하자.
+		for(int i = 0; i < max_cnt; i++) {
+			
+			// 1구역 nnnw1
+			if( (area_list.get(i).getDivided_by_Center().equals("NNNW"))
+			    && (area_list.get(i).getLati_Coord() >= nnnw_center_lati)
+			    && (area_list.get(i).getLongi_Coord() > nnnw_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("NNNW1");
+			}
+			// 2구역 nnnw2
+			else if( (area_list.get(i).getDivided_by_Center().equals("NNNW"))
+				    && (area_list.get(i).getLati_Coord() > nnnw_center_lati)
+				    && (area_list.get(i).getLongi_Coord() <= nnnw_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("NNNW2");
+			}
+			// 3구역 nnnw3
+			else if( (area_list.get(i).getDivided_by_Center().equals("NNNW"))
+				    && (area_list.get(i).getLati_Coord() <= nnnw_center_lati)
+				    && (area_list.get(i).getLongi_Coord() < nnnw_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("NNNW3");
+			}
+			// 4구역 nnnw4
+			else if( (area_list.get(i).getDivided_by_Center().equals("NNNW"))
+				    && (area_list.get(i).getLati_Coord() < nnnw_center_lati)
+				    && (area_list.get(i).getLongi_Coord() >= nnnw_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("NNNW4");
+			}
+			// 5구역 wwws5
+			else if( (area_list.get(i).getDivided_by_Center().equals("WWWS"))
+				    && (area_list.get(i).getLati_Coord() > wwws_center_lati)
+				    && (area_list.get(i).getLongi_Coord() <= wwws_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("WWWS5");
+			}
+			// 6구역 wwws6
+			else if( (area_list.get(i).getDivided_by_Center().equals("WWWS"))
+				    && (area_list.get(i).getLati_Coord() <= wwws_center_lati)
+				    && (area_list.get(i).getLongi_Coord() < wwws_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("WWWS6");
+			}
+			// 7구역 wwws7
+			else if( (area_list.get(i).getDivided_by_Center().equals("WWWS"))
+				    && (area_list.get(i).getLati_Coord() < wwws_center_lati)
+				    && (area_list.get(i).getLongi_Coord() >= wwws_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("WWWS7");
+			}
+			// 8구역 wwws8
+			else if( (area_list.get(i).getDivided_by_Center().equals("WWWS"))
+				    && (area_list.get(i).getLati_Coord() >= wwws_center_lati)
+				    && (area_list.get(i).getLongi_Coord() > wwws_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("WWWS8");
+			}
+			// 9구역ssse9
+			else if( (area_list.get(i).getDivided_by_Center().equals("SSSE"))
+				    && (area_list.get(i).getLati_Coord() <= ssse_center_lati)
+				    && (area_list.get(i).getLongi_Coord() < ssse_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("SSSE9");
+			}
+			// 10구역ssse10
+			else if( (area_list.get(i).getDivided_by_Center().equals("SSSE"))
+				    && (area_list.get(i).getLati_Coord() < ssse_center_lati)
+				    && (area_list.get(i).getLongi_Coord() >= ssse_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("SSSE10");
+			}
+			// 11구역ssse11
+			else if( (area_list.get(i).getDivided_by_Center().equals("SSSE"))
+				    && (area_list.get(i).getLati_Coord() >= ssse_center_lati)
+				    && (area_list.get(i).getLongi_Coord() > ssse_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("SSSE11");
+			}
+			// 12구역ssse12
+			else if( (area_list.get(i).getDivided_by_Center().equals("SSSE"))
+				    && (area_list.get(i).getLati_Coord() > ssse_center_lati)
+				    && (area_list.get(i).getLongi_Coord() <= ssse_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("SSSE12");
+			}
+			// 13구역 eeencc13
+			else if( (area_list.get(i).getDivided_by_Center().equals("EEENCC"))
+				    && (area_list.get(i).getLati_Coord() < eeencc_center_lati)
+				    && (area_list.get(i).getLongi_Coord() >= eeencc_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("EEENCC13");
+			}
+			// 14구역 eeencc14
+			else if( (area_list.get(i).getDivided_by_Center().equals("EEENCC"))
+				    && (area_list.get(i).getLati_Coord() >= eeencc_center_lati)
+				    && (area_list.get(i).getLongi_Coord() > eeencc_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("EEENCC14");	
+			}
+			// 15구역 eeencc15
+			else if( (area_list.get(i).getDivided_by_Center().equals("EEENCC"))
+				    && (area_list.get(i).getLati_Coord() <= eeencc_center_lati)
+				    && (area_list.get(i).getLongi_Coord() < eeencc_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("EEENCC15");	
+			}
+			// 16구역 eeencc16
+			else if( (area_list.get(i).getDivided_by_Center().equals("EEENCC"))
+				    && (area_list.get(i).getLati_Coord() > eeencc_center_lati)
+				    && (area_list.get(i).getLongi_Coord() <= eeencc_center_longi) ) {
+				area_list.get(i).setDivided_by_Center("EEENCC16");
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
 		//경로 순서 알고리즘 2
 		//1. 두 좌표의 거리를 미터로 반환하는 메소드
 		//2. 디비에서 넘어오는 값은 아이디와 좌표
@@ -164,9 +295,9 @@ public class CalCulateDistance_GyuBeom {
 		
 
 //테스트 standard_distance
-			
+String standard_distance_log = "D:\\"+"standard_dis_log.txt";			
 try {
-
+	FileWriter sdisfw = new FileWriter(standard_distance_log);
 	String s_distance = "";
 		
 		
@@ -269,7 +400,7 @@ System.out.println("-------------------------");
 System.out.println("part standard distance : " + Double.toString(standard_distance));
 System.out.println("-------------------------\n");
 s_distance += "\n";
-
+sdisfw.append(s_distance);
 
 			
 			int max = tempNumber1s.size();
@@ -309,7 +440,7 @@ s_distance += "\n";
 //			try {
 //				
 //				int i = 0;						
-//				String processing_receipt_name = "C:\\"+"tour_processing_test.txt";			
+//				String processing_receipt_name = "D:\\"+"tour_processing_test.txt";			
 //				fw = new FileWriter(processing_receipt_name);
 //								
 //				for (FinalPlaceVO_GyuBeom vo : area_list) {
@@ -359,8 +490,8 @@ s_distance += "\n";
 
 		
 //테스트 standard_distance
-
-} catch (Exception e) {
+sdisfw.close();
+} catch (IOException e) {
 	e.printStackTrace();
 }
 
@@ -371,7 +502,7 @@ s_distance += "\n";
 //		try {
 //		
 //			int i = 0;
-//			String receipt_name = "C:\\"+"tour_logic_test.txt";			
+//			String receipt_name = "D:\\"+"tour_logic_test.txt";			
 //			fw = new FileWriter(receipt_name);			
 //			
 //			String apiString = "최초 요청 건수 count : " + fixed_count;

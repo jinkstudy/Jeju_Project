@@ -72,20 +72,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${qnAList }" var="qnA">
+						<c:forEach items="${qnAList}" var="qnA">
 							<tr>
 								<td>${qnA.qnA_Mnum }</td>
 								<td align="left"><a
-									href="getQnA.do?qnA_Mnum=${qnA.qnA_Mnum }"> ${qnA.qnA_Title }</a></td>
+									href=""> ${qnA.qnA_Title }</a></td>
 								<td>${qnA.writer_Name }</td>
 								<td>${qnA.qnA_Date }</td>
 								<td>${qnA.qnA_Cnt }</td>
 							</tr>
-
 						</c:forEach>
 					</tbody>
 				</table>
-				<br> <a href="../qnA/insertQnA.do">새글 등록</a>
+				<br> <a href="/team4_jeju/main/main.do#contact">새 문의글 등록</a>
 
 			</div>
 		</div>

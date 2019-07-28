@@ -66,18 +66,25 @@ public class CalDistanceFinal_GyuBeom {
 		int fixed_count = flist.size();
 		
 		//구역 스트링 배열
-		String[] p_array = {"NNNW", "WWWS", "SSSE", "EEENCC"};
+		String[] p_array = {"NNNW1", "NNNW2", "NNNW3", "NNNW4"
+				           , "WWWS5", "WWWS6", "WWWS7", "WWWS8"
+				           , "SSSE9", "SSSE10", "SSSE11", "SSSE12"
+				           , "EEENCC13", "EEENCC14", "EEENCC15", "EEENCC16"
+		                   };
 		
 		//메모리 사용량을 최소화하기 위해, 하기와 같이 length 정보 미리 담고 있기.
 		//수정 금지.
 		int a_len = p_array.length;
 		
 		//출발점이 northest에 있기 때문에
-		//처음 우선권은 NNNW가 갖게 됨.
+		//처음 우선권은 NNNW1가 갖게 됨.
 		String priority = p_array[0];
 		
 		//우선 각 구역의 데이타 개수를 알아야 함.
-		int[] p_count = {0, 0, 0, 0};
+		int[] p_count = {0, 0, 0, 0
+				         , 0, 0, 0, 0
+				         , 0, 0, 0, 0
+				         , 0, 0, 0, 0};
 		
 		//우선은 각 구역마다 place수를 알고 있어야 한다.
 		for(FinalPlaceVO_GyuBeom v : flist) {
@@ -89,6 +96,30 @@ public class CalDistanceFinal_GyuBeom {
 				p_count[2]++;
 			}else if(v.getDivided_by_Center().equals(p_array[3])) {
 				p_count[3]++;
+			}else if(v.getDivided_by_Center().equals(p_array[4])) {
+				p_count[4]++;
+			}else if(v.getDivided_by_Center().equals(p_array[5])) {
+				p_count[5]++;
+			}else if(v.getDivided_by_Center().equals(p_array[6])) {
+				p_count[6]++;
+			}else if(v.getDivided_by_Center().equals(p_array[7])) {
+				p_count[7]++;
+			}else if(v.getDivided_by_Center().equals(p_array[8])) {
+				p_count[8]++;
+			}else if(v.getDivided_by_Center().equals(p_array[9])) {
+				p_count[9]++;
+			}else if(v.getDivided_by_Center().equals(p_array[10])) {
+				p_count[10]++;
+			}else if(v.getDivided_by_Center().equals(p_array[11])) {
+				p_count[11]++;
+			}else if(v.getDivided_by_Center().equals(p_array[12])) {
+				p_count[12]++;
+			}else if(v.getDivided_by_Center().equals(p_array[13])) {
+				p_count[13]++;
+			}else if(v.getDivided_by_Center().equals(p_array[14])) {
+				p_count[14]++;
+			}else if(v.getDivided_by_Center().equals(p_array[15])) {
+				p_count[15]++;
 			}
 		}		
 		
@@ -134,9 +165,9 @@ public class CalDistanceFinal_GyuBeom {
 		
 
 //테스트 standard_distance
-			
+String standard_distance_log = "D:\\"+"standard_dis_log.txt";			
 try {
-
+	FileWriter sdisfw = new FileWriter(standard_distance_log);
 	String s_distance = "";
 		
 		
@@ -254,7 +285,7 @@ s_distance = Double.toString(standard_distance);
 //System.out.println("part standard distance : " + Double.toString(standard_distance));
 //System.out.println("-------------------------\n");
 s_distance += "\n";
-
+sdisfw.append(s_distance);
 
 			
 			int max = tempNumber1s.size();
@@ -302,7 +333,7 @@ s_distance += "\n";
 //			try {
 //				
 //				int i = 0;						
-//				String processing_receipt_name = "C:\\"+"tour_processing_test.txt";			
+//				String processing_receipt_name = "D:\\"+"tour_processing_test.txt";			
 //				fw = new FileWriter(processing_receipt_name);
 //								
 //				for (FinalPlaceVO_GyuBeom vo : flist) {
@@ -352,8 +383,8 @@ s_distance += "\n";
 
 		
 //테스트 standard_distance
-
-} catch (Exception e) {
+sdisfw.close();
+} catch (IOException e) {
 	e.printStackTrace();
 }
 
@@ -364,7 +395,7 @@ s_distance += "\n";
 //		try {
 //		
 //			int i = 0;
-//			String receipt_name = "C:\\"+"tour_logic_test.txt";			
+//			String receipt_name = "D:\\"+"tour_logic_test.txt";			
 //			fw = new FileWriter(receipt_name);			
 //			
 //			String apiString = "최초 요청 건수 count : " + fixed_count;

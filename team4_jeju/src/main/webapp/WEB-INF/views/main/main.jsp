@@ -78,7 +78,7 @@
 						
 						<form id="jeju_journey_input_form"
 						      action="/team4_jeju/tour/insertTourSchTestPage.do"
-						      method="post">						      
+						      method="POST">						      
 							
 						
 						      <div class="form-header">
@@ -338,17 +338,20 @@
 			<!-- About Section Content -->
 			<div class="row">
 				<div class="col-lg-4 ml-auto">
-					<p class="lead">설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명</p>
+					<p class="lead">Encore Tours는 기존 여행사나 여행 정보 제공사와는 달리 전혀 다른 서비스를 제공하고 있습니다. 타사가 어느 정도 여행 정보는 제공할지 모르나, 결국 내 시간, 비용을 들여 힘들게 계획해 왔던 여행들.</p>
 				</div>
 				<div class="col-lg-4 mr-auto">
-					<p class="lead">설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명</p>
+					<p class="lead">또한 지금까지의 타사의 서비스가 다수나 적어도 소수를 위한 서비스였다면, Encore Tours는 오직 당신만을 위한 긴 여행 계획이라도 즉시 자동으로 만들어드립니다.<br/>지금 바로 Encore Tours를 경험해보세요!</p>
 				</div>
 			</div>
-
+			
+			</div>
 			<!-- About Section Button -->
-			<div class="text-center mt-4">
-				<a class="btn btn-xl btn-outline-light" href=""> <i
-					class="fas fa-plane mr-2"></i> Encore Tours 경험해보기
+ 			<div class="text-center mt-4" style="height : 10rem;">
+				<a class="btn btn-xl btn-outline-light" 
+				   id="experience_of_encore_tours"
+				href=""> 
+				<i class="fas fa-plane mr-2"></i> 지금 즉시 Encore Tours 경험해보기
 				</a>
 			</div>
 
@@ -358,7 +361,7 @@
 	<!-- 수정 금지 -->
 	<!-- fake section -->
 	<section id="contact">
-		<div style="height : 5rem;">
+		<div style="height : 3rem;">
 		</div>
 	</section>
 
@@ -369,8 +372,8 @@
 
 			<!-- Contact Section Heading -->
 			<h2
-				class="page-section-heading text-center text-uppercase text-secondary mb-0">무엇이든
-				물어보세요</h2>
+				class="page-section-heading text-center text-uppercase text-secondary mb-0">
+				무엇이든 물어보세요</h2>
 
 			<!-- Icon Divider -->
 			<div class="divider-custom">
@@ -394,33 +397,47 @@
 			<div class="row">
 				<div class="col-lg-8 mx-auto">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<form action="../qnA/saveQnA.do"
-					      method="post" 
-					      id="contactForm"
+					<form action="/team4_jeju/qnA/insertQnA.do"
+					      method="POST" 
+					      id="encoreQnAForm"
 					      novalidate="novalidate">
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Name</label> <input value="" required class="form-control" name="writer_Name"
-									type="text" placeholder="Name" required="required"
-									data-validation-required-message="Please enter your name.">
+								<label>Name</label> 
+								<input value="" 
+								       required class="form-control" 
+								       name="writer_Name"
+									   type="text" placeholder="Name" 
+									   required="required"
+									   data-validation-required-message="Please enter your name.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Email Address</label> <input value="" required class="form-control"
-									name="member_Email" type="email" placeholder="Email Address">
+								<label>Email Address</label> 
+								<input value="" 
+								       required class="form-control"
+									   name="member_Email" 
+									   type="email" 
+									   placeholder="Email Address">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Title</label> <input value="" required class="form-control" name="qnA_Title"
-									type="text" placeholder="Title" required="required"
-									data-validation-required-message="Please enter your title.">
+								<label>Title</label> 
+								<input value="" 
+								       required 
+								       class="form-control" 
+								       name="qnA_Title"
+									   type="text" 
+									   placeholder="Title" 
+									   required="required"
+									   data-validation-required-message="Please enter your title.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -428,28 +445,51 @@
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
 								<label>Message</label>
-								<textarea value="" required class="form-control" name="qnA_Content" rows="5"
-									placeholder="Message" required="required"
-									data-validation-required-message="Please enter a message."></textarea>
+								<textarea value="" 
+								          required class="form-control" 
+								          name="qnA_Content"
+								          rows="5"
+									      placeholder="Message" 
+									      required="required"
+									      data-validation-required-message="Please enter a message."></textarea>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
-								<label>Password</label> <input value="" required class="form-control"
-									name="writer_Pw" type="password" placeholder="Password"
-									required="required"
-									data-validation-required-message="Please enter your Password.">
+								<label>Password</label> 
+								<input value="" 
+								       required class="form-control"
+									   name="writer_Pw"
+									   type="password" 
+									   placeholder="Password"
+									   required="required"
+									   data-validation-required-message="Please enter your Password.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<br>
 						<div id="success"></div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-encore_tours btn-lg" id="sendMessageButton"  >Send</button>
+						<div class="form-group">													
 						</div>
 					</form>
+						<!-- form 안에 버튼이 있는 경우, 자동으로 submit이 되기 때문에 
+						form 밖으로 일부러 빼놓음 - 수정 금지. -->
+						<div class="row">
+								<div class="col-sm-4">
+									<button class="btn btn-encore_tours btn-lg" 
+							        		id="sendQnAMessageButton">문의하기</button>
+								</div>
+								<div class="col-sm-4">
+								</div>
+								<div class="col-sm-4">
+									<button class="btn btn-encore_tours btn-lg" 
+							        		id="sendMessageButton"
+							        		onclick="location.href='/team4_jeju/qnA/getQnAList.do'"
+							        		>Q&A 게시판 바로 가기</button>
+								</div>
+							</div>	
 				</div>
 			</div>
 		</div>

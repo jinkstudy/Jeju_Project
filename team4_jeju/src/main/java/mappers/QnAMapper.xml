@@ -19,10 +19,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertQnA" parameterType="qnA">
 	<![CDATA[
 		INSERT INTO QNA_BOARD
-		( QNA_MNUM , MEMBER_EMAIL,  WRITER_NAME,  QNA_CONTENT, QNA_DATE, QNA_CNT, WRITER_PW, QNA_TITLE	
+		( 
+		QNA_MNUM 
+		, MEMBER_EMAIL
+		,  WRITER_NAME
+		,  QNA_CONTENT
+		, QNA_DATE
+		, QNA_CNT
+		,WRITER_PW
+		, QNA_TITLE	
 		)VALUES(
-		QNA_MNUM_SEQ.nextval, #{member_Email},  #{writer_Name} ,  #{qnA_Content} , sysdate, 0 , 
-		  #{writer_Pw} ,   #{qnA_Title}  
+		QNA_MNUM_SEQ.nextval
+		, #{member_Email}
+		, #{writer_Name}
+		, #{qnA_Content}
+		, sysdate
+		, 0 
+		, #{writer_Pw} 
+		, #{qnA_Title}  
 		)
 		]]>
 	</insert>

@@ -6,6 +6,17 @@ $(function() {
 	$("#divLoading").hide();
 	
 	
+	
+	$("#experience_of_encore_tours").click(function(){
+	    $('body,html').animate({
+	      scrollTop:0 
+	    },1200);
+	    return false;
+	});
+	
+	
+	
+	
 	//게시판 형태의 경우, 눈에 보이는 리스트를 클릭하는 케이스라서
 	//pk를 db단 (백엔드) 단에서 만들어도 상관이 없다.
 	//하지만 여행 스케쥴러의 경우, 프론트에서 만들어서 보내는 것이 맞다는 본인은 생각.

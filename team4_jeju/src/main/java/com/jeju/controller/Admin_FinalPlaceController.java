@@ -41,10 +41,11 @@ public class Admin_FinalPlaceController {
 		
 		//db update go.
 		//1번) first update
-		adminService.updateTourSequenceKeyNum();
+		//adminService.updateTourSequenceKeyNum();
 		
 		//second update
 		//2번) 순서 중요 - first 를 돌리지 않았다면 돌리지 말 것
+		//(사유는 AREA DATA 가 없기 때문에 반드시 이 순서를 지켜야 한다.)
 		adminService.updateTourSeqNumFinal();
 		
 		// 1번과 2번을 동시에 돌리는 것은 불가능.
