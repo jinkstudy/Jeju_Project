@@ -34,16 +34,20 @@ public class Admin_FinalPlaceController {
 		return mv;
 	}
 	
+	
+	//UPDATE SEQUENCE AND AREA
 	@RequestMapping(value="updateFinalPlace.do")
 	public ModelAndView updatePlaceJoin() {
 		
 		//db update go.
-		//first update
-		//adminService.updateTourSequenceKeyNum();
+		//1번) first update
+		adminService.updateTourSequenceKeyNum();
 		
 		//second update
-		//순서 중요 - first 를 돌리지 않았다면 돌리지 말 것
+		//2번) 순서 중요 - first 를 돌리지 않았다면 돌리지 말 것
 		adminService.updateTourSeqNumFinal();
+		
+		// 1번과 2번을 동시에 돌리는 것은 불가능.
 				
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("finalPlace"

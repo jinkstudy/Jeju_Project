@@ -36,7 +36,7 @@ public class AdminController {
 	@RequestMapping(value="insertVisitJeju.do")
 	public ModelAndView insertVisitJejuData() {
 		ModelAndView mv = new ModelAndView();
-		//adminService.insertVisitJeju();
+		adminService.insertVisitJeju();
 		mv.addObject("visitJeju"
 			         , adminService.getVisitJejuArray());
 		//setViewName을 해주지 않으면 저하될 가능성 ↑
