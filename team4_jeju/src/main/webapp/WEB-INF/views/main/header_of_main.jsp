@@ -272,7 +272,7 @@ $(document).ready(function(){
 						<form action='signUp.do' id="signUp" class="jeju-login-form"
 							method="post">
 							<input type="radio" class="jeju-f-input jeju-radio-input"
-								id="jeju-sign-in" checked /> <label for="jeju-sign-in"
+								id="jeju-sign-up" checked /> <label for="jeju-sign-in"
 								class="jeju-f-label">회원가입</label> <input
 								class="jeju-sign-up jeju-sign-in jeju-reset jeju-f-input"
 								type="email" placeholder="Email" name="member_Email" /> <input

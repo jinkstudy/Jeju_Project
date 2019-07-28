@@ -137,10 +137,10 @@
 								<div class="modal-content place-modal-content">
 
 									<!-- Modal Header -->
-									<div class="modal-header place-modal-header">
+									<div class="modal-header place-modal-header ">
 										<h4 class="modal-title place-modal-title text-white">${place.place_Name}</h4>
 										<input type="hidden" class ="pick_num" value="${place.final_Place_Num}">
-										<img src="/team4_jeju/resources/imgs/like_0.png" class="pick-img">
+										<img src="/team4_jeju/resources/imgs/like_0.png" style="cursor: pointer" class="pick-img">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
 										
 									</div>

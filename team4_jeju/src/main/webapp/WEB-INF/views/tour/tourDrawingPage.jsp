@@ -231,22 +231,22 @@
       container: '#kakao-link-btn',
       objectType: 'feed',
       content: {
-        title: document.title,
-        description: '내용, 주로 해시태그',
-        imageUrl: document.images[0].src,
+        title:"나의 제주여행",
+        description: '#여행,#제주,#타임라인',
+        imageUrl: "https://t1.daumcdn.net/cfile/tistory/2740EF3458DE033006",
         link: {
           webUrl: document.location.href,
           mobileWebUrl: document.location.href
         }
       },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845
-      },
+//       social: {
+//         likeCount: 286,
+//         commentCount: 45,
+//         sharedCount: 845
+//       },
       buttons: [
         {
-          title: 'Open!',
+          title: '여행일정보기',
           link: {
             mobileWebUrl: document.location.href,
             webUrl: document.location.href
