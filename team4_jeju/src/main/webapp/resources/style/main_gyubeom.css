@@ -2689,8 +2689,8 @@ fieldset:disabled a.btn {
 }
 
 .long-height-jeju {
-	padding-top : 1rem;
-	height : 30rem;
+	padding-top : 20rem;
+	height : 50rem;
 }
 
 #jeju-main-head { 
@@ -2756,6 +2756,27 @@ fieldset:disabled a.btn {
   border-color: #e9f1ff;
 }
 
+.encore-map-status-button{
+	border : #518DFF;
+	color: #518DFF;
+	font-color : #518DFF;
+	font-size: 1rem;
+	background-color : #fff !important;
+	height : 30px !important;
+	padding: 0.5rem 1rem;
+  	font-weight : 510;
+}
+
+.encore-map-status-button:hover {
+  color: #518DFF;
+  box-shadow: 0 80px 0 0 rgba(233,241,255,0.25) inset, 0 -80px 0 0 rgba(233,241,255,0.25) inset;
+  border-color: #e9f1ff;
+}
+
+.encore-map-status-div{
+	margin-top : 10px;
+}
+
 .btn-visit-jeju {
   color: #fff;
   background-color: #FFB100;
@@ -2778,6 +2799,10 @@ fieldset:disabled a.btn {
   color: #fff;
   box-shadow: 0 80px 0 0 rgba(233,241,255,0.25) inset, 0 -80px 0 0 rgba(233,241,255,0.25) inset;
   border-color: #FFF2ED;
+}
+
+#seleted_opt_info_div #seleted_opt_info table tr td{
+	width : 1000px !important;
 }
 
 .btn-primary:focus, .btn-primary.focus {

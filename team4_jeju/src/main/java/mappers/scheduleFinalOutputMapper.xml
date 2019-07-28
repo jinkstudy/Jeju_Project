@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="schFinalMap">
+	
+	<resultMap id="sFinalOutput" type="schOutputVO">
+		<id property="sch_Output_Mnum" column="SCH_OUTPUT_MNUM" />
+		<result property="sch_Input_Mnum" column="SCH_INPUT_MNUM" />
+		<result property="place_NAME" column="PLACE_NAME" />
+		<result property="lati_COORD" column="LATI_COORD" />
+		<result property="longi_COORD" column="LONGI_COORD" />
+		<result property="divided_by_Center" column="DIVIDED_BY_CENTER" />
+		<result property="fore_DISTANCE" column="FORE_DISTANCE" />
+		<result property="s_out_SEQUENCE" column="S_OUT_SEQUENCE" />
+		<result property="sch_Date" column="SCH_DATE" />
+		<result property="sch_Start_Time" column="SCH_START_TIME" />
+		<result property="sch_Finish_Time" column="SCH_FINISH_TIME" />
+		<result property="place_Num" column="PLACE_NUM" />
+	</resultMap>
+	
+	<resultMap id="sPartFinalOutput" type="schOutputVO">
+		<result property="place_NAME" column="PLACE_NAME" />
+		<result property="lati_COORD" column="LATI_COORD" />
+		<result property="longi_COORD" column="LONGI_COORD" />
+		<result property="s_out_SEQUENCE" column="S_OUT_SEQUENCE" />
+	</resultMap>
+	
+	<select id="selectDrawOutputElements" parameterType="string" resultMap="sPartFinalOutput">
+		<![CDATA[
+		SELECT
+		*
+		FROM SCHEDULE_OUTPUT
+		WHERE sch_Input_Mnum = #{frontInputKey}
+		ORDER BY S_OUT_SEQUENCE ASC
+		]]>
+	</select>
+	
+	<insert id="inputOutputTwoKeys" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO SCHEDULE_OUTPUT
+		(
+		SCH_OUTPUT_MNUM
+		, SCH_INPUT_MNUM
+		, S_OUT_SEQUENCE
+		)
+		VALUES
+		(
+		to_char(sysdate,'YYYYMMDDHH24MISS')||#{input_key}||to_char(SEQ_Sch_Output_Mnum.NEXTVAL)
+		, #{input_key}
+		, #{seq}
+		)
+		]]>
+	</insert>
+	
+	<update id="updateFinalOutput" parameterType="hashmap">
+		<![CDATA[
+		UPDATE SCHEDULE_OUTPUT
+		SET 
+		PLACE_NAME = #{placeName}
+		, LATI_COORD = #{latitude}
+		, LONGI_COORD = #{longitude}
+		, DIVIDED_BY_CENTER = #{section}
+		, FORE_DISTANCE = #{fore_dist}
+		, SCH_DATE = #{day}
+		, SCH_START_TIME = #{startTime}
+		, SCH_FINISH_TIME = #{endTime}
+		, PLACE_NUM = #{placeNum}
+		WHERE SCH_INPUT_MNUM = #{f_InputKey} 
+		AND S_OUT_SEQUENCE = #{day_LK}
+		]]>
+	</update>
+	
+	
+	
+</mapper>

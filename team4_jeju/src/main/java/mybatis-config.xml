@@ -10,6 +10,9 @@
 		<typeAlias alias="visitJeju" type="com.jeju.vo.AdminSelVO" />
 		<typeAlias alias="getApiVO" type="com.jeju.vo.PlaceNewVO" />
 		<typeAlias alias="finalPlaceVO" type="com.jeju.vo.FinalPlaceVO_GyuBeom" />
+		<typeAlias alias="schInputVO" type="com.jeju.vo.ScheduleInputVO" />
+		<typeAlias alias="schRefinedVO" type="com.jeju.vo.ScheduleRefinedInOutputVO" />
+		<typeAlias alias="schOutputVO" type="com.jeju.vo.ScheduleFinalOutputVO" />
 
 		<!-- Tour Team Test -->
 		<typeAlias alias="placeTest" type="com.jeju.vo.PlaceTestVO" />

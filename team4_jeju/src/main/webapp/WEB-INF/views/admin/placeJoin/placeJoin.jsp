@@ -129,7 +129,8 @@
 						<th>place_Id</th>
 						<th>place_Name</th>
 						<th>tour_Key_Num</th>
-						<th>next_Distance</th>
+						<th>area</th>
+						<th>fore_Distance</th>
 						<th>middle_Num</th>
 						<th>restaurant_Id</th>
 						<th>image_Path</th>
@@ -155,6 +156,7 @@
 							<td>${fp.place_Id}</td>
 							<td>${fp.place_Name}</td>
 							<td>${fp.tour_Sequence_Key_Num}</td>
+							<td>${fp.divided_by_Center}</td>
 							<td>${fp.fore_Distance}</td>
 							<td>${fp.middle_Num}</td>
 							<td>${fp.restaurant_Place_Id}</td>

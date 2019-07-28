@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeju.dao.AdminDaoImpl;
+import com.jeju.tour_method.CalDistanceFinal_GyuBeom;
 import com.jeju.tour_method.CalCulateDistance_GyuBeom;
 import com.jeju.tour_method.GetAPI;
 import com.jeju.tour_method.VisitJeju_GyuBeom;
@@ -52,8 +53,16 @@ public class AdminServiceImpl implements AdminService{
 	public void updateTourSequenceKeyNum() {
 		List<FinalPlaceVO_GyuBeom> fvolist = new ArrayList<FinalPlaceVO_GyuBeom>();
 		CalCulateDistance_GyuBeom calDist = new CalCulateDistance_GyuBeom();
-		fvolist = calDist.updateTourSeqKeyNum(adminDao.getDefaultTourPartData());
+		fvolist.addAll(calDist.updateTourSeqKeyNumAndArea(adminDao.getDefaultTourPartData()));
 		adminDao.updateFinalPlaceSequenceList(fvolist);
+	}
+	
+	//순서 중요 - 3.
+	public void updateTourSeqNumFinal() {
+		List<FinalPlaceVO_GyuBeom> fvol = new ArrayList<FinalPlaceVO_GyuBeom>();
+		CalDistanceFinal_GyuBeom calFinal = new CalDistanceFinal_GyuBeom();
+		fvol.addAll(calFinal.updateTourSeqKeyNumFinal(adminDao.getDefaultTourPartData()));
+		adminDao.updateFinalPlaceSequenceList(fvol);
 	}
 	
 	public List<FinalPlaceVO_GyuBeom> getFinalPlaceList(){

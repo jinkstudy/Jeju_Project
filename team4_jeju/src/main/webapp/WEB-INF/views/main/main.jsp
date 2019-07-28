@@ -16,9 +16,31 @@
 
 <title>Encore Tours</title>
 
+<!-- 하기 수정 금지. -->
+<style type="text/css">
+	.swal-overlay {
+	  background-color: rgba(43, 165, 137, 0.45);
+	}
+	
+	#divLoading{
+		z-index : 1700;
+		color : #00BFFF;
+		font-size : 4rem;
+		font-weight : 700;
+	}
+</style>
+
+
+
 </head>
 
 <body id="page-top">
+
+<div id="divLoading" style="position:absolute; top:25rem; left:0; width:100%; text-align:center; margin:0 auto;">
+	<img src="/team4_jeju/resources/imgs/image_gyubeom/loading_gyubeom.gif"
+	     alt="" />
+	LOADING 중 입니다...
+</div>
 	
 	<!-- 헤더에 링크 파일 기술 되어 있음. -->
 	<jsp:include page="./header_of_main.jsp"></jsp:include>
@@ -45,64 +67,90 @@
 					<div class="booking-form">
 										
  						<!-- <div class="booking-bg"></div> -->
-
-						<form>
-							<div class="form-header">
+						
+						
+						
+						<!-- The start of input form -->
+						<!-- test -->
+						<!-- <form id="jeju_journey_input_form"
+						      action="/team4_jeju/tour/insertTourSchTestPage.do"
+						      method="POST"> -->
+						
+						<form id="jeju_journey_input_form"
+						      action="/team4_jeju/tour/insertTourSchTestPage.do"
+						      method="POST">						      
+							
+						
+						      <div class="form-header">
 								<h3></h3>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">여행 시작일</span> <input
-											class="form-control" type="date" required>
+										<span class="form-label">여행 시작일</span> 
+										<input class="form-control"
+										       id="start_Date"
+										       name="start_Date"
+										       type="date" required />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">여행 종료일</span> <input
-											class="form-control" type="date" required>
+										<span class="form-label">여행 종료일</span> 
+										<input class="form-control"
+										       id="finish_Date"
+										       name="finish_Date"
+										       type="date" required />
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">성인수</span> <select
-											class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select> <span class="select-arrow"></span>
+										<span class="form-label">성인수</span> 
+										<input class="form-control"
+										       id = "adultNum"
+										       name="adultNum"
+										       value=1
+										       type="number" required />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">아동수</span> <select
-											class="form-control">
-											<option>0</option>
-											<option>1</option>
-											<option>2</option>
-										</select> <span class="select-arrow"></span>
+										<span class="form-label">아동수</span> 
+										<input class="form-control" 
+										       id="childrenNum"
+										       name="childrenNum"
+										       value=0
+										       type="number" required />
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<span class="form-label">- Options -</span>
-								<div class="row place-opt">
+								<div class="row place-opt"
+								     id="tour_place_opt">
 									<a class="select-button col-md-4 btn-outline-light" 
-						     		   style="cursor: pointer">핫플레이스</a>
+						     		   style="cursor: pointer"
+						     		   id="hot_place_option">핫플레이스</a>
 									<a class="select-button col-md-4 btn-outline-light" 
-						               style="cursor: pointer">적당히</a>
+						               style="cursor: pointer"
+						               id="moderately_place_option">적당히</a>
 									<a class="select-button col-md-4 btn-outline-light"
-						     		   style="cursor: pointer">숨은 명소</a>								
+						     		   style="cursor: pointer"
+						     		   id="hide_place_option">숨은 명소</a>								
 								</div>
-								<div class="row speed-opt">
+								<div class="row speed-opt"
+								     id="tour_speed_opt">
 									<a class="select-button col-md-4 btn-outline-light"
-									     style="cursor: pointer">여유롭게</a>
+									     style="cursor: pointer"
+									     id="slow_speed_option">여유롭게</a>
 									<a class="select-button col-md-4 btn-outline-light"
-									     style="cursor: pointer">보통</a>
+									     style="cursor: pointer"
+									     id="moderately_speed_option">보통</a>
 									<a class="select-button col-md-4 btn-outline-light"
-									     style="cursor: pointer">휙 빠르게</a>
+									     style="cursor: pointer"
+									     id="quickly_speed_option">휙 빠르게</a>
 								</div>
 
 							</div>
@@ -110,30 +158,48 @@
 							<div class="form-group">
 								<div class="row sch-opt">
 									<div class="col-md-4">
-										<input type="checkbox" name="romantic" value="romantic">
+										<input type="checkbox" name="romantic"
+										       id="romantic_check_option"
+										       name="romantic_check_option"
+										       value="romantic" />
 										&nbsp;로맨틱
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="photo" value="photo">
+										<input type="checkbox" name="photo" 
+										       id="photospot_check_option"
+										       name="photospot_check_option"								
+										       value="photo" />
 										&nbsp;포토스팟
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="healing" value="healing">
+										<input type="checkbox" name="healing" 
+										       id="healing_check_option"
+										       name="healing_check_option"
+										       value="healing" />
 										&nbsp;힐링
 									</div>
 								</div>
 								<div class="row sch-opt">
 									<div class="col-md-4">
-										<input type="checkbox" name="culture" value="culture">
+										<input type="checkbox" name="culture" 
+										       id="culture_exep_check_option"
+										       name="culture_exep_check_option"
+										       value="culture" />
 										&nbsp;문화/체험
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="indoor" value="indoor">
+										<input type="checkbox" name="indoor" 
+										       id="inner_check_option"
+										       name="inner_check_option"
+										       value="indoor" />
 										&nbsp;실내
 									</div>
 									<div class="col-md-4">
-										<input type="checkbox" name="shopping" value="shopping">
-										&nbsp;쇼핑
+										<input type="checkbox" name="shopping" 
+										       id="activity_check_option"
+										       name="activity_check_option"
+											   value="activity" />
+										&nbsp;액티비티
 									</div>
 								</div>
 
@@ -141,12 +207,31 @@
 							</div>
 
 							<div class="form-btn">
-								<a class="submit-btn btn btn-outline-light" 
-								   href="/team4_jeju/tourSch/tourDrawingPage.do?sch_Input_Mnum=190725123456">
+								<button class="submit-btn btn btn-outline-light"
+								        id="pleaseMakeMap"
+								        type="button">
+								        <!-- href="/team4_jeju/tour/tourDrawingPage.do"> -->
 								      나만의 여행 만들기
-								</a>
+								</button>
 							</div>
+							
+							<!-- hidden -->
+							<input type="hidden"
+							       name="key_Given_by_Front"
+							       id="key_Given_by_Front" />
+							<input type="hidden"
+							       name="place_Opt_Num"
+							       id="place_Opt_Num" />
+							<input type="hidden"
+							       name="speed_Opt_Num"
+							       id="speed_Opt_Num" />
+							<input type="hidden"
+							       name="middle_Class_List"
+							       id="middle_Class_List" />
+							
 						</form>
+						<!-- The end of input form -->
+						
 					</div>
 				</div>
 			</div>
@@ -179,7 +264,7 @@
                   <div class="col-md-6 major-odd"
                      onclick="location.href='/team4_jeju/tourCate/selectHotplace.do'"
                      style="cursor: pointer">
-                     <div class="major" >
+                     <div class="major1" >
                         <div class="text-center text-white">
                            <i class="fas fa-crown fa-2x">&nbsp;핫플레이스 TOP 50</i>
                         </div>
@@ -188,7 +273,7 @@
                   <div class="col-md-6"
                      onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=3'" 
                      style="cursor: pointer">
-                     <div class="major">
+                     <div class="major2">
                         <div class="text-center text-white">
                            <i class="fas fa-plane fa-2x">&nbsp;가볼거리</i>
                         </div>
@@ -199,7 +284,7 @@
                   <div class="col-md-6"
                      onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=1'" 
                      style="cursor: pointer">
-                     <div class="major">
+                     <div class="major3">
                         <div class="text-center text-white">
                            <i class="fas fa-utensils fa-2x">&nbsp;먹을거리</i>
                         </div>
@@ -209,7 +294,7 @@
                   <div class="col-md-6"
                      onclick="location.href='/team4_jeju/tourCate/selectMiddleCate.do?major_Num=2'"
                      style="cursor: pointer">
-                     <div class="major">
+                     <div class="major4">
                         <div class="text-center text-white">
                            <i class="fas fa-grin-hearts fa-2x">&nbsp;즐길거리</i>
                         </div>
@@ -270,6 +355,7 @@
 		</div>
 	</section>
 	
+	<!-- 수정 금지 -->
 	<!-- fake section -->
 	<section id="contact">
 		<div style="height : 5rem;">
@@ -295,11 +381,23 @@
 				<div class="divider-custom-line"></div>
 			</div>
 
-									<!-- Contact Section Form -->
+
+	<!-- 수정 금지 -->
+	<!-- fake section -->
+	<section id="contactForm">
+		<div style="height : 5rem;">
+		</div>
+	</section>
+
+
+			<!-- Contact Section Form -->
 			<div class="row">
 				<div class="col-lg-8 mx-auto">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<form action="../qnA/saveQnA.do" method="post" id="contactForm" novalidate="novalidate">
+					<form action="../qnA/saveQnA.do"
+					      method="post" 
+					      id="contactForm"
+					      novalidate="novalidate">
 						<div class="control-group">
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -330,7 +428,7 @@
 							<div
 								class="form-group floating-label-form-group controls mb-0 pb-2">
 								<label>Message</label>
-								<textarea  required class="form-control" name="qnA_Content" rows="5"
+								<textarea value="" required class="form-control" name="qnA_Content" rows="5"
 									placeholder="Message" required="required"
 									data-validation-required-message="Please enter a message."></textarea>
 								<p class="help-block text-danger"></p>
@@ -363,42 +461,42 @@
 		  <i class="fas fa-angle-up"></i>
 		</a>
 		
-<!-- 		<div class="modal fade" id="modal_layout"> -->
-<!-- 		<div class="modal-dialog"> -->
-<!-- 			<div class="modal-content"> -->
-<!-- 				close button -->
-<!-- 				<button type="button" class="close" data-dismiss="modal"> -->
-<!-- 				x</button> -->
-<!-- 				<div class="jeju-flex-wrap"> -->
-<!-- 				    <fieldset> -->
-<!-- 				        <form action novalidate> -->
-<!-- 				            <input type="radio"  -->
-<!-- 				                   class="jeju-input" -->
-<!-- 				                   name="rg" id="sign-in" checked/> -->
-<!-- 				            <input type="radio"  -->
-<!-- 				                   class="jeju-input" -->
-<!-- 				                   name="rg" id="sign-up" /> -->
-<!-- 				            <input type="radio"  -->
-<!-- 				                   class="jeju-input" -->
-<!-- 				                   name="rg" id="reset" />         -->
+		<div class="modal fade" id="modal_layout">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- close button -->
+				<button type="button" class="close" data-dismiss="modal">
+				x</button>
+				<div class="jeju-flex-wrap">
+				    <fieldset>
+				        <form action novalidate>
+				            <input type="radio" 
+				                   class="jeju-input"
+				                   name="rg" id="sign-in" checked/>
+				            <input type="radio" 
+				                   class="jeju-input"
+				                   name="rg" id="sign-up" />
+				            <input type="radio" 
+				                   class="jeju-input"
+				                   name="rg" id="reset" />        
 				
-<!-- 				            <label for="sign-in" -->
-<!-- 				                   class="jeju-label">Sign in</label> -->
-<!-- 				            <label for="sign-up" -->
-<!-- 				                   class="jeju-label">Sign up</label> -->
-<!-- 				            <label for="reset" -->
-<!-- 				                   class="jeju-label">Reset</label>   -->
+				            <label for="sign-in"
+				                   class="jeju-label">Sign in</label>
+				            <label for="sign-up"
+				                   class="jeju-label">Sign up</label>
+				            <label for="reset"
+				                   class="jeju-label">Reset</label>  
 				
-<!-- 				            <input class="sign-up sign-in reset" type="email" placeholder="Email" /> -->
-<!-- 				            <input class="sign-up sign-in" type="password" placeholder ="Password" /> -->
-<!-- 				            <input class="sign-up" type="password" placeholder ="Repeat Password" /> -->
-<!-- 				            <button class="jeju-button">Submit</button> -->
-<!-- 				        </form> -->
-<!-- 				    </fieldset> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+				            <input class="sign-up sign-in reset" type="email" placeholder="Email" />
+				            <input class="sign-up sign-in" type="password" placeholder ="Password" />
+				            <input class="sign-up" type="password" placeholder ="Repeat Password" />
+				            <button class="jeju-button">Submit</button>
+				        </form>
+				    </fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
 		
 	</section>
 	

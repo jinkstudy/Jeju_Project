@@ -26,6 +26,9 @@ public interface AdminService {
 	// !important - updateTourSequenceKeyNum in DB Table, named Final_Place
 	void updateTourSequenceKeyNum();
 	
+	// !important - '''final''' update TourSequenceKeyNum in DB Table, named Final_Place.
+	void updateTourSeqNumFinal();
+	
 	//Final_Place data get
 	List<FinalPlaceVO_GyuBeom> getFinalPlaceList();
 	

@@ -2,13 +2,17 @@ package com.jeju.vo;
 
 public class ScheduleInputVO {
 
-	private String sch_Input_Mnum;
-	private String start_Date;
-	private String finish_Date;
-	private String member_Id;
-	private int place_Opt_Num;
-	private int speed_Opt_Num;
-	private String middle_Class_List;
+	private String sch_Input_Mnum; //쿼리에서 넣어줄 값.
+	private String key_Given_by_Front; // /* 프론트 엔드에서 준 키 값 */
+	private String start_Date; //DONE; 
+	private String finish_Date; //DONE;
+	private int tourDaysCount; // 쿼리에서 계산하여 넣어줄 값./* 여행 일수 */
+	private int adultNum; //DONE;
+	private int childrenNum; //DONE;
+	private String member_Email = ""; //비회원이 가입한 경우 - 수정 금지 ""
+	private int place_Opt_Num; // view 단에서 직접 값을 받을 수 없는 경우
+	private int speed_Opt_Num; // view 단에서 직접 값을 받을 수 없는 경우
+	private String middle_Class_List; // view 단에서 값을 받을 수 없는 경우
 	private String confirm_Check;
 	private String access_Date;
 	
@@ -16,13 +20,18 @@ public class ScheduleInputVO {
 		
 	}
 
-	public ScheduleInputVO(String sch_Input_Mnum, String start_Date, String finish_Date, String member_Id,
-			int place_Opt_Num, int speed_Opt_Num, String middle_Class_List, String confirm_Check, String access_Date) {
+	public ScheduleInputVO(String sch_Input_Mnum, String key_Given_by_Front, String start_Date, String finish_Date,
+			int tourDaysCount, int adultNum, int childrenNum, String member_Email, int place_Opt_Num, int speed_Opt_Num,
+			String middle_Class_List, String confirm_Check, String access_Date) {
 		super();
 		this.sch_Input_Mnum = sch_Input_Mnum;
+		this.key_Given_by_Front = key_Given_by_Front;
 		this.start_Date = start_Date;
 		this.finish_Date = finish_Date;
-		this.member_Id = member_Id;
+		this.tourDaysCount = tourDaysCount;
+		this.adultNum = adultNum;
+		this.childrenNum = childrenNum;
+		this.member_Email = member_Email;
 		this.place_Opt_Num = place_Opt_Num;
 		this.speed_Opt_Num = speed_Opt_Num;
 		this.middle_Class_List = middle_Class_List;
@@ -36,6 +45,14 @@ public class ScheduleInputVO {
 
 	public void setSch_Input_Mnum(String sch_Input_Mnum) {
 		this.sch_Input_Mnum = sch_Input_Mnum;
+	}
+
+	public String getKey_Given_by_Front() {
+		return key_Given_by_Front;
+	}
+
+	public void setKey_Given_by_Front(String key_Given_by_Front) {
+		this.key_Given_by_Front = key_Given_by_Front;
 	}
 
 	public String getStart_Date() {
@@ -54,12 +71,36 @@ public class ScheduleInputVO {
 		this.finish_Date = finish_Date;
 	}
 
-	public String getMember_Id() {
-		return member_Id;
+	public int getTourDaysCount() {
+		return tourDaysCount;
 	}
 
-	public void setMember_Id(String member_Id) {
-		this.member_Id = member_Id;
+	public void setTourDaysCount(int tourDaysCount) {
+		this.tourDaysCount = tourDaysCount;
+	}
+
+	public int getAdultNum() {
+		return adultNum;
+	}
+
+	public void setAdultNum(int adultNum) {
+		this.adultNum = adultNum;
+	}
+
+	public int getChildrenNum() {
+		return childrenNum;
+	}
+
+	public void setChildrenNum(int childrenNum) {
+		this.childrenNum = childrenNum;
+	}
+
+	public String getMember_Email() {
+		return member_Email;
+	}
+
+	public void setMember_Email(String member_Email) {
+		this.member_Email = member_Email;
 	}
 
 	public int getPlace_Opt_Num() {

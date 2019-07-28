@@ -38,7 +38,12 @@ public class Admin_FinalPlaceController {
 	public ModelAndView updatePlaceJoin() {
 		
 		//db update go.
-		adminService.updateTourSequenceKeyNum();
+		//first update
+		//adminService.updateTourSequenceKeyNum();
+		
+		//second update
+		//순서 중요 - first 를 돌리지 않았다면 돌리지 말 것
+		adminService.updateTourSeqNumFinal();
 				
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("finalPlace"

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="schInOutputMap">
+	
+	<resultMap id="sInput" type="schInputVO">
+		<id property="sch_Input_Mnum" column="SCH_INPUT_MNUM" />
+		<result property="key_Given_by_Front" column="Key_Given_by_Front" />
+		<result property="start_Date" column="START_DATE" />
+		<result property="finish_Date" column="FINISH_DATE" />
+		<result property="tourDaysCount" column="TourDaysCount" />
+		<result property="adultNum" column="ADULT_NUM" />
+		<result property="childrenNum" column="CHILDREN_NUM" />
+		<result property="member_Email" column="MEMBER_EMAIL" />
+		<result property="place_Opt_Num" column="PLACE_OPT_NUM" />
+		<result property="speed_Opt_Num" column="SPEED_OPT_NUM" />
+		<result property="middle_Class_List" column="MIDDLE_CLASS_LIST" />
+		<result property="confirm_Check" column="CONFIRM_CHECK" />
+		<result property="access_Date" column="ACCESS_DATE" />
+	</resultMap>
+	
+	<insert id="inputSchRequest" parameterType="schInputVO">
+		<![CDATA[
+		INSERT INTO SCHEDULE_INPUT
+		(
+		SCH_INPUT_MNUM
+		, Key_Given_by_Front
+		, START_DATE
+		, FINISH_DATE
+		, TourDaysCount
+		, ADULT_NUM
+		, CHILDREN_NUM
+		, MEMBER_EMAIL
+		, PLACE_OPT_NUM
+		, SPEED_OPT_NUM
+		, MIDDLE_CLASS_LIST
+		, CONFIRM_CHECK
+		, ACCESS_DATE
+		)
+		VALUES
+		(
+		to_char(sysdate,'YYYYMMDDHH24MISS')||to_char(SEQ_SCH_INPUT_MNUM.NEXTVAL)
+		, #{key_Given_by_Front}
+		, #{start_Date}
+		, #{finish_Date}
+		, (TO_DATE(#{finish_Date}, 'YYYY-MM-DD') - TO_DATE(#{start_Date}, 'YYYY-MM-DD')) + 1
+		, #{adultNum}
+		, #{childrenNum}
+		, #{member_Email}
+		, #{place_Opt_Num}
+		, #{speed_Opt_Num}
+		, #{middle_Class_List}
+		, 'X'
+		, SYSDATE
+		)
+		]]>
+	</insert>
+	
+	<select id="selectTourDaysCount" parameterType="schInputVO" resultType="int">
+		SELECT TourDaysCount 
+		FROM SCHEDULE_INPUT 
+		WHERE Key_Given_by_Front = #{key_Given_by_Front}
+	</select>
+	
+</mapper>
