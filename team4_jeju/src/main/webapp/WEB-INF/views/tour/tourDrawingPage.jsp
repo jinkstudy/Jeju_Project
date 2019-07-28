@@ -68,7 +68,7 @@ $(function(){
 	
 	
 	
-	changeMaptype = kakao.maps.MapTypeId.SKYVIEW;
+	changeMaptype = kakao.maps.MapTypeId.NORMAL;
 	map.addOverlayMapTypeId(changeMaptype);
 	
 	
@@ -314,6 +314,7 @@ $(function(){
 </script>
 
 
+
 </head>
 
 
@@ -508,13 +509,13 @@ $(function(){
 <!-- 	                 <th>Office</th> -->
 <!-- 	                 <th>Age</th> -->
 <!-- 	               </tr> -->
-<!-- 	             </tfoot> --> -->
+<!-- 	             </tfoot> --> 
 	
 <!-- 					</table> -->
 <!-- 				</div> -->
 <!-- 			</div> -->
 <!-- 		</div> -->
-<!-- 		<!-- //The End of DataTables --> -->
+		<!-- //The End of DataTables --> 
 		
 <!-- 	</div> -->
 
