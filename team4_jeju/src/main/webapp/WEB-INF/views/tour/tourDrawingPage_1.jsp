@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -53,8 +53,17 @@
 		<hr class="jeju-hr" />
 		<div class="masthead-heading">
 			<div class="jeju-map-background">
-				<div class="jeju-title1">Jeju Journey only for Me : 9박 10일</div>
-				<div class="jeju-sub-title1">(19.07.02 ~ 19.07.11)</div>
+			<c:forEach items="${daylist}" var="day"  varStatus="status">
+			<c:set var="days" value="${fn:length(daylist)}"></c:set>
+			<c:set var="S_date" value="${daylist[0].sch_Date}"></c:set>
+			  <c:if test="${status.last}"><c:set var="F_date" value="${day.sch_Date}"></c:set></c:if>
+			
+			
+			</c:forEach>
+				<div class="jeju-title1">Jeju Journey only for Me :${days-1}박 ${days} 일</div>
+			
+				<div class="jeju-sub-title1">(${S_date} ~ ${F_date})</div>
+				
 			</div>
 		</div>
 	</div>
@@ -225,7 +234,7 @@
 	<script type="text/javascript">
   //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('f91d9fd8759d4ae645a990bf6cb797cf');
+    Kakao.init('95e85aa66afbc7aaf828aa2355f1eb56');
     // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
     Kakao.Link.createDefaultButton({
       container: '#kakao-link-btn',

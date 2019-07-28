@@ -41,6 +41,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 		VALUES
 		(
+		#{key_Given_by_Front}
+		, #{key_Given_by_Front}
+		, #{start_Date}
+		, #{finish_Date}
+		, (TO_DATE(#{finish_Date}, 'YYYY-MM-DD') - TO_DATE(#{start_Date}, 'YYYY-MM-DD')) + 1
+		, #{adultNum}
+		, #{childrenNum}
+		, #{member_Email}
+		, #{place_Opt_Num}
+		, #{speed_Opt_Num}
+		, #{middle_Class_List}
+		, 'X'
+		, SYSDATE
+		)
+		]]>
+	</insert>
+	
+	<insert id="discard_waste" parameterType="schInputVO">
+		<![CDATA[
+		INSERT INTO SCHEDULE_INPUT
+		(
+		SCH_INPUT_MNUM
+		, Key_Given_by_Front
+		, START_DATE
+		, FINISH_DATE
+		, TourDaysCount
+		, ADULT_NUM
+		, CHILDREN_NUM
+		, MEMBER_EMAIL
+		, PLACE_OPT_NUM
+		, SPEED_OPT_NUM
+		, MIDDLE_CLASS_LIST
+		, CONFIRM_CHECK
+		, ACCESS_DATE
+		)
+		VALUES
+		(
 		to_char(sysdate,'YYYYMMDDHH24MISS')||to_char(SEQ_SCH_INPUT_MNUM.NEXTVAL)
 		, #{key_Given_by_Front}
 		, #{start_Date}

@@ -164,9 +164,9 @@ public class CalCulateDistance_GyuBeom {
 		
 
 //테스트 standard_distance
-String standard_distance_log = "D:\\"+"standard_dis_log.txt";			
+			
 try {
-	FileWriter sdisfw = new FileWriter(standard_distance_log);
+
 	String s_distance = "";
 		
 		
@@ -269,7 +269,7 @@ System.out.println("-------------------------");
 System.out.println("part standard distance : " + Double.toString(standard_distance));
 System.out.println("-------------------------\n");
 s_distance += "\n";
-sdisfw.append(s_distance);
+
 
 			
 			int max = tempNumber1s.size();
@@ -309,7 +309,7 @@ sdisfw.append(s_distance);
 //			try {
 //				
 //				int i = 0;						
-//				String processing_receipt_name = "D:\\"+"tour_processing_test.txt";			
+//				String processing_receipt_name = "C:\\"+"tour_processing_test.txt";			
 //				fw = new FileWriter(processing_receipt_name);
 //								
 //				for (FinalPlaceVO_GyuBeom vo : area_list) {
@@ -359,8 +359,8 @@ sdisfw.append(s_distance);
 
 		
 //테스트 standard_distance
-sdisfw.close();
-} catch (IOException e) {
+
+} catch (Exception e) {
 	e.printStackTrace();
 }
 
@@ -371,7 +371,7 @@ sdisfw.close();
 //		try {
 //		
 //			int i = 0;
-//			String receipt_name = "D:\\"+"tour_logic_test.txt";			
+//			String receipt_name = "C:\\"+"tour_logic_test.txt";			
 //			fw = new FileWriter(receipt_name);			
 //			
 //			String apiString = "최초 요청 건수 count : " + fixed_count;

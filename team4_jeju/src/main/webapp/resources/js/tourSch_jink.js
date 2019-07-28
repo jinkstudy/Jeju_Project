@@ -36,13 +36,14 @@ $(function(){
 		//일정 확정버튼 클릭 시
 		$(".confirm-btn").click(function(){
 			var sch_Input_Mnum = $(this).parent().find("input").val();
-			//alert(sch_Input_Mnum);
+			alert(sch_Input_Mnum);
+			
 			var tasks = [];
 			var headers = [];
 			
 			$.ajax({
 				url:"getTimetable.do", //controller에서 mapping할 주소를 입력한다.
-				data : {"sch_Input_Mnum" : sch_Input_Mnum},
+				data : {"key_Given_by_Front" : sch_Input_Mnum },
 				success: function(result){
 					//alert("성공");
 				var days= result.daylist;

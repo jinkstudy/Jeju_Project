@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, LONGI_COORD = #{longitude}
 		, DIVIDED_BY_CENTER = #{section}
 		, FORE_DISTANCE = #{fore_dist}
-		, SCH_DATE = #{day}
+		, SCH_DATE = TO_DATE(#{day}, 'YYYY-MM-DD') + #{theTimetoPlusDay}
 		, SCH_START_TIME = #{startTime}
 		, SCH_FINISH_TIME = #{endTime}
 		, PLACE_NUM = #{placeNum}

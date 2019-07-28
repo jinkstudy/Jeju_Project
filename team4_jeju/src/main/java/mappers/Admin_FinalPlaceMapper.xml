@@ -52,6 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<select id="selectFirstFinalOutputPlace" parameterType="hashmap" resultMap="FinalOutputPlace">
+		<![CDATA[
 		SELECT  
 		FINAL_PLACE_NUM
 		, PLACE_NAME
@@ -65,25 +66,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND
 		PLACE_NAME NOT LIKE '%추자%'
         AND
-        PLACE_NAME NOT LIKE '%마라도%')
+        PLACE_NAME NOT LIKE '%마라도%') MYTABLE
+        ]]>
 		<if test='null_check == "ihavetag"'>
 		WHERE
 		<foreach collection="tagList_Refined" item="tag" index="index" separator="OR" open="(" close=")">
 		TAGS LIKE '%'||#{tag}||'%'
 		</foreach>
 		</if>
+		<if test="place_Opt_Num_Refined != null and place_Opt_Num_Refined !=''">
 		<choose>
-		<when test="#{place_Opt_Num_Refined}.equals('1')">
-		ORDER BY LIKE_COUNT DESC)
-		</when>
-		<when test="#{place_Opt_Num_Refined}.equals('3')">
-		ORDER BY LIKE_COUNT ASC)
-		</when>
-		<otherwise>
-		)
-		</otherwise>
+		<when test="place_Opt_Num_Refined eq 3"> ORDER BY LIKE_COUNT DESC </when>
+		<when test="place_Opt_Num_Refined eq 1"> ORDER BY LIKE_COUNT ASC </when>
 		</choose>
+		</if>
 		<![CDATA[
+		)		
 		WHERE ROWNUM <= #{total_Row_count_Refined}
 		]]>
 	</select>
@@ -108,8 +106,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{num}
 		</foreach>
 		<![CDATA[		
-		ORDER BY LIKE_COUNT ASC)
+		ORDER BY LIKE_COUNT DESC)
 		WHERE ROWNUM <= #{more_need_rowCount}
+		]]>
+	</select>
+	
+	<select id="selectTestFinalOutputPlace" parameterType="hashmap" resultMap="FinalOutputPlace">
+		SELECT  
+		FINAL_PLACE_NUM
+		, PLACE_NAME
+		, LATI_COORD
+		, LONGI_COORD
+		, DIVIDED_BY_CENTER
+		FROM
+		(SELECT * FROM
+		(SELECT * FROM FINAL_PLACE 
+		WHERE TO_CHAR(MIDDLE_NUM) NOT IN ('1', '2', '3', '4', '5', '6')
+		AND		
+		PLACE_NAME NOT LIKE '%추자%'
+        AND
+        PLACE_NAME NOT LIKE '%마라도%')
+		<![CDATA[		
+		ORDER BY LIKE_COUNT DESC)
+		WHERE ROWNUM <= #{total_Row_count_Refined}
 		]]>
 	</select>
 	

@@ -168,7 +168,8 @@ public class TourDrawingDaoImpl_GyuBeom implements TourDrawingDao_GyuBeom{
 					           + " | " + vo.getTour_Sequence_Key_Num()
 					           + " | " + vo.getLati_Coord()
 					           + " | " + vo.getLongi_Coord()
-					           + " | " + vo.getDivided_by_Center());
+					           + " | " + vo.getDivided_by_Center()
+					           + " | " + vo.getLike_Count());
 		}
 		
 				
@@ -177,12 +178,12 @@ public class TourDrawingDaoImpl_GyuBeom implements TourDrawingDao_GyuBeom{
 		int howManyInADay = rvo.getHowManyInOneDay_Refined();
 		
 		//howManyInADay
-		String[] s_many4 = {"AM 09:00", "AM 10:30", "PM 01:00", "PM 03:30"};
-		String[] e_many4 = {"AM 10:30", "PM 01:00", "PM 03:30", "PM 06:00"};
-		String[] s_many3 = {"AM 10:00", "PM 01:00", "PM 03:30"};
-		String[] e_many3 = {"PM 01:00", "PM 03:30", "PM 06:00"};
-		String[] s_many2 = {"AM 10:00", "PM 02:00"};
-		String[] e_many2 = {"PM 00:00(noon)", "PM 06:00"};
+		String[] s_many4 = {"09:00", "10:30", "13:00", "15:30"};
+		String[] e_many4 = {"10:30", "12:00", "15:30", "18:00"};
+		String[] s_many3 = {"10:00", "13:00", "15:30"};
+		String[] e_many3 = {"12:00", "15:30", "18:00"};
+		String[] s_many2 = {"10:00", "14:00"};
+		String[] e_many2 = {"12:00", "18:00"};
 		
 		//최대 4
 		String[] startTimeArray = new String[4];
@@ -199,9 +200,25 @@ public class TourDrawingDaoImpl_GyuBeom implements TourDrawingDao_GyuBeom{
 			System.arraycopy(e_many4, 0, endTimeArray, 0, e_many4.length);
 		}
 		
+		
+		
+		//시작 날짜 필요 - 수정 금지.
+		String startDateString = rvo.getStart_Date_Refined();
+		
+		//테스트
+		System.out.println("여행 시작 날짜 : " + startDateString);
+		
+		
+		
+		
 		int key = 0;
 		for(FinalPlaceVO_GyuBeom vo : fseqlist) {
 			key++;
+			
+			//테스트
+			int theTimetoplusAday = (key-1) / howManyInADay;
+			System.out.println("Tour Date 배열 순서" + theTimetoplusAday);
+			
 			int r_d_pick = (key-1) % howManyInADay;
 			if(vo.getTour_Sequence_Key_Num()-1 == key) {
 				int p_Num = vo.getFinal_Place_Num();
@@ -211,7 +228,8 @@ public class TourDrawingDaoImpl_GyuBeom implements TourDrawingDao_GyuBeom{
 				String Area = vo.getDivided_by_Center();
 				double dist = vo.getFore_Distance();
 				HashMap<String, Object> hm = new HashMap<String, Object>();
-				hm.put("day", rvo.getStart_Date_Refined()); // 일자 db sequence로 + 예정.
+				hm.put("day", startDateString); // 일자 db sequence로 + 예정.
+				hm.put("theTimetoPlusDay", theTimetoplusAday);
 				hm.put("day_LK", key); // where 절에서 matching 시킬 key 값
 				hm.put("startTime", startTimeArray[r_d_pick]); //start time - 반복
 				hm.put("endTime", endTimeArray[r_d_pick]); //end time - 반복

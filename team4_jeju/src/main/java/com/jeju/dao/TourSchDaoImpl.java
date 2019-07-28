@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jeju.vo.FinalPlaceVO_GyuBeom;
+import com.jeju.vo.ScheduleInputVO;
 import com.jeju.vo.ScheduleOutputVO;
 
 //객체 변수명 첫 글자 소문자 주의
@@ -20,12 +21,12 @@ public class TourSchDaoImpl implements TourSchDao{
 	private SqlSessionTemplate mybatis;
 
 	//일정에 속한 날짜를 구해옴.
-	public List<ScheduleOutputVO> getDayList(ScheduleOutputVO vo) {
+	public List<ScheduleOutputVO> getDayList(ScheduleInputVO vo) {
 		// TODO Auto-generated method stub
-	System.out.println("getDayList Dao");
+	System.out.println("getDayList Dao"+vo.getKey_Given_by_Front());
 		return mybatis.selectList("tourSchMap.getSchDay", vo);
 	}
-	
+		
 //	//일정별 리스트 묶음을 뽑아옴.
 //	public List<ScheduleOutputVO> getListByDay(ScheduleOutputVO vo,ScheduleOutputVO scheduleOutputVO){
 //		
@@ -37,7 +38,7 @@ public class TourSchDaoImpl implements TourSchDao{
 //	}
 
 	//schOutput 테이블과 place 테이블 조인해서, 정보 가져옴.
-	public List<ScheduleOutputVO> getSchPlace(ScheduleOutputVO vo) {
+	public List<ScheduleOutputVO> getSchPlace(ScheduleInputVO vo) {
 		// TODO Auto-generated method stub
 		return  mybatis.selectList("tourSchMap.getSchPlace", vo);
 	}

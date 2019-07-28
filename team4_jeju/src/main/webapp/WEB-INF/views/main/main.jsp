@@ -78,7 +78,7 @@
 						
 						<form id="jeju_journey_input_form"
 						      action="/team4_jeju/tour/insertTourSchTestPage.do"
-						      method="POST">						      
+						      method="post">						      
 							
 						
 						      <div class="form-header">
