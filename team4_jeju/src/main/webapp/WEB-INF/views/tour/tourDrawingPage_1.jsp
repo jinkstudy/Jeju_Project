@@ -15,9 +15,6 @@
 
 <title>Encore tours</title>
 
-<!-- 카카오 map 링크 -->
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e85aa66afbc7aaf828aa2355f1eb56"></script>
 
 <!-- jQuery 링크 -->
 <script src="../resources/js/jquery-3.4.1.js"></script>
@@ -70,21 +67,6 @@
 	<!--// The end of map title -->
 
 	<hr class="jeju-hr" />
-
-	<!-- start of map drawing -->
-	<section class="jeju-map-portfolio" id="portfolio">
-		<div class="container">
-
-			<div class="d-flex align-items-center justify-content-center">
-
-				<div class="row">
-					<div id="map" style="width: 70rem; height: 23rem;"></div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!--// The end of map drawing -->
 
 
 	<div class="card-header text-center tour-table-text">

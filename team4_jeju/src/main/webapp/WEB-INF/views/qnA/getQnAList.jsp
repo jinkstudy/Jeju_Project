@@ -75,8 +75,8 @@
 						<c:forEach items="${qnAList}" var="qnA">
 							<tr>
 								<td>${qnA.qnA_Mnum }</td>
-								<td align="left"><a
-									href=""> ${qnA.qnA_Title }</a></td>
+								<td align="left">
+								<a href=""> ${qnA.qnA_Title }</a></td>
 								<td>${qnA.writer_Name }</td>
 								<td>${qnA.qnA_Date }</td>
 								<td>${qnA.qnA_Cnt }</td>
