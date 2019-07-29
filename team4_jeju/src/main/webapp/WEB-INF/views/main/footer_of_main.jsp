@@ -50,8 +50,9 @@
 				<div class="col-lg-4">
 					<h4 class="text-uppercase mb-4">About Encore Tours</h4>
 					<p class="lead mb-0">
-						설명설명설명설명설명설명 <br />
-						<a href="">Start Encore Tours</a>.
+						Enjoy Smarter Travel "Only for You" <br />
+						<a href=""
+						   id="experience_of_encore_tours">Start Encore Tours</a>.
 					</p>
 				</div>
 

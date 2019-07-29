@@ -58,6 +58,12 @@
 	</header>
 	<!-- //end of header -->
 
+
+
+<div style="height : 7rem; margin-top : 7rem;"></div>
+
+
+
 	<!-- Contact Section -->
 	
 		<div class="container">
@@ -208,6 +214,8 @@
 </div>
  <!-- 댓글 달기 끝 -->
 		</div>
+
+<div style="height : 7rem; margin-bottom : 7rem;"></div>
 
 	<!-- footer -->
 	<jsp:include page="../main/footer_of_main.jsp"></jsp:include>

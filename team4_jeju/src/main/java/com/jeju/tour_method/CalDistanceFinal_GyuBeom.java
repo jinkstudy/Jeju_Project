@@ -481,12 +481,12 @@ sdisfw.close();
 	    return dist;
 	}  
 	  
-	    // 주어진 도(degree) 값을 라디언으로 변환  
+	// 주어진 도(degree) 값을 라디언으로 변환  
 	private double deg2rad(double deg){  
 	    return (double)(deg * Math.PI / (double)180d);  
 	}  
 	  
-	    // 주어진 라디언(radian) 값을 도(degree) 값으로 변환  
+	// 주어진 라디언(radian) 값을 도(degree) 값으로 변환  
 	private double rad2deg(double rad){  
 	    return (double)(rad * (double)180d / Math.PI);  
 	} 

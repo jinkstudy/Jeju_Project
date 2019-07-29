@@ -34,6 +34,10 @@
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
+<!-- 타임테이블  -->
+<script src="/team4_jeju/resources/js/jquery.skeduler.js"></script>
+<script src="/team4_jeju/resources/js/main_timetable.js"></script>
+
 </head>
 <body>
 
@@ -41,9 +45,6 @@
 	<jsp:include page="../main/header_of_main.jsp"></jsp:include>
 	<script src="/team4_jeju/resources/js/tourSch_jink.js"></script>
 	
-<!-- 타임테이블  -->
-    <script src="/team4_jeju/resources/js/jquery.skeduler.js"></script>
-    <script src="/team4_jeju/resources/js/main_timetable.js"></script>
 
 	<!-- start of map title -->
 	<div class="text-white text-center" id="jeju-map-head">
