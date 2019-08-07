@@ -6,13 +6,13 @@ $(document).ready(function(){
 /*댓글 리스트 출력해주는 함수*/
 function getCommentList(){
 	$.ajax({
-		url:"getCommentList.do",
-		data: {"reply_Content" : $('#reply_Content').val(),"comm_Mnum": $('#comm_Mnum').val()},
-		success: function(result){
-			var htmls = "";
-			var cCnt = result.length;
-			if(result.length > 0){
-				for(i=0; i< result.length;i++){
+		url:"getCommentList.do", //Controller 에 있는 함수 비동기로 url 전송해서 불러오기
+		data: {"reply_Content" : $('#reply_Content').val(),"comm_Mnum": $('#comm_Mnum').val()}, //JSon 구조로 변수명 VO와 일치시킨 후 전송하기
+		success: function(result){ // ajax 성공시 Controller의 값을 받아오기
+			var htmls = ""; //뷰단에서 동적으로 테이블을 붙이기 위해 변수 선언
+			var cCnt = result.length; //댓글 수 표현을 위해 결과값의 길이 가져와서 변수에 담기
+			if(result.length > 0){ //댓글이 있을 경우에 반복문 실행
+				for(i=0; i< result.length;i++){ // 댓글 수 만큼 반복 실행
 					htmls +='<table class="table" id="reply_table_hoho">';
 					htmls +='<tr>';
 					htmls +='<td>';
@@ -43,25 +43,25 @@ function getCommentList(){
 					htmls +='</td>';
 					htmls +='</tr>';
 					htmls +='</table>';
-				}
+				} //변수를 화면상에서 필요한 위치에 각각 붙여준다.
 			}else{
-				htmls = '등록된 댓글이 없습니다.';
+				htmls = '등록된 댓글이 없습니다.'; //댓글이 없을 경우 출력할 문자열 입력
 
 			}//end of if-else
-			$("#cCnt").html(cCnt);
-			$("#commentList").html(htmls);
+			$("#cCnt").html(cCnt); //화면 단에서 id가 cCnt인 곳에 변수값을 html로 삽입해준다.
+			$("#commentList").html(htmls); //화면단에서 id가 commentList인 곳에 설정한 변수를 html로 삽입해준다.
 
 
-			/*댓글 삭제하기*/
+			/*댓글 삭제하기 댓글 관련된 이벤트는 동적 테이블 안에서 실행되므로 모두 댓글 리스트 출력하는 ajax 안에 써준다.*/
 			$('.deleteComment').each(function(){
-				$(this).on('click', function(){
+				$(this).on('click', function(){ //클릭 이벤트 발생시 동적으로 실행시키기
 					$.ajax({
-						url: "deleteComment.do",
+						url: "deleteComment.do", 
 						data: {"reply_Num" : $(this).attr('reply_num'),"comm_Mnum": $(this).attr('comm_mnum')},
 						success : function(result){
 							if(result=="success"){
-								getCommentList();
-								$('#commentList').val("");
+								getCommentList(); //성공과 동시에 댓글리스트 불러오기
+								$('#commentList').val(""); //댓글리스트 중복 붙이는 것을 방지하기 위해 초기화
 							}
 						}
 					});// end of delete-ajax
@@ -118,9 +118,9 @@ $(function(){
 			url: "addComment.do",
 			data: {"reply_Content" : $('#reply_Content').val(),"comm_Mnum": $('#comm_Mnum').val()},
 			success : function(result){
-				if(result=="success"){
+				if(result=="success"){ //controller에서 결과값으로 success라는 문자열을 받아올 경우 조건문을 실행한다.
 					getCommentList();
-					$('#commentList').val("");
+					$('#commentList').val(""); 
 				}
 				document.getElementById("reply_Content").value='';//댓글 입력후 textarea의 내용을 초기화 >자동으로 placeholder의 값이 다시 보인다.
 			}	
