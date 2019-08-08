@@ -33,11 +33,7 @@ public class MemberServiceImpl implements MemberService{
 
 		model.addAttribute("member_Email", vo.getMember_Email());
 		model.addAttribute("password", vo.getPassword());
-
 		System.out.println(" login service ");
-//		System.out.println("member_Email   = " + vo.getMember_Email());
-//		System.out.println("password   = " + vo.getPassword());
-//		System.out.println("vo    =   " + vo);
 
 	}
 
@@ -53,7 +49,5 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void logout(MemberVO vo, Model model) {
 		System.out.println(" logout service ");
-//		System.out.println("vo  =  "+ vo);	
-//		System.out.println("model  =  "+ model);
 	}
 }

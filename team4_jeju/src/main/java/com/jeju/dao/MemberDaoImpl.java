@@ -31,10 +31,7 @@ public class MemberDaoImpl implements MemberDao{
 		
 		mybatis.selectOne("memberMapper.loginCheck",vo);
 		System.out.println("loginCheck DaoImpl");
-//		System.out.println("login dao  "+vo);
-//		System.out.println("login dao vo  =   "+vo);
-//		System.out.println("login dao model  =   "+model);
-//		
+		
 	}
 
 
