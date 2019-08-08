@@ -90,6 +90,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<!-- timeline_ul  -->
+<!-- 					일정에 포함된 날짜별로 반복해서 몇일차 여행인지 명시해주는부분 -->
 					<c:forEach items="${daylist}" var="day"  varStatus="status"> 
 					<ul class="cbp_tmtimeline">
 					
@@ -106,7 +107,7 @@
 								<span>${status.index+1}일차  시작</span>
 							</div>
 						 </li>
-							
+<!-- 							해당날짜에 해당하는 여행지 정보를 시간순서대로 뿌려준다 -->
  					<c:forEach items="${schPlaceList}" var="schlist" 	varStatus="status1"> 
  					<c:if test="${schlist.sch_Date eq day.sch_Date}">
 							<li><time class="cbp_tmtime" datetime="2017-11-04T03:45">

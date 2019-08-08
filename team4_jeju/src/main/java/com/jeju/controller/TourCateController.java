@@ -32,18 +32,17 @@ public class TourCateController {
 	public ModelAndView selectHotplace() {
 		ModelAndView mv = new ModelAndView();
 		for (int i = 1; i <= 3; i++) {
+			//대분류번호에 해당하는 중분류 name 리스트 가져오기.
 			mv.addObject("midCateName"+i
 			         , tourCateService.getMiddName(i));
 			
 		}
+		//핫플레이스 리스트 가져오기
 		mv.addObject("placeList"
 			         , tourCateService.getHotPlaceList());
 		//System.out.println("List"+ tourCateService.getHotPlaceList().size());
 		
-		//setViewName을 해주지 않으면 저하될 가능성 ↑
-		// 따라서 setViewName 지정해 줄 것
-		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
-		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
+		
 		mv.setViewName("/tourCate/tourCateList");
 		return mv;
 	}
@@ -54,18 +53,15 @@ public class TourCateController {
 		
 		ModelAndView mv = new ModelAndView();
 		System.out.println("selectMiddleCate Controller 호출:"+vo.getMajor_Num());
-		
+		//대분류번호에 해당하는 중분류 name 리스트 가져오기.
 		for (int i = 1; i <= 3; i++) {
 			mv.addObject("midCateName"+i
 			         , tourCateService.getMiddName(i));
 			
 		}
+		//대분류 번호에 해당하는 place List 가져오기
 		mv.addObject("placeList",tourCateService.selectPlaceByMajor(vo));
 	
-		//setViewName을 해주지 않으면 저하될 가능성 ↑
-		// 따라서 setViewName 지정해 줄 것
-		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
-		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
 		mv.setViewName("/tourCate/tourCateList");
 		return mv;
 	}
@@ -75,18 +71,17 @@ public class TourCateController {
 	public ModelAndView selectPlacebyMidd(MiddleClassVO vo) {
 		
 		ModelAndView mv = new ModelAndView();
+		//대분류번호에 해당하는 중분류 name 리스트 가져오기.
 		for (int i = 1; i <= 3; i++) {
 			mv.addObject("midCateName"+i
 			         , tourCateService.getMiddName(i));
 			
 		}
 		System.out.println("selectPlacebyMidd Controller 호출:"+vo.getMiddle_Num());
+		//중분류 번호에 해당하는 place List 가져오기
 		mv.addObject("placeList"
 			         , tourCateService.getPlacebyMidd(vo));
-		//setViewName을 해주지 않으면 저하될 가능성 ↑
-		// 따라서 setViewName 지정해 줄 것
-		// setViewName 현재 views 직하위로 절대 경로 잡아놓은 상태 (servlet-context.xml)
-		// 따라서 setViewName 지정시에 하기와 같이 / 절대 경로로 표기해줄 것.
+	
 		mv.setViewName("/tourCate/tourCateList");
 		return mv;
 	}

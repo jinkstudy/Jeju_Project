@@ -18,35 +18,17 @@ public class TourSchServiceImpl implements TourSchService{
 	@Autowired
 	private TourSchDaoImpl tourSchDao;
 
-//	@Override
-//	public List<List<ScheduleOutputVO>> getListByDay(ScheduleOutputVO vo) {
-//		System.out.println("getListByDay service 호출 : " +vo.getSch_Input_Mnum());
-//		
-//		List<ScheduleOutputVO> datelist = tourSchDao.getDayList(vo);
-//		
-//		for (int i = 0; i < datelist.size(); i++) {
-//			System.out.println("getListByday dao:"+datelist.get(i) );
-//		}
-//		
-//		List<List<ScheduleOutputVO>> listByday = new ArrayList<List<ScheduleOutputVO>>();
-//		
-//		for (int j = 0; j < datelist.size(); j++) {
-//			listByday.add(tourSchDao.getListByDay(vo,datelist.get(j)));
-//			System.out.println("입력되는 날짜:"+datelist.get(j));
-//		}
-//
-//		return listByday;
-//	}
-	
 	
 
 	@Override
+	//InputNum에 해당하는 PlaceList를 가져온다.
 	public List<ScheduleOutputVO> getSchPlace(ScheduleInputVO vo) {
 		// TODO Auto-generated method stub
 		return tourSchDao.getSchPlace(vo);
 	}
 
 	@Override
+	// 삭제 클릭 시 해당 outPutNum 에 해당하는 장소에 대해서 정보를 삭제 한다.
 	public void updateDelSch(ScheduleOutputVO vo) {
 		tourSchDao.updateDelSch(vo);
 			
@@ -55,6 +37,7 @@ public class TourSchServiceImpl implements TourSchService{
 
 
 	@Override
+	//일정에 포함된 날짜들을 얻어온다.
 	public List<ScheduleOutputVO> getDayList(ScheduleInputVO vo) {
 		
 		return tourSchDao.getDayList(vo);

@@ -138,8 +138,12 @@ public class TourDrawingController_GyuBeom {
 //				     , mapDrawingService.makeFinalOutPut(mapDrawingService.schOutPutMaker(vo, tourDaysCnt)));
 		
 		//진경 추가
+		//스케줄에 해당하는 날짜 list를 가져온다.
 		mv.addObject("daylist",tourschService.getDayList(vo));
+		//schOutputData에 담겨있는 place 리스트를 불러온다.
 		mv.addObject("schPlaceList",tourschService.getSchPlace(vo));
+		
+		//schInputNum을 화면으로 넘겨줌.
 		mv.addObject("schInputNum",vo);
 		
 	
