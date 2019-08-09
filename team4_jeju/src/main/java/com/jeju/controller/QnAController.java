@@ -50,18 +50,9 @@ public class QnAController{
 	//		// 글 등록
 	@RequestMapping(value= {"/insertQnA.do", "/saveQnA.do"}, method= RequestMethod.POST)
 	public String insertQnA(QnAVO vo) throws IOException{
-
 		qnAService.insertQnA(vo);
 		return "redirect:getQnAList.do"; //완료 후 페이지 redirect 하겠다.
 	}
-
-	//		// 글 등록
-	//		@RequestMapping(value="/saveQnA.do", method= RequestMethod.POST)
-	//		public String saveQnA(QnAVO vo) throws IOException{
-	//			
-	//			qnAService.insertQnA(vo);//
-	//			return "redirect:getQnAList.do"; //완료 후 페이지 redirect 하겠다.
-	//		}
 
 	// 글 수정
 	@RequestMapping("/updateQnA.do")
