@@ -57,10 +57,6 @@ $(function(){
 					for (var i = 0; i < schPlace.length; i++) {
 						console.log(schPlace[i].sch_Date +"/" +days[j].sch_Date);
 						if(schPlace[i].place_Num != 0 && ((days[j].sch_Date==schPlace[i].sch_Date)) ){
-//							console.log(schPlace[i].sch_Date);
-//							console.log(schPlace[i].sch_Start_Time);
-//							console.log(schPlace[i].sch_Finish_Time);
-//							console.log(schPlace[i].finalplacevo.place_Name);
 							
 							var Stime =	schPlace[i].sch_Start_Time.split(':');
 							var Stime_ = parseInt(Stime[0])+parseFloat(Stime[1])/60;

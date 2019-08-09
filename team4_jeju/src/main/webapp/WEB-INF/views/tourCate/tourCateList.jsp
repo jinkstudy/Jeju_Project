@@ -69,6 +69,7 @@
 					<div id="midClassName1">
 						<a href="/team4_jeju/tourCate/selectMiddleCate.do?major_Num=1"
 							class="list-group-item" id="hotplace">&nbsp;전체보기</a>
+						<!-- 	대분류에 해당하는 중분류 리스트들을 불러와서 동적으로 리스트 생성 -->
 						<c:forEach items="${midCateName1}" var="midCate1"
 							varStatus="status">
 							<a
@@ -81,6 +82,7 @@
 					<div id="midClassName2">
 						<a href="/team4_jeju/tourCate/selectMiddleCate.do?major_Num=2"
 							class="list-group-item" id="hotplace">&nbsp;전체보기</a>
+							<!-- 	대분류에 해당하는 중분류 리스트들을 불러와서 동적으로 리스트 생성 -->
 						<c:forEach items="${midCateName2}" var="midCate2"
 							varStatus="status">
 							<a
@@ -96,6 +98,8 @@
 			<!--중분류별 장소 list 화면에 뿌리기 -->
 			<div class="col-lg-9 card-full">
 				<div class="row">
+				
+			<!--각 장소별 modal 1:1 Matching 위해 변수 b,c 생성하여 data -target 및 모달 id로 지정해준다. -->
 					<c:forEach items="${placeList}" var="place" varStatus="status">
 						<c:set var="b" value="place-modal${status.index}" />
 						<c:set var="c" value="#place-modal${status.index}" />
@@ -132,6 +136,7 @@
 						</div>
 
 						<!-- The Modal -->
+					<!--위에서 지정한 변수를 이용하여 각 장소별 리스트와 모달을 연결해준다. -->
 						<div class="modal modal-center fade" id="${b}">
 							<div class="modal-dialog modal-center">
 								<div class="modal-content place-modal-content">
