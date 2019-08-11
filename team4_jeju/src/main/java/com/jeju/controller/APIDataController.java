@@ -20,6 +20,7 @@ public class APIDataController {
 //		return "/admin/"+url;
 //	}		
 	
+	//Apidata List 불러와서 뿌려주기.
 	@RequestMapping(value="selectApiData.do")
 	public ModelAndView selectApiData() {
 		ModelAndView mv = new ModelAndView();
@@ -33,6 +34,7 @@ public class APIDataController {
 		return mv;
 	}
 	
+	//API data 파싱 후 DB에 INSERT
 	@RequestMapping(value="insertApiData.do")
 	public ModelAndView insertApiData() {
 		ModelAndView mv = new ModelAndView();

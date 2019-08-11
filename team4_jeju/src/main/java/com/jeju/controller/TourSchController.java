@@ -32,19 +32,12 @@ public class TourSchController {
 	@RequestMapping(value="tourDrawingPage.do")
 	public ModelAndView selectSchOutput(ScheduleInputVO vo) {
 		ModelAndView mv = new ModelAndView();
-//		mv.addObject("mapList"
-//		             , mapDrawingService.tourMapDrawing());
-		//System.out.println("selectSchOutput Controller 호출"+vo.getSch_Input_Mnum());
-		//mv.addObject("listByDay",tourschService.getListByDay(vo));
+
 		mv.addObject("daylist",tourschService.getDayList(vo));
 		mv.addObject("schPlaceList",tourschService.getSchPlace(vo));
 		mv.addObject("schInputNum",vo);
 		List<ScheduleOutputVO> li = tourschService.getSchPlace(vo);
-//		for (ScheduleOutputVO v : li) {
-//			System.out.println(v.getSch_Finish_Time());
-////			System.out.println(v.getFinalplacevo().getFinal_Place_Num() +"/"+v.getFinalplacevo().getPlace_Name()+"/" + v.getFinalplacevo().getImage_Path());
-////			System.out.println();
-//		}
+
 		System.out.println();
 		
 		mv.setViewName("/tour/tourDrawingPage");
@@ -81,6 +74,7 @@ public class TourSchController {
 	
 	
 	
+		//일정 삭제 클릭 시, SchOutput 결과를 업데이트 . 
 	@RequestMapping(value="updateDelSch.do")
 	@ResponseBody
 	public void updateDelSch(ScheduleOutputVO vo) {

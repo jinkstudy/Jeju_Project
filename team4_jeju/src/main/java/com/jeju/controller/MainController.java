@@ -54,29 +54,22 @@ public class MainController {
 	}
 
 
-	//로그인  처리	
+	//로그인  처리. user 변수로 세션값을 받아서 memberEmail을 넣어줌
 	@RequestMapping(value="/loginCheck.do", method=RequestMethod.POST)
-	public String loginCheck(MemberVO vo, Model model) {
-		
+	public String loginCheck(MemberVO vo, Model model) {	
 		memberService.loginCheck(vo, model);
 		model.addAttribute("user", vo.getMember_Email());
 		System.out.println("loginCheck controller");
-//		System.out.println("vo  =   " + vo);
-//		System.out.println("model  =   " + model);
 		return "redirect:main.do";
 
 	}
 
-	//로그아웃  처리
+	//로그아웃  처리. 세션값을 지워서 로그아웃처리
 	@RequestMapping("/logout.do")
 	public String logout(@ModelAttribute("vo") MemberVO vo, Model model, SessionStatus session) {
-		
 	    session.setComplete();
 		memberService.logout(vo,model);
 		System.out.println("logout controller  ");	
-//		System.out.println("invalidated  =  "+ session);	
-//		System.out.println("vo  =  "+ vo);	
-//		System.out.println("model  =  "+ model);	
 		return "redirect:main.do";
 	}
 

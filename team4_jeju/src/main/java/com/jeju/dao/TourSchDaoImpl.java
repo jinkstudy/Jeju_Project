@@ -27,15 +27,7 @@ public class TourSchDaoImpl implements TourSchDao{
 		return mybatis.selectList("tourSchMap.getSchDay", vo);
 	}
 		
-//	//일정별 리스트 묶음을 뽑아옴.
-//	public List<ScheduleOutputVO> getListByDay(ScheduleOutputVO vo,ScheduleOutputVO scheduleOutputVO){
-//		
-//		HashMap<String,String> params = new HashMap<String,String>();
-//		params.put("sch_Input_Mnum", vo.getSch_Input_Mnum());
-//		params.put("sch_Date", scheduleOutputVO);
-//		
-//		return mybatis.selectList("tourSchMap.getListByDay", params);
-//	}
+
 
 	//schOutput 테이블과 place 테이블 조인해서, 정보 가져옴.
 	public List<ScheduleOutputVO> getSchPlace(ScheduleInputVO vo) {

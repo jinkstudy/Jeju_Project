@@ -97,12 +97,11 @@ public class CommunityController {
     @RequestMapping(value="/getCommentList",produces="application/json; charset=utf8")
     @ResponseBody
     public String getCommentdList(@ModelAttribute("ReplyVO") ReplyVO vo) throws Exception {
-    	System.out.println("컨트롤러 : " + vo.getComm_Mnum());
-    	ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
+    	ArrayList<HashMap> hmlist = new ArrayList<HashMap>(); 
     	
     	List<ReplyVO> replyVO = replyService.getCommentList(vo);
     	
-    	if(replyVO.size()>0) {
+    	if(replyVO.size()>0) { // DB에 갔다온 댓글 값들을 hashmap에 붙여준다.
     		for(int i =0; i< replyVO.size();i++) {
     		HashMap hm = new HashMap();
     		hm.put("reply_Content", replyVO.get(i).getReply_Content());
@@ -110,11 +109,11 @@ public class CommunityController {
     		hm.put("reply_Date", replyVO.get(i).getReply_Date());
     		hm.put("reply_Num", replyVO.get(i).getReply_Num());
     		hm.put("comm_Mnum", replyVO.get(i).getComm_Mnum());
-    		hmlist.add(hm);
+    		hmlist.add(hm); // hashmap 값들을 arraylist에 넣어준다.
     		}
     	}
-    	JSONArray json = new JSONArray(hmlist);
-    	return json.toString();
+    	JSONArray json = new JSONArray(hmlist); //JSonArray로 ajax 성공시 값으로 넘겨준다.
+    	return json.toString(); // string 형태로 변환 후 리턴해준다.
     }
     
     /*댓글 수정하기(Ajax)*/
