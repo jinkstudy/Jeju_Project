@@ -24,7 +24,7 @@
 
 + 구현 화면 
 
-![main](./img/main.png)
+
 ![category](./img/category_Det.png)
 
 <br/>
