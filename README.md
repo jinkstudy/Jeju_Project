@@ -33,3 +33,10 @@
 ![schedule](./img/schedule.png)
 
 
+<br/>
+![placeDet](./img/placeDet.png)
+
+<br/>
+![community](./img/community.png)
+
+
