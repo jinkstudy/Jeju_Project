@@ -14,11 +14,11 @@
 + Project 기간 : 2019.07.08 ~ 2019.07.29
 
 + 개발 환경 
-    - Language : Java 8.0 , JavaScript, HTML, CSS, JSP <br/>
-    - Framework : Spring 3.0, BootStrap 4 , MyBatis <br/>
+    - Language : Java 8 , JavaScript, HTML, CSS, JSP <br/>
+    - Framework : Spring 3, BootStrap 4 , MyBatis <br/>
     - DB : Oracle <br/>
     - Library : JQuery <br/>
-    - WAS : Apache Tomcat 9.0 <br/>
+    - WAS : Apache Tomcat 9 <br/>
     
 + 데이터 수집 :  한국관광공사 공공 API + 제주관광공사 공식 Site 크롤링
 
